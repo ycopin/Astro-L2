@@ -1,4 +1,4 @@
-% Time-stamp: <2011-09-08 16:25:32 ycopin>
+% Time-stamp: <2011-09-08 23:57 yannick@lyopc469>
 % Auteurs (version LaTeX):
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
@@ -24,8 +24,6 @@
 \usepackage[pdftex]{graphicx}
 \graphicspath{{./Figures/}}
 
-\usepackage[usenames,dvipsnames]{color}
-
 %\usepackage[backref,colorlinks=true,breaklinks=true,
 %a4paper,bookmarks=false,linktocpage=true]{hyperref}
 \usepackage[colorlinks=true]{hyperref}
@@ -46,6 +44,7 @@
 }{}
 
 % Définition de l'environnement 'Answer'
+\usepackage[usenames,dvipsnames]{color}
 \usepackage{comment}
 \specialcomment{Answer}{%
   \begingroup
@@ -54,6 +53,7 @@
   }{%
   \endgroup}
 
+% Inclusion ou non des corrigés
 \ifdefined\sanscorrige
   \message{Fascicule sans solutions}%
   \excludecomment{Answer} % Remove answers
@@ -66,6 +66,7 @@
 \newcommand{\UA}{\ensuremath{\textrm{UA}}}
 \renewcommand{\deg}{\ensuremath{^{\circ}}}
 \renewcommand{\vec}[1]{\ensuremath{\boldsymbol{#1}}}
+\renewcommand{\u}[1]{\ensuremath{\mathrm{#1}}} % Unités
 
 % PAGE DE TITRE ET PREAMBULE ==============================
 
@@ -147,8 +148,8 @@
 
 \begin{Exercise}[Température effective d'une étoile]
   Calculer la température effective du Soleil à partir de sa
-  luminosité $L_{\odot}\approx 3.83\times 10^{26}W $et de son rayon
-  $R_{\odot}\approx 6.96 \times 10 ^{8}m$.
+  luminosité $L_{\odot}\approx 3.83\times 10^{26}$~W et de son rayon
+  $R_{\odot}\approx 6.96 \times 10 ^{8}$~m.
 \end{Exercise}
 
 \begin{Answer}
@@ -157,8 +158,8 @@
   T_e = \left( \frac{L}{4 \pi \sigma R^2_p} \right)^{1/4}
   $$
   avec la constante de Stefan $\sigma = 5.67 \times
-  10^{-8}~Wm^{-2}K^{-4}$, on trouve la température effective du Soleil
-  $T_\odot \approx 5770~K$
+  10^{-8}$~\u{Wm^{-2}K^{-4}}, on trouve la température effective du
+  Soleil $T_\odot \approx 5770$~K.
 \end{Answer}
 
 \subsection{Système de magnitudes}
@@ -197,7 +198,7 @@
   \item La correction qu'il faut apporter aux magnitudes apparentes
     $m$ de ce système pour obtenir les magnitudes absolues $M$ vaut:
     $$
-    m - M = 5 \log(D/10~\mathrm{pc}) = -4,4
+    m - M = 5 \log(D/10 \u{pc}) = -4,4
     $$
   \end{enumerate}
 \end{Answer}
@@ -330,12 +331,12 @@
   On aura une erreur de 100\% quand $\Delta d =d$, soit $\delta p =
   p$. La distance correspondante s'obtient donc par
   $$
-  d = \frac{1}{p} = \frac{1}{50 \times 10^{-6}} = 20~\mathrm{kpc}
+  d = \frac{1}{p} = \frac{1}{50 \times 10^{-6}} = 20~\u{kpc}
   \quad\text{avec FAME}
   $$
   et
   $$
-  d = \frac{1}{p} = \frac{1}{4 \times 10^{-6}} = 250~\mathrm{kpc}
+  d = \frac{1}{p} = \frac{1}{4 \times 10^{-6}} = 250~\u{kpc}
   \quad\text{avec GAIA}
   $$
 \end{Answer}
@@ -409,11 +410,11 @@
     0,6\deg$ de la direction de l'amas.
   \item L'observation du spectre de l'étoile Alcyone, faisant partie
     de cet amas, a permis de mesurer sa vitesse radiale $v_r = 10,1
-    \pm 0,3 km.s^{-1}$.
+    \pm 0,3$~\u{km.s^{-1}}.
   \item Le mouvement propre apparent de cette même étoile vaut $\mu =
-    47,3 \pm 0,8 mas.an^{-1}$.
+    47,3 \pm 0,8$~\u{mas.an^{-1}}.
   \end{itemize}
-  Déterminer la distance de l'amas. Attention aux unités!!
+  Déterminer la distance de l'amas. Attention aux unités !
 \end{Exercise}
 
 \begin{Answer}
@@ -421,13 +422,13 @@
   attention à exprimer l'angle $\mu$ en radians et à utiliser les
   mêmes unités de distance et de temps pour les autres grandeurs.
   \begin{itemize}
-  \item $\mu = 47,3 \pm 0,8 mas.an^-1 = (2,29 \pm 0,04) \times 10^{-7}
-    rad.an^-1$
-  \item $v_r = 10,1 \pm 0,3 km.s^-1 = (1,02 \pm 0,03) \times 10^{-5}
-    pc.an^-1$
-  \item $\theta = 67,9 \pm 0,6\deg = 1,19 \pm 0,01 rad$
-  \item On a donc $tan \theta= 2,50 \pm 0,07.$
-  \item Finalement: $d = 111 \pm 8 pc$
+  \item $\mu = 47,3 \pm 0,8~\u{mas.an^{-1}} = (2,29 \pm 0,04) \times
+    10^{-7}~\u{rad.an^{-1}}$
+  \item $v_r = 10,1 \pm 0,3~\u{km.s^{-1}} = (1,02 \pm 0,03) \times
+    10^{-5}~\u{pc.an^{-1}}$
+  \item $\theta = 67,9 \pm 0,6\deg = 1,19 \pm 0,01$~rad
+  \item On a donc $tan \theta= 2,50 \pm 0,07$.
+  \item Finalement: $d = 111 \pm 8$~pc
   \end{itemize}
 \end{Answer}
 
@@ -438,7 +439,7 @@
   est maximal aux longueurs d'onde suivantes: 300~nm, 500~nm, et
   1,2~$\mu$m.  Peut-on déterminer la classe de luminosité?
 
-  Rappel de la loi de Wien: $\lambda_{\max} T = 2898$~$\mu$m.K.
+  Rappel de la loi de Wien: $\lambda_{\max} T = 2898$~\u{\mu m.K}.
 \end{Exercise}
 
 \begin{Answer}
@@ -490,7 +491,7 @@
   \textcolor{red}{A0VII}, \textcolor{red}{M5III},
   \textcolor{red}{O2V}, et \textcolor{red}{K7I}.
 
-  Ceci montre que le terme ``classe de luminosité'' peut être source
+  Ceci montre que le terme « classe de luminosité » peut être source
   d'erreur.
 \end{Answer}
 
@@ -526,8 +527,8 @@
 \begin{Answer}
   Pour Sirius:
   \begin{itemize}
-  \item Son diamètre apparent vaut $\theta_*= 5,89 mas = 2,86 \times
-    10^{-8} rad$.
+  \item Son diamètre apparent vaut $\theta_*= 5,89~\u{mas} = 2,86 \times
+    10^{-8}$~rad.
   \item Son rayon vaut donc $R = \theta_* d / 2 = 3,8 \times 10^{-8}
     pc = 1,2 \times 10^9 m = 1,7R_{\odot}$.
   \end{itemize}
@@ -690,8 +691,8 @@
 \subsection{Les lois de Kepler}
 
 \begin{Exercise}[Enoncé et rappels sur les ellipses]
-  L'orbite de Pluton est très excentrique (e=0,248). Son demi grand
-  axe vaut 39,43 unités astronomiques (L'unité astronomique est
+  L'orbite de Pluton est très excentrique ($e=0,248$). Son demi grand
+  axe vaut 39,43~unités astronomiques (L'unité astronomique est
   définie comme le demi grand axe de l'orbite de la Terre). Montrer
   que Pluton peut être plus proche du Soleil que Neptune dont le demi
   grand axe de l'orbite vaut 30,06~UA et l'excentricité 0,009.
@@ -743,7 +744,7 @@
 
     Le périhélie et l'aphélie correspondent à des extremum sur la
     trajectoire, c'est à dire que $\d r/\d\theta =0$ et donc,
-    puisque $\dot{r} = \dot{\theta}\,\d r/\d\theta$,
+    puisque $\dot{r} = \dot{\theta}~\d r/\d\theta$,
     $\dot{r}=0$. La vitesse s'écrit donc bien $v = r\dot{\theta}$
 
   \item Puisque $r^2\dot{\theta}=C$ et que $v = r\dot{\theta}$, on a
@@ -957,7 +958,7 @@
     $$
     \text{pour} m = 9, \log{N(m)} = 0.6(9-A) + 2.4 = 7.8-0.6A
     $$
-    d'où $0.6A = 0.6$ et $A= 1\,mag$.
+    d'où $0.6A = 0.6$ et $A = 1$~mag.
 
   \item En écrivant l'équation du module de distance avec $M=5$ :
     \begin{itemize}
@@ -1006,15 +1007,15 @@
 \begin{Answer}
   Distance de l'étoile :
   $$
-  L = 2000[\mathrm{pc}] .(3 10^{18} [\mathrm{cm/pc}]) = 6 10^{21} [\mathrm{cm}]
+  L = 2000[\u{pc}] .(3 10^{18} [\u{cm/pc}]) = 6 10^{21} [\u{cm}]
   $$
   Section d'un grain :
   $$
-  s_g = \pi\,a^2 = \pi\,(10^{-5})^2 = \pi\,10^{-10}\, [\mathrm{cm^{2}}]
+  s_g = \pi\,a^2 = \pi\,(10^{-5})^2 = \pi\,10^{-10}~[\u{cm^{2}}]
   $$
   Extinction en V sur la ligne de visée :
   $$
-  A_V = 0.3\,[\mathrm{mag/kpc}]\times 2\,[\mathrm{kpc}] = 0.6\,[\mathrm{mag}]
+  A_V = 0.3~\u{mag/kpc}\times 2~\u{kpc} = 0.6~\u{mag}
   $$
   d'où la profondeur optique
   $$
@@ -1024,28 +1025,29 @@
   longueur $L$ et de section unité. Si la densité de grains $n_g$ est
   constante, la densité de colonne est donc égale à $n_g L$
   $$
-  n_g L = \frac{\tau}{s_g} = \frac{0.55}{\pi 10^{-10}} = 1.75 10^9
-  [\mathrm{grain/cm^2}]
+  n_g L = \frac{\tau}{s_g} = \frac{0.55}{\pi 10^{-10}} = 1.75
+  10^9~[\u{grain/cm^2}]
   $$
   On déduit de l'expression précédente la densité de grains $n_g$:
   $$
-  n_g = \frac{1.75 10^{9}}{6 10^{21}} = 2.9 10^{-13} [\mathrm{grain/cm^{3}}]
+  n_g = \frac{1.75 10^{9}}{6 10^{21}} = 2.9
+  10^{-13}~[\u{grain/cm^{3}}]
   $$
   Masse volumique des grains dans le MIS :
   $$
-  1 [\mathrm{g/cm^{3}}]\times \frac{4a^{3}}{3} [\mathrm{cm^3/grain}] 3
-  10^{-13} [\mathrm{grain/cm^3}]= 3.87 10^{-28} [\mathrm{g/cm^3}]
+  1 [\u{g/cm^{3}}]\times \frac{4a^{3}}{3}~[\u{cm^3/grain}] 3 10^{-13}
+  [\u{grain/cm^3}]= 3.87 10^{-28}~[\u{g/cm^3}]
   $$
   Masse volumique du gaz dans le MIS :
   $$
-  8 [\mathrm{atome/cm^3}] 1.67352 10^{-24} [\mathrm{g/atome}] = 1.34
-  10^{-23}[\mathrm{g/cm^3}]
+  8~[\u{atomes/cm^3}] 1.67352 10^{-24}~[\u{g/atome}] = 1.34
+  10^{-23}~[\u{g/cm^3}]
   $$
 
   $$
   \frac{\text{Masse volumique des grains}}{\text{Masse volumique du
-      gaz}} = \frac{1.34 10^{-23} [\mathrm{g/cm^3}]}{3.87
-    10^{-28}[\mathrm{g/cm^3}]} = 3.5\,10^4
+      gaz}} = \frac{1.34 10^{-23}~[\u{g/cm^3}]}{3.87
+    10^{-28}~[\u{g/cm^3}]} = 3.5\,10^4
   $$
   Conclusion : les grains ne représentent qu'une fraction très faible de
   la masse de matière dans le MIS.
@@ -1059,7 +1061,6 @@
   $$
   C\,\lambda^{-5}\,\left[\exp\left({\frac{hc}{\lambda\,kT}}\right)-1\right]^{-1}
   $$
-
   En présence d'une extinction $A(\lambda) = a/\lambda$, montrez que:
   \begin{enumerate}
   \item pour $\lambda \ll hc/kT$, dans la partie bleue du spectre, le
@@ -1139,8 +1140,8 @@
     la « couleur » d'une étoile.
   \end{enumerate}
 
-  On rappelle les longueurs d'onde $\lambda(V)=0.55\mu$ et
-  $\lambda(B)=0.44\mu$
+  On rappelle les longueurs d'onde $\lambda(V)=0.55~\mu$ et
+  $\lambda(B)=0.44~\mu$
 \end{Exercise}
 
 \begin{Answer}
@@ -1165,8 +1166,8 @@
     $$
   \item Calcul de l'indice d couleur.
     $$
-    (B-V) = (m_{B_0} +A_B) - (m_{V_0} +A_V) = (B-V)_0 + (A_B- A_V)=0.7 +
-    0.38 = 1.08
+    (B-V) = (m_{B_0} +A_B) - (m_{V_0} +A_V) = (B-V)_0 + (A_B- A_V) =
+    0.7 + 0.38 = 1.08
     $$
   \item Le type spectral apparent sera celui d'une étoile environ
     K5. Comme l'extinction ne change pas la profondeur des raies de
@@ -1181,7 +1182,7 @@
   On a déterminé par spectroscopie le type spectral $B2V$ pour une
   étoile lointaine. L'indice de couleur intrinsèque de ce type
   d'étoiles est $(B-V)_0 = -0,25$ . Par photométrie on a déterminé un
-  indice de couleur observé $(B-V)= 2.25$.
+  indice de couleur observé $(B-V) = 2.25$.
   \begin{enumerate}
   \item Déterminer l'extinction $A_V$ de cette étoile à partir de la
     la loi de variation de $A_V/E_{B-V}$ en fonction de $1/\lambda$
@@ -1255,13 +1256,13 @@
       \hline
       Propriétés & E,SO & S0a,Sa & Sab,Sb & Sbc,Sc & Scd,Sd & Sm,Im \\
       \hline
-      $M_{totale}$ ($10^{10}M_{\odot}$) & & 22.6 & 32.4 & 19.0 & 7.9 &
+      $M_{\mathrm{totale}}$ ($10^{10}M_{\odot}$) & & 22.6 & 32.4 & 19.0 & 7.9 &
       1.6 \\
       \hline
-      $M_{gaz}$ ($H$ neutre en $10^{9}M_{\odot}$) & 1.24 & 5.62 &
+      $M_{\mathrm{gaz}}$ ($H$ neutre en $10^{9}M_{\odot}$) & 1.24 & 5.62 &
       15.14 & 15.85 & 9.33 & 2.40\\
       \hline
-      $M_{gaz}/M_{totale}$ & & 0.03 & 0.05 & 0.08 & 0.11 & 0.15 \\
+      $M_{\mathrm{gaz}}/M_{\mathrm{totale}}$ & & 0.03 & 0.05 & 0.08 & 0.11 & 0.15 \\
       \hline
       diamètre (kpc) & 21.1 & 19.8 & 25.1 & 22.4 & 17.7 & 8.5  \\
       \hline
@@ -1285,15 +1286,15 @@
       \hline
       % \textbf{N° objet} & \textbf{Nom} & \textbf{Réponse} &
       % textbf{Classification complète dite RC3}\\ \hline
-      1  & NGC6070 & SA & SA(s)cd  \\ \hline
-      2  & NGC 7424 & SAB & SAB(rs)cd  \\ \hline
-      3  & MESSIER 31 & SA & SA(s)b  \\ \hline
-      4  & MESSIER 33 & SA & SA(s)cd  \\ \hline
+      1  & NGC6070    & SA  & SA(s)cd  \\ \hline
+      2  & NGC 7424   & SAB & SAB(rs)cd  \\ \hline
+      3  & MESSIER 31 & SA  & SA(s)b  \\ \hline
+      4  & MESSIER 33 & SA  & SA(s)cd  \\ \hline
       5  & MESSIER 87 & E0 ou E1 & E+0-1 pec* \\ \hline
-      6  & NGC 2683 & SA & SA(rs)b  \\ \hline
-      7  & NGC 1300 & SB & (R')SN(r'1)b  \\ \hline
-      8  & NGC 1097 & SB & (R'\_1:)SB(r'l)b  \\ \hline
-      9  & NGC 4321 & SAB & SAB(s)bc \\ \hline
+      6  & NGC 2683   & SA  & SA(rs)b  \\ \hline
+      7  & NGC 1300   & SB  & (R')SN(r'1)b  \\ \hline
+      8  & NGC 1097   & SB  & (R'\_1:)SB(r'l)b  \\ \hline
+      9  & NGC 4321   & SAB & SAB(s)bc \\ \hline
       10 & MESSIER 83 & SAB & SAB(s)c \\ \hline
     \end{tabular}
   \end{center}
@@ -1323,23 +1324,23 @@
 \begin{Exercise}[La matière noire]
   Donnez l'expression de l'accélération $a$ centrifuge en fonction de
   $V$, et $R$, la vitesse circulaire d'une étoile à une distance $R$
-  du centre de la galaxie.  Écrire la loi de Newton pour cette étoile
-  : l'accélération $a$ en fonction de la masse $M$ incluse dans le
-  rayon $R$.  En déduire la loi de décroissance de $V$ en fonction du
-  rayon $R$ de l'étoile, en supposant que la masse $M$ reste constante
-  (c'est-à-dire que toute la masse de la galaxie est comprise dans la
-  sphère de rayon $R$).
+  du centre de la galaxie.  Écrire la loi de Newton pour cette
+  étoile~: l'accélération $a$ en fonction de la masse $M$ incluse dans
+  le rayon $R$.  En déduire la loi de décroissance de $V$ en fonction
+  du rayon $R$ de l'étoile, en supposant que la masse $M$ reste
+  constante (c'est-à-dire que toute la masse de la galaxie est
+  comprise dans la sphère de rayon $R$).
 \end{Exercise}
 
 \begin{Answer}
   L'accélération centrifuge est donnée simplement par $a = V^2/R$.  La
   loi de Newton nous dit alors que l'accélération de l'étoile est
-  proportionnelle à la masse M avec $a = G M/R^2$, où G est la
+  proportionnelle à la masse $M$ avec $a = G M/R^2$, où $G$ est la
   constante universelle de la gravitation.  On en déduit alors
   facilement que $V^2/R = GM/R^2$ donc $V^2 \propto M/R$.
 
-  Si M reste constant avec R qui croit, alors $V^2$ doit décroître
-  comme 1/R.
+  Si $M$ reste constant avec $R$ qui croit, alors $V^2$ doit décroître
+  comme $1/R$.
 \end{Answer}
 
 \subsection{Exemple de galaxie : la Voie Lactée }
@@ -1349,8 +1350,8 @@
   (Fig.~\ref{cobe}) on distingue que le bulbe de la Voie Lactée n'est
   pas symétrique.
   \begin{enumerate}
-  \item Examiner cette image et essayer de mesurer la hauteur du bulbe
-    ; à droite, puis à gauche du centre de la Galaxie
+  \item Examiner cette image et essayer de mesurer la hauteur du
+    bulbe~; à droite, puis à gauche du centre de la Galaxie
   \item Donner une explication plausible de cette asymétrie, en se
     rappelant notre position très particulière par rapport au centre
     de notre galaxie, et en se rappelant des différentes composantes
@@ -1701,53 +1702,52 @@
   pour trouver les masses respectives de Marcel et Naomi, puis une
   troisième fois pour calculer l'attraction qui s'exerce entre eux, en
   prenant garde aux unités.
-$$
-F = G \frac{m_1 m_2}{d^2}
-$$
+  $$
+  F = G \frac{m_1 m_2}{d^2}
+  $$
 
-On retrouve d'abord les valeurs des constantes : $G = 6,672 \times
-10^{-11}$, $M_{\oplus} = 5,976 \times 10^{24}~kg$, et $R = 6365~km$
-qui est donné dans l'énoncé.
+  On retrouve d'abord les valeurs des constantes : $G = 6,672 \times
+  10^{-11}$, $M_{\oplus} = 5,976 \times 10^{24}~kg$, et $R = 6365~km$
+  qui est donné dans l'énoncé.
 
-On écrit donc:
-$$
-P_{Marcel} = G \frac{M_{Marcel}M_{\oplus}}{R^2}
-$$
+  On écrit donc:
+  $$
+  P_{\mathrm{Marcel}} = G \frac{M_{\mathrm{Marcel}}M_{\oplus}}{R^2}
+  $$
+  soit encore:
+  $$
+  M_{\mathrm{Marcel}} = \frac{P_{\mathrm{Marcel}}R^2}{G M_{\oplus}}
+  $$
+  et donc
+  $$
+  M_{\mathrm{Marcel}} = \frac{ 6370000^2 \times 700 }{ 6,672 \times
+    10^{-11} \times 5,976 \times 10^{24} } = 71,23~kg
+  $$
+  Cette valeur s'obtiendrait aussi en utilisant la formule $P =
+  M_{\mathrm{Marcel}}\times g$, où $g$ est l'accélération de la
+  pesanteur à Lyon. Mais l'énoncé ne précise pas la valeur de $g$ à
+  Lyon...
 
-Soit encore:
-$$
-M_{Marcel} = \frac{P_{Marcel}R^2}{G M_{\oplus}}
-$$
+  Pour Naomi, on peut utiliser le fait que
+  $M_{\mathrm{Naomi}}/M_{\mathrm{Marcel}} =
+  P_{\mathrm{Naomi}}/P_{\mathrm{Marcel}}$, puisque les deux personnes
+  sont soumises au même champ de gravité. Et donc:
+  $$
+  M_{\mathrm{Naomi}} = M_{\mathrm{Marcel}}
+  \frac{P_{\mathrm{Naomi}}}{P_{\mathrm{Marcel}}} = 71,23 \times
+  \frac{58}{70} = 59,02~kg
+  $$
+  D'où $F_{\mathrm{Naomi}-\mathrm{Marcel}} = ( 6,672 10^{-11} \times
+  71,23 \times 59,02 ) / 1 = 2,8 10^{-7}~N$.
 
-et donc
-$$
-M_{Marcel} = \frac{ 6370000^2 \times 700 }{ 6,672 \times 10^{-11}
-  \times 5,976 \times 10^{24} } = 71,23~kg
-$$
+  La masse qui présenterait un poids égal à cette valeur en cet
+  endroit serait de : $M = ( 63700002 \times 2,8 10^{-7} ) / ( 6,672
+  10^{-11} \times 5,976 10^{24} ) = 2,85 10^{-8} kg = 28,5~\mu g$.
 
-Cette valeur s'obtiendrait aussi en utilisant la formule $P =
-M_{Marcel}\times g$, où $g$ est l'accélération de la pesanteur à
-Lyon. Mais l'énoncé ne précise pas la valeur de $g$ à Lyon...
-
-Pour Naomi, on peut utiliser le fait que $M_{Naomi}/M_{Marcel} =
-P_{Naomi}/P_{Marcel}$, puisque les deux personnes sont soumises au
-même champ de gravité. Et donc:
-$$
-M_{Naomi} = M_{Marcel} \frac{P_{Naomi}}{P_{Marcel}} = 71,23 \times
-\frac{58}{70} = 59,02~kg
-$$
-
-D'où $F_{Naomi-Marcel} = ( 6,672 10^{-11} \times 71,23 \times 59,02 )
-/ 1 = 2,8 10^{-7}~N$.
-
-Et la masse qui présenterait un poids égal à cette valeur en cet
-endroit serait de : $M = ( 63700002 \times 2,8 10^{-7} ) / ( 6,672
-10^{-11} \times 5,976 10^{24} ) = 2,85 10^{-8} kg = 28,5~\mu g$.
-
-Qui peut se calculer aussi, d'après une remarque déjà faite, par $M =
-71,23 \times 2,8 10^{-7} / 700$. L'attraction gravitationnelle est une
-force \emph{très faible}, c'est même la plus faible des quatre forces
-fondamentales de l'univers...
+  Elle peut également se calculer, d'après une remarque déjà faite,
+  par $M = 71,23 \times 2,8 10^{-7} / 700$. L'attraction
+  gravitationnelle est une force \emph{très faible}, c'est même la
+  plus faible des quatre forces fondamentales de l'univers...
 \end{Answer}
 
 \subsection{Problèmes de l'univers de Newton}
@@ -2091,15 +2091,15 @@ fondamentales de l'univers...
 
 \begin{Exercise}[Calcul du temps de Hubble]
   La valeur la plus probable, aujourd'hui, de la constante de Hubble
-  est $H_0 = 65\;\mathrm{km s^{-1} Mpc^{-1}}$ Quelle conclusion
+  est $H_0 = 65\;\u{km s^{-1} Mpc^{-1}}$ Quelle conclusion
   pouvez-vous en tirer sur l'âge réel de l'univers?
 \end{Exercise}
 
 \begin{Answer}
   Le temps de Hubble est défini par: $1/t_{H0} = H_0 =
-  65~\mathrm{km~s^{-1}~Mpc^{-1}}$. Il reste simplement à convertir les
+  65~\u{km~s^{-1}~Mpc^{-1}}$. Il reste simplement à convertir les
   Mpc (megaparsecs) en kilomètres, et il vient : $1/t_{H0} =
-  65~\mathrm{km~s^{-1}} [3,26 10^{19}~\mathrm{km}]^{-1} = 20 \times
+  65~\u{km~s^{-1}} [3,26 10^{19}~\u{km}]^{-1} = 20 \times
   10^{-19}$~s, d'où $t = 5 \times 10^{17}~s = 16 \times
   10^9$~années. On peut donc penser que l'univers est âgé de moins de
   16~milliards d'années.
