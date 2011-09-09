@@ -1,4 +1,4 @@
-% Time-stamp: <2011-09-08 23:57 yannick@lyopc469>
+% Time-stamp: <2011-09-09 11:22:29 ycopin>
 % Auteurs (version LaTeX):
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
@@ -41,7 +41,7 @@
   \stepcounter{noexo}
   \medskip\noindent\textbf{Exercice~\thenoexo~:~#1}
   \medskip\par
-  \addcontentsline{toc}{subsubsection}{Exercice~\thenoexo~:~#1}
+  \addcontentsline{toc}{paragraph}{Exercice~\thenoexo~:~#1}
 }{}
 
 % Définition de l'environnement 'Answer'
@@ -116,8 +116,8 @@
 \maketitle
 
 % 2: Down to subsection (no exercices)
-% 3: Down to subsubsection (exercices)
-\setcounter{tocdepth}{2}
+% 4: Down to paragraph (exercices)
+\setcounter{tocdepth}{4}
 \tableofcontents
 
 \newpage
@@ -305,41 +305,31 @@
   quelle distance aura-t-on une erreur de 100\%?
 
   On donne les incertitudes absolues sur les parallaxes pour chaque
-  satellite:
-  \begin{itemize}
-  \item $\Delta p=50~\mu as$ pour FAME et
-  \item $\Delta p=4~\mu as$ pour GAIA.
-  \end{itemize}
+  satellite: $\Delta p=50$~\u{\mu as} pour FAME et 4~\u{\mu as} pour
+  GAIA.
 \end{Exercise}
 
 \begin{Answer}
   Les étoiles situées à $d=100$~pc ont une parallaxe
-  $p=1/100=0,01''=10$~mas. La précision obtenue avec FAME sera de
-  $$
-  \frac{\Delta d}{d} = \frac{\Delta p}{p} = \frac{50 \times
-    10^{-6}}{10^{-2}} = 5 \times 10^{-3} = 0.5 \%
-  $$
-  et de
-  $$
-  \frac{\Delta d}{d} = \frac{\Delta p}{p} = \frac{4 \times
-    10^{-6}}{10^{-2}} = 4 \times 10^{-4} = 0.04 \%
-  $$
-  avec GAIA.
+  $p=1/100=0,01''=10$~mas. La précision obtenue sera de
+  \begin{align*}
+    \frac{\Delta d}{d} &= \frac{\Delta p}{p} = \frac{50 \times
+      10^{-6}}{10^{-2}} = 5 \times 10^{-3} = 0.5 \% &\text{avec FAME} \\
+    \frac{\Delta d}{d} &= \frac{\Delta p}{p} = \frac{4 \times
+      10^{-6}}{10^{-2}} = 4 \times 10^{-4} = 0.04 \% &\text{avec GAIA} 
+  \end{align*}
 
   Pour des étoiles à $d=1000$~pc, $p=1$~mas, et les précisions
   deviennent 10 fois moins bonnes: 5\% avec FAME et 0,4\% avec GAIA.
 
   On aura une erreur de 100\% quand $\Delta d =d$, soit $\delta p =
   p$. La distance correspondante s'obtient donc par
-  $$
-  d = \frac{1}{p} = \frac{1}{50 \times 10^{-6}} = 20~\u{kpc}
-  \quad\text{avec FAME}
-  $$
-  et
-  $$
-  d = \frac{1}{p} = \frac{1}{4 \times 10^{-6}} = 250~\u{kpc}
-  \quad\text{avec GAIA}
-  $$
+  \begin{align*}
+    d &= \frac{1}{p} = \frac{1}{50 \times 10^{-6}} = 20~\u{kpc}
+    &\text{avec FAME} \\
+    d &= \frac{1}{p} = \frac{1}{4 \times 10^{-6}}
+    = 250~\u{kpc} &\text{avec GAIA}
+  \end{align*}
 \end{Answer}
 
 
