@@ -1,4 +1,4 @@
-% Time-stamp: <2011-09-09 11:22:29 ycopin>
+% Time-stamp: <2011-09-09 11:39:35 ycopin>
 % Auteurs (version LaTeX):
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
@@ -443,7 +443,7 @@
   \begin{center}
     \begin{tabular}{|c|c|c|}
       \hline
-      $\lambda_m$ & $T_{eff}(K)$ & Type spectral \\
+      $\lambda_m$ & $T_{\mathrm{eff}}(K)$ & Type spectral \\
       \hline
       300 nm & \color{red}{9660} & \color{red}{A}  \\
       \hline
@@ -467,9 +467,10 @@
 
 \begin{Answer}
   La séquence OBAFGKM décrit les types spectraux dans le sens des
-  $T_{eff}$ décroissantes, on aura donc dans le sens des $T_{eff}$
-  croissantes: \textcolor{red}{M5III}, \textcolor{red}{K7I},
-  \textcolor{red}{A0VII}, et \textcolor{red}{O2V}.
+  $T_{\mathrm{eff}}$ décroissantes, on aura donc dans le sens des
+  $T_{\mathrm{eff}}$ croissantes: \textcolor{red}{M5III},
+  \textcolor{red}{K7I}, \textcolor{red}{A0VII}, et
+  \textcolor{red}{O2V}.
 
   La classe de luminosité définit des groupes d'étoiles de rayon
   différent, on aura donc dans l'ordre croissant:
@@ -1489,35 +1490,36 @@
   On considère un amas de galaxies qui a les caractéristiques
   suivantes:
   \begin{itemize}
-  \item il est supposé sphérique, de diamètre $D_{amas}$ en pc
-  \item il contient $N_{galaxies}$ identiques et réparties
-    uniformément dans l'amas
+  \item il est supposé sphérique, de diamètre $D_{\mathrm{amas}}$ en pc,
+  \item il contient $N_{\mathrm{galaxies}}$ identiques et réparties
+    uniformément dans l'amas,
   \item les galaxies sont supposées animées d'une vitesse uniforme
-    $v_{galaxies}$ en km/s
+    $v_{\mathrm{galaxies}}$ en km/s.
   \end{itemize}
 
   \begin{enumerate}
   \item Donner l'expression de la densité numérique de galaxies dans
-    l'amas en $pc^{-3}$.
+    l'amas en \u{pc^{-3}}.
 
   \item On suppose maintenant que les galaxies ont un diamètre typique
-    $D_{galaxies}$ (en pc). En modélisant les galaxies comme des
-    sphères dures (boules de billard...) de diamètre $D_{galaxies}$,
-    donner l'expression de la section efficace $S_{efficace}$ (en
-    $pc^2$) lors d'une collision/interaction entre deux galaxies.
+    $D_{\mathrm{galaxies}}$ (en pc). En modélisant les galaxies comme
+    des sphères dures (boules de billard) de diamètre
+    $D_{\mathrm{galaxies}}$, donner l'expression de la section
+    efficace $S_{\mathrm{efficace}}$ (en $pc^2$) lors d'une
+    collision/interaction entre deux galaxies.
 
   \item Donner l'expression du nombre de collisions/interactions que
-    subit une galaxie de l'amas pendant la durée $dt$ (en années). En
-    déduire, pour une galaxie, le temps caractéristique de collision
-    et le libre parcours moyen.
+    subit une galaxie de l'amas pendant la durée $\d t$ (en
+    années). En déduire, pour une galaxie, le temps caractéristique de
+    collision et le libre parcours moyen.
 
   \item En déduire le temps entre deux collisions/interactions dans
     l'amas.
 
   \item Calcul de la fréquence des collisions dans un amas:
     Considérons un amas de $N=850$ galaxies dont le diamètre est
-    $D=7~Mpc$ et dont la dispersion des vitesses est $V =
-    650~km/s$. Explicitez le calcul numérique du temps moyen entre
+    $D=7$~Mpc et dont la dispersion des vitesses est $V =
+    650$~km/s. Explicitez le calcul numérique du temps moyen entre
     deux collisions pour l'amas considéré.
   \end{enumerate}
 \end{Exercise}
@@ -1526,43 +1528,46 @@
   \begin{enumerate}
   \item Le volume de l'amas est
     $$
-    V_{amas}=\frac{\pi}{6}D_{amas}^3
+    V_{\mathrm{amas}}=\frac{\pi}{6}D_{\mathrm{amas}}^3
     $$
     et la densité numérique de galaxies est donc
     $$
-    n_{galaxies}=\frac{N_{galaxies}}{V_{amas}}=
-    \frac{6N_{galaxies}}{\pi D_{amas}^3}
+    n_{\mathrm{galaxies}}=\frac{N_{\mathrm{galaxies}}}{V_{\mathrm{amas}}}=
+    \frac{6N_{\mathrm{galaxies}}}{\pi D_{\mathrm{amas}}^3}
     $$
-    (en nombre de galaxies par $pc^3$ si le diamètre de l'amas est en
-    pc)
+    (en nombre de galaxies par \u{pc^3} si le diamètre de l'amas est
+    en pc)
 
   \item Deux galaxies entreront en collision/interaction lorsqu'elle
-    passent à une distance < $D_{galaxies}$ l'une de l'autre. La
-    section efficace de collision est donc $S_{efficace}=\pi
-    D^2_{galaxies}$ en $pc^2$ si le diamètre des galaxies est exprimé
-    en $pc$.
+    passent à une distance $< D_{\mathrm{galaxies}}$ l'une de
+    l'autre. La section efficace de collision est donc
+    $S_{\mathrm{efficace}} = \pi D^2_{\mathrm{galaxies}}$ en \u{pc^2}
+    si le diamètre des galaxies est exprimé en pc.
 
-  \item Le volume «balayé» par une galaxie pendant le temps dt est le
-    suivant:
+  \item Le volume « balayé » par une galaxie pendant le temps $\d t$
+    est le suivant:
     $$
     V = \frac{3.15\,10^7 \text{(s par année)}}{%
-      3.09\,10^{13} \text{(km par pc)}}
-    \times v_{galaxies} \times S_{efficace} \times dt
+      3.09\,10^{13} \text{(km par pc)}} \times v_{galaxies} \times
+    S_{efficace} \times \d t
     $$
-    Le nombre de collisions pendant ce temps $dt$ est donc
-    $N_{collision} = n_{galaxie}V$. Le temps caractéristique de
-    collision/interaction $t_{collision}$ correspond à $dt$ tel que
-    $N_{collisions} = 1$. Le libre parcours moyen est $l =
-    v_{galaxies} \times t_{collision}$.
+    Le nombre de collisions pendant ce temps $\d t$ est donc
+    $N_{\mathrm{collision}} = n_{\mathrm{galaxie}}V$. Le temps
+    caractéristique de collision/interaction $t_{\mathrm{collision}}$
+    correspond à $\d t$ tel que $N_{\mathrm{collisions}} = 1$. Le
+    libre parcours moyen est $l = v_{\mathrm{galaxies}} \times
+    t_{\mathrm{collision}}$.
     $$
-    \tau_{collision} =
-    \frac{3.09 \times 10^{13}}{6 \times 3.15 \times 10^7}
-    \frac{D^3_{amas}}{D^2_{galaxies} \times v_{galaxies} \times N_{galaxies}}
+    \tau_{\mathrm{collision}} = \frac{3.09 \times 10^{13}}{6 \times
+      3.15 \times 10^7}
+    \frac{D_{\mathrm{amas}}^{3}}{D_{\mathrm{galaxies}}^{2} \times
+      v_{\mathrm{galaxies}} \times N_{\mathrm{galaxies}}}
     $$
 
   \item Le temps caractéristique de collision/interaction dans l'amas
-    est $t_{collision}^{amas} = \tau_{collision}/N_{galaxies}$ (on
-    considère ici l'amas entier et non plus une galaxie unique).
+    est $t_{\mathrm{collision}}^{\mathrm{amas}} =
+    \tau_{\mathrm{collision}}/N_{\mathrm{galaxies}}$ (on considère ici
+    l'amas entier et non plus une galaxie unique).
   \end{enumerate}
 
 \end{Answer}
@@ -1607,8 +1612,8 @@
   tableau ci-dessous, donnant les rayons, masses et vitesse
   caractéristiques de différents système stellaires.  Veuillez
   compléter ce tableau.  (On prendra $G$ en fonction d'unités
-  astronomiques pratiques, ainsi $G=0.004301$
-  pc.km$^{2}$.s$^{-2}$.M$_{\odot}^{-1}$)
+  astronomiques pratiques, ainsi
+  $G=0.004301$~\u{pc.km^{2}.s^{-2}.M_{\odot}^{-1}})
 
   \begin{center}
     \begin{tabular}{|c|c|c|c|}
@@ -1637,7 +1642,7 @@
   On va maintenant calculer le temps cinématique $t_c$ pour différents
   systèmes stellaires. Veuillez compléter le tableau ci-dessous.  (Une
   fois de plus, on prendra $G$ en fonction d'unités astronomiques
-  pratiques, ainsi $G=0.004301$ pc.km$^{2}$.s$^{-2}$.M$_{\odot}^{-1}$)
+  pratiques, ainsi $G=0.004301$~\u{pc.km^{2}.s^{-2}.M_{\odot}^{-1}})
   \begin{center}
     \begin{tabular}{|c|c|c|c|}
       \hline
@@ -1682,8 +1687,8 @@
   quelle part en revient tout bêtement à la force de gravitation
   universelle, lorsque leurs centres de gravité respectifs sont
   distants de 1 mètre ?  Quelle masse, au même point de la Terre,
-  présente un poids égal à cette force ?  Marcel pèse, à Lyon, 700 N,
-  et Naomi 580 N.  Le rayon de la Terre à Lyon sera supposé égal à
+  présente un poids égal à cette force ?  Marcel pèse, à Lyon, 700~N,
+  et Naomi 580~N.  Le rayon de la Terre à Lyon sera supposé égal à
   6365~km.  La constante de la gravitation et la masse de la Terre
   sont données dans les annexes du cours...
 \end{Exercise}
@@ -1696,9 +1701,8 @@
   $$
   F = G \frac{m_1 m_2}{d^2}
   $$
-
   On retrouve d'abord les valeurs des constantes : $G = 6,672 \times
-  10^{-11}$, $M_{\oplus} = 5,976 \times 10^{24}~kg$, et $R = 6365~km$
+  10^{-11}$, $M_{\oplus} = 5,976 \times 10^{24}$~kg, et $R = 6365$~km
   qui est donné dans l'énoncé.
 
   On écrit donc:
@@ -1712,7 +1716,7 @@
   et donc
   $$
   M_{\mathrm{Marcel}} = \frac{ 6370000^2 \times 700 }{ 6,672 \times
-    10^{-11} \times 5,976 \times 10^{24} } = 71,23~kg
+    10^{-11} \times 5,976 \times 10^{24} } = 71,23~\u{kg}
   $$
   Cette valeur s'obtiendrait aussi en utilisant la formule $P =
   M_{\mathrm{Marcel}}\times g$, où $g$ est l'accélération de la
@@ -1726,14 +1730,15 @@
   $$
   M_{\mathrm{Naomi}} = M_{\mathrm{Marcel}}
   \frac{P_{\mathrm{Naomi}}}{P_{\mathrm{Marcel}}} = 71,23 \times
-  \frac{58}{70} = 59,02~kg
+  \frac{58}{70} = 59,02~\u{kg}
   $$
   D'où $F_{\mathrm{Naomi}-\mathrm{Marcel}} = ( 6,672 10^{-11} \times
-  71,23 \times 59,02 ) / 1 = 2,8 10^{-7}~N$.
+  71,23 \times 59,02 ) / 1 = 2,8 10^{-7}~\u{N}$.
 
   La masse qui présenterait un poids égal à cette valeur en cet
   endroit serait de : $M = ( 63700002 \times 2,8 10^{-7} ) / ( 6,672
-  10^{-11} \times 5,976 10^{24} ) = 2,85 10^{-8} kg = 28,5~\mu g$.
+  10^{-11} \times 5,976 10^{24} ) = 2,85 10^{-8} kg = 28,5~$~\u{\mu
+    g}.
 
   Elle peut également se calculer, d'après une remarque déjà faite,
   par $M = 71,23 \times 2,8 10^{-7} / 700$. L'attraction
@@ -1791,18 +1796,18 @@
 \end{Exercise}
 
 \begin{Answer}
-  Si la lumière met $8+8 = 16$ minutes pour traverser l'orbite de la
-  Terre, c'est à dire pour franchir une distance de $2~U.A$., sa
-  vitesse est $c = 2 \times 1,49598 \times 10^{11} / ( 16 \times 60 )
-  = 3,11 \times 10^8~m~s^{-1}$. Ceci suppose que la valeur de
-  l'U.A. admise alors était la même qu'aujourd'hui, ce qui n'est
-  certainement pas exact : en 1675, on n'avait pas encore très bien
-  mesuré la distance de la Terre au Soleil ... La valeur de deux fois
-  huit minutes est elle-même approximative. Roemer aurait plutôt
-  trouvé $2 \times 10^8~m~s-1$, dit-on. La première détermination
-  sérieuse de l'Unité Astronomique est due à Cassini et Richer, en
-  1671. Il faudra attendre le XXe siècle et les méthodes d'écho radar
-  pour disposer de mesures très précises de cette valeur.
+  Si la lumière met $8+8 = 16$~min pour traverser l'orbite de la
+  Terre, c'est à dire pour franchir une distance de 2~U.A., sa vitesse
+  est $c = 2 \times 1,49598 \times 10^{11} / ( 16 \times 60 ) = 3,11
+  \times 10^8$~m/s. Ceci suppose que la valeur de l'U.A. admise alors
+  était la même qu'aujourd'hui, ce qui n'est certainement pas exact :
+  en 1675, on n'avait pas encore très bien mesuré la distance de la
+  Terre au Soleil ... La valeur de deux fois huit minutes est
+  elle-même approximative. Roemer aurait plutôt trouvé $2 \times
+  10^8$~m/s, dit-on. La première détermination sérieuse de l'Unité
+  Astronomique est due à Cassini et Richer, en 1671. Il faudra
+  attendre le XXe siècle et les méthodes d'écho radar pour disposer de
+  mesures très précises de cette valeur.
 \end{Answer}
 
 \subsection{Relativité générale}
@@ -1851,10 +1856,10 @@
 
 \begin{Exercise}[Le décalage gravitationnel vers le rouge]
   Une lampe spectrale émettant la raie Hydrogène Alpha (de longueur
-  d'onde en laboratoire 656,3 nm) est utilisée pour communiquer à
+  d'onde en laboratoire 656,3~nm) est utilisée pour communiquer à
   partir d'une capsule en orbite serrée autour d'une étoile à
-  neutrons. Le rayon de l'orbite est de 1000 km, la masse de l'étoile
-  de 1,5 masses solaires.  À quelle longueur d'onde le vaisseau qui a
+  neutrons. Le rayon de l'orbite est de 1000~km, la masse de l'étoile
+  de 1,5~\u{M_{\odot}}.  À quelle longueur d'onde le vaisseau qui a
   lancé la capsule, et se tient prudemment à grande distance, doit-il
   rechercher les signaux?
 \end{Exercise}
@@ -1879,7 +1884,7 @@
   \lambda = \lambda_0 + \delta \lambda = (1+z)\lambda_0
   $$
   D'où le $\lambda$ cherché: $\lambda = 1,00221 \times 656,3 =
-  657,75~nm$.
+  657,75$~nm.
 \end{Answer}
 
 \section{Le big bang}
@@ -1919,7 +1924,7 @@
   position dans le troisième catalogue de radiources établi par
   l'observatoire de Cambridge...) est relativement lointaine;
   entraînée par l'expansion de l'univers, elle présente une vitesse de
-  fuite de 63000 km par seconde.
+  fuite de 63000~km/s.
 
   Montrer que malgré cela, l'astronome Xhbrr'ffttk, qui a là-bas
   découvert l'expansion de l'univers, comme Hubble l'a fait pour nous,
@@ -1939,7 +1944,7 @@
   Désignons par $V_T$ et $d_T$ les vitesses et distances mesurées à
   partir de la Terre, $V_{3C}$ et $d_{3C}$ celles mesurées à partir de
   3C171.  La vitesse de récession de 3C171 mesurée de la Terre est
-  donc $v_T(3C171) = 63000~km/s$.
+  donc $v_T(3C171) = 63000$~km/s.
 
   Considérons une autre galaxie, G, observée à la fois de la Terre et
   de 3C171. On peut écrire :
@@ -1965,23 +1970,22 @@
 
 \begin{Exercise}[Le facteur d'expansion de l'espace]
   Donner $H_0$ en kilomètres par seconde et par mégaparsec est
-  pratique pour les astronomes, mais ne parle guère à l'imagination.
-  Passons donc dans des unités plus gouleyantes : si l'on suppose que
-  $H_0 = 65 km s^{-1} Mpc^{-1}$, quelle est la valeur de
-  l'accroissement annuel d'un kilomètre ? Des mètres ? Des millimètres
-  ? Encore moins ?  Beaucoup plus?
+  pratique pour les astronomes, mais ne parle guère au sens commun.
+  Passons donc dans des unités plus usuelles : si l'on suppose que
+  $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}, quelle est la valeur de
+  l'accroissement annuel d'un kilomètre ?
 \end{Exercise}
 
 \begin{Answer}
-  Un mégaparsec (Mpc) vaut $10^6$ parsecs, soit $3.26 10^6$
-  années-lumière, soit $3,08 10^{19}~km$... Ceci nous montre que
-  $65~km~s^{-1}~Mpc^{-1}$ équivalent à $2,10
-  10^{18}~km~s^{-1}~km^{-1}$, ou encore $6,65
-  10^{-11}~km~an^{-1}~km^{-1}$. Ce qui signifie que chaque kilomètre
-  de l'espace, loin de toute galaxie, s'étire chaque année de $6,65
-  10^{-11}~km$, soit environ 67 nanomètres! C'est infiniment dérisoire
-  sur un kilomètre, mais sur les distances cosmiques l'effet est
-  cumulatif, et cela donne des vitesses qui peuvent être très
+  Un mégaparsec (Mpc) vaut $10^6$~parsecs, soit $3.26 10^6$
+  années-lumière, soit $3,08 10^{19}$~km... Ceci nous montre que
+  65~\u{km s^{-1} Mpc^{-1}} équivalent à $2,10
+  10^{18}$~\u{km~s^{-1}~km^{-1}}, ou encore $6,65
+  10^{-11}$~\u{km~an^{-1}~km^{-1}}. Ce qui signifie que chaque
+  kilomètre de l'espace, loin de toute galaxie, s'étire chaque année
+  de $6,65 10^{-11}$~km, soit environ 67~nm ! C'est infiniment
+  dérisoire sur un kilomètre, mais sur les distances cosmiques l'effet
+  est cumulatif, et cela donne des vitesses qui peuvent être très
   importantes, facilement de l'ordre de celle de la lumière...
 \end{Answer}
 
@@ -2015,7 +2019,7 @@
 \begin{Exercise}[Facteur d'échelle et époque]
   À quelle époque $t_{em}$ la radiogalaxie 4C41.17 de l'exercice
   précédent a-t-elle émis la lumière que nous recevons aujourd'hui à
-  $t_0$? On prendra $t_0 = 13.5$ milliards d'années.
+  $t_0$ ? On prendra $t_0 = 13.5$ milliards d'années.
 \end{Exercise}
 
 \begin{Answer}
@@ -2065,7 +2069,7 @@
     thermonucléaire, et elles sont des usines à fabriquer, par fusion,
     des noyaux lourds à partir de noyaux plus légers.
   \item Au-delà, seules les explosions de supernovae atteignent des
-    températures suffisantes (plusieurs $10^9~K$) pour pouvoir
+    températures suffisantes (plusieurs $10^9$~K) pour pouvoir
     synthétiser les noyaux très lourds, jusqu'aux éléments
     transuraniens.
   \item Quelques noyaux particuliers (${}^{6}\mathrm{Li}$,
@@ -2082,18 +2086,17 @@
 
 \begin{Exercise}[Calcul du temps de Hubble]
   La valeur la plus probable, aujourd'hui, de la constante de Hubble
-  est $H_0 = 65\;\u{km s^{-1} Mpc^{-1}}$ Quelle conclusion
-  pouvez-vous en tirer sur l'âge réel de l'univers?
+  est $H_0 = 65$~\u{km s^{-1} Mpc^{-1}} Quelle conclusion pouvez-vous
+  en tirer sur l'âge réel de l'univers?
 \end{Exercise}
 
 \begin{Answer}
   Le temps de Hubble est défini par: $1/t_{H0} = H_0 =
-  65~\u{km~s^{-1}~Mpc^{-1}}$. Il reste simplement à convertir les
-  Mpc (megaparsecs) en kilomètres, et il vient : $1/t_{H0} =
-  65~\u{km~s^{-1}} [3,26 10^{19}~\u{km}]^{-1} = 20 \times
-  10^{-19}$~s, d'où $t = 5 \times 10^{17}~s = 16 \times
-  10^9$~années. On peut donc penser que l'univers est âgé de moins de
-  16~milliards d'années.
+  65$~\u{km~s^{-1}~Mpc^{-1}}. Il reste simplement à convertir les Mpc
+  (megaparsecs) en kilomètres, et il vient : $1/t_{H0} =
+  65~\u{km~s^{-1}} [3,26 10^{19}~\u{km}]^{-1} = 20 \times 10^{-19}$~s,
+  d'où $t = 5 \times 10^{17}~s = 16 \times 10^9$~années. On peut donc
+  penser que l'univers est âgé de moins de 16~milliards d'années.
 \end{Answer}
 
 \begin{Exercise}[Age de l'univers et temps de Hubble]
@@ -2190,10 +2193,10 @@
       \begin{tabular}{|c|c|c|}
         \hline
         Points cardinaux & Azimut (degrés) & hauteur (degrés) \\ \hline
-        Nord & 180 & 0 \\ \hline
-        Est & 270 & 0 \\ \hline
-        Sud & 0 & 0 \\ \hline
-        Ouest & 90 & 0 \\ \hline
+        Nord  & 180 & 0 \\ \hline
+        Est   & 270 & 0 \\ \hline
+        Sud   & 0   & 0 \\ \hline
+        Ouest & 90  & 0 \\ \hline
       \end{tabular}
     \end{center}
     Remarque: L'azimut des marins est décalé de 180 degrés par rapport
