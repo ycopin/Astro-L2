@@ -1,13 +1,13 @@
-% Time-stamp: <2011-09-09 11:39:35 ycopin>
+% Time-stamp: <2012-01-05 00:03 ycopin@lyopc469>
 % Auteurs (version LaTeX):
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
 % Eric Chabanat <chabanat@ipnl.in2p3.fr>
 
-% Compiler tel quel 'pdflatex TD_astro_L2' pour avoir les solutions,
-% et compiler avec 'pdflatex
-% "\def\sanscorrige{}\input{TD_astro_L2}"' pour une version sans
-% les solutions.
+% Version avec solutions: 
+%   pdflatex TD_astro_L2' 
+% Version sans solution:
+%   pdflatex "\def\sanscorrige{}\input{TD_astro_L2}"
 
 \documentclass[a4paper,10pt]{report}
 
@@ -21,6 +21,7 @@
 \usepackage[francais]{babel}
 \usepackage{amsmath}
 \usepackage{multirow}
+\usepackage{enumitem}
 
 \usepackage[pdftex]{graphicx}
 \graphicspath{{./Figures/}}
@@ -38,10 +39,11 @@
 \newcounter{noexo}
 \setcounter{noexo}{0}
 \newenvironment{Exercise}[1][]{%
-  \stepcounter{noexo}
+  \refstepcounter{noexo}
   \medskip\noindent\textbf{Exercice~\thenoexo~:~#1}
   \medskip\par
   \addcontentsline{toc}{paragraph}{Exercice~\thenoexo~:~#1}
+  \label{exo:\thenoexo}
 }{}
 
 % Définition de l'environnement 'Answer'
@@ -51,8 +53,9 @@
   \begingroup
   \sffamily\color{CadetBlue}
   \medskip\noindent\textbf{Corrigé :~}
-  }{%
-  \endgroup}
+}{%
+  \endgroup
+}
 
 % Inclusion ou non des corrigés
 \ifdefined\sanscorrige
@@ -68,6 +71,10 @@
 \renewcommand{\deg}{\ensuremath{^{\circ}}}
 \renewcommand{\vec}[1]{\ensuremath{\boldsymbol{#1}}}
 \renewcommand{\u}[1]{\ensuremath{\mathrm{#1}}} % Unités
+\DeclareMathOperator{\grad}{\mathbf{grad}}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\note}[1]{\fcolorbox{red}{yellow}{\color{black} #1}}
 
 % PAGE DE TITRE ET PREAMBULE ==============================
 
@@ -141,15 +148,15 @@
   Lorsque la luminosité $L(t)$ de l'étoile dépend du temps, les
   variations de luminosité mettent un temps $D/c$ pour parvenir à un
   observateur situé à une distance $D$ ($c$ étant la vitesse de la
-  lumière). Dans ce cas la relation (2.4) devient: $L(t) = 4 \pi D^2
-  F(D,t-D/c) $.
+  lumière). Dans ce cas la relation (2.4) devient : $F(D, t) =
+  L(t-D/c)/(4\pi D^{2})$.
 \end{Answer}
 
 \subsection{Photosphère et température effective}
 
-\begin{Exercise}[Température effective d'une étoile]
-  Calculer la température effective du Soleil à partir de sa
-  luminosité $L_{\odot}\approx 3.83\times 10^{26}$~W et de son rayon
+\begin{Exercise}[Luminosité du Soleil]
+  Calculer la luminosité du Soleil à partir de sa température
+  effective du Soleil $T_\odot \approx 5770$~K et de son rayon
   $R_{\odot}\approx 6.96 \times 10 ^{8}$~m.
 \end{Exercise}
 
@@ -159,8 +166,35 @@
   T_e = \left( \frac{L}{4 \pi \sigma R^2_p} \right)^{1/4}
   $$
   avec la constante de Stefan $\sigma = 5.67 \times
-  10^{-8}$~\u{Wm^{-2}K^{-4}}, on trouve la température effective du
-  Soleil $T_\odot \approx 5770$~K.
+  10^{-8}$~\u{Wm^{-2}K^{-4}}, on trouve la luminosité
+  $L_{\odot}\approx 3.83\times 10^{26}$~W.
+\end{Answer}
+
+\begin{Exercise}[Rayon des étoiles]
+  Déterminer le rayon (en unité solaire), la longueur d'onde de Wien
+  et la couleur « visible » des étoiles suivantes :
+  \begin{itemize}
+  \item Naine blanche : $L = 10^{-2}$~\u{L_{\odot}}, $T_{e} = 20000$~K
+  \item Géante rouge : $L = 10^{2}$~\u{L_{\odot}}, $T_{e} = 4200$~K
+  \item Supergéante : $L = 10^{5}$~\u{L_{\odot}}, $T_{e} = 6000$~K
+  \end{itemize}
+  Rappel de la loi de Wien : $\lambda_{\max} T = 2898$~\u{\mu m.K}.
+\end{Exercise}
+
+\begin{Answer}
+  \begin{table}[h]
+    \centering
+    \begin{tabular}{lccccr}
+      \hline
+      Type stellaire & $L$~[\u{L_{\odot}}] & $T_{e}$~[K] & 
+      $R$~[\u{R_{\odot}}] & $ \lambda_{\max}$ & Couleur \\
+      \hline
+      Naine blanche & $10^{-2}$ & $20000$ & & & \\
+      Géante rouge  & $10^{2}$  & $4200$  & & & \\ 
+      Supergéante   & $10^{5}$  & $6000$  & & & \\
+      \hline
+    \end{tabular}
+  \end{table}
 \end{Answer}
 
 \subsection{Système de magnitudes}
@@ -186,20 +220,17 @@
     $$
     F_2 / F_1 = 10^{(m_{1} - m_{2})/2,5} = 0,28
     $$
-  \item Pour obtenir la magnitude visuelle globale du système $m_{tot}$,
-    il faut calculer le flux total (les puissances émises par les deux
-    composantes s'ajoutent) :
+  \item Pour obtenir la magnitude apparente visuelle globale du
+    système $m_{tot}$, il faut calculer le flux total (les puissances
+    émises par les deux composantes s'ajoutent) :
     $$
-    m_{tot} = -2,5 \log(F_{1} / F_{0} + F_{2} / F_{0})
-    $$
-    donc
-    $$
-    m_{tot}= -2,5 \log(10^{-m_{1}/2,5} + 10^{-m_{2}/2,5}) = 0.04
+    m_{tot} = -2,5 \log(F_{1} / F_{0} + F_{2} / F_{0}) = 
+    -2,5 \log(10^{-m_{1}/2,5} + 10^{-m_{2}/2,5}) = 0.04
     $$
   \item La correction qu'il faut apporter aux magnitudes apparentes
-    $m$ de ce système pour obtenir les magnitudes absolues $M$ vaut:
+    $m$ de ce système pour obtenir les magnitudes absolues $M$ vaut :
     $$
-    m - M = 5 \log(D/10 \u{pc}) = -4,4
+    \mu = m - M = 5 \log(D/10 \u{pc}) = -4,4
     $$
   \end{enumerate}
 \end{Answer}
@@ -209,16 +240,16 @@
 \subsection{Formation des étoiles}
 
 \begin{Exercise}
-  Quelle est la source de l'énergie rayonnée par:
+  Quelle est la source de l'énergie rayonnée par :
   \begin{enumerate}
-  \item une proto-étoile?
-  \item une étoile?
-  \item une naine brune?
+  \item une proto-étoile ?
+  \item une étoile ?
+  \item une naine brune ?
   \end{enumerate}
 \end{Exercise}
 
 \begin{Answer}
-  L'énergie rayonnée provient de:
+  L'énergie rayonnée provient de :
   \begin{enumerate}
   \item l'énergie gravitationnelle pour une proto-étoile ;
   \item l'énergie produite par les réactions nucléaires pour une
@@ -232,10 +263,10 @@
 \subsection{Séquence principale}
 
 \begin{Exercise}
-  Quel est le phénomène marquant:
+  Quel est le phénomène marquant :
   \begin{enumerate}
-  \item le début de la séquence principale?
-  \item sa fin?
+  \item le début de la séquence principale ?
+  \item sa fin ?
   \end{enumerate}
 \end{Exercise}
 
@@ -250,7 +281,7 @@
 \subsection{Évolution post-SP}
 
 \begin{Exercise}[Étoile de $M > 5 M_{\odot}$]
-  Que se passe-t-il si un combustible s'épuise au centre d'une étoile?
+  Que se passe-t-il si un combustible s'épuise au centre d'une étoile ?
 \end{Exercise}
 
 \begin{Answer}
@@ -277,10 +308,10 @@
 \end{Exercise}
 
 \begin{Answer}
-  Il existe deux méthodes pour trouver le résultat demandé:
+  Il existe deux méthodes pour trouver le résultat demandé :
   \begin{itemize}
   \item En différenciant l'équation $d = a/p$, on obtient $\d d =
-    -(a/p^2)\d p$, d'où l'incertitude en prenant la valeur absolue:
+    -(a/p^2)\d p$, d'où l'incertitude en prenant la valeur absolue :
     $$
     \Delta d = \frac{a}{p^2}\Delta p = \frac{d}{p}\Delta p
     $$
@@ -290,50 +321,47 @@
     $$
 
   \item On peut également prendre le logarithme de l'équation $d =
-    a/p$, ce qui donne $\ln~d = \ln~a - \ln~p$, puis on différencie:
+    a/p$, ce qui donne $\ln~d = \ln~a - \ln~p$, puis on différencie :
     $\d\ln~d = -\d\ln~p$, soit $\d d/d = -\d p/p$. En prenant la
-    valeur absolue, on retrouve le résultat sur l'incertitude:
-    $$
-    \frac{\Delta d}{d} = \frac{\Delta p}{p}
-    $$
+    valeur absolue, on retrouve le résultat précédent.
   \end{itemize}
 \end{Answer}
 
-\begin{Exercise}
-  Imaginons deux missions spatiales: FAME et GAIA. Quelles seraient
-  les précisions obtenues à une distance de 100~pc? de 1000~pc?  À
-  quelle distance aura-t-on une erreur de 100\%?
-
-  On donne les incertitudes absolues sur les parallaxes pour chaque
-  satellite: $\Delta p=50$~\u{\mu as} pour FAME et 4~\u{\mu as} pour
-  GAIA.
+\begin{Exercise}[Astrométrie spatiale]
+  Considérons les deux missions d'astrométrie spatiale : Hipparcos
+  (1989), avec une incertitude absolue sur la mesure de la parallaxe
+  typique de $\Delta p = 2$~mas, et GAIA (2013), avec $\Delta p =
+  7$~\u{\mu as}. Quelles sont les précisions obtenues à une distance
+  de 100~pc ? de 1000~pc ?  À quelle distance aura-t-on une erreur de
+  100\% ?
 \end{Exercise}
 
 \begin{Answer}
   Les étoiles situées à $d=100$~pc ont une parallaxe
   $p=1/100=0,01''=10$~mas. La précision obtenue sera de
   \begin{align*}
-    \frac{\Delta d}{d} &= \frac{\Delta p}{p} = \frac{50 \times
-      10^{-6}}{10^{-2}} = 5 \times 10^{-3} = 0.5 \% &\text{avec FAME} \\
-    \frac{\Delta d}{d} &= \frac{\Delta p}{p} = \frac{4 \times
-      10^{-6}}{10^{-2}} = 4 \times 10^{-4} = 0.04 \% &\text{avec GAIA} 
+    \frac{\Delta d}{d} &= \frac{\Delta p}{p} = \frac{2 \times
+      10^{-3}}{10^{-2}} = 2 \times 10^{-1} = 20 \% &\text{avec Hipparcos} \\
+    \frac{\Delta d}{d} &= \frac{\Delta p}{p} = \frac{7 \times
+      10^{-6}}{10^{-2}} = 7 \times 10^{-4} = 0,07 \% &\text{avec GAIA} 
   \end{align*}
 
   Pour des étoiles à $d=1000$~pc, $p=1$~mas, et les précisions
-  deviennent 10 fois moins bonnes: 5\% avec FAME et 0,4\% avec GAIA.
+  deviennent 10 fois moins bonnes : 200\% avec Hipparcos et 0,7\% avec
+  GAIA.
 
   On aura une erreur de 100\% quand $\Delta d =d$, soit $\delta p =
   p$. La distance correspondante s'obtient donc par
   \begin{align*}
-    d &= \frac{1}{p} = \frac{1}{50 \times 10^{-6}} = 20~\u{kpc}
-    &\text{avec FAME} \\
-    d &= \frac{1}{p} = \frac{1}{4 \times 10^{-6}}
-    = 250~\u{kpc} &\text{avec GAIA}
+    d &= \frac{1}{p} = \frac{1}{2 \times 10^{-3}} = 500~\u{pc} 
+    &\text{Hipparcos} \\
+    d &= \frac{1}{p} = \frac{1}{7 \times 10^{-6}} = 143~\u{kpc} 
+    &\text{GAIA}
   \end{align*}
 \end{Answer}
 
 
-\begin{Exercise}
+\begin{Exercise}  
   Le tableau suivant donne la magnitude apparente $m_V$ et la
   parallaxe $p$ de trois étoiles. Calculer leur distance $d$ avec son
   incertitude, l'erreur relative sur la distance $\Delta d / d$ et
@@ -341,8 +369,8 @@
   \begin{center}
     \begin{tabular}{|c|c|c|c|}
       \hline
-      & $\alpha$ CMa Sirius & $\alpha$ Tau Aldebaran & $\alpha$ Ori
-      Bételgeuse \\
+      & $\alpha$ CMa (Sirius) & $\alpha$ Tau (Aldebaran) & $\alpha$ Ori
+      (Bételgeuse) \\
       \hline
       $m_V$ & -1.47 & 0.85 & 0.58 \\
       \hline
@@ -362,21 +390,19 @@
   \begin{center}
     \begin{tabular}{|c|c|c|c|}
       \hline
-      & $\alpha$ CMa Sirius & $\alpha$ Tau Aldebaran & $\alpha$ Ori
-      Bételgeuse \\
+      & $\alpha$ CMa (Sirius) & $\alpha$ Tau (Aldebaran) & $\alpha$ Ori
+      (Bételgeuse) \\
       \hline
       $m_V$ & -1.47 & 0.85 & 0.58 \\
       \hline
       $p$ (mas) & 379.2 $\pm$ 1.6 & 50.1 $\pm$ 1.0 & 7.6 $\pm$ 1.6 \\
       \hline
-      $d$ (pc) &  \color{red}{2.64 $\pm$ 0.01} &  \color{red}{20.0
-        $\pm$ 0.4}  & \color{red}{130 $\pm$ 30} \\
+      $d$ (pc) & 
+      \red{2.64 $\pm$ 0.01} & \red{20.0 $\pm$ 0.4} & \red{130 $\pm$ 30} \\
       \hline
-      $\Delta d / d$ & \color{red}{0.4\%}  & \color{red}{2\%}  &
-      \color{red}{23\%} \\
+      $\Delta d / d$ & \red{0.4\%} & \red{2\%} & \red{23\%} \\
       \hline
-      $M_V$ & \color{red}{1.42}  & \color{red}{-0.65}  &
-      \color{red}{-4.99} \\
+      $M_V$ & \red{1.42}  & \red{-0.65} & \red{-4.99} \\
       \hline
     \end{tabular}
   \end{center}
@@ -419,7 +445,7 @@
     10^{-5}~\u{pc.an^{-1}}$
   \item $\theta = 67,9 \pm 0,6\deg = 1,19 \pm 0,01$~rad
   \item On a donc $tan \theta= 2,50 \pm 0,07$.
-  \item Finalement: $d = 111 \pm 8$~pc
+  \item Finalement : $d = 111 \pm 8$~pc
   \end{itemize}
 \end{Answer}
 
@@ -427,10 +453,10 @@
 
 \begin{Exercise}[Types spectraux]
   Donner approximativement le type spectral des étoiles dont le flux
-  est maximal aux longueurs d'onde suivantes: 300~nm, 500~nm, et
-  1,2~$\mu$m.  Peut-on déterminer la classe de luminosité?
+  est maximal aux longueurs d'onde suivantes : 300~nm, 500~nm, et
+  1,2~$\mu$m.  Peut-on déterminer la classe de luminosité ?
 
-  Rappel de la loi de Wien: $\lambda_{\max} T = 2898$~\u{\mu m.K}.
+  Rappel de la loi de Wien : $\lambda_{\max} T = 2898$~\u{\mu m.K}.
 \end{Exercise}
 
 \begin{Answer}
@@ -443,13 +469,13 @@
   \begin{center}
     \begin{tabular}{|c|c|c|}
       \hline
-      $\lambda_m$ & $T_{\mathrm{eff}}(K)$ & Type spectral \\
+      $\lambda_{\max}$ & $T_{\mathrm{eff}}(K)$ & Type spectral \\
       \hline
-      300 nm & \color{red}{9660} & \color{red}{A}  \\
+      300 nm & \red{9660} & \red{A}  \\
       \hline
-      500 nm & \color{red}{5796} & \color{red}{G} \\
+      500 nm & \red{5796} & \red{G} \\
       \hline
-      1.2 $\mu m$ &  \color{red}{2415} &  \color{red}{M} \\
+      1.2 $\mu m$ &  \red{2415} &  \red{M} \\
       \hline
     \end{tabular}
   \end{center}
@@ -462,24 +488,24 @@
 \begin{Exercise}[Diagramme HR]
   Classer par ordre de température effective croissante, puis de rayon
   croissant, et enfin de luminosité croissante les étoiles de types
-  spectraux suivants: M5III, O2V, K7I, A0VII.
+  spectraux suivants : M5III, O2V, K7I, A0VII.
 \end{Exercise}
 
 \begin{Answer}
   La séquence OBAFGKM décrit les types spectraux dans le sens des
   $T_{\mathrm{eff}}$ décroissantes, on aura donc dans le sens des
-  $T_{\mathrm{eff}}$ croissantes: \textcolor{red}{M5III},
+  $T_{\mathrm{eff}}$ croissantes : \textcolor{red}{M5III},
   \textcolor{red}{K7I}, \textcolor{red}{A0VII}, et
   \textcolor{red}{O2V}.
 
   La classe de luminosité définit des groupes d'étoiles de rayon
-  différent, on aura donc dans l'ordre croissant:
+  différent, on aura donc dans l'ordre croissant :
   \textcolor{red}{A0VII}, \textcolor{red}{O2V},
   \textcolor{red}{M5III}, et \textcolor{red}{K7I}.
 
   Enfin, l'examen du diagramme HR montre qu'une étoile chaude de la
   séquence principale peut être plus lumineuse qu'une sous-géante
-  froide, et on aura dans le sens des luminosités croissantes:
+  froide, et on aura dans le sens des luminosités croissantes :
   \textcolor{red}{A0VII}, \textcolor{red}{M5III},
   \textcolor{red}{O2V}, et \textcolor{red}{K7I}.
 
@@ -490,11 +516,11 @@
 \subsection{Mesure des rayons}
 
 \begin{Exercise}[Interférométrie]
-  Le tableau suivant donne le diamètre apparent $\theta_*$ de quelques
-  étoiles, mesuré par interférométrie. Calculer leur rayon $R$ (on
-  rappelle les distances déterminées dans un exercice précédent) et, à
-  l'aide de ce résultat, attribuer à chaque étoile sa classe de
-  luminosité parmi les suivantes: I, III, V.
+  Le tableau suivant donne le diamètre apparent $\theta_*$ des étoiles
+  de l'exercice~\ref{exo:10}, mesuré par interférométrie. Calculer
+  leur rayon $R$ (on rappelle les distances déterminées dans un
+  exercice précédent) et, à l'aide de ce résultat, attribuer à chaque
+  étoile sa classe de luminosité parmi les suivantes : I, III, V.
 
   \begin{center}
     \begin{tabular}{|c|c|c|c|}
@@ -503,8 +529,6 @@
       Bételgeuse \\
       \hline
       $\theta_*$ (mas) & 5.89 & 24 & 67 \\
-      \hline
-      $p$ (mas) & 379.2 $\pm$ 1.6 & 50.1 $\pm$ 1.0 & 7.6 $\pm$ 1.6 \\
       \hline
       $d$ (pc) & 2.64  & 20  & 130 \\
       \hline
@@ -517,14 +541,14 @@
 \end{Exercise}
 
 \begin{Answer}
-  Pour Sirius:
+  Pour Sirius :
   \begin{itemize}
   \item Son diamètre apparent vaut $\theta_*= 5,89~\u{mas} = 2,86 \times
     10^{-8}$~rad.
   \item Son rayon vaut donc $R = \theta_* d / 2 = 3,8 \times 10^{-8}
     pc = 1,2 \times 10^9 m = 1,7R_{\odot}$.
   \end{itemize}
-  Le tableau suivant donne les résultats pour les 3 étoiles:
+  Le tableau suivant donne les résultats pour les 3 étoiles :
   \begin{center}
     \begin{tabular}{|c|c|c|c|}
       \hline
@@ -533,15 +557,11 @@
       \hline
       $\theta_*$ (mas) & 5.89 & 24 & 67 \\
       \hline
-      $p$ (mas) & 379.2 $\pm$ 1.6 & 50.1 $\pm$ 1.0 & 7.6 $\pm$ 1.6 \\
-      \hline
       $d$ (pc) & 2.64  & 20  & 130 \\
       \hline
-      $R (R_{\odot})$ & \color{red}{1.7}  & \color{red}{52}  &
-      \color{red}{936} \\
+      $R (R_{\odot})$ & \red{1.7}  & \red{52}  & \red{936} \\
       \hline
-      Classe de luminosité & \color{red}{V}  & \color{red}{III}  &
-      \color{red}{I} \\
+      Classe de luminosité & \red{V}  & \red{III}  & \red{I} \\
       \hline
       Type spectral & A1V  & K5III  & M2I \\
       \hline
@@ -575,7 +595,7 @@
 
 \begin{Answer}
   Les paramètres observés permettent de remonter aux données suivantes
-  pour le système:
+  pour le système :
   \begin{itemize}
   \item La distance est $d = 10$~pc.
   \item La dimension angulaire du grand axe de l'orbite relative est
@@ -583,19 +603,19 @@
     = 3''$, soit $\theta = 1,45 \times 10^{-5} rad$.
   \item Le demi-grand axe de l'orbite relative vaut donc $a = \theta d
     = 1,45 \times 10^{-4} pc = 4,49 \times 10^{12} m = 30 \UA$.
-  \item La $3^{ème}$ loi de Kepler donne la somme des masses: $M1 + M2
+  \item La $3^{ème}$ loi de Kepler donne la somme des masses : $M1 + M2
     = 5,97 \times 10^{31} kg = 30 M_{\odot}$ .
   \item Les distances des étoiles $E_1$ et $E_2$ au centre de gravité
     $G$ vérifient $M_1 \times GE_1 = M_2 \times GE_2$. Le rapport des
     masses vaut donc $M_1 / M_2 = GE_2 / GE_1 = 5$.
-  \item Finalement: $M_1 = 25M_{\odot}$ et $M_2 = 5M_{\odot}$
+  \item Finalement : $M_1 = 25M_{\odot}$ et $M_2 = 5M_{\odot}$
   \end{itemize}
 \end{Answer}
 
 
 \begin{Exercise}
   Le tableau suivant rappelle les caractéristiques du système binaire
-  à éclipse d'Algol ($\beta$ Per):
+  à éclipse d'Algol ($\beta$ Per) :
   \begin{center}
     \begin{tabular}{|l|c|r|}
       \hline
@@ -615,20 +635,20 @@
   \end{center}
   On a mesuré de plus les paramètres orbitaux suivants (on supposera
   l'orbite circulaire, ainsi le demi-grand axe de l'ellipse projetée
-  est égal au rayon de l'orbite):
+  est égal au rayon de l'orbite) :
   \begin{center}
     \begin{tabular}{|c|c|}
       \hline
       $\theta$ (mas) & 2.283 \\
       \hline
-      $\theta_2$ (pc) & 1.872 \\
+      $\theta_2$ (mas) & 1.872 \\
       \hline
     \end{tabular}
   \end{center}
-  Quelle est la séparation des deux étoiles en km? en UA? en
-  $R_{\odot}$? Comparez-la à leurs rayons.
+  Quelle est la séparation des deux étoiles en km ? en UA ? en
+  $R_{\odot}$ ? Comparez-la à leurs rayons.
 
-  Quelle est la masse de chacune des étoiles?
+  Quelle est la masse de chacune des étoiles ?
 \end{Exercise}
 
 \begin{Answer}
@@ -638,17 +658,17 @@
   \item Le demi-grand axe de l'orbite relative vaut donc $a = \theta d
     = 3,17 \times 10^{-7}~pc = 9,77 \times 10^9~m = 0,065~\UA =
     14R_{\odot}$.
-  \item La 3ème loi de Kepler donne la somme des masses:
+  \item La 3ème loi de Kepler donne la somme des masses :
     $M_1+M_2 = 4\pi^2 a^3/GT^2 = 8,98 \times 10^{30}~kg =
     4,52M_{\odot}$.
   \item Le rapport des demi-grands axes apparents de l'orbite relative
     $\theta$ et de l'orbite absolue de l'étoile secondaire $\theta_2$
-    donne le rapport des masses: $\theta_2 / \theta = a_2 / a = M_1 /
+    donne le rapport des masses : $\theta_2 / \theta = a_2 / a = M_1 /
     (M_1 + M_2) = 0,82$
   \item On obtient donc les masses $M_1 = 3,71$ et $M_2 = 0,81$.
   \end{itemize}
 
-  Le tableau suivant récapitule les données physiques du système:
+  Le tableau suivant récapitule les données physiques du système :
   \begin{center}
     \begin{tabular}{|l|c|r|}
       \hline
@@ -656,15 +676,15 @@
       \hline
       $T$ (jours) & \multicolumn{2}{c|}{2.8674} \\
       \hline
-      $a$ ($R_{\odot}$) &  \multicolumn{2}{c|}{\color{red}{14}} \\
+      $a$ ($R_{\odot}$) &  \multicolumn{2}{c|}{\red{14}} \\
       \hline
       & A & B \\
       \cline{1-3}
       Type spectral & B8V & K2IV \\
       \hline
-      R ($R_{\odot}$) & 2.74 & 3.60 \\
+      $R$ ($R_{\odot}$) & 2.74 & 3.60 \\
       \hline
-      M ($M_{\odot}$) & \color{red}{3.71} & \color{red}{0.81} \\
+      $M$ ($M_{\odot}$) & \red{3.71} & \red{0.81} \\
       \hline
     \end{tabular}
   \end{center}
@@ -682,7 +702,74 @@
 
 \subsection{Les lois de Kepler}
 
-\begin{Exercise}[Enoncé et rappels sur les ellipses]
+\begin{Exercise}[Invariant de Runge-Lenz]
+  On considère une particule $P$ de masse $m$, animée d'un mouvement
+  non relativiste par rapport à un repère d'origine $O$. Ce mouvement
+  est dû à un champ de forces $\vec{F} (\vec{r}) = - \grad U (r) $
+  dérivant d'un potentiel central $U (r)$, où $\vec{r}= \vec{OP}$.
+
+  À l'instant $t$ on note respectivement $\vec{v} (t)$, $\vec{a} (t)$
+  et $\vec{p} (t)$ la vitesse, l'accélération et la quantité de
+  mouvement de la particule $P$.
+
+  \begin{enumerate}
+  \item Montrer que la force $\vec{F}$ est radiale.
+  \item Montrer que le vecteur moment cinétique $\vec{L} = \vec{r}
+    \wedge \vec{p}$ est conservé au cours du mouvement.  En déduire
+    que la trajectoire de $P$ est située dans un plan $\Pi$ que l'on
+    caractérisera.
+  \item Montrer que l'énergie mécanique $E= \dfrac{1}{2} m v^2 + U$
+    est une constante du mouvement.
+  \item Calculer $L$ à l'aide des coordonnées polaires $(r,\theta)$
+    dans le plan $\Pi$ et en déduire la loi des aires.
+  \end{enumerate}
+  Dans toute la suite du problème, le potentiel est de la forme :
+  $$ 
+  U (r) = - \frac{k}{r} \qquad {\rm avec } \qquad k>0
+  $$
+  On définit le \emph{vecteur de Runge-Lenz} :
+  $$ 
+  \vec{A} = \frac{1}{k} \, \vec{v} \wedge \vec{L} - \frac{\vec{r}}{r} 
+  $$
+  \begin{enumerate}[resume]
+  \item Montrer que le vecteur $\vec{A}$ est constant dans le temps,
+    et qu'il appartient au plan $\Pi$.
+  \item Montrer que :
+    $$
+    A^2 = 1+2 \, \frac{L^2 \, E}{mk^2} 
+    $$
+    (On pourra utiliser les coordonnées polaires : en particulier $
+    \vec{v} = v_r \, \vec{e}_r + v_{\theta} \, \vec{e}_{\theta} $).
+    En déduire, lorsque $L$ est fixé, une borne inférieure pour
+    l'énergie $E$.  Montrer que pour un mouvement circulaire, $E$ est
+    égal à la borne inférieure.
+  \item Calculer le produit scalaire $\vec{A}.\vec{r}$ en fonction de
+    $L$, $m$, $k$ et $r$.  Établir alors l'équation polaire de la
+    trajectoire sous la forme :
+    $$ 
+    r (\theta) = \frac{p}{1+e \, \cos \theta} 
+    $$
+    \emph{Indication : on définira l'angle $\theta$ à partir de l'axe
+      polaire dirigé selon le vecteur $\vec{A}$.}
+
+    Vérifier que : $e =\|\vec{A}\|$ et exprimer $p$ en fonction de
+    $L$, $m$ et $k$.
+  \item Discuter la nature de la trajectoire suivant la valeur de $E$.
+  \end{enumerate}
+  Dans la suite du problème on se restreint au cas des \emph{états
+    liés} : $E<0$. La trajectoire est alors une ellipse.
+  \begin{enumerate}[resume]
+  \item Déterminer son demi-grand axe $a$ et son demi-petit axe $b$ en
+    fonction de $m$, $k$, $L$ et $E$.
+  \item Quelle est la valeur maximale $L_0$ de $L$, l'énergie $E$
+    étant fixée ?
+  \item Quelle est la trajectoire pour $L=0$, et pour $L=L_0$ ?
+  \item Calculer la période du mouvement en fonction de $m$, $k$ et
+    $a$.
+  \end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[Orbite de Pluton]
   L'orbite de Pluton est très excentrique ($e=0,248$). Son demi grand
   axe vaut 39,43~unités astronomiques (L'unité astronomique est
   définie comme le demi grand axe de l'orbite de la Terre). Montrer
@@ -693,22 +780,18 @@
 \begin{Answer}
   On calcule simplement les distances planète-Soleil pour les deux
   planètes à leur périhélie et à leur aphélie. Si Neptune est repérée
-  par le vecteur $\vec{SN}$ et Pluton par le vecteur $\vec{SP}$, on a:
+  par le vecteur $\vec{SN}$ et Pluton par le vecteur $\vec{SP}$, on a :
   \begin{itemize}
-  \item Au périhélie:
-    $$
-    SN = a_n(1-e_n) = 30.06 \times (1-0.009) = 29.79~\UA
-    $$
-    $$
-    SP = a_p(1-e_p) = 39.43 \times (1-0.248) = 29.65~\UA
-    $$
-  \item À l'aphélie:
-    $$
-    SN = a_n(1+e_n) = 30.06 \times (1+0.009) = 30.33~\UA
-    $$
-    $$
-    SP = a_p(1+e_p) = 39.43 \times (1+0.248) = 49.21~\UA
-    $$
+  \item Au périhélie :
+    \begin{align*}
+      SN &= a_n(1-e_n) = 30.06 \times (1-0.009) = 29.79~\UA \\
+      SP &= a_p(1-e_p) = 39.43 \times (1-0.248) = 29.65~\UA
+    \end{align*}
+  \item À l'aphélie :
+    \begin{align*}
+      SN &= a_n(1+e_n) = 30.06 \times (1+0.009) = 30.33~\UA \\
+      SP &= a_p(1+e_p) = 39.43 \times (1+0.248) = 49.21~\UA
+    \end{align*}
   \end{itemize}
   On voit que, du fait de la très grande excentricité de son orbite,
   Pluton, à son périhélie, est plus proche que Neptune du Soleil.
@@ -728,10 +811,10 @@
 \begin{Answer}
   \begin{enumerate}
   \item On a vu que $r^2\dot{\theta}$ est une constante. On a donc
-    $\dot{\theta}=C/r^3$ et la vitesse angulaire augmente lorsque $r$
+    $\dot{\theta}=C/r^2$ et la vitesse angulaire augmente lorsque $r$
     diminue.
 
-  \item L'expression de la vitesse est: $\vec{v} = \dot{r}\vec{i} +
+  \item L'expression de la vitesse est : $\vec{v} = \dot{r}\vec{i} +
     r\dot{\theta}\vec{j}$
 
     Le périhélie et l'aphélie correspondent à des extremum sur la
@@ -743,116 +826,116 @@
     $v = C/r$. En reprenant les résultats vus précédemment sur les
     ellipses, on trouve $r = a(1-e)$ au périhélie, et $r = a(1+e)$ à
     l'aphélie. Le rapport des vitesse $v_p$ au périhélie et $v_a$ à
-    l'aphélie est donc:
+    l'aphélie est donc :
     $$
     \frac{v_p}{v_a} = \frac{1+e}{1-e}
     $$
-    Soit pour la Terre:
+    Soit pour la Terre :
     $$
     \frac{v_p}{v_a} = \frac{1+0.0167}{1-0.0167} = 1.034
     $$
-    Et pour la comète de Halley:
+    Et pour la comète de Halley :
     $$
     \frac{v_p}{v_a} = \frac{1+0.97}{1-0.97} = 65.67
     $$
   \end{enumerate}
 \end{Answer}
 
+% \begin{Exercise}
+%   En reprenant le raisonnement précédent, trouver l'équation de la
+%   trajectoire d'une planète autour du Soleil si la force de
+%   gravitation était en $1/r^3$ au lieu de $1/r^2$. En déduire que dans
+%   ce cas, vous ne seriez pas en train de vous embêter à faire cet
+%   exercice.
+% \end{Exercise}
+
+% \begin{Answer}
+%   On reprend l'expression de l'équation différentielle en remplaçant
+%   $y^2$ dans le membre de droite par $y^3$. On obtient l'équation
+%   suivante :
+%   $$
+%   -C^2 y^2 \left( y + \frac{d^2y}{d \theta ^2} \right) = -G(M_{\odot}
+%   + M_p)y^3
+%   $$
+%   Qui se simplifie par :
+%   $$
+%   -C^2 y - C^2 \frac{d^2y}{d \theta ^2} = G(M_{\odot} + M_p)y
+%   $$
+%   Qui devient, en réorganisant les différents termes :
+%   $$
+%   \frac{d^2y}{d \theta ^2} + \left[ 1 - \frac{ G(M_{\odot} + M_p)
+%     }{C^2} \right]y = 0
+%   $$
+%   Ou encore, en posant $\alpha = \left[ 1 - \frac{ G(M_{\odot} + M_p)
+%     }{C^2} \right]$
+%   $$
+%   \frac{d^2y}{d \theta ^2} + \alpha y = 0
+%   $$
+%   Il faut analyser les trois cas $\alpha < 0$, $\alpha > 0$ et $\alpha
+%   = 0$.
+%   \begin{description}
+%   \item[$\alpha > 0$] On pose $\epsilon = \sqrt{\left|\alpha\right|}$
+%     et l'équation différentielle s'écrit alors :
+%     $$
+%     \frac{d^2y}{d \theta ^2} + \epsilon^2 y = 0
+%     $$
+%     dont la solution s'écrit simplement :
+%     $$
+%     y = K\cos(\epsilon \theta + \phi)
+%     $$
+%     donc :
+%     $$
+%     r = \frac{C}{\cos(\epsilon \theta + \phi)}
+%     $$
+%     où $C$, $\phi$ et $\epsilon$ sont des constantes. Cette équation a
+%     une singularité lorsque $\theta = (\pi/2 - \phi) /
+%     \epsilon$. Lorsque $\theta$ approchera cette valeur, la planète
+%     s'échappera puisqu'alors $r \to \infty$. La figure (\emph{pas
+%       trouvé la figure}) montre la trajectoire correspondante pour les
+%     valeurs des constantes suivantes : $\epsilon = 0.05$, $\phi=0$ et
+%     $C=1$. La planète arrive à proximité de l'étoile par une des
+%     branches infinies, et repart par l'autre après avoir décrit
+%     quelques révolutions autour de l'étoile.
+
+%   \item[$\alpha < 0$] Comme précédemment, on réécrit l'équation
+%     différentielle :
+%     $$
+%     \frac{d^2y}{d \theta ^2} + \epsilon^2 y = 0
+%     $$
+%     Dont la solution est :
+%     $$
+%     y = A e^{\epsilon \theta} + B e^{- \epsilon \theta}
+%     $$
+%     donc :
+%     $$
+%     r = \frac{1}{A e^{\epsilon \theta} + B e^{- \epsilon \theta}}
+%     $$
+%     On voit cette fois que lorsque $\theta$ augmente $r$ diminue
+%     exponentiellement. la planète s'effondrera donc sur l'étoile.
+
+%   \item[$\alpha = 0$] L'équation différentielle a la forme suivante :
+%     $$
+%     \frac{d^2y}{d \theta ^2} = 0
+%     $$
+%     Dont la solution est :
+%     $$
+%     y = A \theta + B
+%     $$
+%     donc :
+%     $$
+%     r = \frac{1}{A \theta + B}
+%     $$
+%     Ici encore, la planète s'effondrera sur l'étoile. On voit donc que
+%     si la loi de la gravitation était en $\frac{1}{r^3}$, il
+%     n'existerait pas de trajectoire fermée dans le problème à deux
+%     corps, et aucune planète ne pourrait graviter autour des étoiles.
+%   \end{description}
+% \end{Answer}
+
+
 \begin{Exercise}
-  En reprenant le raisonnement précédent, trouver l'équation de la
-  trajectoire d'une planète autour du Soleil si la force de
-  gravitation était en $1/r^3$ au lieu de $1/r^2$. En déduire que dans
-  ce cas, vous ne seriez pas en train de vous embêter à faire cet
-  exercice.
-\end{Exercise}
-
-\begin{Answer}
-  On reprend l'expression de l'équation différentielle en remplaçant
-  $y^2$ dans le membre de droite par $y^3$. On obtient l'équation
-  suivante:
-  $$
-  -C^2 y^2 \left( y + \frac{d^2y}{d \theta ^2} \right) = -G(M_{\odot}
-  + M_p)y^3
-  $$
-  Qui se simplifie par:
-  $$
-  -C^2 y - C^2 \frac{d^2y}{d \theta ^2} = G(M_{\odot} + M_p)y
-  $$
-  Qui devient, en réorganisant les différents termes:
-  $$
-  \frac{d^2y}{d \theta ^2} + \left[ 1 - \frac{ G(M_{\odot} + M_p)
-    }{C^2} \right]y = 0
-  $$
-  Ou encore, en posant $\alpha = \left[ 1 - \frac{ G(M_{\odot} + M_p)
-    }{C^2} \right]$
-  $$
-  \frac{d^2y}{d \theta ^2} + \alpha y = 0
-  $$
-  Il faut analyser les trois cas $\alpha < 0$, $\alpha > 0$ et $\alpha
-  = 0$.
-  \begin{description}
-  \item[$\alpha > 0$] On pose $\epsilon = \sqrt{\left | \alpha \right |
-    }$ et l'équation différentielle s'écrit alors:
-    $$
-    \frac{d^2y}{d \theta ^2} + \epsilon^2 y = 0
-    $$
-    dont la solution s'écrit simplement:
-    $$
-    y = K\cos(\epsilon \theta + \phi)
-    $$
-    donc:
-    $$
-    r = \frac{C}{\cos(\epsilon \theta + \phi)}
-    $$
-    où $C$, $\phi$ et $\epsilon$ sont des constantes. Cette équation a
-    une singularité lorsque $\theta = (\pi/2 - \phi) /
-    \epsilon$. Lorsque $\theta$ approchera cette valeur, la planète
-    s'échappera puisqu'alors $r \to \infty$. La figure (\emph{pas
-      trouvé la figure}) montre la trajectoire correspondante pour les
-    valeurs des constantes suivantes: $\epsilon = 0.05$, $\phi=0$ et
-    $C=1$. La planète arrive à proximité de l'étoile par une des
-    branches infinies, et repart par l'autre après avoir décrit
-    quelques révolutions autour de l'étoile.
-
-  \item[$\alpha < 0$] Comme précédemment, on réécrit l'équation
-    différentielle:
-    $$
-    \frac{d^2y}{d \theta ^2} + \epsilon^2 y = 0
-    $$
-    Dont la solution est:
-    $$
-    y = A e^{\epsilon \theta} + B e^{- \epsilon \theta}
-    $$
-    donc:
-    $$
-    r = \frac{1}{A e^{\epsilon \theta} + B e^{- \epsilon \theta}}
-    $$
-    On voit cette fois que lorsque $\theta$ augmente $r$ diminue
-    exponentiellement. la planète s'effondrera donc sur l'étoile.
-
-  \item[$\alpha = 0$] L'équation différentielle a la forme suivante:
-    $$
-    \frac{d^2y}{d \theta ^2} = 0
-    $$
-    Dont la solution est:
-    $$
-    y = A \theta + B
-    $$
-    donc:
-    $$
-    r = \frac{1}{A \theta + B}
-    $$
-    Ici encore, la planète s'effondrera sur l'étoile. On voit donc que
-    si la loi de la gravitation était en $\frac{1}{r^3}$, il
-    n'existerait pas de trajectoire fermée dans le problème à deux
-    corps, et aucune planète ne pourrait graviter autour des étoiles.
-  \end{description}
-\end{Answer}
-
-
-\begin{Exercise}
-  Sachant que la Lune décrit son orbite autour de la Terre en 27,32
-  jours et que le demi grand-axe de son orbite vaut 384400 km,
+  Sachant que la Lune décrit son orbite autour de la Terre en
+  27,32~jours et que le demi grand-axe de son orbite vaut 384400~km,
   calculer l'altitude d'un satellite géostationaire. On supposera que
   la masse de la Lune est négligeable par rapport à celle de la Terre
   (la Terre est environ 80 fois plus massive que la Lune).
@@ -860,51 +943,40 @@
 
 \begin{Answer}
   La troisième loi de Kepler, telle que nous venons de la démontrer
-  s'applique bien sûr aussi pour le système Terre-Lune et on a:
+  s'applique bien sûr aussi pour le système Terre-Lune et on a :
   $$
   \frac{a^3_L}{T^2_L} = \frac{G(M_T + M_L)}{4\pi^2}
   $$
   Où $a_L$ est le demi grand axe de l'orbite de la Lune, $T_L$ sa
   période orbitale et $M_L$ sa masse. Puisque la masse de la Lune peut
-  être négligée par rapport à celle de la Terre, cette relation s'écrit:
+  être négligée par rapport à celle de la Terre, cette relation s'écrit :
   $$
   \frac{a^3_L}{T^2_L} = \frac{GM_T}{4\pi^2}
   $$
   De même, pour le satellite, l'hypothèse $M_S \ll M_T$ est encore plus
-  justifiée, et on a:
+  justifiée, et on a :
   $$
-  \frac{a^3_S}{T^2_S} = \frac{GM_T}{4\pi^2}
+  \frac{a^3_S}{T^2_S} = \frac{GM_T}{4\pi^2} = \frac{a^3_L}{T^2_L}
   $$
-  et donc:
-  $$
-  \frac{a^3_S}{T^2_S} = \frac{a^3_L}{T^2_L}
-  $$
-  La période d'un satellite géostationnaire est, par définition, de 23h56
-  heures (car un satellite géostationnaire reste toujours au dessus du
-  même point de la Terre dont la période de rotation est de 23h56
-  heures). On a donc
-  $$
-  T_S = 23 \times 60 + 56 = 1435~min
-  $$
-  $$
-  T_L = 27.3 \times 24 \times 60 = 39312~min
-  $$
+  La période d'un satellite géostationnaire est, par définition, de
+  23h56 (car un satellite géostationnaire reste toujours au dessus du
+  même point de la Terre dont la période de rotation est de 23h56). On
+  a donc
+  \begin{align*}
+    T_S &= 23 \times 60 + 56 = 1435~\text{min} \\
+    T_L &= 27.3 \times 24 \times 60 = 39312~\text{min}
+  \end{align*}
   et
   $$
   \frac{a^3_S}{1435^2} = \frac{384400^3}{39312^2}
   $$
-  d'où l'on tire finalement:
-  $$
-  a_S = 42300~km
-  $$
-  Cette valeur correspond à la distance entre le centre de la Terre et
-  le satellite. L'altitude du satellite est donc:
-  $$
-  a_S = 42300 - 6378 = 35922~km
-  $$
+  d'où l'on tire finalement $a_S = 42300$~km.  Cette valeur correspond
+  à la distance entre le centre de la Terre et le
+  satellite. L'altitude du satellite est donc : $a_S = 42300 - 6378 =
+  35922$~km
 \end{Answer}
 
-% ===============================================================================
+% ==============================================================================
 \chapter{Vie des galaxies}
 
 
@@ -914,18 +986,18 @@
 
 \begin{Exercise}
   Dans une observation de comptage d'étoiles, toutes de même type, on
-  constate que:
+  constate que :
   \begin{itemize}
   \item pour $m\le7$, $\log{N(m)}=0.6 m + 3$
   \item pour $m\ge9$, $\log{N(m)}=0.6 m + 2.4$
   \end{itemize}
 
   \begin{enumerate}
-  \item Déterminer l'extinction en magnitude A due au nuage traversé
-    quand on passe de m=7 à m=9.
+  \item Déterminer l'extinction en magnitude $A$ due au nuage traversé
+    quand on passe de $m=7$ à $m=9$.
 
   \item On sait que la magnitude absolue des étoiles de ce type est
-    M=5.  Déterminer :
+    $M=5$.  Déterminer :
     \begin{itemize}
     \item La distance $r_{1}$ du front proche du nuage.
     \item L'épaisseur $r_{2}-r_{1}$ du nuage.
@@ -934,19 +1006,20 @@
 \end{Exercise}
 
 \begin{Answer}
+  \note{Eric : correction à reformuler}
   \begin{enumerate}
   \item L'extinction est nulle jusqu'à la distance $r_1$ du front du
     nuage, donc, avec l'équation :
     $$
     \log{N(m)} = 0.6(m-A) + Cte
     $$
-    pour $m=7$:
+    pour $m=7$ :
     $$
     \log{N(m)} = 0.6 (7-0) + 3 = 7.2
     $$
 
     À la distance $r_2$ du bord éloigné du nuage, pour laquelle $m =
-    9$, et l'extinction vaut $A$:
+    9$, et l'extinction vaut $A$ :
     $$
     \text{pour} m = 9, \log{N(m)} = 0.6(9-A) + 2.4 = 7.8-0.6A
     $$
@@ -992,27 +1065,21 @@
   \item le rapport (masse volumique des grains)/(masse volumique du
     gaz)
   \item Qu'en concluez vous sur le rôle des grains dans la matière du
-    MIS?
+    MIS ?
   \end{enumerate}
 \end{Exercise}
 
 \begin{Answer}
-  Distance de l'étoile :
-  $$
-  L = 2000[\u{pc}] .(3 10^{18} [\u{cm/pc}]) = 6 10^{21} [\u{cm}]
-  $$
-  Section d'un grain :
-  $$
-  s_g = \pi\,a^2 = \pi\,(10^{-5})^2 = \pi\,10^{-10}~[\u{cm^{2}}]
-  $$
-  Extinction en V sur la ligne de visée :
-  $$
-  A_V = 0.3~\u{mag/kpc}\times 2~\u{kpc} = 0.6~\u{mag}
-  $$
-  d'où la profondeur optique
-  $$
-  \tau = \frac{0.6}{1.086} = 0.55 = n_g\,s_g\,L
-  $$
+  \begin{align*}
+    \text{Distance de l'étoile :}\qquad 
+    L &= 2000[\u{pc}] .(3 10^{18} [\u{cm/pc}]) = 6 10^{21} [\u{cm}] \\
+    \text{Section d'un grain :}\qquad 
+    s_g &= \pi\,a^2 = \pi\,(10^{-5})^2 = \pi\,10^{-10}~[\u{cm^{2}}] \\
+    \text{Extinction en V sur la ligne de visée :}\qquad 
+    A_V &= 0.3~\u{mag/kpc}\times 2~\u{kpc} = 0.6~\u{mag} \\
+    \text{d'où la profondeur optique :}\qquad 
+    \tau &= \frac{0.6}{1.086} = 0.55 = n_g\,s_g\,L
+  \end{align*}
   La densité de colonne est le nombre de grains dans un cylindre de
   longueur $L$ et de section unité. Si la densité de grains $n_g$ est
   constante, la densité de colonne est donc égale à $n_g L$
@@ -1020,7 +1087,7 @@
   n_g L = \frac{\tau}{s_g} = \frac{0.55}{\pi 10^{-10}} = 1.75
   10^9~[\u{grain/cm^2}]
   $$
-  On déduit de l'expression précédente la densité de grains $n_g$:
+  On déduit de l'expression précédente la densité de grains $n_g$ :
   $$
   n_g = \frac{1.75 10^{9}}{6 10^{21}} = 2.9
   10^{-13}~[\u{grain/cm^{3}}]
@@ -1053,7 +1120,7 @@
   $$
   C\,\lambda^{-5}\,\left[\exp\left({\frac{hc}{\lambda\,kT}}\right)-1\right]^{-1}
   $$
-  En présence d'une extinction $A(\lambda) = a/\lambda$, montrez que:
+  En présence d'une extinction $A(\lambda) = a/\lambda$, montrez que :
   \begin{enumerate}
   \item pour $\lambda \ll hc/kT$, dans la partie bleue du spectre, le
     spectre observé est celui d'un corps noir à une température $T'$,
@@ -1071,8 +1138,8 @@
   C\,\lambda^{-5}\,\left[\exp\left({\frac{hc}{\lambda\,kT}}\right)-1\right]^{-1}
   $$
 
-  Si $W'$ représente le flux de l'étoile en présence d'une extinction en
-  magnitude de la forme $A(\lambda) = \frac{a}{\lambda}$ , on a :
+  Si $W'$ représente le flux de l'étoile en présence d'une extinction
+  en magnitude de la forme $A(\lambda) = a/\lambda$, on a :
   $$
   A(\lambda)= \frac{a}{\lambda} = 2.5 \log\frac{W}{W'}
   $$
@@ -1085,13 +1152,13 @@
   \begin{enumerate}
   \item Pour la partie du spectre aux courtes longueurs d'onde, on a
     $hc/\lambda kT \gg 1$ d'où :
-    \begin{eqnarray*}
-      W  &=& C\lambda^{-5}\exp\left(-\frac{hc}{\lambda kT}\right) \\
-      W' &=& C\lambda^{-5}\exp\left(-\frac{hc}{\lambda
+    \begin{align*}
+      W  &= C\lambda^{-5}\exp\left(-\frac{hc}{\lambda kT}\right) \\
+      W' &= C\lambda^{-5}\exp\left(-\frac{hc}{\lambda
           kT}\right)\exp\left(-\frac{a'}{\lambda}\right) \\
-      W' &=& C\lambda^{-5}\exp\left(-\frac{hc}{\lambda
+      W' &= C\lambda^{-5}\exp\left(-\frac{hc}{\lambda
           k}\left(\frac{1}{T}+\frac{ka'}{hc}\right)\right) \\
-    \end{eqnarray*}
+    \end{align*}
     En posant
     $$
     \frac{1}{T'} = \frac{1}{T} + \frac{ka'}{hc}
@@ -1139,19 +1206,15 @@
 \begin{Answer}
   \begin{enumerate}
   \item Magnitudes apparentes sans extinction
-    $$
-    m_{V_0} = 5 + 5\log(5000) -5 = 18.5
-    $$
-    $$
-    m_{B_0} = m_{V_0} + (B-V)_0 = 19.2
-    $$
+    \begin{align*}
+      m_{V_0} &= 5 + 5\log(5000) -5 = 18.5 \\
+      m_{B_0} &= m_{V_0} + (B-V)_0 = 19.2
+    \end{align*}
   \item Calcul des extinctions
-    $$
-    A_V = 5\,(kpc)\times 0.3=1.5
-    $$
-    $$
-    A_B = 1.5 \times \frac{0.55}{0.44} = 1.88
-    $$
+    \begin{align*}
+      A_V &= 5\,(kpc)\times 0.3=1.5 \\
+      A_B &= 1.5 \times \frac{0.55}{0.44} = 1.88
+    \end{align*}
   \item Calcul de l'excès de couleur
     $$
     E_{B-V} = A_B-A_V = 1.88 - 1.5 = 0.38
@@ -1190,22 +1253,22 @@
   \centering
   \includegraphics[width=0.5\textwidth]{interstellarreddeningreduite}
   \label{extinction}
-  \caption{Variation de $A_V/E_{B-V}$ en fonction de $1/\lambda$}
+  \caption{Variation de $A_{\lambda}/E_{B-V}$ en fonction de $1/\lambda$}
 \end{figure}
 
 \begin{Answer}
   \begin{enumerate}
   \item Calcul de l'extinction
     $$
-    E_{B-V} = (A_B- A_V) = (B-V )- (B-V)_0 = 2,25-(-0,25) = 2
+    E_{B-V} = (A_B- A_V) = (B-V )- (B-V)_0 = 2,25-(-0,25) = 2,5
     $$
-    Le graphique donne $A_V = 3 E_{B-V}$, d'où:
+    Le graphique donne $A_V = 3 E_{B-V}$, d'où :
     $$
-    A_V =3 \times 2 = 6
+    A_V =3 \times 2,5 = 7,5
     $$
-  \item Le graphique donne $A_K = 0.5 \times E_{B-V}$, d'où:
+  \item Le graphique donne $A_K = 0.5 \times E_{B-V}$, d'où :
     $$
-    A_K = 0.5 \times 2 = 1
+    A_K = 0.5 \times 2,5 = 1,25
     $$
   \item L'extinction est beaucoup plus faible dans l'IR que dans le
     visible.
@@ -1256,9 +1319,9 @@
       \hline
       $M_{\mathrm{gaz}}/M_{\mathrm{totale}}$ & & 0.03 & 0.05 & 0.08 & 0.11 & 0.15 \\
       \hline
-      diamètre (kpc) & 21.1 & 19.8 & 25.1 & 22.4 & 17.7 & 8.5  \\
+      Diamètre (kpc) & 21.1 & 19.8 & 25.1 & 22.4 & 17.7 & 8.5  \\
       \hline
-      S ($M_{\odot}/pc^2$) &  & 188.9 & 154.7 & 124.2 & 91.4 & 74.5 \\
+      $S$ ($M_{\odot}/pc^2$) &  & 188.9 & 154.7 & 124.2 & 91.4 & 74.5 \\
       \hline
     \end{tabular}
   \end{center}
@@ -1269,7 +1332,7 @@
   Donnez la classification simplifiée (E, S0, SA, SAB, SB) des
   galaxies données dans la partie cours correspondante dans spirale.
 
-  Est-il toujours facile de classifier les galaxies réelles?
+  Est-il toujours facile de classifier les galaxies réelles ?
 \end{Exercise}
 
 \begin{Answer}
@@ -1282,21 +1345,20 @@
       2  & NGC 7424   & SAB & SAB(rs)cd  \\ \hline
       3  & MESSIER 31 & SA  & SA(s)b  \\ \hline
       4  & MESSIER 33 & SA  & SA(s)cd  \\ \hline
-      5  & MESSIER 87 & E0 ou E1 & E+0-1 pec* \\ \hline
+      5  & MESSIER 87 & E0 ou E1 & E+0-1 pec\footnotemark[1] \\ \hline
       6  & NGC 2683   & SA  & SA(rs)b  \\ \hline
       7  & NGC 1300   & SB  & (R')SN(r'1)b  \\ \hline
       8  & NGC 1097   & SB  & (R'\_1:)SB(r'l)b  \\ \hline
       9  & NGC 4321   & SAB & SAB(s)bc \\ \hline
       10 & MESSIER 83 & SAB & SAB(s)c \\ \hline
     \end{tabular}
+    \footnotetext[1]{« Peculiar » à cause du jet provenant du noyau actif}
   \end{center}
 
   Galaxies lointaines sans noms (11). La classification demandée est
   SB. Ces objets sont considérés comme des galaxies barrées mais n'ont
   pas été précisément classifiées à cause du manque de résolution des
-  images (HST Deep Field North).
-
-  *pec: 'peculiar' à cause du jet provenant du noyau actif
+  images (\emph{HST Deep Field North}).
 \end{Answer}
 
 \subsection{Constituants des galaxies}
@@ -1309,19 +1371,24 @@
 
 \begin{Answer}
   La fraction est de $10^{11}\times \left(\frac{0.7\times
-      10^{6}}{10\times 3.08\times 10^{16}}\right)^{3}\approx 10^{-20}$
+      10^{6}}{10\times 3.08\times 10^{16}}\right)^{3}\approx 10^{-24}$
 \end{Answer}
 
 
 \begin{Exercise}[La matière noire]
-  Donnez l'expression de l'accélération $a$ centrifuge en fonction de
-  $V$, et $R$, la vitesse circulaire d'une étoile à une distance $R$
-  du centre de la galaxie.  Écrire la loi de Newton pour cette
-  étoile~: l'accélération $a$ en fonction de la masse $M$ incluse dans
-  le rayon $R$.  En déduire la loi de décroissance de $V$ en fonction
-  du rayon $R$ de l'étoile, en supposant que la masse $M$ reste
-  constante (c'est-à-dire que toute la masse de la galaxie est
-  comprise dans la sphère de rayon $R$).
+  Donnez l'expression de l'accélération $a$ centripète en fonction de
+  $R$ et $V$, la vitesse circulaire d'une étoile à une distance $R$ du
+  centre de la galaxie.  Écrire la loi de Newton pour cette étoile~:
+  l'accélération $a$ en fonction de la masse $M$ incluse dans le rayon
+  $R$.  En déduire la loi de décroissance de $V$ en fonction du rayon
+  $R$ de l'étoile, en supposant que la masse $M$ reste constante
+  (c'est-à-dire que toute la masse de la galaxie est comprise dans la
+  sphère de rayon $R$).
+
+  Dans les galaxies spirales, on observe au-delà d'un certain rayon
+  $R_{0}$ que la vitesse de rotation du gaz et des étoiles atteint une
+  valeur limite $V_{0} > 0$. À quelle distribution de densité cela
+  correspond-il ? Commentez.
 \end{Exercise}
 
 \begin{Answer}
@@ -1340,15 +1407,10 @@
 \begin{Exercise}[Morphologie de notre galaxie]
   En examinant en détail l'image de notre galaxie prise par COBE/DIRBE
   (Fig.~\ref{cobe}) on distingue que le bulbe de la Voie Lactée n'est
-  pas symétrique.
-  \begin{enumerate}
-  \item Examiner cette image et essayer de mesurer la hauteur du
-    bulbe~; à droite, puis à gauche du centre de la Galaxie
-  \item Donner une explication plausible de cette asymétrie, en se
-    rappelant notre position très particulière par rapport au centre
-    de notre galaxie, et en se rappelant des différentes composantes
-    qui composent notre Galaxie.
-  \end{enumerate}
+  pas symétrique.  Donner une explication plausible de cette
+  asymétrie, en se rappelant notre position très particulière par
+  rapport au centre de notre galaxie, et en se rappelant des
+  différentes composantes qui composent notre Galaxie.
 \end{Exercise}
 
 \begin{figure}[htp]
@@ -1360,20 +1422,16 @@
 
 \begin{Answer}
   Le bulbe de la galaxie vue en infrarouge est effectivement
-  asymétrique:
-  \begin{enumerate}
-  \item Le coté gauche a une épaisseur légèrement plus grande que le
-    coté droit.
-  \item Ça n'est pas un effet de populations stellaires, ou
-    d'extinction due à la poussière, mais bien une épaisseur
-    réellement plus grande d'un coté que de l'autre. Ce que l'on voit
-    est en fait un effet de projection : c'est en fait la barre de la
-    Galaxie que nous observons. Cette barre étant inclinée à 35 degrés
-    environ par rapport à nous, le coté gauche étant proche de nous,
-    le coté droit loin de nous (de l'autre coté du centre
-    galactique). Une des extrémités de la barre est donc plus proche
-    de nous, et par projection elle apparaît plus haute...
-  \end{enumerate}
+  asymétrique : le coté gauche a une épaisseur légèrement plus grande
+  que le coté droit. Ça n'est pas un effet de populations stellaires,
+  ou d'extinction due à la poussière, mais bien une épaisseur
+  réellement plus grande d'un coté que de l'autre. Ce que l'on voit
+  est en fait un effet de projection : c'est en fait la barre de la
+  Galaxie que nous observons. Cette barre étant inclinée à 35 degrés
+  environ par rapport à nous, le coté gauche étant proche de nous, le
+  coté droit loin de nous (de l'autre coté du centre galactique). Une
+  des extrémités de la barre est donc plus proche de nous, et par
+  projection elle apparaît plus haute...
 \end{Answer}
 
 \begin{Exercise}[Le centre galactique]
@@ -1400,38 +1458,37 @@
 
 \begin{Answer}
   On rappelle que G, la constante gravitationnelle, vaut
-  $6,6742.10^{-11} m^3kg^{-1}sec^{-2}$
+  $6,6742.10^{-11}$~\u{m^3kg^{-1}sec^{-2}}
 
   Nous allons d'abord transformer la taille du demi grand-axe
-  d'arcseconde en mètres, et ensuite, la période en secondes:
+  d'arcseconde en mètres, et ensuite, la période en secondes :
   \begin{itemize}
-  \item 1 arcseconde équivaut à $1/3600$~degrés, donc à $8.5~kpc$ ,
-    cela revient à environ $0.041~pc$. Le demi grand axe est donné
-    comme étant égal à $0.119$~arcseconde, donc cela équivaut à~:
+  \item $1''$ équivaut à $1/3600$~degrés, donc à $8.5$~kpc, cela
+    revient à environ $0,041$~pc. Le demi grand axe est donné comme
+    étant égal à $0,119''$, donc cela équivaut à~:
     $$
     a = 0.119\times0.041 = 0.0048~pc = 0.0048\times 3.08 \times
     10^{16} = 1.5 \times 10^{14}~m
     $$
 
-  \item la période $T$ est donnée de 15.2 ans donc~: $T=479347200~s$
+  \item la période $T$ est donnée de 15,2~ans donc~: $T=479347200~s$
   \end{itemize}
 
   Enfin la troisième loi de Kepler dit que le rapport $T^2/a^3$ est une
-  constante k qui ne dépend que de la masse du système.
+  constante $k$ qui ne dépend que de la masse du système.
 
-  Cette constante k est simplement donnée par : $4\pi^2/(GM)$ donc on
-  peut écrire que:
+  Cette constante $k$ est simplement donnée par : $4\pi^2/(GM)$ donc on
+  peut écrire que :
   $$
   M = \frac{4\pi^2 a^3}{T^2 G}
   $$
-
   En application numérique cela donne (en kg, vérifiez bien que
-  l'équation est homogène dans ses unités):
+  l'équation est homogène dans ses unités) :
   $$
   M = \frac{ 4 \times \pi^2 \times (1,5 \times 10^{14})^3 } { (479 347
     200)^2 \times 6,6742 \times 10^{11} } = 8,7 \times 10^{36}~kg
   $$
-  et ceci exprimé en masses solaires: $M \approx 4,4 \times
+  et ceci exprimé en masses solaires : $M \approx 4,4 \times
   10^6~M_{\odot}$
 \end{Answer}
 
@@ -1466,7 +1523,7 @@
 \begin{Exercise}[Fonction de luminosité]
   \begin{enumerate}
   \item Exprimer la loi de Schechter en magnitudes absolues.
-  \item Quelle est la signification physique de la loi de Schechter?
+  \item Quelle est la signification physique de la loi de Schechter ?
   \end{enumerate}
 \end{Exercise}
 
@@ -1485,10 +1542,11 @@
 
 \subsubsection{Effets d'environnement, collisions et fusions}
 
-\begin{Exercise}[Calcul de la fréquence des collisions dans un
-  amas]
+\begin{Exercise}[Calcul de la fréquence des collisions dans un amas]
+  \note{Eric : énoncé et correction à reformuler}
+
   On considère un amas de galaxies qui a les caractéristiques
-  suivantes:
+  suivantes :
   \begin{itemize}
   \item il est supposé sphérique, de diamètre $D_{\mathrm{amas}}$ en pc,
   \item il contient $N_{\mathrm{galaxies}}$ identiques et réparties
@@ -1516,7 +1574,7 @@
   \item En déduire le temps entre deux collisions/interactions dans
     l'amas.
 
-  \item Calcul de la fréquence des collisions dans un amas:
+  \item Calcul de la fréquence des collisions dans un amas :
     Considérons un amas de $N=850$ galaxies dont le diamètre est
     $D=7$~Mpc et dont la dispersion des vitesses est $V =
     650$~km/s. Explicitez le calcul numérique du temps moyen entre
@@ -1545,7 +1603,7 @@
     si le diamètre des galaxies est exprimé en pc.
 
   \item Le volume « balayé » par une galaxie pendant le temps $\d t$
-    est le suivant:
+    est le suivant :
     $$
     V = \frac{3.15\,10^7 \text{(s par année)}}{%
       3.09\,10^{13} \text{(km par pc)}} \times v_{galaxies} \times
@@ -1577,16 +1635,12 @@
 \subsection{Équilibre gravitationnel}
 
 \begin{Exercise}[Théorème du Viriel scalaire]
-  Le théorème du Viriel peut aussi s'écrire :
-  $$
-  \frac{2K}{U}=-1
-  $$
-  Imaginez que vous vouliez construire un système stellaire, en
-  donnant à $N$ étoiles leurs positions et leurs vitesses, et où vous
-  auriez:
-  $$
-  \frac{2K}{U}>-1
-  $$
+  \note{Eric : énoncé à reformuler}
+
+  Le théorème du Viriel peut aussi s'écrire $2K/U = -1$.  Imaginez que
+  vous vouliez construire un système stellaire, en donnant à $N$
+  étoiles leurs positions et leurs vitesses, et où vous auriez $2K/U >
+  -1$.
   \begin{enumerate}
   \item Comment feriez-vous ? (donner un exemple)
   \item Comment le système évoluerait-il ?
@@ -1597,7 +1651,7 @@
   \begin{enumerate}
   \item Il suffit de donner une position quelconque aux étoiles mais
     en leur donnant à toute une vitesse nulle. On aurait alors $K=0$,
-    et ainsi on aurait bien la condition remplie!
+    et ainsi on aurait bien la condition remplie.
 
   \item Si cette condition est remplie, c'est que l'énergie cinétique
     est trop faible par rapport à l'énergie potentielle (en valeur
@@ -1611,14 +1665,13 @@
   On va maintenant utiliser le théorème du Viriel pour remplir le
   tableau ci-dessous, donnant les rayons, masses et vitesse
   caractéristiques de différents système stellaires.  Veuillez
-  compléter ce tableau.  (On prendra $G$ en fonction d'unités
-  astronomiques pratiques, ainsi
-  $G=0.004301$~\u{pc.km^{2}.s^{-2}.M_{\odot}^{-1}})
-
+  compléter ce tableau.
+  % (On prendra $G$ en fonction d'unités astronomiques pratiques,
+  % ainsi $G=0.004301$~\u{pc.km^{2}.s^{-2}.M_{\odot}^{-1}})
   \begin{center}
     \begin{tabular}{|c|c|c|c|}
       \hline
-      Système & R (pc) & V (km/s) & M ($M_{\odot}$) \\ \hline
+      Système & $R$ (pc) & $V$ (km/s) & $M$ ($M_{\odot}$) \\ \hline
       Amas globulaire & 10 & 10 &  \\ \hline
       Galaxie & 50~000 & 200 & \\ \hline
       Amas de galaxies & 1~000~000  & 1000  &  \\ \hline
@@ -1630,23 +1683,21 @@
   \begin{center}
     \begin{tabular}{|c|c|c|c|}
       \hline
-      Système & R (pc) & V (km/s) & M ($M_{\odot}$) \\ \hline
-      Amas globulaire & 10 & 10 & $1,4\times 10^6$ \\ \hline
-      Galaxie & 50~000 & 200 & $2,3\times 10^{11}$ \\ \hline
-      Amas de galaxies & 1~000~000  & 1000  &  $1,4\times 10^{15}$ \\ \hline
+      Système & $R$ (pc) & $V$ (km/s) & $M$ ($M_{\odot}$) \\ \hline
+      Amas globulaire  & 10        & 10   & \red{$4,6\times 10^{5}$} \\ \hline
+      Galaxie          & 50~000    & 200  & \red{$9,3\times 10^{11}$} \\ \hline
+      Amas de galaxies & 1~000~000 & 1000 & \red{$4,6\times 10^{14}$} \\ \hline
     \end{tabular}
   \end{center}
 \end{Answer}
 
 \begin{Exercise}[Temps cinématique]
   On va maintenant calculer le temps cinématique $t_c$ pour différents
-  systèmes stellaires. Veuillez compléter le tableau ci-dessous.  (Une
-  fois de plus, on prendra $G$ en fonction d'unités astronomiques
-  pratiques, ainsi $G=0.004301$~\u{pc.km^{2}.s^{-2}.M_{\odot}^{-1}})
+  systèmes stellaires. Veuillez compléter le tableau ci-dessous. 
   \begin{center}
     \begin{tabular}{|c|c|c|c|}
       \hline
-      Système & R (pc) & M ($M_{\odot}$) & $t_c$ (ans) \\ \hline
+      Système & $R$ (pc) & $M$ ($M_{\odot}$) & $t_c$ (ans) \\ \hline
       Amas ouvert & 1 & 500 &  \\ \hline
       Amas globulaire & 10 & $10^5$ &  \\ \hline
       Galaxie & 50~000 & $10^{12}$ & \\ \hline
@@ -1661,24 +1712,24 @@
     \begin{tabular}{|c|c|c|c|}
       \hline
       Système & R (pc) & M ($M_{\odot}$) & $t_c$ (ans) \\ \hline
-      Amas ouvert & 1 & 500 & $10^6$ \\ \hline
-      Amas globulaire & 10 & $10^5$ & $2\times 10^6$ \\ \hline
-      Galaxie & 50~000 & $10^{12}$ & $2\times 10^8$ \\ \hline
+      Amas ouvert     & 1      & 500      & \red{$9,4\times 10^5$} \\ \hline
+      Amas globulaire & 10     & $10^5$   & \red{$2,1\times 10^6$} \\ \hline
+      Galaxie         & 50~000 & $10^{12}$ & \red{$2,4\times 10^8$} \\ \hline
     \end{tabular}
   \end{center}
 
   Les temps cinématiques pour un amas ouvert et un amas globulaire ne
   sont pas vraiment différents malgré leurs tailles respectives très
-  différentes.  De même entre une galaxie et un amas globulaire: il ne
-  faut qu'environ 100 plus de temps à une étoile avec une vitesse
+  différentes.  De même entre une galaxie et un amas globulaire : il
+  ne faut qu'environ 100 plus de temps à une étoile avec une vitesse
   typique pour traverser une grosse galaxies qu'un amas globulaire
   (bien sur les vitesses caractéristiques ne sont pas les mêmes pour
-  ces 2 systèmes).
+  ces deux systèmes).
 \end{Answer}
 
 % ===============================================================================
 
-\chapter{Vie des structures - Cosmologies}
+\chapter{Cosmologie}
 
 \section{Espace et temps absolus}
 
@@ -1705,17 +1756,14 @@
   10^{-11}$, $M_{\oplus} = 5,976 \times 10^{24}$~kg, et $R = 6365$~km
   qui est donné dans l'énoncé.
 
-  On écrit donc:
+  On écrit donc :
   $$
   P_{\mathrm{Marcel}} = G \frac{M_{\mathrm{Marcel}}M_{\oplus}}{R^2}
   $$
-  soit encore:
+  soit encore :
   $$
   M_{\mathrm{Marcel}} = \frac{P_{\mathrm{Marcel}}R^2}{G M_{\oplus}}
-  $$
-  et donc
-  $$
-  M_{\mathrm{Marcel}} = \frac{ 6370000^2 \times 700 }{ 6,672 \times
+  = \frac{ 6370000^2 \times 700 }{ 6,672 \times
     10^{-11} \times 5,976 \times 10^{24} } = 71,23~\u{kg}
   $$
   Cette valeur s'obtiendrait aussi en utilisant la formule $P =
@@ -1726,7 +1774,7 @@
   Pour Naomi, on peut utiliser le fait que
   $M_{\mathrm{Naomi}}/M_{\mathrm{Marcel}} =
   P_{\mathrm{Naomi}}/P_{\mathrm{Marcel}}$, puisque les deux personnes
-  sont soumises au même champ de gravité. Et donc:
+  sont soumises au même champ de gravité. Et donc :
   $$
   M_{\mathrm{Naomi}} = M_{\mathrm{Marcel}}
   \frac{P_{\mathrm{Naomi}}}{P_{\mathrm{Marcel}}} = 71,23 \times
@@ -1746,69 +1794,68 @@
   plus faible des quatre forces fondamentales de l'univers...
 \end{Answer}
 
-\subsection{Problèmes de l'univers de Newton}
+% \subsection{Problèmes de l'univers de Newton}
 
-\begin{Exercise}[L'instabilité gravitationnelle]
-  Pourquoi Newton pense-t-il que ces trois hypothèses supplémentaires
-  permettraient, chacune, de « sauver » l'univers de la catastrophe
-  gravitationnelle?
-\end{Exercise}
+% \begin{Exercise}[L'instabilité gravitationnelle]
+%   Pourquoi Newton pense-t-il que ces trois hypothèses supplémentaires
+%   permettraient, chacune, de « sauver » l'univers de la catastrophe
+%   gravitationnelle ?
+% \end{Exercise}
 
-\begin{Answer}
-  \begin{itemize}
-  \item Si l'univers est infini, tout point est entouré d'une
-    distribution de matière à symétrie sphérique, et restera donc
-    immobile.
-  \item Si l'univers est en expansion, et bien, tant qu'il l'est,
-    c'est qu'il n'est pas en train de se contracter !
-  \item Si l'univers est très jeune, il n'a pas encore eu le temps de
-    démarrer sa contraction gravitationnelle de façon sensible, et
-    voilà ...
-  \end{itemize}
-\end{Answer}
+% \begin{Answer}
+%   \begin{itemize}
+%   \item Si l'univers est infini, tout point est entouré d'une
+%     distribution de matière à symétrie sphérique, et restera donc
+%     immobile.
+%   \item Si l'univers est en expansion, c'est qu'il n'est pas en train
+%     de se contracter !
+%   \item Si l'univers est très jeune, il n'a pas encore eu le temps de
+%     démarrer sa contraction gravitationnelle de façon sensible.
+%   \end{itemize}
+% \end{Answer}
 
-\begin{Exercise}[Le paradoxe d'Olbers]
-  En quoi le fait que l'univers soit jeune et en expansion peut-il
-  permettre d'expliquer la noirceur du ciel nocturne ?
-\end{Exercise}
+% \begin{Exercise}[Le paradoxe d'Olbers]
+%   En quoi le fait que l'univers soit jeune et en expansion peut-il
+%   permettre d'expliquer la noirceur du ciel nocturne ?
+% \end{Exercise}
 
-\begin{Answer}
-  \begin{itemize}
-  \item Si l'univers est jeune, du fait de la vitesse finie de
-    propagation de la lumière, celle qui provient des objets très
-    lointains n'a pas eu le temps de nous parvenir.
-  \item Si l'univers est en expansion, la lumière qui nous parvient
-    des objets très lointains a été affaiblie par cette expansion
-    (ceci sera traité plus loin dans le cours), au point de ne pas
-    être détectable.
-  \end{itemize}
-\end{Answer}
+% \begin{Answer}
+%   \begin{itemize}
+%   \item Si l'univers est jeune, du fait de la vitesse finie de
+%     propagation de la lumière, celle qui provient des objets très
+%     lointains n'a pas eu le temps de nous parvenir.
+%   \item Si l'univers est en expansion, la lumière qui nous parvient
+%     des objets très lointains a été affaiblie par cette expansion
+%     (ceci sera traité plus loin dans le cours), au point de ne pas
+%     être détectable.
+%   \end{itemize}
+% \end{Answer}
 
 \section{La rupture relativiste}
 
-\subsection{Vitesse de la lumière}
+% \subsection{Vitesse de la lumière}
 
-\begin{Exercise}[La première mesure de $c$]
-  Si Roemer a fait le calcul (ce que l'on ignore, mais cela semble
-  assez probable), et en supposant qu'il utilisait la même valeur de
-  la distance Terre-Soleil que les astronomes d'aujourd'hui, quelle
-  valeur de $c$ a-t-il obtenue?
-\end{Exercise}
+% \begin{Exercise}[La première mesure de $c$]
+%   Si Roemer a fait le calcul (ce que l'on ignore, mais cela semble
+%   assez probable), et en supposant qu'il utilisait la même valeur de
+%   la distance Terre-Soleil que les astronomes d'aujourd'hui, quelle
+%   valeur de $c$ a-t-il obtenue ?
+% \end{Exercise}
 
-\begin{Answer}
-  Si la lumière met $8+8 = 16$~min pour traverser l'orbite de la
-  Terre, c'est à dire pour franchir une distance de 2~U.A., sa vitesse
-  est $c = 2 \times 1,49598 \times 10^{11} / ( 16 \times 60 ) = 3,11
-  \times 10^8$~m/s. Ceci suppose que la valeur de l'U.A. admise alors
-  était la même qu'aujourd'hui, ce qui n'est certainement pas exact :
-  en 1675, on n'avait pas encore très bien mesuré la distance de la
-  Terre au Soleil ... La valeur de deux fois huit minutes est
-  elle-même approximative. Roemer aurait plutôt trouvé $2 \times
-  10^8$~m/s, dit-on. La première détermination sérieuse de l'Unité
-  Astronomique est due à Cassini et Richer, en 1671. Il faudra
-  attendre le XXe siècle et les méthodes d'écho radar pour disposer de
-  mesures très précises de cette valeur.
-\end{Answer}
+% \begin{Answer}
+%   Si la lumière met $8+8 = 16$~min pour traverser l'orbite de la
+%   Terre, c'est à dire pour franchir une distance de 2~U.A., sa vitesse
+%   est $c = 2 \times 1,49598 \times 10^{11} / ( 16 \times 60 ) = 3,11
+%   \times 10^8$~m/s. Ceci suppose que la valeur de l'U.A. admise alors
+%   était la même qu'aujourd'hui, ce qui n'est certainement pas exact :
+%   en 1675, on n'avait pas encore très bien mesuré la distance de la
+%   Terre au Soleil... La valeur de deux fois huit minutes est elle-même
+%   approximative. Roemer aurait plutôt trouvé $2 \times 10^8$~m/s,
+%   dit-on. La première détermination sérieuse de l'Unité Astronomique
+%   est due à Cassini et Richer, en 1671. Il faudra attendre le XXe
+%   siècle et les méthodes d'écho radar pour disposer de mesures très
+%   précises de cette valeur.
+% \end{Answer}
 
 \subsection{Relativité générale}
 
@@ -1861,29 +1908,26 @@
   neutrons. Le rayon de l'orbite est de 1000~km, la masse de l'étoile
   de 1,5~\u{M_{\odot}}.  À quelle longueur d'onde le vaisseau qui a
   lancé la capsule, et se tient prudemment à grande distance, doit-il
-  rechercher les signaux?
+  rechercher les signaux ?
 \end{Exercise}
 
 \begin{Answer}
-  Le décalage gravitationnel subi à la distance r d'un corps de masse
-  M s'écrit:
+  Le décalage gravitationnel subi à la distance $r$ d'un corps de
+  masse $M$ s'écrit :
   $$
   z = \frac{GM}{c^2r}
+  = \frac{ 6,672 \times 10^{-11} \times 1,5 \times 1,989 \times
+    10^{30} }{ 299792458^{2} \times 10^6 } = 2,215 \times 10^{-3}
   $$
-  Et donc:
+  Mais :
   $$
-  z = \frac{ 6,672 \times 10^{-11} \times 1,5 \times 1,989 \times
-    10^{30} }{ 2997924582 \times 10^6 } = 2,215 \times 10^{-3}
+  z = \frac{ \delta \lambda }{ \lambda_0 }
   $$
-  Mais:
-  $$
-  z = \frac{ \delta \lambda } { \lambda_0 }
-  $$
-  Et donc:
+  donc :
   $$
   \lambda = \lambda_0 + \delta \lambda = (1+z)\lambda_0
   $$
-  D'où le $\lambda$ cherché: $\lambda = 1,00221 \times 656,3 =
+  d'où le $\lambda$ cherché : $\lambda = 1,00221 \times 656,3 =
   657,75$~nm.
 \end{Answer}
 
@@ -1891,7 +1935,7 @@
 
 \subsection{Expansion de l'univers...}
 
-\begin{Exercise}[...limitée par $c$?]
+\begin{Exercise}[...limitée par $c$ ?]
   Plus une galaxie est éloignée de notre Voie Lactée, plus les
   astronomes lui trouvent une vitesse d'éloignement élevée. C'est
   l'expansion de l'univers. Mais, quand la distance croît sans cesse,
@@ -1919,14 +1963,14 @@
   permettre d'observer les objets qui flirtent avec cette limite...
 \end{Answer}
 
-\begin{Exercise}[...la même partout?]
+\begin{Exercise}[...la même partout ?]
   La radiogalaxie 3C 171 (nommée ainsi parce qu'elle occupe la 171e
   position dans le troisième catalogue de radiources établi par
   l'observatoire de Cambridge...) est relativement lointaine;
   entraînée par l'expansion de l'univers, elle présente une vitesse de
   fuite de 63000~km/s.
 
-  Montrer que malgré cela, l'astronome Xhbrr'ffttk, qui a là-bas
+  Montrer que malgré cela, l'astronome Snurp, qui a là-bas
   découvert l'expansion de l'univers, comme Hubble l'a fait pour nous,
   a lui aussi trouvé une loi qui s'écrit :
   $$
@@ -1934,7 +1978,7 @@
   $$
   $V_0$ étant la vitesse mesurée à partir de 3C171 pour une galaxie
   lointaine située à la distance $d_0$ de 3C171, et $X_0$ étant bien
-  entendu la constante de Xhbrr'ffttk.
+  entendu la constante de Snurp.
 
   Ainsi, d'une planète de 3C171, comme de la Terre, on observe la même
   expansion universelle, avec la même géométrie, et le même taux...
@@ -1948,17 +1992,17 @@
 
   Considérons une autre galaxie, G, observée à la fois de la Terre et
   de 3C171. On peut écrire :
-  \begin{eqnarray*}
-    \vec{V}_{3C}(G) &=& \vec{V}_{3G}(T) + \vec{V}_{T}(G) \\
-    &=& -\vec{V}_{T}(3C171) + \vec{V}_{T}(G) \\
-    &=& -H_0\vec{d}_{T}(3C171) + H_0\vec{d}_{T}(G) \\
-    &=& H_0 \left[ \vec{d}_{T}(G) - \vec{d}_{T}(3C171) \right ] \\
-    &=& H_0 \vec{d}_{3C}(G)
-  \end{eqnarray*}
+  \begin{align*}
+    \vec{V}_{3C}(G) &= \vec{V}_{3G}(T) + \vec{V}_{T}(G) \\
+    &= -\vec{V}_{T}(3C171) + \vec{V}_{T}(G) \\
+    &= -H_0\vec{d}_{T}(3C171) + H_0\vec{d}_{T}(G) \\
+    &= H_0 \left[ \vec{d}_{T}(G) - \vec{d}_{T}(3C171) \right ] \\
+    &= H_0 \vec{d}_{3C}(G)
+  \end{align*}
   et donc, à partir de 3C171 comme de la Terre, toute les galaxie
   observée semble s'enfuir avec une vitesse proportionnelle à sa
-  distance, et le facteur de proportionnalité (la constante de
-  Xhbrr'ffttk) est universel : $X_0=H_0$... (Fig.~\ref{H0})
+  distance, et le facteur de proportionnalité (la constante de Snurp)
+  est universel : $X_0=H_0$... (Fig.~\ref{H0})
 
   \begin{figure}[htp]
     \centering
@@ -1969,11 +2013,10 @@
 \end{Answer}
 
 \begin{Exercise}[Le facteur d'expansion de l'espace]
-  Donner $H_0$ en kilomètres par seconde et par mégaparsec est
-  pratique pour les astronomes, mais ne parle guère au sens commun.
-  Passons donc dans des unités plus usuelles : si l'on suppose que
-  $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}, quelle est la valeur de
-  l'accroissement annuel d'un kilomètre ?
+  La constant de Hubble $H_0$ est usuellement exprimée en kilomètres
+  par seconde et par mégaparsec, mais cela ne parle guère au sens
+  commun.  En prenant $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}, quelle est la
+  valeur de l'accroissement annuel d'un kilomètre ?
 \end{Exercise}
 
 \begin{Answer}
@@ -1989,70 +2032,9 @@
   importantes, facilement de l'ordre de celle de la lumière...
 \end{Answer}
 
-\subsection{Facteur d'échelle}
-
-\begin{Exercise}[Redshift et facteur d'échelle]
-  La radiogalaxie 4C41.17 montre une raie spectrale intense à
-  583,2~nm.  Cette raie est identifiée comme la raie Lyman alpha de
-  l'hydrogène. En laboratoire, sur la Terre, la longueur d'onde de
-  cette raie est de 121,5~nm. Quel était le facteur d'échelle de
-  l'univers à l'époque où les atomes d'hydrogène de 4C41.17 émettaient
-  cette raie ?
-\end{Exercise}
-
-\begin{Answer}
-  Il suffit de se souvenir de la relation:
-  $$
-  1 + z = \frac{\lambda_\text{observé}}{\lambda_\text{émis}} =
-  \frac{R_0}{R_\text{émission}}
-  $$
-  pour trouver $R_{em} = R_0 \times \lambda_{em}/\lambda_0 =
-  \lambda_{em}/\lambda_{0}$. Et donc $R_{em} = 121,5/583,2 = 0,208$.
-  À l'époque où 4C41.17 émettait la lumière qui nous parvient
-  aujourd'hui, l'univers était cinq fois moins « étiré »
-  qu'aujourd'hui... Remarquez bien qu'on évite de dire qu'il était
-  moins « étendu » : cette expression sous-entendrait des choses sur
-  la « taille globale » de l'univers, ce que tout cosmologiste
-  raisonnable évite soigneusement de faire, vu son ignorance.
-\end{Answer}
-
-\begin{Exercise}[Facteur d'échelle et époque]
-  À quelle époque $t_{em}$ la radiogalaxie 4C41.17 de l'exercice
-  précédent a-t-elle émis la lumière que nous recevons aujourd'hui à
-  $t_0$ ? On prendra $t_0 = 13.5$ milliards d'années.
-\end{Exercise}
-
-\begin{Answer}
-  Il suffit de se souvenir de la relation liant le facteur d'échelle
-  et le temps cosmologique :
-  $$
-  R(t)/R_{0} = \left(\frac{t}{t_0}\right)^{2/3}
-  $$
-  pour trouver $t_{em} = t_0 \times
-  \left(R(t_{em})/R_{0}\right)^{3/2}$, et donc $t_{em} = 13,5 \times
-  (0,208)^{1,5} = 1,3$~Gan.  4C41.17 émettait la lumière qui nous
-  parvient aujourd'hui alors l'univers était âgé d'environ 1,3
-  milliards d'années. Environ, car l'équation de départ n'est qu'une
-  approximation.
-\end{Answer}
-
-\begin{Exercise}[Redshift cosmologique]
-  Quel est le redshift de la radiogalaxie 4C41.17 citée dans
-  l'exercice précédent?
-\end{Exercise}
-
-\begin{Answer}
-  On reprend la relation:
-  $$
-  1 + z = \frac{\lambda_\text{observé}}{\lambda_\text{émis}} =
-  \frac{R_0}{R_\text{émission}}
-  $$
-  pour trouver $1 + z = 1 / 0,208 = 4,807$, et donc $z = 3,807$.
-\end{Answer}
-
 \subsection{Film des débuts}
 
-\begin{Exercise}[Nucléosynthèse primordiale ou non?]
+\begin{Exercise}[Nucléosynthèse primordiale ou non ?]
   Les éléments légers $\mathrm{H}$, ${}^{2}\mathrm{H}$,
   ${}^{3}\mathrm{H}$, ${}^{4}\mathrm{He}$, ${}^{7}\mathrm{Li}$ sont
   nés avec le Big Bang. Mais d'où proviennent tous les autres éléments
@@ -2084,19 +2066,29 @@
 
 \subsection{Âge de l'univers}
 
-\begin{Exercise}[Calcul du temps de Hubble]
-  La valeur la plus probable, aujourd'hui, de la constante de Hubble
-  est $H_0 = 65$~\u{km s^{-1} Mpc^{-1}} Quelle conclusion pouvez-vous
-  en tirer sur l'âge réel de l'univers?
+\begin{Exercise}[Temps de Hubble et densité critique]
+  La constante de Hubble a une valeur de l'ordre de $H_0 = 65$~\u{km
+    s^{-1} Mpc^{-1}}. 
+  \begin{enumerate}
+  \item Calculez le temps de Hubble $t_{H} = 1/H_{0}$. Quelle
+    conclusion pouvez-vous en tirer sur l'âge de l'univers ?
+  \item Calculer la densité critique $\rho_{C} =
+    \dfrac{3c^{2} H_{0}^{2}}{8\pi G}$. En quelles unités s'exprime-t-elle ?
+  \end{enumerate}
 \end{Exercise}
 
 \begin{Answer}
-  Le temps de Hubble est défini par: $1/t_{H0} = H_0 =
-  65$~\u{km~s^{-1}~Mpc^{-1}}. Il reste simplement à convertir les Mpc
-  (megaparsecs) en kilomètres, et il vient : $1/t_{H0} =
-  65~\u{km~s^{-1}} [3,26 10^{19}~\u{km}]^{-1} = 20 \times 10^{-19}$~s,
-  d'où $t = 5 \times 10^{17}~s = 16 \times 10^9$~années. On peut donc
-  penser que l'univers est âgé de moins de 16~milliards d'années.
+  \begin{enumerate}
+  \item Le temps de Hubble est défini par : $1/t_{H} = H_0 =
+    65$~\u{km~s^{-1}~Mpc^{-1}}. Il reste simplement à convertir les
+    Mpc (megaparsecs) en kilomètres, et il vient : $1/t_{H} =
+    65~\u{km~s^{-1}} [3,26 10^{19}~\u{km}]^{-1} = 20 \times
+    10^{-19}$~\u{s^{-1}}, d'où $t_{H} = 5 \times 10^{17}~s \simeq 16
+    \times 10^9$~années. On peut donc penser que l'univers est âgé de
+    moins de 16~milliards d'années.
+  \item $\rho_{C} \simeq 9\times 10^{-10}~\u{J m^{-3}} \simeq
+    6$~nucléons/\u{m^{3}}
+  \end{enumerate}
 \end{Answer}
 
 \begin{Exercise}[Age de l'univers et temps de Hubble]
@@ -2107,29 +2099,78 @@
 \end{Exercise}
 
 \begin{Answer}
-  Par définition:
+  Par définition :
   $$
   v = H_0.d \quad\text{donc}\quad
-  H_0 = \frac{v}{d} = \frac{\d d}{\d t} \frac{1}{d} =
-  \frac{\d\left(\epsilon R \right)}{\d t}\frac{1}{\epsilon R}
-  \hfill
+  H_0 = \frac{v}{d} = \frac{1}{d} \frac{\d d}{\d t}  =
+  \frac{1}{\epsilon R} \frac{\d\left(\epsilon R \right)}{\d t}
   $$
-  car toute distance, à un instant t, s'écrit:
-  $$
-  d = \epsilon R(t)
-  $$
-  où $\epsilon$ est une constante; Et donc:
-  \begin{eqnarray*}
-    H_0 &=& \frac{1}{R}\frac{\d R}{\d t} \\
-    &=& \left ( \frac{t}{t_0} \right )^{-2/3} \times
-    \frac{\d\left( \frac{t}{t_0} \right )^{2/3}}{\d t} \\
-    &=& \left ( \frac{t}{t_0} \right )^{-2/3} \times
+  car toute distance, à un instant $t$, peut s'écrire en terme du
+  facteur d'échelle $R$ : $d = \epsilon R(t)$, où $\epsilon$ est une
+  constante. Par conséquent :
+  \begin{align*}
+    H_0 &= \frac{1}{R}\frac{\d R}{\d t} \\
+    &= \left ( \frac{t}{t_0} \right )^{-2/3} \times
+    \frac{\d\left( t/t_0 \right )^{2/3}}{\d t} \\
+    &= \left ( \frac{t}{t_0} \right )^{-2/3} \times
     \left( \frac{t}{t_0} \right)^{-1/3} \frac{2}{3} \frac{1}{t_0} \\
-    &=& \left( \frac{t}{t_0} \right)^{-1} \times \frac{2}{3t_0} \\
-    &=& \frac{2}{3t}
-  \end{eqnarray*}
+    &= \left( \frac{t}{t_0} \right)^{-1} \times \frac{2}{3t_0} \\
+    &= \frac{2}{3t}
+  \end{align*}
   Dans le cas critique (univers marginalement ouvert), l'âge de
   l'univers est égal aux deux-tiers du temps de Hubble.
+\end{Answer}
+
+\subsection{Facteur d'échelle}
+
+\begin{Exercise}[Redshift cosmologique, facteur d'échelle et éqoque]
+  La radiogalaxie 4C41.17 montre une raie spectrale intense à
+  582,2~nm.  Cette raie est identifiée comme la raie Lyman alpha de
+  l'hydrogène. En laboratoire, sur la Terre, la longueur d'onde de
+  cette raie est de 121,5~nm.
+
+  \begin{enumerate}
+  \item Quel est le redshift de la radiogalaxie 4C41.17 ?
+  \item Quel était le facteur d'échelle de l'univers à l'époque où les
+    atomes d'hydrogène de 4C41.17 émettaient cette raie ?
+  \item À quelle époque $t_{em}$ la radiogalaxie 4C41.17 de l'exercice
+    précédent a-t-elle émis la lumière que nous recevons aujourd'hui à
+    $t_0$ ? On prendra $t_0 = 13.5$ milliards d'années.
+  \end{enumerate}
+\end{Exercise}
+
+\begin{Answer}
+  \begin{enumerate}
+  \item On a
+    $$
+    1 + z = \frac{\lambda_{\text{observé}}}{\lambda_{\text{émis}}} =
+    \frac{582,2}{121,5} = 4,792
+    $$
+    donc $z = 3,792$.
+  \item Par ailleurs,
+    $$
+    1 + z = \frac{\lambda_{\text{observé}}}{\lambda_{\text{émis}}} =
+    \frac{R_0}{R_{\text{émission}}}
+    $$
+    soit $R_{em}/R_{0} = \lambda_{em}/\lambda_0 = 121,5/582,2 =
+    0,264$.  À l'époque où 4C41.17 émettait la lumière qui nous
+    parvient aujourd'hui, l'univers était cinq fois moins « étiré »
+    qu'aujourd'hui... Remarquez bien qu'on évite de dire qu'il était
+    moins « étendu » : cette expression sous-entendrait des choses sur
+    la « taille globale » de l'univers, ce que tout cosmologiste
+    raisonnable évite soigneusement de faire.
+  \item À nouveau, il suffit de se souvenir de la relation liant le
+    facteur d'échelle et le temps cosmologique :
+    $$
+    \frac{R(t)}{R_{0}} = \left(\frac{t}{t_0}\right)^{2/3}
+    $$
+    pour trouver $t_{em} = t_0 \times
+    \left(R(t_{em})/R_{0}\right)^{3/2}$, et donc $t_{em} = 13,5 \times
+    (0,264)^{3/2} = 1,8$~Gan.  4C41.17 émettait la lumière qui nous
+    parvient aujourd'hui alors l'univers était âgé d'environ 1,8
+    milliards d'années. Environ, car l'équation de départ n'est qu'une
+    approximation.
+\end{enumerate}
 \end{Answer}
 
 \subsection{Distance de l'horizon}
@@ -2173,13 +2214,13 @@
 \begin{Exercise}[Repérage]
   \begin{enumerate}
   \item Quelles sont les coordonnées horizontales des quatre points
-    cardinaux?
+    cardinaux ?
 
   \item Peut-on définir les coordonnées horizontales pour un
-    observateur installé au pôle Nord géographique ou au pôle Sud?
+    observateur installé au pôle Nord géographique ou au pôle Sud ?
 
   \item Pour quelles valeurs de la hauteur et de la distance zénithale
-    un astre est-il visible, c'est-à-dire au dessus de l'horizon?
+    un astre est-il visible, c'est-à-dire au dessus de l'horizon ?
   \end{enumerate}
 \end{Exercise}
 
@@ -2188,7 +2229,7 @@
   \item Les points cardinaux étant par définition sur l'horizon, leurs
     hauteurs sont nulles. Les directions Est-Ouest et Nord-Sud étant
     orthogonales, on a à partir de l'origine la direction Sud
-    (Fig.~\ref{position}):
+    (Fig.~\ref{position}) :
     \begin{center}
       \begin{tabular}{|c|c|c|}
         \hline
@@ -2199,7 +2240,7 @@
         Ouest & 90  & 0 \\ \hline
       \end{tabular}
     \end{center}
-    Remarque: L'azimut des marins est décalé de 180 degrés par rapport
+    Remarque : L'azimut des marins est décalé de 180 degrés par rapport
     à celui des astronomes. L'origine des azimuts est le Nord.
 
   \item Seule la hauteur d'un astre au-dessus de l'horizon peut être
@@ -2222,7 +2263,7 @@
     \end{center}
     \label{position}
     \label{position2}
-    \caption{G.: Points cardinaux. Dr.: Horizon et distance zénithale.}
+    \caption{G. : Points cardinaux. Dr. : Horizon et distance zénithale.}
   \end{figure}
 \end{Answer}
 
@@ -2231,10 +2272,10 @@
 \begin{Exercise}
   \begin{enumerate}
   \item Dans quelle direction se trouve un astre au moment de sa
-    culmination en un lieu de latitude $+50\deg$?
+    culmination en un lieu de latitude $+50\deg$ ?
   \item Même question pour un lieu situé à l'équateur.
   \item La hauteur d'un astre varie-t-elle au cours du mouvement
-    diurne au pôle Nord?
+    diurne au pôle Nord ?
   \end{enumerate}
 \end{Exercise}
 
@@ -2244,7 +2285,7 @@
     lorsque sa hauteur est maximale.  Suivant sa position de l'objet
     sur la sphère céleste (donc sa déclinaison), l'astre passera entre
     le zénith et le pôle (Nord pour un habitant de l'hémisphère nord
-    et Sud pour ...) soit entre le zénith et l'horizon opposé au pôle
+    et Sud pour...) soit entre le zénith et l'horizon opposé au pôle
     visible. À la latitude de $50\deg$, les étoiles dont la
     déclinaison est plus petite que la latitude, la culmination se
     fera du côté Sud de l'observateur.  Pour les autres étoiles, la
@@ -2296,12 +2337,12 @@
 
   \item Les astres se lèvent-ils du côté de l'Est et se couchent-ils
     du côté de l'Ouest aussi bien dans l'hémisphère Nord que dans
-    l'hémisphère Sud?
+    l'hémisphère Sud ?
   \item Dans quelle direction géographique un astre culmine-t-il en un
     lieu de latitude $-50\deg$ ?
   \item Le mouvement diurne est-il observé dans le même sens pour un
     observateur de l'hémisphère Nord ou un observateur de l'hémisphère
-    Sud?
+    Sud ?
   \end{enumerate}
 \end{Exercise}
 
@@ -2338,7 +2379,7 @@
       des levers et couchers, à la différence que l'azimut va osciller
       autour de la valeur $0\deg$ et que regardant le pôle Sud, il
       verra tourner les étoiles dans le sens rétrograde
-      (Fig.\ref{mouvementdiurne}).
+      (Fig.~\ref{mouvementdiurne}).
     \end{description}
   \item Oui. Que l'on soit dans l'hémisphère Nord ou Sud, le sens de
     rotation de la Terre est le même. Les objets apparaissent à l'Est
@@ -2354,11 +2395,11 @@
 \begin{Exercise}[Coordonnées horaires d'un astre]
   \begin{enumerate}
   \item Quelle est la relation entre la déclinaison et la distance
-    polaire?
+    polaire ?
   \item Quelles sont les coordonnées horaires des quatre points
-    cardinaux en un lieu de latitude $\phi$?
+    cardinaux en un lieu de latitude $\phi$ ?
   \item Que vaut la déclinaison du zénith en fonction de la latitude
-    du lieu?
+    du lieu ?
   \end{enumerate}
 \end{Exercise}
 
@@ -2394,8 +2435,8 @@
     \end{figure}
 
   \item La déclinaison du zénith vaut la latitude (positive pour
-    l'hémisphère Nord et négative pour l'hémisphère Sud), cf. Fig.
-    \ref{coordonneeshoraire2}.
+    l'hémisphère Nord et négative pour l'hémisphère Sud), voir
+    Fig.~\ref{coordonneeshoraire2}.
   \end{enumerate}
 \end{Answer}
 
@@ -2404,7 +2445,7 @@
   \item Une étoile traverse le méridien sud à une hauteur de
     $85\deg$, et le méridien nord à $45\deg$. Trouver la
     déclinaison de l'étoile et la latitude de l'observateur.
-  \item Où ces affirmations sont-elles vraies?
+  \item Où ces affirmations sont-elles vraies ?
     \begin{enumerate}
     \item Castor ($\alpha$-Gem, déclinaison $+31\deg54'$) est
       circumpolaire.
@@ -2424,18 +2465,18 @@
     l'angle $\beta$ et
     $$
     \alpha + \beta+180\deg - 45\deg -85\deg = 50\deg
-    \quad\to\quad
+    \quad\text{donc}\quad
     \alpha=\beta=25\deg
     $$
     $\alpha$ et $\beta$ sont tous deux les compléments de la
-    déclinaison de l'étoile:
+    déclinaison de l'étoile :
     $$
     \beta+\delta = 90\deg
-    \quad\to\quad
+    \quad\text{donc}\quad
     \delta=65\deg
     $$
     On calcule la latitude qui vaut la hauteur du pôle au dessus de
-    l'horizon: $\phi=\alpha+45\deg=70\deg$.
+    l'horizon : $\phi=\alpha+45\deg=70\deg$.
 
     \begin{figure}[htp]
       \centering
@@ -2451,7 +2492,7 @@
       à l'horizon Nord, si sa déclinaison est le complément de la
       latitude.  Pour toute latitude plus grande, l'étoile sera plus
       élevée sur l'horizon et ne disparaîtra pas derrière celui-ci
-      (Fig \ref{castor}): $\phi>=90\deg-\delta$
+      (Fig \ref{castor}) : $\phi>=90\deg-\delta$
       \begin{figure}[htp]
         \centering
         \includegraphics[width=0.3\textwidth]{castor}
@@ -2467,14 +2508,14 @@
     \item[Bételgeuse (Ori, $\delta = +7\deg24'$) culmine au zénith]
       Si l'étoile est au moment de sa culmination au zénith
       (nécessairement), sa déclinaison est égale à la latitude
-      (Fig.~\ref{betelgeuse}): $\phi=7\deg24'$
+      (Fig.~\ref{betelgeuse}) : $\phi=7\deg24'$
 
     \item[$\alpha$-Cen ($\delta = - 60\deg46'$) s'élève à une
       hauteur de $+20\deg$] À son passage supérieur, l'étoile se
       trouve dans la configuration Fig.~\ref{cen}.  La latitude est
       l'angle $PON$ qui est égal à $P'OS$. En appliquant la relation
       de Chasles entre $P'OS$ la hauteur de l'astre $20\deg$ et la
-      déclinaison, on obtient: $P'OS=90\deg+\delta-20\deg$ d'où
+      déclinaison, on obtient : $P'OS=90\deg+\delta-20\deg$ d'où
       $\phi = 9\deg14'$
     \end{description}
   \end{enumerate}
@@ -2488,15 +2529,15 @@
   \begin{enumerate}
   \item Que valent la hauteur maximale et la hauteur minimale du
     Soleil en chacun des lieux considérés : $50\deg$, $75\deg$,
-    $10\deg$, $20\deg$?
+    $10\deg$, $20\deg$ ?
 
   \item À quelle condition doit satisfaire la latitude d'un lieu pour
-    que le Soleil n'ait ni lever ni coucher?
+    que le Soleil n'ait ni lever ni coucher ?
 
   \item Comment comprendre l'expression « soleil de minuit » ?
 
   \item À quelle condition doit satisfaire la latitude d'un lieu pour
-    que le Soleil puisse passer à son zénith?
+    que le Soleil puisse passer à son zénith ?
 
   \item Comment comprendre l'expression « tropique du Cancer » et «
     tropique du Capricorne » ? on pourra discuter cette question, en
@@ -2506,14 +2547,14 @@
 
 \begin{Answer}
   \begin{enumerate}
-  \item Inclinaison de l'écliptique sur l'équateur:
+  \item Inclinaison de l'écliptique sur l'équateur :
     $\epsilon=23\deg27'$. On détermine les relations qui relient la
     latitude $\phi$, les hauteurs minimum et maximum avec les deux
     positions du Soleil en déclinaison $\pm \epsilon$.
     \begin{itemize}
-    \item Position solstice hiver: $SOm = SOE - \epsilon =
+    \item Position solstice hiver : $SOm = SOE - \epsilon =
       (90\deg-\phi) -\epsilon$
-    \item Position solstice été: $SOm = SOE + \epsilon =
+    \item Position solstice été : $SOm = SOE + \epsilon =
       (90\deg-\phi) +\epsilon$
     \end{itemize}
     ou le supplément si le Soleil sous les tropiques est passé de
@@ -2550,11 +2591,11 @@
     l'hémisphère Nord), lorsque au passage inférieur, l'angle $NOD$
     est positif, le Soleil ne se couche pas, son mouvement est
     circumpolaire.
-    \begin{eqnarray*}
+    \begin{align*}
       NOD = NOE' + E'OD > 0 \\
       90\deg - \phi < \delta_{soleil} \\
       \phi > 90\deg - \delta_{soleil}
-    \end{eqnarray*}
+    \end{align*}
     Au jour des solstices ($\delta_{soleil} = \pm 23\deg27'$) il
     suffit d'être à une latitude $\phi > 66\deg33'$ (en été pour
     l'hémisphère Nord) ou $\phi < - 66\deg33'$ (en hiver pour
