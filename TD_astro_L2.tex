@@ -1,4 +1,4 @@
-% Time-stamp: <2012-01-05 00:03 ycopin@lyopc469>
+% Time-stamp: <2012-02-06 14:18:15 ycopin>
 % Auteurs (version LaTeX):
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
@@ -135,23 +135,6 @@
 
 \section{La lumière des étoiles}
 
-\subsection{Notion de photométrie}
-
-\begin{Exercise}[Dilution du flux avec la distance]
-  Réécrire la relation entre la luminosité d'une étoile et le flux
-  observé (équation 2.4) dans le cas où la luminosité $L(t)$ dépend du
-  temps (par exemple parce que l'étoile est variable) et donc le flux
-  observé $F(D,t)$ dépend du temps et de la distance.
-\end{Exercise}
-
-\begin{Answer}
-  Lorsque la luminosité $L(t)$ de l'étoile dépend du temps, les
-  variations de luminosité mettent un temps $D/c$ pour parvenir à un
-  observateur situé à une distance $D$ ($c$ étant la vitesse de la
-  lumière). Dans ce cas la relation (2.4) devient : $F(D, t) =
-  L(t-D/c)/(4\pi D^{2})$.
-\end{Answer}
-
 \subsection{Photosphère et température effective}
 
 \begin{Exercise}[Luminosité du Soleil]
@@ -163,21 +146,22 @@
 \begin{Answer}
   En appliquant l'équation :
   $$
-  T_e = \left( \frac{L}{4 \pi \sigma R^2_p} \right)^{1/4}
+  T_e = \left( \frac{L}{4 \pi R^2_p \sigma} \right)^{1/4}
   $$
   avec la constante de Stefan $\sigma = 5.67 \times
   10^{-8}$~\u{Wm^{-2}K^{-4}}, on trouve la luminosité
   $L_{\odot}\approx 3.83\times 10^{26}$~W.
 \end{Answer}
 
+
 \begin{Exercise}[Rayon des étoiles]
   Déterminer le rayon (en unité solaire), la longueur d'onde de Wien
   et la couleur « visible » des étoiles suivantes :
-  \begin{itemize}
+  \begin{enumerate}
   \item Naine blanche : $L = 10^{-2}$~\u{L_{\odot}}, $T_{e} = 20000$~K
   \item Géante rouge : $L = 10^{2}$~\u{L_{\odot}}, $T_{e} = 4200$~K
   \item Supergéante : $L = 10^{5}$~\u{L_{\odot}}, $T_{e} = 6000$~K
-  \end{itemize}
+  \end{enumerate}
   Rappel de la loi de Wien : $\lambda_{\max} T = 2898$~\u{\mu m.K}.
 \end{Exercise}
 
@@ -187,15 +171,52 @@
     \begin{tabular}{lccccr}
       \hline
       Type stellaire & $L$~[\u{L_{\odot}}] & $T_{e}$~[K] & 
-      $R$~[\u{R_{\odot}}] & $ \lambda_{\max}$ & Couleur \\
+      $R$~[\u{R_{\odot}}] & $\lambda_{\max}$ (nm) & Couleur \\
       \hline
-      Naine blanche & $10^{-2}$ & $20000$ & & & \\
-      Géante rouge  & $10^{2}$  & $4200$  & & & \\ 
-      Supergéante   & $10^{5}$  & $6000$  & & & \\
+      Naine blanche & $10^{-2}$ & 20000  & 0.008 & 145 & Blanc \\
+      Géante rouge  & $10^{2}$  & 4200  & 18.8   & 690 & Rouge \\ 
+      Supergéante   & $10^{5}$  & 6000  & 291.7  & 483 & Bleu \\
       \hline
     \end{tabular}
   \end{table}
 \end{Answer}
+
+
+\begin{Exercise}[Équilibre radiatif de la Terre]
+  %\textbf{Rappel :} Le \emph{flux} est une puissance par unité de
+  %surface (unités~SI : \u{J.s^{-1}.m^{-2}}).
+
+  Soit $L$ la puissance lumineuse du Soleil, $R$ le rayon de la Terre,
+  $D$ la distance Terre-Soleil et $T_{e}$ la température effective à
+  la surface de la Terre :
+  \begin{enumerate}
+  \item Écrire la relation entre $L$ et $F(D)$, le flux lumineux à une
+    distance $D$ du Soleil. En déduire la puissance lumineuse totale
+    $P_{r}$ reçue par la Terre.
+    % (on suppose que la terre est vue du Soleil comme un disque de
+    % rayon $R$)
+  \item Utiliser la loi de Stefan et expliciter le flux lumineux
+    $F_e$, puis la puissance totale $P_e$, rayonnés par la Terre.
+  \item Écrire l'égalité des puissance reçue et rayonnée à la surface
+    de la Terre, en déduire l'expression de la température $T_{e}$ en
+    fonction des données du problème.
+  \item Application numérique, sachant que $L=3.85\times 10^{26}$~W,
+    $R=6400$~km, $D=1.5\times10^{11}$~m, $\sigma =
+    5.67\times10^{-8}$~\u{J.s^{-1}.m^{-2}.K^{-4}}.
+  \item Commenter sur la validité et les limites de ce modèle.
+   \end{enumerate}
+\end{Exercise}
+
+\begin{Answer}
+  \begin{enumerate}
+  \item $F(D) = L / 4\pi D^2$
+  \item $P_{r} = L R^2/(4 D^2)$
+  \item $F_e = \sigma T_{e}^4$ et $P_e = 4\pi R^2 \sigma T_{e}^4$
+  \item $P_e = P_r$ d'où $T_{e} = \left[L/(16 \pi D^2
+      \sigma)\right]^{(1/4)} = 278$~K.
+  \end{enumerate}
+\end{Answer}
+
 
 \subsection{Système de magnitudes}
 
@@ -235,66 +256,6 @@
   \end{enumerate}
 \end{Answer}
 
-\section{Évolution stellaire}
-
-\subsection{Formation des étoiles}
-
-\begin{Exercise}
-  Quelle est la source de l'énergie rayonnée par :
-  \begin{enumerate}
-  \item une proto-étoile ?
-  \item une étoile ?
-  \item une naine brune ?
-  \end{enumerate}
-\end{Exercise}
-
-\begin{Answer}
-  L'énergie rayonnée provient de :
-  \begin{enumerate}
-  \item l'énergie gravitationnelle pour une proto-étoile ;
-  \item l'énergie produite par les réactions nucléaires pour une
-    étoile (fusion de H sur la séquence principale, fusion de He ou de
-    C et O ensuite, selon la masse de l'étoile) ;
-  \item l'énergie gravitationnelle pour une naine brune, qui continue
-    à se contracter, ne passant jamais de la proto-étoile à l'étoile.
-  \end{enumerate}
-\end{Answer}
-
-\subsection{Séquence principale}
-
-\begin{Exercise}
-  Quel est le phénomène marquant :
-  \begin{enumerate}
-  \item le début de la séquence principale ?
-  \item sa fin ?
-  \end{enumerate}
-\end{Exercise}
-
-\begin{Answer}
-  La séquence principale débute quand les réactions de fusion de
-  l'hydrogène s'allument dans le coeur de la proto-étoile, et se
-  termine lorsque la fusion de l'hydrogène cesse au centre (elle peut
-  continuer dans une couche autour d'un noyau d'hélium ou cesser dans
-  toute l'étoile selon sa masse).
-\end{Answer}
-
-\subsection{Évolution post-SP}
-
-\begin{Exercise}[Étoile de $M > 5 M_{\odot}$]
-  Que se passe-t-il si un combustible s'épuise au centre d'une étoile ?
-\end{Exercise}
-
-\begin{Answer}
-  Quand un combustible s'épuise au centre d'une étoile, les réactions
-  de fusion de cet élément cessent dans le coeur, mais peuvent
-  continuer autour, dans une couche où le combustible est toujours
-  présent. Au centre, il n'y a plus de production d'énergie pour
-  soutenir le coeur, la gravité l'emporte et le coeur se
-  contracte. Cette contraction provoque une augmentation de
-  température qui, si elle est suffisante (cela dépend de la masse de
-  l'étoile), permet d'allumer de nouvelles réactions nucléaires ayant
-  pour combustible le produit des réactions précédentes.
-\end{Answer}
 
 \section{Classification spectrale}
 
@@ -315,10 +276,7 @@
     $$
     \Delta d = \frac{a}{p^2}\Delta p = \frac{d}{p}\Delta p
     $$
-    On a finalement
-    $$
-    \frac{\Delta d}{d} = \frac{\Delta p}{p}
-    $$
+    On obtient finalement $\Delta d/d = \Delta p/p$.
 
   \item On peut également prendre le logarithme de l'équation $d =
     a/p$, ce qui donne $\ln~d = \ln~a - \ln~p$, puis on différencie :
@@ -413,8 +371,8 @@
   illustrent bien la diminution de la précision lorsque la distance
   augmente.
 
-  La magnitude absolue s'obtient par la relation $M_V = m_V - 5~\log~d
-  + 5$.
+  La magnitude absolue s'obtient par la relation $M_V = m_V -
+  5~\log(d/10\,\u{pc})$.
 \end{Answer}
 
 
@@ -431,7 +389,7 @@
   \item Le mouvement propre apparent de cette même étoile vaut $\mu =
     47,3 \pm 0,8$~\u{mas.an^{-1}}.
   \end{itemize}
-  Déterminer la distance de l'amas. Attention aux unités !
+  Déterminer la distance de l'amas. 
 \end{Exercise}
 
 \begin{Answer}
@@ -1006,22 +964,24 @@
 \end{Exercise}
 
 \begin{Answer}
-  \note{Eric : correction à reformuler}
   \begin{enumerate}
+  \item On rappelle l'expression du module de distance $m-M =
+    5\log(D/10\,\u{pc})$ soit $\log(D) = 0.2(m-M)+1$ ($D$ en pc). Or
+    le nombre $N(m)$ d'étoiles d'une « visibilité » supérieure à une
+    valeur donnée est le nombre d'étoiles dans une sphère de rayon
+    correspondant, donc $N(m) \propto D^3$, soit $\log N(m) = 0.6 m +
+    \beta$.  En présence d'extinction, $\log N(m) = 0.6(m-A) + \beta$.
   \item L'extinction est nulle jusqu'à la distance $r_1$ du front du
-    nuage, donc, avec l'équation :
+    nuage, donc :
     $$
-    \log{N(m)} = 0.6(m-A) + Cte
+    \log{N(m)} = 0.6 (7-0) + \beta = 0.6\times 7 + 3
     $$
-    pour $m=7$ :
-    $$
-    \log{N(m)} = 0.6 (7-0) + 3 = 7.2
-    $$
-
+    soit $\beta=3$. 
+    
     À la distance $r_2$ du bord éloigné du nuage, pour laquelle $m =
-    9$, et l'extinction vaut $A$ :
+    9$, et l'extinction $A$ :
     $$
-    \text{pour} m = 9, \log{N(m)} = 0.6(9-A) + 2.4 = 7.8-0.6A
+    \log{N(m)} = 0.6(9-A) + 3 = 0.6\times 9 + 2.4
     $$
     d'où $0.6A = 0.6$ et $A = 1$~mag.
 
@@ -1029,7 +989,7 @@
     \begin{itemize}
     \item pour $m = 7 = 5\log{r_1} -5 +M$ d'où $r_1 = 25.1$ pc =
       distance du front proche du nuage
-    \item pour $m = 9 = 5\log{r_2} -5 +M +1$ d'où $r2 = 39,8$ pc
+    \item pour $m = 9 = 5\log{r_2} -5 +M +A$ avec $A=1$ d'où $r2 = 39,8$~pc
     \end{itemize}
     Épaisseur du nuage = $r_2-r_1 = 39.8-25.1 = 14.7$ pc
   \end{enumerate}
@@ -1072,7 +1032,7 @@
 \begin{Answer}
   \begin{align*}
     \text{Distance de l'étoile :}\qquad 
-    L &= 2000[\u{pc}] .(3 10^{18} [\u{cm/pc}]) = 6 10^{21} [\u{cm}] \\
+    L &= 2000[\u{pc}] .(3\times 10^{18} [\u{cm/pc}]) = 6\times  10^{21} [\u{cm}] \\
     \text{Section d'un grain :}\qquad 
     s_g &= \pi\,a^2 = \pi\,(10^{-5})^2 = \pi\,10^{-10}~[\u{cm^{2}}] \\
     \text{Extinction en V sur la ligne de visée :}\qquad 
@@ -1084,29 +1044,29 @@
   longueur $L$ et de section unité. Si la densité de grains $n_g$ est
   constante, la densité de colonne est donc égale à $n_g L$
   $$
-  n_g L = \frac{\tau}{s_g} = \frac{0.55}{\pi 10^{-10}} = 1.75
+  n_g L = \frac{\tau}{s_g} = \frac{0.55}{\pi 10^{-10}} = 1.75\times 
   10^9~[\u{grain/cm^2}]
   $$
   On déduit de l'expression précédente la densité de grains $n_g$ :
   $$
-  n_g = \frac{1.75 10^{9}}{6 10^{21}} = 2.9
+  n_g = \frac{1.75\times  10^{9}}{6\times  10^{21}} = 2.9\times 
   10^{-13}~[\u{grain/cm^{3}}]
   $$
   Masse volumique des grains dans le MIS :
   $$
-  1 [\u{g/cm^{3}}]\times \frac{4a^{3}}{3}~[\u{cm^3/grain}] 3 10^{-13}
-  [\u{grain/cm^3}]= 3.87 10^{-28}~[\u{g/cm^3}]
+  1 [\u{g/cm^{3}}]\times \frac{4a^{3}}{3}~[\u{cm^3/grain}] 2.9\times  10^{-13}
+  [\u{grain/cm^3}]= 3.87\times  10^{-28}~[\u{g/cm^3}]
   $$
   Masse volumique du gaz dans le MIS :
   $$
-  8~[\u{atomes/cm^3}] 1.67352 10^{-24}~[\u{g/atome}] = 1.34
+  8~[\u{atomes/cm^3}] 1.67352\times  10^{-24}~[\u{g/atome}] = 1.34\times 
   10^{-23}~[\u{g/cm^3}]
   $$
 
   $$
   \frac{\text{Masse volumique des grains}}{\text{Masse volumique du
-      gaz}} = \frac{1.34 10^{-23}~[\u{g/cm^3}]}{3.87
-    10^{-28}~[\u{g/cm^3}]} = 3.5\,10^4
+      gaz}} = \frac{3.87\times 
+    10^{-28}~[\u{g/cm^3}]}{1.34\times  10^{-23}~[\u{g/cm^3}]} = 2.9\times 10^{-5}
   $$
   Conclusion : les grains ne représentent qu'une fraction très faible de
   la masse de matière dans le MIS.
@@ -1143,8 +1103,8 @@
   $$
   A(\lambda)= \frac{a}{\lambda} = 2.5 \log\frac{W}{W'}
   $$
-  en posant : $a' = \frac{a}{(2.5 \times0.43429)}$ (Rappel : $0.43429 =
-  \log_{10}(e)$)
+  soit, en posant $a' = a/(2.5 \times0.43429)$ (Rappel : $0.43429 =
+  \log_{10}(e)$) :
   $$
   W' = W \exp\left(\frac{-a'}{\lambda}\right)
   $$
@@ -1176,7 +1136,7 @@
 
 \begin{Exercise}
   Une étoile $G5V$ a une magnitude absolue $M_V= 5$, et un indice de
-  couleur intrinsèque $(B-V)_0 =0.7$ On observe une étoile de ce type
+  couleur intrinsèque $(B-V)_0 =0.7$. On observe une étoile de ce type
   spectral, située à une distance de 5~kpc
   \begin{enumerate}
   \item Calculer les magnitudes apparentes $m_{V_0}$ et $m_{B_0}$
@@ -1207,7 +1167,7 @@
   \begin{enumerate}
   \item Magnitudes apparentes sans extinction
     \begin{align*}
-      m_{V_0} &= 5 + 5\log(5000) -5 = 18.5 \\
+      m_{V_0} &= 5 + 5\log(5\,\u{kpc}/10\,\u{pc}) = 18.5 \\
       m_{B_0} &= m_{V_0} + (B-V)_0 = 19.2
     \end{align*}
   \item Calcul des extinctions
@@ -1331,7 +1291,6 @@
 \begin{Exercise}[de Vaucouleurs et autres classifications]
   Donnez la classification simplifiée (E, S0, SA, SAB, SB) des
   galaxies données dans la partie cours correspondante dans spirale.
-
   Est-il toujours facile de classifier les galaxies réelles ?
 \end{Exercise}
 
@@ -1364,8 +1323,8 @@
 \subsection{Constituants des galaxies}
 
 \begin{Exercise}[Les étoiles]
-  Si l'on considère une sphère de rayon 10 kpc peuplée par $10^{11}$
-  étoiles dont le rayon est égal à celui du soleil, calculez la
+  Si l'on considère une sphère de rayon 10~kpc peuplée par $10^{11}$
+  étoiles dont le rayon est égal à celui du Soleil, calculez la
   fraction de volume occupé par les étoiles.
 \end{Exercise}
 
@@ -1376,30 +1335,48 @@
 
 
 \begin{Exercise}[La matière noire]
-  Donnez l'expression de l'accélération $a$ centripète en fonction de
-  $R$ et $V$, la vitesse circulaire d'une étoile à une distance $R$ du
-  centre de la galaxie.  Écrire la loi de Newton pour cette étoile~:
-  l'accélération $a$ en fonction de la masse $M$ incluse dans le rayon
-  $R$.  En déduire la loi de décroissance de $V$ en fonction du rayon
-  $R$ de l'étoile, en supposant que la masse $M$ reste constante
-  (c'est-à-dire que toute la masse de la galaxie est comprise dans la
-  sphère de rayon $R$).
-
-  Dans les galaxies spirales, on observe au-delà d'un certain rayon
-  $R_{0}$ que la vitesse de rotation du gaz et des étoiles atteint une
-  valeur limite $V_{0} > 0$. À quelle distribution de densité cela
-  correspond-il ? Commentez.
+  On considère une galaxie et ses étoiles réparties uniformément en
+  fonction de la distance au centre de la galaxie.  À une distance $R$
+  donnée, on considère la masse $M(R)$ de toutes les étoiles contenues
+  à l'intérieur de la sphère de rayon $R$.
+  \begin{enumerate}
+  \item Si les étoiles sont animées d'un mouvement de rotation
+    uniforme autour du centre de la galaxie, donner la relation entre
+    l'accélération normale $a$ d'une étoile située à la distance $R$
+    de ce centre et sa vitesse $V$.
+  \item Écrire la relation fondamentale de la dynamique pour cette
+    étoile. On suppose $R$ grand de façon à pouvoir écrire
+    $F=GmM(R)/R^2$. En déduire la relation entre $V$ et $R$. Comment
+    varie alors $V$ en fonction de $R$ ?
+  \item Dans les galaxies spirales, on observe au-delà d'un certain
+    rayon $R_{0}$ que la vitesse de rotation du gaz et des étoiles
+    atteint une valeur limite $V_{0} > 0$. Commentez.
+  \item Quelle forme de la densité de masse $\rho(r)$ doit-on présumer
+    pour atteindre une valeur constante de $V$ quand $R$ augmente ? On
+    note que dans une sphère de rayon $R$, on a :
+    $$
+    M(R) = \int_0^R\; 4\pi r^2\, \rho(r) \,dr
+    $$
+  \end{enumerate}
 \end{Exercise}
 
 \begin{Answer}
-  L'accélération centrifuge est donnée simplement par $a = V^2/R$.  La
-  loi de Newton nous dit alors que l'accélération de l'étoile est
-  proportionnelle à la masse $M$ avec $a = G M/R^2$, où $G$ est la
-  constante universelle de la gravitation.  On en déduit alors
-  facilement que $V^2/R = GM/R^2$ donc $V^2 \propto M/R$.
-
-  Si $M$ reste constant avec $R$ qui croit, alors $V^2$ doit décroître
-  comme $1/R$.
+  \begin{enumerate}
+  \item $a=V^2/R$
+  \item $mV^2/R = GmM(R)/R^2$, soit $V^2 = GM(R)/R$. $V$ doit
+    décroitre avec $R$ avec la puissance $-1/2$ donc tendre doucement
+    vers zéro.
+  \item Si on arrive à une valeur limite $V_0$, la repartition de
+    masse dans la galaxie est peut-être à revoir, introduction de la
+    notion de matière noire qui accroît la masse mais est invisible à
+    nos pauvres « yeux ».
+  \item 
+    \begin{equation*}
+      \d M(R)/\d R = 4\pi R^2 \rho(R)  
+      \qquad\text{d'où}\qquad
+      \rho(R) = \frac{1}{4\pi R^2} \frac{V_0^2}{G} \propto 1/R^{2}
+    \end{equation*}   
+  \end{enumerate}
 \end{Answer}
 
 \subsection{Exemple de galaxie : la Voie Lactée }
@@ -1427,11 +1404,11 @@
   ou d'extinction due à la poussière, mais bien une épaisseur
   réellement plus grande d'un coté que de l'autre. Ce que l'on voit
   est en fait un effet de projection : c'est en fait la barre de la
-  Galaxie que nous observons. Cette barre étant inclinée à 35 degrés
+  Galaxie que nous observons. Cette barre étant inclinée à 35~degrés
   environ par rapport à nous, le coté gauche étant proche de nous, le
   coté droit loin de nous (de l'autre coté du centre galactique). Une
   des extrémités de la barre est donc plus proche de nous, et par
-  projection elle apparaît plus haute...
+  projection elle apparaît plus haute.
 \end{Answer}
 
 \begin{Exercise}[Le centre galactique]
@@ -1543,31 +1520,29 @@
 \subsubsection{Effets d'environnement, collisions et fusions}
 
 \begin{Exercise}[Calcul de la fréquence des collisions dans un amas]
-  \note{Eric : énoncé et correction à reformuler}
-
   On considère un amas de galaxies qui a les caractéristiques
   suivantes :
   \begin{itemize}
-  \item il est supposé sphérique, de diamètre $D_{\mathrm{amas}}$ en pc,
-  \item il contient $N_{\mathrm{galaxies}}$ identiques et réparties
+  \item il est supposé sphérique, de diamètre $D_{\mathrm{a}}$ en pc,
+  \item il contient $N_{\mathrm{g}}$ galaxies identiques et réparties
     uniformément dans l'amas,
   \item les galaxies sont supposées animées d'une vitesse uniforme
-    $v_{\mathrm{galaxies}}$ en km/s.
+    $v_{\mathrm{g}}$.
   \end{itemize}
 
   \begin{enumerate}
-  \item Donner l'expression de la densité numérique de galaxies dans
-    l'amas en \u{pc^{-3}}.
+  \item Donner l'expression de la densité numérique de galaxies (le
+    nombre de galaxies par unité de volume) $n_{\mathrm{g}}$ dans l'amas.
 
-  \item On suppose maintenant que les galaxies ont un diamètre typique
-    $D_{\mathrm{galaxies}}$ (en pc). En modélisant les galaxies comme
+  \item On suppose que les galaxies ont un diamètre typique
+    $D_{\mathrm{g}}$. En modélisant les galaxies comme
     des sphères dures (boules de billard) de diamètre
-    $D_{\mathrm{galaxies}}$, donner l'expression de la section
-    efficace $S_{\mathrm{efficace}}$ (en $pc^2$) lors d'une
+    $D_{\mathrm{g}}$, donner l'expression de la section
+    efficace $S_{\mathrm{eff}}$ lors d'une
     collision/interaction entre deux galaxies.
 
   \item Donner l'expression du nombre de collisions/interactions que
-    subit une galaxie de l'amas pendant la durée $\d t$ (en
+    subit une galaxie de l'amas pendant le temps $\Delta t$ (en
     années). En déduire, pour une galaxie, le temps caractéristique de
     collision et le libre parcours moyen.
 
@@ -1586,46 +1561,44 @@
   \begin{enumerate}
   \item Le volume de l'amas est
     $$
-    V_{\mathrm{amas}}=\frac{\pi}{6}D_{\mathrm{amas}}^3
+    V_{\mathrm{a}}=\frac{\pi}{6}D_{\mathrm{a}}^3
     $$
     et la densité numérique de galaxies est donc
     $$
-    n_{\mathrm{galaxies}}=\frac{N_{\mathrm{galaxies}}}{V_{\mathrm{amas}}}=
-    \frac{6N_{\mathrm{galaxies}}}{\pi D_{\mathrm{amas}}^3}
+    n_{\mathrm{g}}=\frac{N_{\mathrm{g}}}{V_{\mathrm{a}}}=
+    \frac{6N_{\mathrm{g}}}{\pi D_{\mathrm{a}}^3}
     $$
-    (en nombre de galaxies par \u{pc^3} si le diamètre de l'amas est
-    en pc)
 
   \item Deux galaxies entreront en collision/interaction lorsqu'elle
-    passent à une distance $< D_{\mathrm{galaxies}}$ l'une de
-    l'autre. La section efficace de collision est donc
-    $S_{\mathrm{efficace}} = \pi D^2_{\mathrm{galaxies}}$ en \u{pc^2}
-    si le diamètre des galaxies est exprimé en pc.
+    passent à une distance $< D_{\mathrm{g}}$ l'une de l'autre. La
+    section efficace de collision est donc l'aire du disque de rayon
+    $D_{g}$ : $S_{\mathrm{eff}} = \pi D^2_{\mathrm{g}}$.
 
-  \item Le volume « balayé » par une galaxie pendant le temps $\d t$
-    est le suivant :
+  \item Considérons une galaxie. Le volume utile « balayé » par cette
+    galaxie pendant le temps $\Delta t$ est le suivant :
     $$
-    V = \frac{3.15\,10^7 \text{(s par année)}}{%
-      3.09\,10^{13} \text{(km par pc)}} \times v_{galaxies} \times
-    S_{efficace} \times \d t
+    V = v_{g} \times S_{\mathrm{eff}} \times \Delta t
     $$
-    Le nombre de collisions pendant ce temps $\d t$ est donc
-    $N_{\mathrm{collision}} = n_{\mathrm{galaxie}}V$. Le temps
-    caractéristique de collision/interaction $t_{\mathrm{collision}}$
-    correspond à $\d t$ tel que $N_{\mathrm{collisions}} = 1$. Le
-    libre parcours moyen est $l = v_{\mathrm{galaxies}} \times
-    t_{\mathrm{collision}}$.
-    $$
-    \tau_{\mathrm{collision}} = \frac{3.09 \times 10^{13}}{6 \times
-      3.15 \times 10^7}
-    \frac{D_{\mathrm{amas}}^{3}}{D_{\mathrm{galaxies}}^{2} \times
-      v_{\mathrm{galaxies}} \times N_{\mathrm{galaxies}}}
-    $$
+    Le nombre de collisions de cette galaxie pendant ce temps $\Delta
+    t$ est donc égal au nombre de galaxies dans le volume $V$ :
+    $N_{\mathrm{coll}} = n_{\mathrm{g}}V$. Le temps caractéristique de
+    collision/interaction $\tau_{\mathrm{coll}}$ correspond à $\Delta
+    t$ tel que $N_{\mathrm{coll}} = 1$. Le libre parcours moyen est $l
+    = v_{\mathrm{g}} \times \tau_{\mathrm{coll}}$.
+    \begin{align*}
+      \tau_{\mathrm{coll}} &= {D_{a}^3 \over 6\,N_{\mathrm{g}}\,D_{g}^2\,v_{\mathrm{g}}} \\
+      l &= {D_{a}^3 \over 6\,N_{\mathrm{g}}\,D_{g}^2}
+    \end{align*}
 
-  \item Le temps caractéristique de collision/interaction dans l'amas
-    est $t_{\mathrm{collision}}^{\mathrm{amas}} =
-    \tau_{\mathrm{collision}}/N_{\mathrm{galaxies}}$ (on considère ici
-    l'amas entier et non plus une galaxie unique).
+  \item Application Numérique, Le temps caractéristique de
+    collision/interaction est (il faut passer $v$ de~km/s à~pc/an) :
+    $$
+    \tau_{\mathrm{coll}} = {D_{a}^3 \over
+      6\,N_{\mathrm{g}}\,D_{g}^2\,v_{\mathrm{g}}} \times {3.086\times
+      10^{13} \mathrm(km \to pc) \over \pi \times 10^7 \mathrm{(s \to
+        an)}}
+    $$
+    A.N. $\tau_{\mathrm{coll}} = 10^{12}$~ans.
   \end{enumerate}
 
 \end{Answer}
@@ -1635,33 +1608,59 @@
 \subsection{Équilibre gravitationnel}
 
 \begin{Exercise}[Théorème du Viriel scalaire]
-  \note{Eric : énoncé à reformuler}
-
-  Le théorème du Viriel peut aussi s'écrire $2K/U = -1$.  Imaginez que
-  vous vouliez construire un système stellaire, en donnant à $N$
-  étoiles leurs positions et leurs vitesses, et où vous auriez $2K/U >
-  -1$.
+  On considère le système Terre-Soleil. Le Soleil, de masse $M_\odot$,
+  est pris comme référence du mouvement ($v_\odot=0$). On note
+  $M_\oplus$ et $v_\oplus$ la masse et la vitesse de la Terre.
   \begin{enumerate}
-  \item Comment feriez-vous ? (donner un exemple)
-  \item Comment le système évoluerait-il ?
+  \item Écrire l'expression de l'energie cinétique du système
+    Terre-Soleil.
+  \item Énoncer le théorème du Viriel. En déduire l'expression de la
+    distance $D$ d'équilibre entre la Terre et le Soleil. Faire
+    l'application numérique, sachant que $M_\odot=2\times10^{30}$~kg,
+    $M_\oplus=5.97\times10^{24}$~kg et $v_\oplus=30$~km/s.
+  \item On considère un système d'étoiles binaires en équilibre. Pour
+    simplifier les calculs, les étoiles sont prises de masses égales à
+    $M_\odot$ et leurs vitesses sont considérées comme égales ; on
+    pose $v=v_1=v_2$.
+
+    Expliciter la relation entre la distance entre ces deux étoiles et
+    leur vitesse et calculer cette vitesse en~km/s pour les distances
+    d'équilibre suivante :
+    \begin{itemize}
+    \item $D=0.5$~UA,
+    \item $D=1$~UA,
+    \item $D=10$~UA,
+    \item $D=100$~UA.
+    \end{itemize}
   \end{enumerate}
 \end{Exercise}
 
 \begin{Answer}
   \begin{enumerate}
-  \item Il suffit de donner une position quelconque aux étoiles mais
-    en leur donnant à toute une vitesse nulle. On aurait alors $K=0$,
-    et ainsi on aurait bien la condition remplie.
-
-  \item Si cette condition est remplie, c'est que l'énergie cinétique
-    est trop faible par rapport à l'énergie potentielle (en valeur
-    absolue). Il manque aux étoiles de la vitesse pour que le système
-    reste à l'équilibre, et il va donc se réarranger, avec un rayon
-    plus petit.
+  \item $K = 1/2 M_\oplus v_\oplus^2$
+  \item Théorème du Viriel : $2K + U = 0$, soit :
+    \begin{align*}
+      U &= -2K \\
+      &= -\frac{GM_\odot M_\oplus}{D} \\
+      D &= -\frac{GM_\odot M_\oplus}{U} \\
+      &= \frac{GM_\odot}{v_\oplus^2}
+    \end{align*}
+    avec $v_\oplus = 30$~km/s, on trouve bien $D=1$~UA.
+  \item Le même genre de calculs amène à :
+    $$
+    v = \sqrt{\frac{G M_\odot}{2 D}}
+    $$
+    on trouve :
+    \begin{itemize}
+    \item pour $D=0.5$~UA, $v= 470$~km/s
+    \item pour $D=1$~UA, $v=21$~km/s
+    \item pour $D=10$~UA, $v \simeq 7$~km/s
+    \item pour $D=100$~UA, $v \simeq 2$~km/s
+    \end{itemize}
   \end{enumerate}
 \end{Answer}
 
-\begin{Exercise}[Application du théorème du Viriel]
+\begin{Exercise}[Autres applications du théorème du Viriel]
   On va maintenant utiliser le théorème du Viriel pour remplir le
   tableau ci-dessous, donnant les rayons, masses et vitesse
   caractéristiques de différents système stellaires.  Veuillez
@@ -1741,7 +1740,7 @@
   présente un poids égal à cette force ?  Marcel pèse, à Lyon, 700~N,
   et Naomi 580~N.  Le rayon de la Terre à Lyon sera supposé égal à
   6365~km.  La constante de la gravitation et la masse de la Terre
-  sont données dans les annexes du cours...
+  sont données dans les annexes du cours.
 \end{Exercise}
 
 \begin{Answer}
@@ -1769,7 +1768,7 @@
   Cette valeur s'obtiendrait aussi en utilisant la formule $P =
   M_{\mathrm{Marcel}}\times g$, où $g$ est l'accélération de la
   pesanteur à Lyon. Mais l'énoncé ne précise pas la valeur de $g$ à
-  Lyon...
+  Lyon.
 
   Pour Naomi, on peut utiliser le fait que
   $M_{\mathrm{Naomi}}/M_{\mathrm{Marcel}} =
@@ -1791,40 +1790,40 @@
   Elle peut également se calculer, d'après une remarque déjà faite,
   par $M = 71,23 \times 2,8 10^{-7} / 700$. L'attraction
   gravitationnelle est une force \emph{très faible}, c'est même la
-  plus faible des quatre forces fondamentales de l'univers...
+  plus faible des quatre forces fondamentales de l'Univers.
 \end{Answer}
 
-% \subsection{Problèmes de l'univers de Newton}
+% \subsection{Problèmes de l'Univers de Newton}
 
 % \begin{Exercise}[L'instabilité gravitationnelle]
 %   Pourquoi Newton pense-t-il que ces trois hypothèses supplémentaires
-%   permettraient, chacune, de « sauver » l'univers de la catastrophe
+%   permettraient, chacune, de « sauver » l'Univers de la catastrophe
 %   gravitationnelle ?
 % \end{Exercise}
 
 % \begin{Answer}
 %   \begin{itemize}
-%   \item Si l'univers est infini, tout point est entouré d'une
+%   \item Si l'Univers est infini, tout point est entouré d'une
 %     distribution de matière à symétrie sphérique, et restera donc
 %     immobile.
-%   \item Si l'univers est en expansion, c'est qu'il n'est pas en train
+%   \item Si l'Univers est en expansion, c'est qu'il n'est pas en train
 %     de se contracter !
-%   \item Si l'univers est très jeune, il n'a pas encore eu le temps de
+%   \item Si l'Univers est très jeune, il n'a pas encore eu le temps de
 %     démarrer sa contraction gravitationnelle de façon sensible.
 %   \end{itemize}
 % \end{Answer}
 
 % \begin{Exercise}[Le paradoxe d'Olbers]
-%   En quoi le fait que l'univers soit jeune et en expansion peut-il
+%   En quoi le fait que l'Univers soit jeune et en expansion peut-il
 %   permettre d'expliquer la noirceur du ciel nocturne ?
 % \end{Exercise}
 
 % \begin{Answer}
 %   \begin{itemize}
-%   \item Si l'univers est jeune, du fait de la vitesse finie de
+%   \item Si l'Univers est jeune, du fait de la vitesse finie de
 %     propagation de la lumière, celle qui provient des objets très
 %     lointains n'a pas eu le temps de nous parvenir.
-%   \item Si l'univers est en expansion, la lumière qui nous parvient
+%   \item Si l'Univers est en expansion, la lumière qui nous parvient
 %     des objets très lointains a été affaiblie par cette expansion
 %     (ceci sera traité plus loin dans le cours), au point de ne pas
 %     être détectable.
@@ -1868,7 +1867,7 @@
   distinguer les effets de l'une de ceux de l'autre, mais seulement
   tant qu'on se limite à un très petit domaine spatial. En gros, c'est
   à peu près vrai dans un dé à coudre, cela ne l'est plus vraiment
-  dans un stade de foot...
+  dans un stade de foot.
 
   En reprenant l'exemple simple de l'ascenseur d'Einstein, pouvez-vous
   montrer qu'en effet il est facile de distinguer pesanteur et
@@ -1933,12 +1932,12 @@
 
 \section{Le big bang}
 
-\subsection{Expansion de l'univers...}
+\subsection{Expansion de l'Univers...}
 
 \begin{Exercise}[...limitée par $c$ ?]
   Plus une galaxie est éloignée de notre Voie Lactée, plus les
   astronomes lui trouvent une vitesse d'éloignement élevée. C'est
-  l'expansion de l'univers. Mais, quand la distance croît sans cesse,
+  l'expansion de l'Univers. Mais, quand la distance croît sans cesse,
   elle atteint un moment une valeur $d_c$ telle que :
   $$
   V = H_0 d_c > c
@@ -1951,27 +1950,27 @@
   égale ou supérieure à $c$ pour un objet de masse non nulle, comme
   une galaxie. Alors ?
 
-  Alors, cela ne pose aucun problème pour l'expansion de l'univers, où
-  les objets (les galaxies...) sont immobiles dans un espace dont la
-  géométrie s'étire. Les galaxies très lointaines voient effectivement
-  leur vitesse apparente atteindre celle de la lumière, et
-  disparaissent alors de l'univers observable. Ceci n'enlève rien au
-  fait qu'elles continuent à s'éloigner de nous à des vitesses
+  Alors, cela ne pose aucun problème pour l'expansion de l'Univers, où
+  les objets (p.ex. les galaxies) sont immobiles dans un espace dont
+  la géométrie s'étire. Les galaxies très lointaines voient
+  effectivement leur vitesse apparente atteindre celle de la lumière,
+  et disparaissent alors de l'Univers observable. Ceci n'enlève rien
+  au fait qu'elles continuent à s'éloigner de nous à des vitesses
   supérieures à $c$.
 
   Signalons que nos moyens d'observation actuels sont loin de nous
-  permettre d'observer les objets qui flirtent avec cette limite...
+  permettre d'observer les objets qui s'approchent de cette limite.
 \end{Answer}
 
 \begin{Exercise}[...la même partout ?]
   La radiogalaxie 3C 171 (nommée ainsi parce qu'elle occupe la 171e
   position dans le troisième catalogue de radiources établi par
-  l'observatoire de Cambridge...) est relativement lointaine;
-  entraînée par l'expansion de l'univers, elle présente une vitesse de
-  fuite de 63000~km/s.
+  l'observatoire de Cambridge) est relativement lointaine; entraînée
+  par l'expansion de l'Univers, elle présente une vitesse de fuite de
+  63000~km/s.
 
   Montrer que malgré cela, l'astronome Snurp, qui a là-bas
-  découvert l'expansion de l'univers, comme Hubble l'a fait pour nous,
+  découvert l'expansion de l'Univers, comme Hubble l'a fait pour nous,
   a lui aussi trouvé une loi qui s'écrit :
   $$
   V_0 = X_0 d_{0^{'}} \quad\text{avec}\quad X_0 = H_0
@@ -2002,7 +2001,7 @@
   et donc, à partir de 3C171 comme de la Terre, toute les galaxie
   observée semble s'enfuir avec une vitesse proportionnelle à sa
   distance, et le facteur de proportionnalité (la constante de Snurp)
-  est universel : $X_0=H_0$... (Fig.~\ref{H0})
+  est universel : $X_0=H_0$ (Fig.~\ref{H0}).
 
   \begin{figure}[htp]
     \centering
@@ -2020,10 +2019,9 @@
 \end{Exercise}
 
 \begin{Answer}
-  Un mégaparsec (Mpc) vaut $10^6$~parsecs, soit $3.26 10^6$
-  années-lumière, soit $3,08 10^{19}$~km... Ceci nous montre que
-  65~\u{km s^{-1} Mpc^{-1}} équivalent à $2,10
-  10^{18}$~\u{km~s^{-1}~km^{-1}}, ou encore $6,65
+  Un mégaparsec (Mpc) vaut $10^6$~parsecs, soit $3,08
+  10^{19}$~km. Ceci nous montre que 65~\u{km s^{-1} Mpc^{-1}}
+  équivalent à $2,10 10^{18}$~\u{km~s^{-1}~km^{-1}}, ou encore $6,65
   10^{-11}$~\u{km~an^{-1}~km^{-1}}. Ce qui signifie que chaque
   kilomètre de l'espace, loin de toute galaxie, s'étire chaque année
   de $6,65 10^{-11}$~km, soit environ 67~nm ! C'est infiniment
@@ -2064,46 +2062,46 @@
 
 \section{Questions diverses}
 
-\subsection{Âge de l'univers}
+Dans les exercices suivants, on supposera que la constante de Hubble a
+une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
 
-\begin{Exercise}[Temps de Hubble et densité critique]
-  La constante de Hubble a une valeur de l'ordre de $H_0 = 65$~\u{km
-    s^{-1} Mpc^{-1}}. 
-  \begin{enumerate}
-  \item Calculez le temps de Hubble $t_{H} = 1/H_{0}$. Quelle
-    conclusion pouvez-vous en tirer sur l'âge de l'univers ?
-  \item Calculer la densité critique $\rho_{C} =
-    \dfrac{3c^{2} H_{0}^{2}}{8\pi G}$. En quelles unités s'exprime-t-elle ?
-  \end{enumerate}
+\begin{Exercise}[Temps de Hubble]
+  Calculez le temps de Hubble $t_{H} = 1/H_{0}$. Quelle conclusion
+  pouvez-vous en tirer sur l'âge de l'Univers ?
 \end{Exercise}
 
 \begin{Answer}
-  \begin{enumerate}
-  \item Le temps de Hubble est défini par : $1/t_{H} = H_0 =
-    65$~\u{km~s^{-1}~Mpc^{-1}}. Il reste simplement à convertir les
-    Mpc (megaparsecs) en kilomètres, et il vient : $1/t_{H} =
-    65~\u{km~s^{-1}} [3,26 10^{19}~\u{km}]^{-1} = 20 \times
-    10^{-19}$~\u{s^{-1}}, d'où $t_{H} = 5 \times 10^{17}~s \simeq 16
-    \times 10^9$~années. On peut donc penser que l'univers est âgé de
-    moins de 16~milliards d'années.
-  \item $\rho_{C} \simeq 9\times 10^{-10}~\u{J m^{-3}} \simeq
-    6$~nucléons/\u{m^{3}}
-  \end{enumerate}
+  Le temps de Hubble est défini par : $1/t_{H} = H_0 =
+  65$~\u{km~s^{-1}~Mpc^{-1}}. Il reste simplement à convertir les Mpc
+  (megaparsecs) en kilomètres, et il vient : $1/t_{H} =
+  65~\u{km~s^{-1}} [3,26 10^{19}~\u{km}]^{-1} = 20 \times
+  10^{-19}$~\u{s^{-1}}, d'où $t_{H} = 5 \times 10^{17}~s \simeq 16
+  \times 10^9$~années. On peut donc penser que l'Univers est âgé de
+  moins de 16~milliards d'années.
 \end{Answer}
 
-\begin{Exercise}[Age de l'univers et temps de Hubble]
-  En partant de la définition de $H_0$ et de la relation trouvée dans
-  la section précédente entre le facteur d'échelle $R$ et l'âge $t$ de
-  l'univers dans le cas de la densité critique, trouver la relation
-  entre $H$ et $t$.
+\begin{Exercise}[Densité critique]
+  Calculer la densité critique $\rho_{C} = \dfrac{3c^{2}
+    H_{0}^{2}}{8\pi G}$. En quelles unités s'exprime-t-elle ?
+\end{Exercise}
+
+\begin{Answer}
+  $\rho_{C} \simeq 9\times 10^{-10}~\u{J m^{-3}} \simeq
+  6$~nucléons/\u{m^{3}}
+\end{Answer}
+
+\begin{Exercise}[Âge de l'Univers]
+  À partir de la définition de $H_0$ et de la relation entre le
+  facteur d'échelle $R$ et l'âge $t$ de l'Univers dans le cas de la
+  densité critique, trouver la relation entre $H_{0}$ et $t$.
 \end{Exercise}
 
 \begin{Answer}
   Par définition :
   $$
-  v = H_0.d \quad\text{donc}\quad
-  H_0 = \frac{v}{d} = \frac{1}{d} \frac{\d d}{\d t}  =
-  \frac{1}{\epsilon R} \frac{\d\left(\epsilon R \right)}{\d t}
+  v = H_0.d \quad\text{donc}\quad H_0 = \frac{v}{d} = \frac{1}{d}
+  \frac{\d d}{\d t} = \frac{1}{\epsilon R} \frac{\d\left(\epsilon R
+    \right)}{\d t}
   $$
   car toute distance, à un instant $t$, peut s'écrire en terme du
   facteur d'échelle $R$ : $d = \epsilon R(t)$, où $\epsilon$ est une
@@ -2117,13 +2115,11 @@
     &= \left( \frac{t}{t_0} \right)^{-1} \times \frac{2}{3t_0} \\
     &= \frac{2}{3t}
   \end{align*}
-  Dans le cas critique (univers marginalement ouvert), l'âge de
-  l'univers est égal aux deux-tiers du temps de Hubble.
+  Dans le cas critique (Univers marginalement ouvert), l'âge de
+  l'Univers est égal aux deux-tiers du temps de Hubble.
 \end{Answer}
 
-\subsection{Facteur d'échelle}
-
-\begin{Exercise}[Redshift cosmologique, facteur d'échelle et éqoque]
+\begin{Exercise}[Redshift cosmologique, facteur d'échelle et époque]
   La radiogalaxie 4C41.17 montre une raie spectrale intense à
   582,2~nm.  Cette raie est identifiée comme la raie Lyman alpha de
   l'hydrogène. En laboratoire, sur la Terre, la longueur d'onde de
@@ -2131,7 +2127,7 @@
 
   \begin{enumerate}
   \item Quel est le redshift de la radiogalaxie 4C41.17 ?
-  \item Quel était le facteur d'échelle de l'univers à l'époque où les
+  \item Quel était le facteur d'échelle de l'Univers à l'époque où les
     atomes d'hydrogène de 4C41.17 émettaient cette raie ?
   \item À quelle époque $t_{em}$ la radiogalaxie 4C41.17 de l'exercice
     précédent a-t-elle émis la lumière que nous recevons aujourd'hui à
@@ -2154,10 +2150,10 @@
     $$
     soit $R_{em}/R_{0} = \lambda_{em}/\lambda_0 = 121,5/582,2 =
     0,264$.  À l'époque où 4C41.17 émettait la lumière qui nous
-    parvient aujourd'hui, l'univers était cinq fois moins « étiré »
-    qu'aujourd'hui... Remarquez bien qu'on évite de dire qu'il était
+    parvient aujourd'hui, l'Univers était cinq fois moins « étiré »
+    qu'aujourd'hui. Remarquez bien qu'on évite de dire qu'il était
     moins « étendu » : cette expression sous-entendrait des choses sur
-    la « taille globale » de l'univers, ce que tout cosmologiste
+    la « taille globale » de l'Univers, ce que tout cosmologiste
     raisonnable évite soigneusement de faire.
   \item À nouveau, il suffit de se souvenir de la relation liant le
     facteur d'échelle et le temps cosmologique :
@@ -2167,15 +2163,13 @@
     pour trouver $t_{em} = t_0 \times
     \left(R(t_{em})/R_{0}\right)^{3/2}$, et donc $t_{em} = 13,5 \times
     (0,264)^{3/2} = 1,8$~Gan.  4C41.17 émettait la lumière qui nous
-    parvient aujourd'hui alors l'univers était âgé d'environ 1,8
+    parvient aujourd'hui alors l'Univers était âgé d'environ 1,8
     milliards d'années. Environ, car l'équation de départ n'est qu'une
     approximation.
-\end{enumerate}
+  \end{enumerate}
 \end{Answer}
 
-\subsection{Distance de l'horizon}
-
-\begin{Exercise}[{Temps de vol, distance, et expansion...}]
+\begin{Exercise}[Temps de vol, distance, et expansion...]
   Il y a dix milliards d'années, ce photon que nous recevons
   aujourd'hui a quitté une lointaine galaxie.
   \begin{enumerate}
@@ -2187,7 +2181,7 @@
 \end{Exercise}
 
 \begin{Answer}
-  \begin{itemize}
+  \begin{enumerate}
   \item Le photon a voyagé pendant dix milliards d'années en luttant
     contre l'expansion de l'espace qui contrariait son mouvement; tout
     se passe comme s'il avait parcouru à la vitesse $c$ une distance
@@ -2201,9 +2195,8 @@
     l'espace est à tout instant égale à $c$, mais la galaxie a
     continué sa route pendant tout ce temps, et se trouve aujourd'hui
     à plus de dix milliards d'années-lumière de nous...
-  \end{itemize}
+  \end{enumerate}
 \end{Answer}
-
 
 % ==============================================================================
 
