@@ -1,4 +1,4 @@
-% Time-stamp: <2012-04-23 02:26 ycopin@lyopc469>
+% Time-stamp: <2012-04-23 17:59:24 ycopin>
 % Auteurs (version LaTeX):
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
@@ -66,6 +66,8 @@
 \fi
 
 % Définitions locales
+%\newcommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+\newcommand{\e}[1]{\ensuremath{\, 10^{#1}}}
 \renewcommand{\d}{\ensuremath{\mathrm{d}}}
 \newcommand{\UA}{\ensuremath{\textrm{UA}}}
 \renewcommand{\deg}{\ensuremath{^{\circ}}}
@@ -140,7 +142,7 @@
 \begin{Exercise}[Luminosité du Soleil]
   Calculer la luminosité du Soleil à partir de sa température
   effective du Soleil $T_\odot \approx 5770$~K et de son rayon
-  $R_{\odot}\approx 6,96 \times 10 ^{8}$~m.
+  $R_{\odot}\approx 6,96\e{8}$~m.
 \end{Exercise}
 
 \begin{Answer}
@@ -148,9 +150,8 @@
   $$
   T_e = \left( \frac{L}{4 \pi R^2_p \sigma} \right)^{1/4}
   $$
-  avec la constante de Stefan $\sigma = 5,67 \times
-  10^{-8}$~\u{Wm^{-2}K^{-4}}, on trouve la luminosité
-  $L_{\odot}\approx 3,83\times 10^{26}$~W.
+  avec la constante de Stefan $\sigma = 5,67\e{-8}$~\u{Wm^{-2}K^{-4}},
+  on trouve la luminosité $L_{\odot}\approx 3,83\e{26}$~W.
 \end{Answer}
 
 
@@ -200,9 +201,9 @@
   \item Écrire l'égalité des puissance reçue et rayonnée à la surface
     de la Terre, en déduire l'expression de la température $T_{e}$ en
     fonction des données du problème.
-  \item Application numérique, sachant que $L=3,85\times 10^{26}$~W,
-    $R=6400$~km, $D=1,5\times10^{11}$~m, $\sigma =
-    5,67\times10^{-8}$~\u{J.s^{-1}.m^{-2}.K^{-4}}.
+  \item Application numérique, sachant que $L=3,85\e{26}$~W,
+    $R=6400$~km, $D=1,5\e{11}$~m, $\sigma =
+    5,67\e{-8}$~\u{J.s^{-1}.m^{-2}.K^{-4}}.
   \item Commenter sur la validité et les limites de ce modèle.
    \end{enumerate}
 \end{Exercise}
@@ -297,10 +298,10 @@
   Les étoiles situées à $d=100$~pc ont une parallaxe
   $p=1/100=0,01''=10$~mas. La précision obtenue sera de
   \begin{align*}
-    \frac{\Delta d}{d} &= \frac{\Delta p}{p} = \frac{2 \times
-      10^{-3}}{10^{-2}} = 2 \times 10^{-1} = 20 \% &\text{avec Hipparcos} \\
-    \frac{\Delta d}{d} &= \frac{\Delta p}{p} = \frac{7 \times
-      10^{-6}}{10^{-2}} = 7 \times 10^{-4} = 0,07 \% &\text{avec GAIA}
+    \frac{\Delta d}{d} &= \frac{\Delta p}{p} = \frac{2\e{-3}}{10^{-2}}
+    = 2\e{-1} = 20 \% &\text{avec Hipparcos} \\
+    \frac{\Delta d}{d} &= \frac{\Delta p}{p} = \frac{7\e{-6}}{10^{-2}} 
+    = 7\e{-4} = 0,07 \% &\text{avec GAIA}
   \end{align*}
 
   Pour des étoiles à $d=1000$~pc, $p=1$~mas, et les précisions
@@ -310,9 +311,9 @@
   On aura une erreur de 100\% quand $\Delta d =d$, soit $\delta p =
   p$. La distance correspondante s'obtient donc par
   \begin{align*}
-    d &= \frac{1}{p} = \frac{1}{2 \times 10^{-3}} = 500~\u{pc}
+    d &= \frac{1}{p} = \frac{1}{2\e{-3}} = 500~\u{pc}
     &\text{Hipparcos} \\
-    d &= \frac{1}{p} = \frac{1}{7 \times 10^{-6}} = 143~\u{kpc}
+    d &= \frac{1}{p} = \frac{1}{7\e{-6}} = 143~\u{kpc}
     &\text{GAIA}
   \end{align*}
 \end{Answer}
@@ -396,10 +397,10 @@
   attention à exprimer l'angle $\mu$ en radians et à utiliser les
   mêmes unités de distance et de temps pour les autres grandeurs.
   \begin{itemize}
-  \item $\mu = 47,3 \pm 0,8~\u{mas.an^{-1}} = (2,29 \pm 0,04) \times
-    10^{-7}~\u{rad.an^{-1}}$
-  \item $v_r = 10,1 \pm 0,3~\u{km.s^{-1}} = (1,02 \pm 0,03) \times
-    10^{-5}~\u{pc.an^{-1}}$
+  \item $\mu = 47,3 \pm 0,8~\u{mas.an^{-1}} = 
+    (2,29 \pm 0,04) \e{-7}~\u{rad.an^{-1}}$
+  \item $v_r = 10,1 \pm 0,3~\u{km.s^{-1}} = 
+    (1,02 \pm 0,03) \e{-5}~\u{pc.an^{-1}}$
   \item $\theta = 67,9 \pm 0,6\deg = 1,19 \pm 0,01$~rad.
   \item On a donc $\tan \theta= 2,50 \pm 0,07$.
   \item Finalement, $d = v_{r}\tan\theta/\mu = 111 \pm 8$~pc.
@@ -500,10 +501,10 @@
 \begin{Answer}
   Pour Sirius :
   \begin{itemize}
-  \item Son diamètre apparent vaut $\theta_*= 5,89~\u{mas} = 2,86 \times
-    10^{-8}$~rad.
-  \item Son rayon vaut donc $R = \theta_* d / 2 = 3,8 \times
-    10^{-8}\;\u{pc} = 1,2 \times 10^9\;\u{m} = 1,7\;R_{\odot}$.
+  \item Son diamètre apparent vaut $\theta_*= 5,89~\u{mas} =
+    2,86\e{-8}$~rad.
+  \item Son rayon vaut donc $R = \theta_* d / 2 = 
+    3,8\e{-8}\;\u{pc} = 1,2 \e9\;\u{m} = 1,7\;R_{\odot}$.
   \end{itemize}
   Le tableau suivant donne les résultats pour les 3 étoiles :
   \begin{center}
@@ -557,13 +558,12 @@
   \item La distance est $d[\u{pc}] = 1/p[''] = 10$~pc.
   \item La dimension angulaire du grand axe de l'orbite relative est
     de $5'' + 1'' = 6''$. Le demi-grand axe apparent est donc $\theta
-    = 3'' = 1,45 \times 10^{-5}$~rad.
+    = 3'' = 1,45\e{-5}$~rad.
   \item Le demi-grand axe de l'orbite relative est donné par
-    $a[\UA] = \theta[''] d[\u{pc}]$ soit $a = 30\;\UA = 4,49
-    \times 10^{12}\;\u{m}$.
+    $a[\UA] = \theta[''] d[\u{pc}]$ soit $a = 30\;\UA = 4,49\e{12}\;\u{m}$.
   \item La 3ème loi de Kepler (en unités réduites) donne la somme des
-    masses : $\tilde{M}_{1} + \tilde{M}_{2} = 30\;M_{\odot} = 5,97
-    \times 10^{31}\;\u{kg}$.
+    masses : $\tilde{M}_{1} + \tilde{M}_{2} = 30\;M_{\odot} =
+    5,97\e{31}\;\u{kg}$.
   \item Les distances des étoiles $E_1$ et $E_2$ au centre de gravité
     $G$ vérifient $M_1 \times GE_1 = M_2 \times GE_2$. Le rapport des
     masses vaut donc $M_1 / M_2 = GE_2 / GE_1 = 5$.
@@ -618,8 +618,8 @@
 \begin{Answer}
   \begin{itemize}
   \item Distance : $d [\u{pc}] = 1/p[''] = 28,46 \pm 0,73$~pc.
-  \item Le demi-grand axe de l'orbite relative est donné par $a [\UA] =
-    \theta [''] d [\u{pc}]$ soit $a = 0,065~\UA = 9,77 \times 10^9~\u{m} =
+  \item Le demi-grand axe de l'orbite relative est donné par $a [\UA]
+    = \theta [''] d [\u{pc}]$ soit $a = 0,065~\UA = 9,77\e{9}~\u{m} =
     13,96\;R_{\odot} = 2,2 (R_{A}+R_{B})$.
   \item La 3ème loi de Kepler donne la somme des masses réduites
     ($\tilde{M} = M/M_{\odot}$) : $\tilde{M}_A + \tilde{M}_B =
@@ -1020,7 +1020,7 @@
   En admettant que la densité moyenne d'atomes d'Hydrogène est de
   l'ordre de 8~atomes par cm$^3$, et en négligeant la présence des
   atomes d'autres éléments, calculer (on donne la masse du proton $m =
-  1,67\times 10^{-24}$~g) :
+  1,67\e{-24}$~g) :
   \begin{enumerate}[resume]
   \item la masse volumique du gaz dans le MIS,
   \item le rapport (masse volumique des grains)/(masse volumique du
@@ -1032,7 +1032,7 @@
 \begin{Answer}
   \begin{align*}
     \text{Distance de l'étoile :}\qquad
-    L &= 2\;\u{kpc} = 6,17\times 10^{21}\;\u{cm} \\
+    L &= 2\;\u{kpc} = 6,17\e{21}\;\u{cm} \\
     \text{Section d'un grain :}\qquad
     s_g &= \pi\,a^2 = \pi\,(10^{-5})^2 = \pi\,10^{-10}~[\u{cm^{2}}] \\
     \text{Extinction en V sur la ligne de visée :}\qquad
@@ -1044,29 +1044,28 @@
   longueur $L$ et de section unité. Si la densité de grains $n_g$ est
   constante, la densité de colonne est donc égale à $n_g L$
   $$
-  n_g L = \frac{\tau}{s_g} = \frac{0,55}{\pi 10^{-10}} = 1,75\times
-  10^9~[\u{grain/cm^2}]
+  n_g L = \frac{\tau}{s_g} = \frac{0,55}{\pi 10^{-10}} =
+  1,75\e{9}~[\u{grain/cm^2}]
   $$
   On déduit de l'expression précédente la densité de grains $n_g$ :
   $$
-  n_g = \frac{1,75\times  10^{9}}{6\times  10^{21}} = 2,82\times
-  10^{-13}~[\u{grain/cm^{3}}]
+  n_g = \frac{1,75\e{9}}{6\e{21}} = 2,82\e{-13}~[\u{grain/cm^{3}}]
   $$
   Masse volumique des grains dans le MIS :
   $$
   1 [\u{g/cm^{3}}]\times \frac{4\pi a^{3}}{3}~[\u{cm^3/grain}]
-  2,9\times 10^{-13}
-  [\u{grain/cm^3}]= 1,18\times 10^{-27}~[\u{g/cm^3}]
+  2,9\e{-13}
+  [\u{grain/cm^3}]= 1,18\e{-27}~[\u{g/cm^3}]
   $$
   Masse volumique du gaz dans le MIS :
   $$
-  8~[\u{atomes/cm^3}] 1,67352\times 10^{-24}~[\u{g/atome}] = 1,34\times
-  10^{-23}~[\u{g/cm^3}]
+  8~[\u{atomes/cm^3}] 1,67352\e{-24}~[\u{g/atome}] = 1,34\e{-23}~[\u{g/cm^3}]
   $$
   $$
   \frac{\text{Masse volumique des grains}}{\text{Masse volumique du
-      gaz}} = \frac{1,18\times 10^{-27}~[\u{g/cm^3}]}{1,34\times
-    10^{-23}~[\u{g/cm^3}]} = 8,8\times 10^{-5}
+      gaz}} =
+  \frac{1,18\e{-27}~[\u{g/cm^3}]}{1,34\e{-23}~[\u{g/cm^3}]} =
+  8,8\e{-5}
   $$
   Conclusion : les grains ne représentent qu'une fraction très faible de
   la masse de matière dans le MIS.
@@ -1099,7 +1098,7 @@
   $$
   A(\lambda)= \frac{a}{\lambda} = 2,5 \log\frac{W}{W'}
   $$
-  soit, en posant $a' = a/(2,5 \times0,43429)$ (Rappel : $0,43429 =
+  soit, en posant $a' = a/(2,5 \times 0,43429)$ (Rappel : $0,43429 =
   \log_{10}(e)$) :
   $$
   W' = W \exp\left(\frac{-a'}{\lambda}\right)
@@ -1326,8 +1325,8 @@
 \end{Exercise}
 
 \begin{Answer}
-  La fraction est de $10^{11}\times \left(\frac{0,7\times
-      10^{6}}{10\times 3,08\times 10^{16}}\right)^{3}\approx 10^{-24}$
+  La fraction est de $10^{11} \times \left(\frac{0,7\e{6}}{10\times
+      3,08\e{16}}\right)^{3}\approx 10^{-24}$
 \end{Answer}
 
 
@@ -1439,8 +1438,8 @@
     revient à environ $0,041$~pc. Le demi grand axe est donné comme
     étant égal à $0,119''$, donc cela équivaut à~:
     $$
-    a = 0,119 \times 0,041 = 0,0048~\u{pc} = 0,0048\times 3,08 \times
-    10^{16} = 1,5 \times 10^{14}~\u{m}
+    a = 0,119 \times 0,041 = 0,0048~\u{pc} = 0,0048\times 3,08\e{16} =
+    1,5\e{14}~\u{m}
     $$
 
   \item la période $T$ est donnée de 15,2~ans donc~: $T=479347200$~s
@@ -1457,11 +1456,10 @@
   En application numérique cela donne (en kg, vérifiez bien que
   l'équation est homogène dans ses unités) :
   $$
-  M = \frac{ 4 \times \pi^2 \times (1,5 \times 10^{14})^3 } { (479 347
-    200)^2 \times 6,6742 \times 10^{11} } = 8,7 \times 10^{36}~\u{kg}
+  M = \frac{ 4 \times \pi^2 \times (1,5\e{14})^3 } { (479 347 200)^2
+    \times 6,6742\e{11} } = 8,7\e{36}~\u{kg}
   $$
-  et ceci exprimé en masses solaires : $M \approx 4,4 \times
-  10^6~M_{\odot}$
+  et ceci exprimé en masses solaires : $M \approx 4,4\e{6}~M_{\odot}$
 \end{Answer}
 
 \subsection{Le groupe local}
@@ -1600,8 +1598,8 @@
     Terre-Soleil.
   \item Énoncer le théorème du Viriel. En déduire l'expression de la
     distance $D$ d'équilibre entre la Terre et le Soleil. Faire
-    l'application numérique, sachant que $M_\odot=2\times10^{30}$~kg,
-    $M_\oplus=5,97\times10^{24}$~kg et $v_\oplus=30$~km/s.
+    l'application numérique, sachant que $M_\odot=2\e{30}$~kg,
+    $M_\oplus=5,97\e{24}$~kg et $v_\oplus=30$~km/s.
   \item On considère un système d'étoiles binaires en équilibre. Pour
     simplifier, les étoiles sont prises de masses égales $M_{1} =
     M_{2} = M_\odot$ et leurs vitesses sont considérées comme égales
@@ -1650,15 +1648,15 @@
 \end{Exercise}
 
 \begin{Answer}
-  On a $M = 2RV^{2}/G$, avec $G = 6,67\times 10^{-11}\;\u{SI} =
-  4,302\times 10^{-3}\;\u{km^{2}.s^{-2}.pc.M_{\odot}^{-1}}$ d'où:
+  On a $M = 2RV^{2}/G$, avec $G = 6,67\e{-11}\;\u{SI} =
+  4,302\e{-3}\;\u{km^{2}.s^{-2}.pc.M_{\odot}^{-1}}$ d'où:
   \begin{center}
     \begin{tabular}{|c|c|c|c|}
       \hline
       Système & $R$ & $V$ (km/s) & $M$ ($M_{\odot}$) \\ \hline
-      Amas globulaire  & 10~pc  & 10   & \red{$4,6\times 10^{5}$} \\ \hline
-      Galaxie          & 50~kpc & 200  & \red{$9,3\times 10^{11}$} \\ \hline
-      Amas de galaxies & 1~Mpc  & 1000 & \red{$4,6\times 10^{14}$} \\ \hline
+      Amas globulaire  & 10~pc  & 10   & \red{$4,6\e{5}$} \\ \hline
+      Galaxie          & 50~kpc & 200  & \red{$9,3\e{11}$} \\ \hline
+      Amas de galaxies & 1~Mpc  & 1000 & \red{$4,6\e{14}$} \\ \hline
     \end{tabular}
   \end{center}
 \end{Answer}
@@ -1680,15 +1678,15 @@
 \end{Exercise}
 
 \begin{Answer}
-  $t_{c} = R/V = \sqrt{2R^{3} / GM}$ avec $G = 4,500\times
-  10^{-15}\;\u{pc^{3}.M_{\odot}^{-1}.an^{-2}}$ donc:
+  $t_{c} = R/V = \sqrt{2R^{3} / GM}$ avec $G =
+  4,500\e{-15}$~\u{pc^{3}.M_{\odot}^{-1}.an^{-2}} donc:
   \begin{center}
     \begin{tabular}{|c|c|c|c|}
       \hline
       Système & $R$ (pc) & $M$ ($M_{\odot}$) & $t_c$ (ans) \\ \hline
-      Amas ouvert     & 1~pc   & 500      & \red{$9,4\times 10^5$} \\ \hline
-      Amas globulaire & 10~pc  & $10^5$   & \red{$2,1\times 10^6$} \\ \hline
-      Galaxie         & 50~kpc & $10^{12}$ & \red{$2,4\times 10^8$} \\ \hline
+      Amas ouvert     & 1~pc   & 500      & \red{$9,4\e{5}$} \\ \hline
+      Amas globulaire & 10~pc  & $10^5$   & \red{$2,1\e{6}$} \\ \hline
+      Galaxie         & 50~kpc & $10^{12}$ & \red{$2,4\e{8}$} \\ \hline
     \end{tabular}
   \end{center}
   Les temps cinématiques pour un amas ouvert et un amas globulaire ne
@@ -1725,9 +1723,9 @@
   $$
   F = G \frac{m_1 m_2}{d^2}
   $$
-  On retrouve d'abord les valeurs des constantes : $G = 6,672 \times
-  10^{-11}$, $M_{\oplus} = 5,976 \times 10^{24}$~kg, et $R = 6365$~km
-  qui est donné dans l'énoncé.
+  On retrouve d'abord les valeurs des constantes : $G = 6,672\e{-11}$~SI,
+  $M_{\oplus} = 5,976\e{24}$~kg, et $R = 6365$~km qui est donné dans
+  l'énoncé.
 
   On écrit donc :
   $$
@@ -1735,9 +1733,9 @@
   $$
   soit encore :
   $$
-  M_{\mathrm{Marcel}} = \frac{P_{\mathrm{Marcel}}R^2}{G M_{\oplus}}
-  = \frac{ 6370000^2 \times 700 }{ 6,672 \times
-    10^{-11} \times 5,976 \times 10^{24} } = 71,23~\u{kg}
+  M_{\mathrm{Marcel}} = \frac{P_{\mathrm{Marcel}}R^2}{G M_{\oplus}} =
+  \frac{ 6370000^2 \times 700 }{6,672\e{-11} \times 5,976\e{24} } =
+  71,23~\u{kg}
   $$
   Cette valeur s'obtiendrait aussi en utilisant la formule $P =
   M_{\mathrm{Marcel}}\times g$, où $g$ est l'accélération de la
@@ -1754,15 +1752,15 @@
   \frac{58}{70} = 59,02~\u{kg}
   $$
   D'où $F_{\mathrm{Naomi}-\mathrm{Marcel}} = ( 6,672 10^{-11} \times
-  71,23 \times 59,02 ) / 1 = 2,8 10^{-7}~\u{N}$.
+  71,23 \times 59,02 ) / 1 = 2,8\e{-7}~\u{N}$.
 
   La masse qui présenterait un poids égal à cette valeur en cet
-  endroit serait de : $M = ( 63700002 \times 2,8 10^{-7} ) / ( 6,672
-  10^{-11} \times 5,976 10^{24} ) = 2,85 10^{-8}\;\u{kg} = 28,5$~\u{\mu
-    g}.
+  endroit serait de : $M = ( 63700002 \times 2,8\e{-7} ) / (
+  6,672\e{-11} \times 5,976\e{24} ) = 2,85\e{-8}\;\u{kg} =
+  28,5$~\u{\mu g}.
 
   Elle peut également se calculer, d'après une remarque déjà faite,
-  par $M = 71,23 \times 2,8 10^{-7} / 700$. L'attraction
+  par $M = 71,23 \times 2,8\e{-7} / 700$. L'attraction
   gravitationnelle est une force \emph{très faible}, c'est même la
   plus faible des quatre forces fondamentales de l'Univers.
 \end{Answer}
@@ -1817,13 +1815,13 @@
 
 % \begin{Answer}
 %   Si la lumière met $8+8 = 16$~min pour traverser l'orbite de la
-%   Terre, c'est à dire pour franchir une distance de 2~U.A., sa vitesse
-%   est $c = 2 \times 1,49598 \times 10^{11} / ( 16 \times 60 ) = 3,11
-%   \times 10^8$~m/s. Ceci suppose que la valeur de l'U.A. admise alors
-%   était la même qu'aujourd'hui, ce qui n'est certainement pas exact :
-%   en 1675, on n'avait pas encore très bien mesuré la distance de la
-%   Terre au Soleil... La valeur de deux fois huit minutes est elle-même
-%   approximative. Roemer aurait plutôt trouvé $2 \times 10^8$~m/s,
+%   Terre, c'est à dire pour franchir une distance de 2~U.A., sa
+%   vitesse est $c = 2 \times 1,49598\e{11} / ( 16 \times 60 ) =
+%   3,11\e{8}$~m/s. Ceci suppose que la valeur de l'U.A. admise alors
+%   était la même qu'aujourd'hui, ce qui n'est certainement pas exact
+%   : en 1675, on n'avait pas encore très bien mesuré la distance de
+%   la Terre au Soleil... La valeur de deux fois huit minutes est
+%   elle-même approximative. Roemer aurait plutôt trouvé $2\e{8}$~m/s,
 %   dit-on. La première détermination sérieuse de l'Unité Astronomique
 %   est due à Cassini et Richer, en 1671. Il faudra attendre le XXe
 %   siècle et les méthodes d'écho radar pour disposer de mesures très
@@ -1888,9 +1886,8 @@
   Le décalage gravitationnel subi à la distance $r$ d'un corps de
   masse $M$ s'écrit :
   $$
-  z = \frac{GM}{c^2r}
-  = \frac{ 6,672 \times 10^{-11} \times 1,5 \times 1,989 \times
-    10^{30} }{ 299792458^{2} \times 10^6 } = 2,215 \times 10^{-3}
+  z = \frac{GM}{c^2r} = \frac{ 6,672\e{-11} \times 1,5 \times
+    1,989\e{30} }{ 299792458^{2}\e{6} } = 2,215\e{-3}
   $$
   Mais :
   $$
@@ -2048,10 +2045,9 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
   Le temps de Hubble est défini par : $1/t_{H} = H_0 =
   65$~\u{km~s^{-1}~Mpc^{-1}}. Il reste simplement à convertir les Mpc
   (mégaparsecs) en kilomètres, et il vient : $1/t_{H} =
-  65~\u{km~s^{-1}} [3,26 10^{19}~\u{km}]^{-1} = 20 \times
-  10^{-19}$~\u{s^{-1}}, d'où $t_{H} = 5 \times 10^{17}~s \simeq 16
-  \times 10^9$~années. On peut donc penser que l'Univers est âgé de
-  moins de 16~milliards d'années.
+  65~\u{km~s^{-1}} [3,26 10^{19}~\u{km}]^{-1} = 20\e{-19}$~\u{s^{-1}},
+  d'où $t_{H} = 5\e{17}~s \simeq 16\e{9}$~années. On peut donc penser
+  que l'Univers est âgé de moins de 16~milliards d'années.
 \end{Answer}
 
 \begin{Exercise}[Densité critique]
@@ -2060,8 +2056,7 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
 \end{Exercise}
 
 \begin{Answer}
-  $\rho_{C} \simeq 9\times 10^{-10}~\u{J m^{-3}} \simeq
-  6$~nucléons/\u{m^{3}}
+  $\rho_{C} \simeq 9\e{-10}~\u{J m^{-3}} \simeq 6$~nucléons/\u{m^{3}}
 \end{Answer}
 
 \begin{Exercise}[Âge de l'Univers]
@@ -2094,16 +2089,16 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
 \end{Answer}
 
 \begin{Exercise}[Redshift cosmologique, facteur d'échelle et époque]
-  La radiogalaxie 4C41,17 montre une raie spectrale intense à
+  La radiogalaxie 4C41.17 montre une raie spectrale intense à
   582,2~nm.  Cette raie est identifiée comme la raie Lyman alpha de
   l'hydrogène. En laboratoire, sur la Terre, la longueur d'onde de
   cette raie est de 121,5~nm.
 
   \begin{enumerate}
-  \item Quel est le redshift de la radiogalaxie 4C41,17 ?
+  \item Quel est le redshift de la radiogalaxie 4C41.17 ?
   \item Quel était le facteur d'échelle de l'Univers à l'époque où les
-    atomes d'hydrogène de 4C41,17 émettaient cette raie ?
-  \item À quelle époque $t_{em}$ la radiogalaxie 4C41,17 de l'exercice
+    atomes d'hydrogène de 4C41.17 émettaient cette raie ?
+  \item À quelle époque $t_{em}$ la radiogalaxie 4C41.17 de l'exercice
     précédent a-t-elle émis la lumière que nous recevons aujourd'hui à
     $t_0$ ? On prendra $t_0 = 13,5$ milliards d'années.
   \end{enumerate}
@@ -2123,7 +2118,7 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
     \frac{R_0}{R_{\text{émission}}}
     $$
     soit $R_{em}/R_{0} = \lambda_{em}/\lambda_0 = 121,5/582,2 =
-    0,264$.  À l'époque où 4C41,17 émettait la lumière qui nous
+    0,264$.  À l'époque où 4C41.17 émettait la lumière qui nous
     parvient aujourd'hui, l'Univers était cinq fois moins « étiré »
     qu'aujourd'hui. Remarquez bien qu'on évite de dire qu'il était
     moins « étendu » : cette expression sous-entendrait des choses sur
@@ -2136,7 +2131,7 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
     $$
     pour trouver $t_{em} = t_0 \times
     \left(R(t_{em})/R_{0}\right)^{3/2}$, et donc $t_{em} = 13,5 \times
-    (0,264)^{3/2} = 1,8$~Gan.  4C41,17 émettait la lumière qui nous
+    (0,264)^{3/2} = 1,8$~Gan.  4C41.17 émettait la lumière qui nous
     parvient aujourd'hui alors l'Univers était âgé d'environ 1,8
     milliards d'années. Environ, car l'équation de départ n'est qu'une
     approximation.
@@ -2623,6 +2618,6 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
 
 %%% Local Variables:
 %%% mode: latex
-%%% TeX-PDF-mode : 0
+%%% TeX-PDF-mode : t
 %%% ispell-local-dictionary: "francais"
 %%% End:
