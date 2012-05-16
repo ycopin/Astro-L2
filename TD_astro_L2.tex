@@ -1,4 +1,4 @@
-% Time-stamp: <2012-04-23 17:59:24 ycopin>
+% Time-stamp: <2012-05-16 15:03 ycopin@lyopc469>
 % Auteurs (version LaTeX):
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
@@ -667,7 +667,7 @@
   On considère une particule $P$ de masse $m$, animée d'un mouvement
   non relativiste par rapport à un repère d'origine $O$. Ce mouvement
   est dû à un champ de forces $\vec{F} (\vec{r}) = - \grad U (r) $
-  dérivant d'un potentiel central $U (r)$, où $\vec{r}= \vec{OP}$.
+  dérivant d'un potentiel central $U (r)$, où $\vec{r} = \vec{OP}$.
 
   À l'instant $t$ on note respectivement $\vec{v} (t)$, $\vec{a} (t)$
   et $\vec{p} (t)$ la vitesse, l'accélération et la quantité de
@@ -686,7 +686,7 @@
   \end{enumerate}
   Dans toute la suite du problème, le potentiel est de la forme :
   $$
-  U (r) = - \frac{k}{r} \qquad {\rm avec } \qquad k>0
+  U (r) = - \frac{k}{r} \qquad \text{avec} \qquad k>0
   $$
   On définit le \emph{vecteur de Runge-Lenz} :
   $$
@@ -729,6 +729,22 @@
     $a$.
   \end{enumerate}
 \end{Exercise}
+
+\begin{Answer}
+  \begin{enumerate}
+  \item $\vec{F} = - (\partial U/\partial r) \vec{e}_{r}$.
+  \item $\vec{L} = mr^{2}\dot{\theta}\vec{e}_{z}$ et $\d S/\d t = C/2$
+    avec $C \equiv r^{2}\dot{\theta}$.
+  \item $r = \dfrac{L^{2}/km}{1+A\cos\theta} = p/(1+e\cos\theta)$
+  \item
+    \begin{itemize}
+    \item Si $E < 0$: système lié, $e < 1$, trajectoire elliptique;
+    \item si $E = 0$: $e = 1$, trajectoire parabolique;
+    \item si $E > 0$: système ouvert, $e > 1$, trajectoire
+      hyperbolique.
+    \end{itemize}
+  \end{enumerate}
+\end{Answer}
 
 \begin{Exercise}[Orbite de Pluton]
   L'orbite de Pluton est très excentrique ($e=0,248$). Son demi grand
@@ -1873,32 +1889,36 @@
 \subsection{Les tests}
 
 \begin{Exercise}[Le décalage gravitationnel vers le rouge]
-  Une lampe spectrale émettant la raie Hydrogène Alpha (de longueur
-  d'onde en laboratoire 656,3~nm) est utilisée pour communiquer à
-  partir d'une capsule en orbite serrée autour d'une étoile à
-  neutrons. Le rayon de l'orbite est de 1000~km, la masse de l'étoile
-  de 1,5~\u{M_{\odot}}.  À quelle longueur d'onde le vaisseau qui a
-  lancé la capsule, et se tient prudemment à grande distance, doit-il
-  rechercher les signaux ?
+  Une lampe spectrale émettant dans la raie H$\alpha$ ($\lambda_{0} =
+  656,3$~nm) est utilisée pour communiquer à partir d'une capsule en
+  orbite serrée autour d'une étoile à neutrons. Le rayon de l'orbite
+  est $R=1000$~km, la masse de l'étoile de $M=1,5$~\u{M_{\odot}}.  À
+  quelle longueur d'onde $\lambda$ le vaisseau qui a lancé la capsule,
+  et se tient prudemment à grande distance, doit-il rechercher les
+  signaux ?
+
+  Comparer cet effet gravitationnel au décalage par effet Doppler du
+  signal de la sonde en orbite circulaire autour de l'étoile à
+  neutrons.
 \end{Exercise}
 
 \begin{Answer}
-  Le décalage gravitationnel subi à la distance $r$ d'un corps de
+  Le décalage gravitationnel subi à la distance $R$ d'un corps de
   masse $M$ s'écrit :
+  \begin{align*}
+    z_{G} &= \frac{GM}{c^2 R} = \frac{ 6,672\e{-11} \times 1,5 \times
+      1,989\e{30} }{ 299792458^{2}\e{6} } = 2,216\e{-3} \\
+    &= \frac{\lambda - \lambda_{0}}{\lambda_0}
+  \end{align*}
+  d'où $\lambda = (1+z_{G})\lambda_0 = 1,00221 \times 656,3 = 657,75$~nm.
+
+  La vitesse de l'orbite circulaire de rayon $R$ autour d'une masse
+  $M$ est donnée (dans l'approximation non-relativiste) par:
   $$
-  z = \frac{GM}{c^2r} = \frac{ 6,672\e{-11} \times 1,5 \times
-    1,989\e{30} }{ 299792458^{2}\e{6} } = 2,215\e{-3}
+  v = \sqrt{\frac{GM}{R}} = 14112\,\u{km/s} \simeq 4,71\e{-2} \times c
   $$
-  Mais :
-  $$
-  z = \frac{ \delta \lambda }{ \lambda_0 }
-  $$
-  donc :
-  $$
-  \lambda = \lambda_0 + \delta \lambda = (1+z)\lambda_0
-  $$
-  d'où le $\lambda$ cherché : $\lambda = 1,00221 \times 656,3 =
-  657,75$~nm.
+  Le décalage par effet Doppler (dans la même approximation non
+  relativiste) est donc $z_{D} = v/c = \sqrt{z_{G}} \gg z_{G}$.
 \end{Answer}
 
 \section{Le big bang}
@@ -2117,8 +2137,8 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
     1 + z = \frac{\lambda_{\text{observé}}}{\lambda_{\text{émis}}} =
     \frac{R_0}{R_{\text{émission}}}
     $$
-    soit $R_{em}/R_{0} = \lambda_{em}/\lambda_0 = 121,5/582,2 =
-    0,264$.  À l'époque où 4C41.17 émettait la lumière qui nous
+    soit $R_{em}/R_{0} = \lambda_{0}/\lambda = 121,5/582,2 =
+    0,209$.  À l'époque où 4C41.17 émettait la lumière qui nous
     parvient aujourd'hui, l'Univers était cinq fois moins « étiré »
     qu'aujourd'hui. Remarquez bien qu'on évite de dire qu'il était
     moins « étendu » : cette expression sous-entendrait des choses sur
@@ -2131,10 +2151,9 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
     $$
     pour trouver $t_{em} = t_0 \times
     \left(R(t_{em})/R_{0}\right)^{3/2}$, et donc $t_{em} = 13,5 \times
-    (0,264)^{3/2} = 1,8$~Gan.  4C41.17 émettait la lumière qui nous
-    parvient aujourd'hui alors l'Univers était âgé d'environ 1,8
-    milliards d'années. Environ, car l'équation de départ n'est qu'une
-    approximation.
+    (0,209)^{3/2} = 1,29$~Gan.  4C41.17 émettait la lumière qui nous
+    parvient aujourd'hui alors l'Univers était âgé de 1,29 milliards
+    d'années.
   \end{enumerate}
 \end{Answer}
 
@@ -2527,7 +2546,7 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
         Latitude $\epsilon$ & $50\deg$ & $75\deg$ & $10\deg$ &
         $-20\deg$ \\
         \hline
-        Hauteur max. & $67\deg27'$ & $38\deg27'$ & $90\deg$ &
+        Hauteur max. & $63\deg27'$ & $38\deg27'$ & $90\deg$ &
         $90\deg$ \\
         \hline
         Hauteur min. & $16\deg33'$ & $-08\deg27'$ & $56\deg33'$
