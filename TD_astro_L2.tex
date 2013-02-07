@@ -1,4 +1,4 @@
-% Time-stamp: <2012-05-16 15:03 ycopin@lyopc469>
+% Time-stamp: <2013-02-07 14:56:46 ycopin>
 % Auteurs (version LaTeX):
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
@@ -8,6 +8,10 @@
 %   pdflatex TD_astro_L2'
 % Version sans solution:
 %   pdflatex "\def\sanscorrige{}\input{TD_astro_L2}"
+
+%   À faire: Exercice sur la méthode Baade-Wesselink
+%   (p.ex. http://arxiv.org/abs/1201.3478 et références,
+%   http://www.eso.org/public/news/eso0432/, 2004ApJ...603..285M)
 
 \documentclass[a4paper,10pt]{report}
 
@@ -30,9 +34,9 @@
 %a4paper,bookmarks=false,linktocpage=true]{hyperref}
 \usepackage[colorlinks=true]{hyperref}
 \hypersetup{
-  pdftitle   = Fascicule de TD,
-  pdfauthor  = Astro L2,
-  pdfsubject = Astrophysique,
+  pdftitle   = {Fascicule de TD},
+  pdfauthor  = {Astro L2},
+  pdfsubject = {Astrophysique},
 }
 
 % Définition de l'environnement 'Exercise'
@@ -117,8 +121,8 @@
 \makeatother
 
 \title{Fascicule de TD}
-\date{Université Lyon 1}
-\author{Astrophysique pour la licence}
+\date{Printemps 2013}
+\author{Astrophysique pour la licence\\[\medskipamount]Université Lyon 1}
 
 \begin{document}
 
@@ -985,8 +989,8 @@
 \begin{Answer}
   \begin{enumerate}
   \item On rappelle l'expression du module de distance $m-M =
-    5\log(D/10\,\u{pc})$ soit $\log(D) = 0,2(m-M)+1$ ($D$ en pc). Or
-    le nombre $N(m)$ d'étoiles d'une « visibilité » supérieure à une
+    5\log(D/10\,\u{pc})$ soit $\log(D/1\,\u{pc}) = 0,2(m-M)+1$. Or le
+    nombre $N(m)$ d'étoiles d'une « visibilité » supérieure à une
     valeur donnée est le nombre d'étoiles dans une sphère de rayon
     correspondant, donc $N(m) \propto D^3$, soit $\log N(m) = 0,6 m +
     \beta$.  En présence d'extinction, $\log N(m) = 0,6(m-A) + \beta$.
@@ -1004,9 +1008,10 @@
     $$
   \item En écrivant l'équation du module de distance avec $M=5$ :
     \begin{itemize}
-    \item pour $m = 7 = 5\log{r_1} -5 +M$ d'où $r_1 = 25,1$~pc =
-      distance du front proche du nuage
-    \item pour $m = 9 = 5\log{r_2} -5 +M +A$ avec $A=1$ d'où $r2 = 39,8$~pc
+    \item pour $m = 7 = 5\log{r_1/10\,\u{pc}}+M$ d'où $r_1 = 25,1$~pc
+      = distance du front proche du nuage
+    \item pour $m = 9 = 5\log{r_2/10\,\u{pc}}+M+A$ avec $A=1$ d'où $r2
+      = 39,8$~pc
     \end{itemize}
     Épaisseur du nuage : $r_2-r_1 = 39,8-25,1 = 14,7$~pc
   \end{enumerate}
@@ -1021,7 +1026,7 @@
   cette extinction n'est due qu'à des grains dont les caractéristiques
   suivent :
   \begin{itemize}
-  \item rayon $a = 0,1\mu$,
+  \item rayon $a = 0,1\;\mu$,
   \item $Q_{ext} = 1$,
   \item masse volumique : 1~g/cm$^{3}$,
   \item répartition des grains uniforme sur la ligne de visée ;
@@ -1178,23 +1183,17 @@
   \begin{enumerate}
   \item Magnitudes apparentes sans extinction
     \begin{align*}
-      m_{V_0} &= 5 + 5\log(5\,\u{kpc}/10\,\u{pc}) = 18,5 \\
+      m_{V_0} &= M_{V} + 5\log(5\,\u{kpc}/10\,\u{pc}) = 18,5 \\
       m_{B_0} &= m_{V_0} + (B-V)_0 = 19,2
     \end{align*}
   \item Calcul des extinctions
     \begin{align*}
-      A_V &= 5\,(\u{kpc})\times 0,3=1,5 \\
+      A_V &= 5\,(\u{kpc})\times 0,3 = 1,5 \\
       A_B &= 1,5 \times \frac{0,55}{0,44} = 1,88
     \end{align*}
-  \item Calcul de l'excès de couleur
-    $$
-    E_{B-V} = A_B-A_V = 1,88 - 1,5 = 0,38
-    $$
-  \item Calcul de l'indice de couleur.
-    $$
-    (B-V) = (m_{B_0} +A_B) - (m_{V_0} +A_V) = (B-V)_0 + (A_B- A_V) =
-    0,7 + 0,38 = 1,08
-    $$
+  \item Calcul de l'excès de couleur: $E_{B-V} = A_B-A_V = 1,88 - 1,5 = 0,38$
+  \item Calcul de l'indice de couleur: $(B-V) = (m_{B_0} +A_B) -
+    (m_{V_0} +A_V) = (B-V)_0 + (A_B- A_V) = 0,7 + 0,38 = 1,08$
   \item Le type spectral apparent sera celui d'une étoile environ
     K5. Comme l'extinction ne change pas la profondeur des raies de
     l'étoile, sa classe de luminosité apparente restera celle d'une
@@ -1230,18 +1229,11 @@
 
 \begin{Answer}
   \begin{enumerate}
-  \item Calcul de l'extinction
-    $$
-    E_{B-V} = (A_B- A_V) = (B-V )- (B-V)_0 = 2,25-(-0,25) = 2,5
-    $$
-    Le graphique donne $A_V \simeq 3 E_{B-V}$, d'où :
-    $$
-    A_V = 3 \times 2,5 = 7,5
-    $$
-  \item Le graphique donne $A_K \simeq 0,5 \times E_{B-V}$, d'où :
-    $$
-    A_K = 0,5 \times 2,5 = 1,25
-    $$
+  \item Calcul de l'extinction: $E_{B-V} = (A_B- A_V) = (B-V )-
+    (B-V)_0 = 2,25-(-0,25) = 2,5$.  Le graphique donne $A_V \simeq 3
+    E_{B-V}$, d'où $A_V = 3 \times 2,5 = 7,5$.
+  \item Le graphique donne $A_K \simeq 0,5 \times E_{B-V}$, d'où $A_K
+    = 0,5 \times 2,5 = 1,25$.
   \item L'extinction est beaucoup plus faible dans l'IR que dans le
     visible.
   \end{enumerate}
@@ -1526,7 +1518,7 @@
   \begin{enumerate}
   \item Cette fonction empirique montre bien la prédominance des
     galaxies de faible luminosité intrinsèque.
-  \item En magnitude
+  \item En magnitude:
     $$
     \Phi (M) = 0,4 \ln (10) \Phi ^{*}10^{0,4(\alpha +1)(M^{*}-M)}\exp
     \left( -10^{0,4(M^{*}-M)} \right)
@@ -1925,7 +1917,7 @@
 
 \subsection{Expansion de l'Univers...}
 
-\begin{Exercise}[...limitée par $c$ ?]
+\begin{Exercise}[... limitée par \emph{c} ?]
   Plus une galaxie est éloignée de notre Voie Lactée, plus les
   astronomes lui trouvent une vitesse d'éloignement élevée. C'est
   l'expansion de l'Univers. Mais, quand la distance croît sans cesse,
