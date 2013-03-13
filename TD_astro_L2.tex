@@ -1,4 +1,4 @@
-% Time-stamp: <2013-02-07 14:56:46 ycopin>
+% Time-stamp: <2013-03-13 14:42 ycopin@lyopc469>
 % Auteurs (version LaTeX):
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
@@ -17,10 +17,10 @@
 
 % PREAMBULE ==============================
 
-\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[ec]{aeguill}
-\usepackage{ae}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
 \usepackage[cm]{fullpage}
 \usepackage[francais]{babel}
 \usepackage{amsmath}
@@ -30,13 +30,15 @@
 \usepackage[pdftex]{graphicx}
 \graphicspath{{./Figures/}}
 
+\usepackage[rightcaption]{sidecap}
+
 %\usepackage[backref,colorlinks=true,breaklinks=true,
 %a4paper,bookmarks=false,linktocpage=true]{hyperref}
 \usepackage[colorlinks=true]{hyperref}
 \hypersetup{
-  pdftitle   = {Fascicule de TD},
-  pdfauthor  = {Astro L2},
-  pdfsubject = {Astrophysique},
+  pdftitle   = {« Astrophysique pour la licence », fascicule de TD},
+  pdfauthor  = {Yannick Copin et l'équipe enseignante Astro-L2},
+  pdfsubject = {Astrophysique pour la licence, Université de Lyon 1},
 }
 
 % Définition de l'environnement 'Exercise'
@@ -108,7 +110,7 @@
     \begin{figure}[htp]
       \centering
       \includegraphics[width=0.8\textwidth]{flammarion}
-      \caption{La gravure sur bois dite « de Flammarion »}
+      \caption{La gravure sur bois dite « de Flammarion ».}
     \end{figure}
     \begin{center}
     \vfil
@@ -413,6 +415,15 @@
 
 \subsection{Classification stellaire}
 
+\begin{SCfigure}[0.5]
+  \centering
+  \includegraphics[width=0.5\textwidth]{hr}
+  \label{hr}
+  \caption{Diagramme de Hertzsprung-Russell des 22000 étoiles du
+    catalogue Hipparcos et de 1000 étoiles faiblement lumineuses du
+    catalogue Gliese des étoiles proches.}
+\end{SCfigure}
+
 \begin{Exercise}[Types spectraux]
   Donner approximativement le type spectral des étoiles dont le flux
   est maximal aux longueurs d'onde suivantes : 300~nm, 500~nm, et
@@ -534,9 +545,7 @@
   stellaire. Le type spectral complet est donné pour information.
 \end{Answer}
 
-\subsection{Mesure de masse}
-
-\subsubsection{Étoiles doubles}
+\subsection{Mesure de masse (étoiles doubles)}
 
 \begin{Exercise}[Système binaire]
   On observe une étoile double visuelle dont le plan de l'orbite est
@@ -1017,7 +1026,7 @@
   \end{enumerate}
 \end{Answer}
 
-\subsection{Extinction du MIS}
+\subsection{Extinction du MIS, extinction sélective et rougissement}
 
 \begin{Exercise}[Interprétation physique]
   Une étoile est située à 2~kpc de l'observateur sur une ligne de
@@ -1092,7 +1101,7 @@
   la masse de matière dans le MIS.
 \end{Answer}
 
-\subsubsection{Extinction sélective et exemple, exemple de rougissement}
+\subsubsection{}
 
 \begin{Exercise}[Rougissement et température]
   En admettant que l'on observe un objet à la température $T$, dont le
@@ -1219,13 +1228,13 @@
   \end{enumerate}
 \end{Exercise}
 
-\begin{figure}[htp]
+\begin{SCfigure}[0.5]%[htp]
   \centering
   \includegraphics[width=0.5\textwidth]{interstellarreddeningreduite}
   \label{extinction}
   \caption{Variation de $A_{\lambda}/E_{B-V}$ en fonction de
     $1/\lambda$. On y lit par ex. que $A_{V}/E_{B-V} = 3,1$.}
-\end{figure}
+\end{SCfigure}
 
 \begin{Answer}
   \begin{enumerate}
@@ -1392,7 +1401,7 @@
   différentes composantes qui composent notre Galaxie.
 \end{Exercise}
 
-\begin{figure}[htp]
+\begin{figure}%[htp]
   \centering
   \includegraphics[width=0.8\textwidth]{milky2w}
   \label{cobe}
@@ -1427,13 +1436,13 @@
   de notre Galaxie. Proposer une explication.
 \end{Exercise}
 
-\begin{figure}[htp]
+\begin{SCfigure}[0.5]%[htp]
   \centering
   \includegraphics[width=0.5\textwidth]{nature01121-f2_2}
   \label{centregalac}
   \caption{Orbite de l'étoile S2 autour du centre galactique SgrA*
     (Schödel et al. 2002).}
-\end{figure}
+\end{SCfigure}
 
 \begin{Answer}
   On rappelle que G, la constante gravitationnelle, vaut
@@ -1472,21 +1481,21 @@
 
 \subsection{Le groupe local}
 
-\begin{Exercise}
+\begin{Exercise}[Recensement]
   Compter le nombre de galaxies ayant un diamètre plus petit que
   6~kpc, et celles ayant un diamètre plus grand. Quelles sont les
   galaxies qui dominent en nombre ? Et en luminosité totale ?
   (Fig.~\ref{listgalac})
 \end{Exercise}
 
-\begin{figure}[htp]
+\begin{table}%[htp]
+  \caption{Galaxies du Groupe Local, avec leurs noms, leurs
+    positions sur le ciel, le type de Hubble, la distance, les diamètres
+    physiques et angulaires.}
   \centering
-  \includegraphics[height=\textheight]{listegalaxiegroupelocal}
+  \includegraphics[height=.95\textheight]{listegalaxiegroupelocal}
   \label{listgalac}
-  \caption{Liste des galaxies du Groupe Local, avec leurs noms, leurs
-    positions sur le ciel, le type de Hubble, la distance, le diamètre
-    en milliers d'années-lumière et en arcminutes sur le ciel.}
-\end{figure}
+\end{table}
 
 \begin{Answer}
   Il y a 26 petites galaxies -- dites « naines » -- sur les 30
@@ -1838,8 +1847,6 @@
 
 \subsection{Relativité générale}
 
-\subsubsection{Einstein dans l'ascenseur}
-
 \begin{Exercise}[L'équivalence gravité/accélération]
   On dit que, pour la Relativité Générale, gravitation et accélération
   sont équivalentes, mais que cette équivalence n'est que
@@ -1870,12 +1877,12 @@
   vertes). Rusés comme ils le sont parfois, les physiciens de
   l'ascenseur finiraient par s'en apercevoir... (Fig.~\ref{grav})
 
-  \begin{figure}[htp]
+  \begin{SCfigure}%[htp]
     \centering
     \includegraphics[width=0.4\textwidth]{grav}
     \caption{}
     \label{grav}
-  \end{figure}
+  \end{SCfigure}
 \end{Answer}
 
 \subsection{Les tests}
@@ -1986,12 +1993,12 @@
   distance, et le facteur de proportionnalité (la constante de Snurp)
   est universel : $X_0=H_0$ (Fig.~\ref{H0}).
 
-  \begin{figure}[htp]
+  \begin{SCfigure}%[htp]
     \centering
     \includegraphics[width=0.4\textwidth]{351922_281}
     \caption{}
     \label{H0}
-  \end{figure}
+  \end{SCfigure}
 \end{Answer}
 
 \begin{Exercise}[Le facteur d'expansion de l'espace]
@@ -2300,13 +2307,13 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
     situation en un lieu de l'hémisphère Sud (latitude = $-50\deg$) ;
     $P$ est alors en-dessous de l'horizon et $P'$ est au-dessus.
 
-    \begin{figure}[htp]
+    \begin{SCfigure}[0.5]%[htp]
       \centering
       \includegraphics[width=0.5\textwidth]{mouvement_diurne}
       \label{mouvementdiurne}
       \caption{Rotation d'une étoile vue de l'hémisphère sud (latitude =
         $-50\deg$).}
-    \end{figure}
+    \end{SCfigure}
 
   \item Les astres se lèvent-ils du côté de l'Est et se couchent-ils
     du côté de l'Ouest aussi bien dans l'hémisphère Nord que dans
@@ -2451,12 +2458,12 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
     On calcule la latitude qui vaut la hauteur du pôle au dessus de
     l'horizon : $\phi=\alpha+45\deg=70\deg$.
 
-    \begin{figure}[htp]
+    \begin{SCfigure}%[htp]
       \centering
       \includegraphics[width=0.5\textwidth]{coordonnees_horaire3}
       \label{coordonneeshoraire3}
       \caption{Coordonnées horaires.}
-    \end{figure}
+    \end{SCfigure}
 
   \item
     \begin{description}
@@ -2551,12 +2558,12 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
     sud) est passé au Sud (au Nord) et de ce fait est plus bas que le
     jour où il passe au zénith au méridien (Fig.~\ref{mvtsolaire}).
 
-    \begin{figure}[htp]
+    \begin{SCfigure}[0.5]%[htp]
       \centering
       \includegraphics[width=0.5\textwidth]{mvt_soleil}
       \label{mvtsolaire}
       \caption{}
-    \end{figure}
+    \end{SCfigure}
 
   \item Ceci se produit dans l'hémisphère nord en été quand le Soleil
     a une déclinaison suffisamment positive. On appelle ce phénomène
@@ -2565,9 +2572,9 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
     est positif, le Soleil ne se couche pas, son mouvement est
     circumpolaire.
     \begin{align*}
-      NOD = NOE' + E'OD > 0 \\
-      90\deg - \phi < \delta_{soleil} \\
-      \phi > 90\deg - \delta_{soleil}
+      NOD = NOE' + E'OD &> 0 \\
+      90\deg - \phi &< \delta_{soleil} \\
+      \phi &> 90\deg - \delta_{soleil}
     \end{align*}
     Au jour des solstices ($\delta_{soleil} = \pm 23\deg27'$) il
     suffit d'être à une latitude $\phi > 66\deg33'$ (en été pour
@@ -2577,12 +2584,12 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
     appelés « cercles polaires » (respectivement boréal et austral)
     (Fig.~\ref{mvtsolaire2}).
 
-    \begin{figure}[htp]
+    \begin{SCfigure}[0.5]%[htp]
       \centering
       \includegraphics[width=0.5\textwidth]{mvt_soleil2}
       \label{mvtsolaire2}
       \caption{}
-    \end{figure}
+    \end{SCfigure}
 
   \item Vers les pôles, lors de son passage inférieur dans le plan
     méridien, le Soleil est au-dessus de l'horizon et son angle
