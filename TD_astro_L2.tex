@@ -1,4 +1,4 @@
-% Time-stamp: <2013-03-13 14:42 ycopin@lyopc469>
+% Time-stamp: <2013-04-03 15:55 ycopin@lyopc469>
 % Auteurs (version LaTeX):
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
@@ -31,6 +31,8 @@
 \graphicspath{{./Figures/}}
 
 \usepackage[rightcaption]{sidecap}
+\usepackage{caption}
+\usepackage{subcaption}
 
 %\usepackage[backref,colorlinks=true,breaklinks=true,
 %a4paper,bookmarks=false,linktocpage=true]{hyperref}
@@ -173,19 +175,19 @@
 \end{Exercise}
 
 \begin{Answer}
-  \begin{table}[h]
-    \centering
+  \begin{center}
     \begin{tabular}{lccccr}
       \hline
       Type stellaire & $L$~[\u{L_{\odot}}] & $T_{e}$~[K] &
       $R$~[\u{R_{\odot}}] & $\lambda_{\max}$ (nm) & Couleur \\
+      \hline
       \hline
       Naine blanche & $10^{-2}$ & 20000  & 0,008 & 145 & Blanc \\
       Géante rouge  & $10^{2}$  & 4200  & 18,8   & 690 & Rouge \\
       Supergéante   & $10^{5}$  & 6000  & 291,7  & 483 & Bleu \\
       \hline
     \end{tabular}
-  \end{table}
+  \end{center}
 \end{Answer}
 
 
@@ -331,20 +333,14 @@
   incertitude, l'erreur relative sur la distance $\Delta d / d$ et
   leur magnitude absolue $M_V$.
   \begin{center}
-    \begin{tabular}{|c|c|c|c|}
+    \begin{tabular}{lccc}
       \hline
       & $\alpha$ CMa (Sirius) & $\alpha$ Tau (Aldebaran) & $\alpha$ Ori
       (Bételgeuse) \\
       \hline
+      \hline
       $m_V$ & -1,47 & 0,85 & 0,58 \\
-      \hline
       $p$ (mas) & 379,2 $\pm$ 1,6 & 50,1 $\pm$ 1,0 & 7,6 $\pm$ 1,6 \\
-      \hline
-      $d$ (pc) &   &   &  \\
-      \hline
-      $\Delta d / d$ &   &   &  \\
-      \hline
-      $M_V$ &   &   &  \\
       \hline
     \end{tabular}
   \end{center}
@@ -352,21 +348,16 @@
 
 \begin{Answer}
   \begin{center}
-    \begin{tabular}{|c|c|c|c|}
+    \begin{tabular}{lccc}
       \hline
       & $\alpha$ CMa (Sirius) & $\alpha$ Tau (Aldebaran) & $\alpha$ Ori
       (Bételgeuse) \\
       \hline
-      $m_V$ & -1,47 & 0,85 & 0,58 \\
-      \hline
-      $p$ (mas) & 379,2 $\pm$ 1,6 & 50,1 $\pm$ 1,0 & 7,6 $\pm$ 1,6 \\
       \hline
       $d$ (pc) &
-      \red{2,64 $\pm$ 0,01} & \red{20,0 $\pm$ 0,4} & \red{130 $\pm$ 30} \\
-      \hline
-      $\Delta d / d$ & \red{0,4\%} & \red{2\%} & \red{21\%} \\
-      \hline
-      $M_V$ & \red{1,42}  & \red{-0,65} & \red{-4,99} \\
+      2,64 $\pm$ 0,01 & 20,0 $\pm$ 0,4 & 130 $\pm$ 30 \\
+      $\Delta d / d$ & 0,4\% & 2\% & 21\% \\
+      $M_V$ & 1,42  & -0,65 & -4,99 \\
       \hline
     \end{tabular}
   \end{center}
@@ -418,10 +409,10 @@
 \begin{SCfigure}[0.5]
   \centering
   \includegraphics[width=0.5\textwidth]{hr}
-  \label{hr}
   \caption{Diagramme de Hertzsprung-Russell des 22000 étoiles du
     catalogue Hipparcos et de 1000 étoiles faiblement lumineuses du
     catalogue Gliese des étoiles proches.}
+  \label{hr}
 \end{SCfigure}
 
 \begin{Exercise}[Types spectraux]
@@ -440,15 +431,14 @@
   précis donnant les correspondances entre les sous-types et la
   température effective.
   \begin{center}
-    \begin{tabular}{|c|c|c|}
+    \begin{tabular}{ccc}
       \hline
       $\lambda_{\max}$ & $T_{\mathrm{eff}}(K)$ & Type spectral \\
       \hline
-      300 nm & \red{9660} & \red{A}  \\
       \hline
-      500 nm & \red{5796} & \red{G} \\
-      \hline
-      1,2 $\mu m$ &  \red{2415} &  \red{M} \\
+      300 nm & 9660 & A  \\
+      500 nm & 5796 & G \\
+      1,2 $\mu$m & 2415 & M \\
       \hline
     \end{tabular}
   \end{center}
@@ -496,18 +486,13 @@
   étoile sa classe de luminosité parmi les suivantes : I, III, V.
 
   \begin{center}
-    \begin{tabular}{|c|c|c|c|}
+    \begin{tabular}{lccc}
       \hline
-      & $\alpha$ CMa Sirius & $\alpha$ Tau Aldebaran & $\alpha$ Ori
-      Bételgeuse \\
+      & $\alpha$ CMa & $\alpha$ Tau & $\alpha$ Ori \\
+      \hline
       \hline
       $\theta_*$ (mas) & 5,89 & 24 & 67 \\
-      \hline
       $d$ (pc) & 2,64  & 20  & 130 \\
-      \hline
-      $R (R_{\odot})$ &   &   &  \\
-      \hline
-      Classe de luminosité &   &   &  \\
       \hline
     \end{tabular}
   \end{center}
@@ -523,20 +508,14 @@
   \end{itemize}
   Le tableau suivant donne les résultats pour les 3 étoiles :
   \begin{center}
-    \begin{tabular}{|c|c|c|c|}
+    \begin{tabular}{lccc}
       \hline
-      & $\alpha$ CMa Sirius & $\alpha$ Tau Aldebaran & $\alpha$ Ori
-      Bételgeuse \\
+      & $\alpha$ CMa & $\alpha$ Tau & $\alpha$ Ori \\
       \hline
-      $\theta_*$ (mas) & 5,89 & 24 & 67 \\
       \hline
-      $d$ (pc) & 2,64  & 20  & 130 \\
-      \hline
-      $R (R_{\odot})$ & \red{1,7}  & \red{52}  & \red{936} \\
-      \hline
-      Classe de luminosité & \red{V}  & \red{III}  & \red{I} \\
-      \hline
-      Type spectral & A1V  & K5III  & M2I \\
+      $R (R_{\odot})$ & 1,7 & 52 & 936 \\
+      Classe de luminosité & V & III & I \\
+      Type spectral & A1V & K5III & M2I \\
       \hline
     \end{tabular}
   \end{center}
@@ -589,16 +568,14 @@
   Le tableau suivant rappelle les caractéristiques du système binaire
   à éclipse d'Algol ($\beta$ Per) :
   \begin{center}
-    \begin{tabular}{|l|c|r|}
+    \begin{tabular}{|l|c|c|}
       \hline
       $p$ (mas) & \multicolumn{2}{c|}{35,14 $\pm$ 0,90} \\
-      %\hline
-      %$d$ (pc) & \multicolumn{2}{c|}{28,6 $\pm$ 0,7} \\
       \hline
       $T$ (jours) & \multicolumn{2}{c|}{2,8674} \\
       \hline
       Composantes & A & B \\
-      \cline{1-3}
+      \hline
       Type spectral & B8V & K2IV \\
       \hline
       R ($R_{\odot}$) & 2,74 & 3,60 \\
@@ -609,7 +586,7 @@
   l'orbite circulaire, ainsi le demi-grand axe de l'ellipse projetée
   est égal au rayon de l'orbite) :
   \begin{center}
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{|l|c|}
       \hline
       $\theta$ (mas) & 2,283 \\
       \hline
@@ -648,19 +625,17 @@
 
   Le tableau suivant récapitule les données physiques du système :
   \begin{center}
-    \begin{tabular}{|l|c|r|}
+    \begin{tabular}{|l|c|c|}
       \hline
       $d$ (pc) & \multicolumn{2}{c|}{28,46 $\pm$ 0,73} \\
       \hline
-      $a$ ($R_{\odot}$) &  \multicolumn{2}{c|}{\red{13,96}} \\
+      $a$ ($R_{\odot}$) &  \multicolumn{2}{c|}{13,96} \\
       \hline
       & A & B \\
-      \cline{1-3}
+      \hline
       Type spectral & B8V & K2IV \\
       \hline
-      $R$ ($R_{\odot}$) & 2,74 & 3,60 \\
-      \hline
-      $M$ ($M_{\odot}$) & \red{3,65} & \red{0,80} \\
+      $M$ ($M_{\odot}$) & 3,65 & 0,80 \\
       \hline
     \end{tabular}
   \end{center}
@@ -760,34 +735,31 @@
 \end{Answer}
 
 \begin{Exercise}[Orbite de Pluton]
-  L'orbite de Pluton est très excentrique ($e=0,248$). Son demi grand
+  L'orbite de Pluton est très excentrique ($e=0,248$). Son demi-grand
   axe vaut 39,43~unités astronomiques (L'unité astronomique est
   définie comme le demi grand axe de l'orbite de la Terre). Montrer
-  que Pluton peut être plus proche du Soleil que Neptune dont le demi
-  grand axe de l'orbite vaut 30,06~UA et l'excentricité~0,009.
+  que Pluton peut être plus proche du Soleil que Neptune dont le
+  demi-grand axe de l'orbite vaut 30,06~UA et l'excentricité~0,009.
 \end{Exercise}
 
 \begin{Answer}
-  On calcule simplement les distances planète-Soleil pour les deux
-  planètes à leur périhélie et à leur aphélie. Si Neptune est repérée
-  par le vecteur $\vec{SN}$ et Pluton par le vecteur $\vec{SP}$, on a :
-  \begin{itemize}
-  \item Au périhélie :
-    \begin{align*}
-      SN &= a_n(1-e_n) = 30,06 \times (1-0,009) = 29,79~\UA \\
-      SP &= a_p(1-e_p) = 39,43 \times (1-0,248) = 29,65~\UA
-    \end{align*}
-  \item À l'aphélie :
-    \begin{align*}
-      SN &= a_n(1+e_n) = 30,06 \times (1+0,009) = 30,33~\UA \\
-      SP &= a_p(1+e_p) = 39,43 \times (1+0,248) = 49,21~\UA
-    \end{align*}
-  \end{itemize}
-  On voit que, du fait de la très grande excentricité de son orbite,
-  Pluton, à son périhélie, est plus proche que Neptune du Soleil.
+  \begin{center}
+    \begin{tabular}{lccc}
+      \hline
+      & & Neptune & Pluton \\
+      \hline\hline
+      Demi-grand axe & $a$ & 30,06~\UA & 39,43~\UA \\
+      Excentricité & $e$ & 0,009 & 0,248 \\
+      Périhélie & $d=a(1-e)$ & 29,79~\UA & 29,65~\UA \\
+      Aphélie & $D=a(1+e)$ & 30,33~\UA & 49,21~\UA \\
+      \hline
+    \end{tabular}
+  \end{center}
+  Du fait de la très grande excentricité de son orbite, Pluton, à son
+  périhélie, est plus proche que Neptune du Soleil: $d_{P} < d_{N}$.
 \end{Answer}
 
-\begin{Exercise}[Vitesses au périhélie et à l'aphélie]
+\begin{Exercise}[Vitesses périhélique et aphélique]
   Montrer que la vitesse angulaire d'un objet décrivant une orbite
   elliptique autour du Soleil augmente lorsqu'il s'en
   rapproche. Montrer que le rapport des vitesses au périhélie (point
@@ -820,14 +792,8 @@
     $$
     \frac{v_p}{v_a} = \frac{1+e}{1-e}
     $$
-    Soit pour la Terre :
-    $$
-    \frac{v_p}{v_a} = \frac{1+0,0167}{1-0,0167} = 1,034
-    $$
-    Et pour la comète de Halley :
-    $$
-    \frac{v_p}{v_a} = \frac{1+0,97}{1-0,97} = 65,67
-    $$
+    Soit pour la Terre : $v_p/v_a = 1,034$, 
+    et pour la comète de Halley : $v_p/v_a = 65,67$.
   \end{enumerate}
 \end{Answer}
 
@@ -998,11 +964,12 @@
 \begin{Answer}
   \begin{enumerate}
   \item On rappelle l'expression du module de distance $m-M =
-    5\log(D/10\,\u{pc})$ soit $\log(D/1\,\u{pc}) = 0,2(m-M)+1$. Or le
-    nombre $N(m)$ d'étoiles d'une « visibilité » supérieure à une
-    valeur donnée est le nombre d'étoiles dans une sphère de rayon
-    correspondant, donc $N(m) \propto D^3$, soit $\log N(m) = 0,6 m +
-    \beta$.  En présence d'extinction, $\log N(m) = 0,6(m-A) + \beta$.
+    5\log(D/10\,\u{pc})$ soit $\log(D/1\,\u{pc}) = 0,2(m-M)+1$. Le
+    nombre $N(m)$ d'étoiles de magnitude inférieure à $m$ correspond,
+    en l'absence d'extinction, au nombre d'étoiles dans une sphère de
+    rayon $D(m)$, càd $N(m) \propto D(m)^3$, soit $\log N(m) = 0,6 m +
+    \beta$.  En présence d'extinction, on a $\log N(m) = 0,6(m-A) +
+    \beta$.
   \item L'extinction est nulle jusqu'à la distance $r_1$ du front du
     nuage, donc :
     $$
@@ -1012,7 +979,7 @@
     À la distance $r_2$ du bord éloigné du nuage, pour laquelle $m =
     9$, et l'extinction $A$ :
     $$
-    \log{N(m)} = 0,6(9-A) + 3 = 0,6\times 9 + 2,4
+    \log{N(m)} = 0,6 (9-A) + \beta = 0,6\times 9 + 2,4
     \quad\text{d'où}\quad A = 1~\u{mag}.
     $$
   \item En écrivant l'équation du module de distance avec $M=5$ :
@@ -1031,9 +998,9 @@
 \begin{Exercise}[Interprétation physique]
   Une étoile est située à 2~kpc de l'observateur sur une ligne de
   visée représentative des conditions moyennes du MIS, pour lesquelles
-  l'extinction moyenne est de $A_V = 0,3$~mag/kpc.  En admettant que
-  cette extinction n'est due qu'à des grains dont les caractéristiques
-  suivent :
+  l'extinction moyenne en bande $V$ est de 0,3~mag/kpc.  En admettant
+  que cette extinction n'est due qu'à des grains dont les
+  caractéristiques suivent :
   \begin{itemize}
   \item rayon $a = 0,1\;\mu$,
   \item $Q_{ext} = 1$,
@@ -1042,7 +1009,8 @@
   \end{itemize}
   calculer :
   \begin{enumerate}
-  \item la densité de colonne des grains le long de la ligne de visée,
+  \item la profondeur optique, puis la densité de colonne des grains
+    le long de la ligne de visée,
   \item Le nombre de grain par unité de volume sur cette ligne de
     visée,
   \item la masse volumique des grains dans le MIS.
@@ -1061,14 +1029,14 @@
 
 \begin{Answer}
   \begin{align*}
-    \text{Distance de l'étoile :}\qquad
-    L &= 2\;\u{kpc} = 6,17\e{21}\;\u{cm} \\
-    \text{Section d'un grain :}\qquad
-    s_g &= \pi\,a^2 = \pi\,(10^{-5})^2 = \pi\,10^{-10}~[\u{cm^{2}}] \\
-    \text{Extinction en V sur la ligne de visée :}\qquad
-    A_V &= 0,3~\u{mag/kpc}\times 2~\u{kpc} = 0,6~\u{mag} \\
-    \text{d'où la profondeur optique :}\qquad
-    \tau &= \frac{0,6}{1,086} = 0,55 = n_g\,s_g\,L
+    \text{Distance de l'étoile :}&\quad
+    L = 2\;\u{kpc} = 6,17\e{21}\;\u{cm} \\
+    \text{Section d'un grain :}&\quad
+    s_g = \pi\,a^2 = \pi\,(10^{-5})^2 = \pi\,10^{-10}~[\u{cm^{2}}] \\
+    \text{Extinction en V sur la ligne de visée :}&\quad
+    A_V = 0,3~\u{mag/kpc}\times 2~\u{kpc} = 0,6~\u{mag} \\
+    \text{d'où la profondeur optique :}&\quad
+    \tau = \frac{0,6}{1,086} = 0,55 = n_g\,s_g\,L
   \end{align*}
   La densité de colonne est le nombre de grains dans un cylindre de
   longueur $L$ et de section unité. Si la densité de grains $n_g$ est
@@ -1124,15 +1092,9 @@
   $W(\lambda)$, donné par la formule de Planck, représente le flux de
   l'étoile en l'absence d'extinction.  Si $W'(\lambda)$ représente le
   flux de l'étoile en présence d'une extinction en magnitude de la
-  forme $A(\lambda) = a/\lambda$, on a :
-  $$
-  A(\lambda)= \frac{a}{\lambda} = 2,5 \log\frac{W}{W'}
-  $$
+  forme $A(\lambda) = a/\lambda$, on a : $A(\lambda)= 2,5 \log W/W'$
   soit, en posant $a' = a/(2,5 \times 0,43429)$ (Rappel : $0,43429 =
-  \log_{10}(e)$) :
-  $$
-  W' = W \exp\left(\frac{-a'}{\lambda}\right)
-  $$
+  \log_{10}(e)$) : $W' = W \exp(-a'/\lambda)$.
 
   \begin{enumerate}
   \item Pour la partie du spectre aux courtes longueurs d'onde (régime
@@ -1158,7 +1120,6 @@
   \end{enumerate}
 \end{Answer}
 
-
 \begin{Exercise}[Rougissement et couleur]
   Une étoile $G5V$ a une magnitude absolue $M_V= 5$, et un indice de
   couleur intrinsèque $(B-V)_0 =0,7$. On observe une étoile de ce type
@@ -1169,8 +1130,8 @@
   \item L'étoile est située dans une région où l'extinction du MIS
     peut être caractérisée par :
     \begin{itemize}
-    \item une extinction $A_V$ de 0,3~mag/kpc,
-    \item une loi d'extinction de la forme : $A(\lambda) = A_V
+    \item une extinction de 0,3~mag/kpc en bande $V$,
+    \item une loi d'extinction de la forme : $A(\lambda) = A_V \times
       (\lambda_V/\lambda)$
     \end{itemize}
     Calculer les extinctions $A_V$ et $A_B$ qu'elle subit du fait de
@@ -1231,9 +1192,9 @@
 \begin{SCfigure}[0.5]%[htp]
   \centering
   \includegraphics[width=0.5\textwidth]{interstellarreddeningreduite}
+  \caption{Loi de couleur: $A_{\lambda}/E_{B-V}$ en fonction de
+    $1/\lambda$. On y lit p.ex. que $A_{V}/E_{B-V} = 3,1$.}
   \label{extinction}
-  \caption{Variation de $A_{\lambda}/E_{B-V}$ en fonction de
-    $1/\lambda$. On y lit par ex. que $A_{V}/E_{B-V} = 3,1$.}
 \end{SCfigure}
 
 \begin{Answer}
@@ -1253,8 +1214,8 @@
 \subsection{Classification morphologique des galaxies}
 
 \begin{Exercise}[Propriétés « physiques » de la classification]
-  En vous servant du tableau sur les propriétés quantitatives de la
-  séquence de Hubble, répondez aux questions suivantes :
+  En vous servant du tableau~\ref{tab:hubble}, répondez aux questions
+  suivantes :
   \begin{enumerate}
   \item Que peut-on dire sur la fraction de gaz dans les galaxies
     selon le type morphologique ?
@@ -1263,6 +1224,24 @@
     disque mince ?
   \end{enumerate}
 \end{Exercise}
+
+\begin{table}  
+  \centering
+  \caption{Propriétés quantitatives de la séquence de Hubble.}
+  \label{tab:hubble}
+  \begin{tabular}{lcccccc}
+    \hline
+    Propriétés & E,SO & S0a,Sa & Sab,Sb & Sbc,Sc & Scd,Sd & Sm,Im \\
+    \hline
+    \hline
+    $M_{\mathrm{totale}}$ ($10^{10}M_{\odot}$) & 
+    & 22,6 & 32,4 & 19,0 & 7,9 & 1,6 \\
+    $M_{\mathrm{gaz}}$ (H neutre en $10^{9}M_{\odot}$) & 
+    1,24 & 5,62 & 15,14 & 15,85 & 9,33 & 2,40 \\
+    Diamètre (kpc) & 21,1 & 19,8 & 25,1 & 22,4 & 17,7 & 8,5  \\
+    \hline
+  \end{tabular}
+\end{table}
 
 \begin{Answer}
   \begin{enumerate}
@@ -1278,22 +1257,13 @@
   statistiquement sur un échantillon de plusieurs milliers de
   galaxies. Ce ne sont donc pas les valeurs obtenues par le calcul
   direct sur les médianes, mais le comportement reste le même.
-
   \begin{center}
-    \begin{tabular}{|c|c|c|c|c|c|c|}
+    \begin{tabular}{lcccccc}
       \hline
       Propriétés & E,SO & S0a,Sa & Sab,Sb & Sbc,Sc & Scd,Sd & Sm,Im \\
       \hline
-      $M_{\mathrm{totale}}$ ($10^{10}M_{\odot}$) & & 22,6 & 32,4 & 19,0 & 7,9 &
-      1,6 \\
-      \hline
-      $M_{\mathrm{gaz}}$ ($H$ neutre en $10^{9}M_{\odot}$) & 1,24 & 5,62 &
-      15,14 & 15,85 & 9,33 & 2,40\\
       \hline
       $M_{\mathrm{gaz}}/M_{\mathrm{totale}}$ & & 0,03 & 0,05 & 0,08 & 0,11 & 0,15 \\
-      \hline
-      Diamètre (kpc) & 21,1 & 19,8 & 25,1 & 22,4 & 17,7 & 8,5  \\
-      \hline
       $S$ ($M_{\odot}/\u{pc}^2$) &  & 188,9 & 154,7 & 124,2 & 91,4 & 74,5 \\
       \hline
     \end{tabular}
@@ -1301,37 +1271,39 @@
 \end{Answer}
 
 
-\begin{Exercise}[de Vaucouleurs et autres classifications]
-  Donnez la classification simplifiée (E, S0, SA, SAB, SB) des
-  galaxies données dans la partie cours correspondante dans spirale.
-  Est-il toujours facile de classifier les galaxies réelles ?
-\end{Exercise}
+% \begin{Exercise}[de Vaucouleurs et autres classifications]
+%   Donnez la classification simplifiée (E, S0, SA, SAB, SB) des
+%   galaxies données dans la partie cours correspondante dans spirale.
+%   Est-il toujours facile de classifier les galaxies réelles ?
+% \end{Exercise}
 
-\begin{Answer}
-  \begin{center}
-    \begin{tabular}{|c|c|c|c|}
-      \hline
-      % \textbf{N° objet} & \textbf{Nom} & \textbf{Réponse} &
-      % textbf{Classification complète dite RC3}\\ \hline
-      1  & NGC6070    & SA  & SA(s)cd  \\ \hline
-      2  & NGC 7424   & SAB & SAB(rs)cd  \\ \hline
-      3  & MESSIER 31 & SA  & SA(s)b  \\ \hline
-      4  & MESSIER 33 & SA  & SA(s)cd  \\ \hline
-      5  & MESSIER 87 & E0 ou E1 & E+0-1 pec\footnotemark[1] \\ \hline
-      6  & NGC 2683   & SA  & SA(rs)b  \\ \hline
-      7  & NGC 1300   & SB  & (R')SN(r'1)b  \\ \hline
-      8  & NGC 1097   & SB  & (R'\_1:)SB(r'l)b  \\ \hline
-      9  & NGC 4321   & SAB & SAB(s)bc \\ \hline
-      10 & MESSIER 83 & SAB & SAB(s)c \\ \hline
-    \end{tabular}
-    \footnotetext[1]{« Peculiar » à cause du jet provenant du noyau actif}
-  \end{center}
+% \begin{Answer}
+%   \begin{center}
+%     \begin{tabular}{|c|c|c|c|}
+%       \hline
+%       \No & Nom & Morphologie & Classification RC3 \\ 
+%       \hline
+%       \hline
+%       1  & NGC6070    & SA  & SA(s)cd  \\ 
+%       2  & NGC 7424   & SAB & SAB(rs)cd  \\ 
+%       3  & M 31 & SA  & SA(s)b  \\ 
+%       4  & M 33 & SA  & SA(s)cd  \\ 
+%       5  & M 87 & E0 ou E1 & E+0-1 pec\footnotemark[1] \\ 
+%       6  & NGC 2683   & SA  & SA(rs)b  \\ 
+%       7  & NGC 1300   & SB  & (R')SN(r'1)b  \\ 
+%       8  & NGC 1097   & SB  & (R'\_1:)SB(r'l)b  \\ 
+%       9  & NGC 4321   & SAB & SAB(s)bc \\ 
+%       10 & M 83 & SAB & SAB(s)c \\ 
+%       \hline
+%     \end{tabular}
+%     \footnotetext[1]{« Peculiar » à cause du jet provenant du noyau actif}
+%   \end{center}
 
-  Galaxies lointaines sans noms (11). La classification demandée est
-  SB. Ces objets sont considérés comme des galaxies barrées mais n'ont
-  pas été précisément classifiées à cause du manque de résolution des
-  images (\emph{HST Deep Field North}).
-\end{Answer}
+%   Galaxies lointaines sans nom (11). La classification demandée est
+%   SB. Ces objets sont considérés comme des galaxies barrées mais n'ont
+%   pas été précisément classifiées à cause du manque de résolution des
+%   images (\emph{HST Deep Field North}).
+% \end{Answer}
 
 \subsection{Constituants des galaxies}
 
@@ -1343,7 +1315,7 @@
 
 \begin{Answer}
   La fraction est de $10^{11} \times \left(\frac{0,7\e{6}}{10\times
-      3,08\e{16}}\right)^{3}\approx 10^{-24}$
+      3,08\e{16}}\right)^{3}\approx 10^{-24}$.
 \end{Answer}
 
 
@@ -1381,128 +1353,102 @@
     repartition de masse dans la galaxie est à revoir : on introduit
     ainsi la notion de matière noire, qui n'est perceptible que par
     ses effets gravitationnels.
-  \item
-    \begin{equation*}
-      \d M(R)/\d R = 4\pi R^2 \rho(R)
-      \qquad\text{d'où}\qquad
-      \rho(R) = \frac{1}{4\pi R^2} \frac{V_0^2}{G} \propto 1/R^{2}
-    \end{equation*}
+  \item $\d M(R)/\d R = 4\pi R^2 \rho(R) \stackrel{\mathrm{PFD}}{=}
+    \d(RV_{0}^{2}/G)/\d R$ d'où $\rho(R) = \frac{1}{4\pi R^2}
+    \frac{V_0^2}{G} \propto 1/R^{2}$.
   \end{enumerate}
 \end{Answer}
 
 \subsection{Exemple de galaxie : la Voie Lactée }
 
-\begin{Exercise}[Morphologie de notre galaxie]
-  En examinant en détail l'image de notre galaxie prise par COBE/DIRBE
-  (Fig.~\ref{cobe}) on distingue que le bulbe de la Voie Lactée n'est
-  pas symétrique.  Donner une explication plausible de cette
-  asymétrie, en se rappelant notre position très particulière par
-  rapport au centre de notre galaxie, et en se rappelant des
-  différentes composantes qui composent notre Galaxie.
-\end{Exercise}
+% \begin{Exercise}[Morphologie de notre galaxie]
+%   En examinant en détail l'image de notre galaxie prise par COBE/DIRBE
+%   (Fig.~\ref{cobe}) on distingue que le bulbe de la Voie Lactée n'est
+%   pas symétrique.  Donner une explication plausible de cette
+%   asymétrie, en se rappelant notre position très particulière par
+%   rapport au centre de notre galaxie, et en se rappelant des
+%   différentes composantes qui composent notre Galaxie.
+% \end{Exercise}
 
-\begin{figure}%[htp]
-  \centering
-  \includegraphics[width=0.8\textwidth]{milky2w}
-  \label{cobe}
-  \caption{Notre galaxie vue par COBE/DIRBE.}
-\end{figure}
+% \begin{figure}%[htp]
+%   \centering
+%   \includegraphics[width=0.8\textwidth]{milky2w}
+%   \label{cobe}
+%   \caption{Notre galaxie vue par COBE/DIRBE.}
+% \end{figure}
 
-\begin{Answer}
-  Le bulbe de la galaxie vue en infrarouge est effectivement
-  asymétrique : le coté gauche a une épaisseur légèrement plus grande
-  que le coté droit. Ça n'est pas un effet de populations stellaires,
-  ou d'extinction due à la poussière, mais bien une épaisseur
-  réellement plus grande d'un coté que de l'autre. Ce que l'on voit
-  est en fait un effet de projection : c'est en fait la barre de la
-  Galaxie que nous observons. Cette barre étant inclinée à 35~degrés
-  environ par rapport à nous, le coté gauche étant proche de nous, le
-  coté droit loin de nous (de l'autre coté du centre galactique). Une
-  des extrémités de la barre est donc plus proche de nous, et par
-  projection elle apparaît plus haute.
-\end{Answer}
+% \begin{Answer}
+%   Le bulbe de la galaxie vue en infrarouge est effectivement
+%   asymétrique : le coté gauche a une épaisseur légèrement plus grande
+%   que le coté droit. Ça n'est pas un effet de populations stellaires,
+%   ou d'extinction due à la poussière, mais bien une épaisseur
+%   réellement plus grande d'un coté que de l'autre. Ce que l'on voit
+%   est en fait un effet de projection : c'est en fait la barre de la
+%   Galaxie que nous observons. Cette barre étant inclinée à 35~degrés
+%   environ par rapport à nous, le coté gauche étant proche de nous, le
+%   coté droit loin de nous (de l'autre coté du centre galactique). Une
+%   des extrémités de la barre est donc plus proche de nous, et par
+%   projection elle apparaît plus haute.
+% \end{Answer}
 
 \begin{Exercise}[Le centre galactique]
   La Fig.~\ref{centregalac} montre l'orbite de l'étoile ayant la plus
   grande vitesse autour du centre galactique. À partir des
-  caractéristiques de cette orbite (période en années de 15,2 ans, et
-  demi grand-axe de 0,119 arcsecondes), retrouver l'estimation de la
-  masse incluse dans ce rayon au centre de notre Galaxie en utilisant
-  la troisième loi de Kepler. On rappelle que nous sommes à environ
-  8,5~kpc du centre galactique et que la constante gravitationnelle,
-  vaut $G = 6,6742,10^{-11}$~\u{m^3 kg^{-1} sec^{-2}}.  La masse
-  visible au centre galactique étant estimée à environ $10^{6}$ masses
-  solaires, en déduire une estimation de la masse centrale invisible
-  de notre Galaxie. Proposer une explication.
+  caractéristiques de cette orbite (période de $T = 15,2$~ans, et demi
+  grand-axe de $a = 0,119$~arcsec), retrouver l'estimation de la masse
+  incluse dans ce rayon au centre de notre Galaxie en utilisant la
+  troisième loi de Kepler. On rappelle que nous sommes à environ $R =
+  8,5$~kpc du centre galactique.  
+
+  La masse \emph{visible} au centre galactique étant estimée à environ
+  $10^{6}$ masses solaires, en déduire une estimation de la masse
+  centrale invisible de notre Galaxie. Proposer une explication.
 \end{Exercise}
 
 \begin{SCfigure}[0.5]%[htp]
   \centering
   \includegraphics[width=0.5\textwidth]{nature01121-f2_2}
-  \label{centregalac}
   \caption{Orbite de l'étoile S2 autour du centre galactique SgrA*
     (Schödel et al. 2002).}
+  \label{centregalac}
 \end{SCfigure}
 
 \begin{Answer}
-  On rappelle que G, la constante gravitationnelle, vaut
-  $6,6742,10^{-11}$~\u{m^3kg^{-1}sec^{-2}}.
-
-  Nous allons d'abord transformer la taille du demi grand-axe
-  d'arcseconde en mètres, et ensuite, la période en secondes :
-  \begin{itemize}
-  \item $1''$ équivaut à $1/3600$~degrés, donc à $8,5$~kpc, cela
-    revient à environ $0,041$~pc. Le demi grand axe est donné comme
-    étant égal à $0,119''$, donc cela équivaut à~:
-    $$
-    a = 0,119 \times 0,041 = 0,0048~\u{pc} = 0,0048\times 3,08\e{16} =
-    1,5\e{14}~\u{m}
-    $$
-
-  \item la période $T$ est donnée de 15,2~ans donc~: $T=479347200$~s
-  \end{itemize}
-
-  Enfin la troisième loi de Kepler dit que le rapport $T^2/a^3$ est une
-  constante $k$ qui ne dépend que de la masse du système.
-
-  Cette constante $k$ est simplement donnée par : $4\pi^2/(GM)$ donc on
-  peut écrire que :
+  En écrivant la 3\ieme loi de Kepler dans le système Terre+Soleil et
+  dans le système S2+SgrA*, nous obtenons:
   $$
-  M = \frac{4\pi^2 a^3}{T^2 G}
+  \frac{(a/1~\mathrm{UA})^{3}}{(T/1~\mathrm{an})^{2}} =
+  M_{\mathrm{SgrA}*}/M_{\odot} 
+  \qquad\text{avec}\qquad 
+  (a/1~\mathrm{UA}) = (a/1'') \times (R/1~\mathrm{pc}) = 1,011\e{3}
   $$
-  En application numérique cela donne (en kg, vérifiez bien que
-  l'équation est homogène dans ses unités) :
-  $$
-  M = \frac{ 4 \times \pi^2 \times (1,5\e{14})^3 } { (479 347 200)^2
-    \times 6,6742\e{11} } = 8,7\e{36}~\u{kg}
-  $$
-  et ceci exprimé en masses solaires : $M \approx 4,4\e{6}~M_{\odot}$
+  d'où $M_{\mathrm{SgrA}*} = 4,5\e{6}\;M_{\odot}$.
 \end{Answer}
 
 \subsection{Le groupe local}
 
 \begin{Exercise}[Recensement]
-  Compter le nombre de galaxies ayant un diamètre plus petit que
-  6~kpc, et celles ayant un diamètre plus grand. Quelles sont les
-  galaxies qui dominent en nombre ? Et en luminosité totale ?
-  (Fig.~\ref{listgalac})
+  Dans la Table~\ref{listgalac}, compter le nombre de galaxies ayant
+  un diamètre plus petit que 6~kpc, et celles ayant un diamètre plus
+  grand. Quelles sont les galaxies qui dominent en nombre ? Et en
+  luminosité totale ?
 \end{Exercise}
 
 \begin{table}%[htp]
   \caption{Galaxies du Groupe Local, avec leurs noms, leurs
     positions sur le ciel, le type de Hubble, la distance, les diamètres
     physiques et angulaires.}
+  \label{listgalac}
   \centering
   \includegraphics[height=.95\textheight]{listegalaxiegroupelocal}
-  \label{listgalac}
 \end{table}
 
 \begin{Answer}
   Il y a 26 petites galaxies -- dites « naines » -- sur les 30
   galaxies dont on nous donne la taille, et seulement 2 galaxies avec
-  un diamètre de plus de 30~kpc : M31 et la Voie Lactée). Ce sont donc
-  les galaxies naines qui dominent en nombre, mais elles ne dominent
-  pas en luminosité totale.
+  un diamètre de plus de 30~kpc : M~31 et la Voie Lactée. Ce sont donc
+  les galaxies naines qui dominent en nombre, mais pas en luminosité
+  totale.
 \end{Answer}
 
 \subsection{Distribution des galaxies dans l'univers}
@@ -1516,7 +1462,10 @@
   \exp\left(-\frac{L}{L^{*}}\right)
   $$
   où $\Phi(L)\d L$ est le nombre de galaxies de luminosité comprise
-  entre $L$ et $L+\d{}L$ par unité de volume (p.ex. par Mpc$^{3}$).
+  entre $L$ et $L+\d{}L$ par unité de volume (p.ex. par
+  Mpc$^{3}$). Pour les galaxies de champ, on a $\alpha \sim -5/4$,
+  $L^{*}_{B} \sim 2\e{10}\;L_{\odot}$ et $\Phi^{*} \sim
+  5\e{-3}$~Mpc$^{-3}$.
   \begin{enumerate}
   \item Quelle est la signification physique de la loi de Schechter ?
   \item Exprimer la loi de Schechter en magnitudes absolues.
@@ -1527,15 +1476,16 @@
   \begin{enumerate}
   \item Cette fonction empirique montre bien la prédominance des
     galaxies de faible luminosité intrinsèque.
-  \item En magnitude:
+  \item On a $\Phi(L)\,\d L = \Phi(M)\,\d M$ avec $M = -2,5\log
+    L/L_{0}$, d'où:
     $$
-    \Phi (M) = 0,4 \ln (10) \Phi ^{*}10^{0,4(\alpha +1)(M^{*}-M)}\exp
-    \left( -10^{0,4(M^{*}-M)} \right)
+    \Phi(M) = 0,4 \ln 10\times \Phi^{*}\,10^{0,4(\alpha
+      +1)(M^{*}-M)}\exp \left( -10^{0,4(M^{*}-M)} \right)
     $$
   \end{enumerate}
 \end{Answer}
 
-\subsubsection{Effets d'environnement, collisions et fusions}
+%\subsubsection{Effets d'environnement, collisions et fusions}
 
 \begin{Exercise}[Fréquence de collision dans un amas]
   On considère un amas de galaxies ayant les caractéristiques
@@ -1550,24 +1500,24 @@
 
   \begin{enumerate}
   \item Donner l'expression de la densité numérique de galaxies (le
-    nombre de galaxies par unité de volume) $n_{g}$ dans l'amas.
+    nombre par unité de volume) $n_{g}$ dans l'amas.
 
   \item On suppose que les galaxies ont un diamètre typique
-    $d_{g}$. En modélisant les galaxies comme des sphères dures («
-    boules de billard »), donner l'expression de la section efficace
-    $S_{\mathrm{eff}}$ lors d'une interaction (collision) entre deux
-    galaxies.
+    $d_{g}$. En modélisant les galaxies comme des sphères dures
+    («~boules de billard~»), donner l'expression de la section
+    efficace $S_{\mathrm{eff}}$ lors d'une interaction (collision)
+    entre deux galaxies.
 
   \item Donner l'expression du nombre d'interactions que subit une
     galaxie de l'amas pendant un temps $\Delta t$. En déduire, pour
     une galaxie, le temps caractéristique de collision $\tau_{c}$ et
     le libre parcours moyen $\ell_{c}$.
 
-  \item En déduire le temps $T_{c}$ entre deux interactions dans
+  \item En déduire le temps $T_{c}$ entre deux interactions au sein de
     l'amas.
 
-  \item Application numérique : considérons un amas ($D_{a} = 7$~Mpc)
-    contenant $N=850$ galaxies ($d_{g} = 20$~kpc) avec $v_{g} =
+  \item Application numérique : considérons un amas avec $D_{a} =
+    7$~Mpc, $N=850$ galaxies, $d_{g} = 20$~kpc et $v_{g} =
     650$~km/s. Explicitez le calcul numérique du temps moyen entre
     deux collisions pour cet amas.
   \end{enumerate}
@@ -2125,31 +2075,21 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
 
 \begin{Answer}
   \begin{enumerate}
-  \item On a
-    $$
-    1 + z = \frac{\lambda_{\text{observé}}}{\lambda_{\text{émis}}} =
-    \frac{582,2}{121,5} = 4,792
-    $$
-    donc $z = 3,792$.
-  \item Par ailleurs,
-    $$
-    1 + z = \frac{\lambda_{\text{observé}}}{\lambda_{\text{émis}}} =
-    \frac{R_0}{R_{\text{émission}}}
-    $$
-    soit $R_{em}/R_{0} = \lambda_{0}/\lambda = 121,5/582,2 =
-    0,209$.  À l'époque où 4C41.17 émettait la lumière qui nous
-    parvient aujourd'hui, l'Univers était cinq fois moins « étiré »
-    qu'aujourd'hui. Remarquez bien qu'on évite de dire qu'il était
-    moins « étendu » : cette expression sous-entendrait des choses sur
-    la « taille globale » de l'Univers, ce que tout cosmologiste
-    raisonnable évite soigneusement de faire.
+  \item $1 + z = \lambda_{\text{observé}}/\lambda_{\text{émis}} =
+    582,2/121,5 = 4,792$ donc $z = 3,792$.
+  \item Par ailleurs, $1 + z =
+    \lambda_{\text{observé}}/\lambda_{\text{émis}} =
+    R_0/R_{\text{émission}}$, soit $R_{em}/R_{0} = \lambda_{0}/\lambda
+    = 121,5/582,2 = 0,209$.  À l'époque où 4C41.17 émettait la lumière
+    qui nous parvient aujourd'hui, l'Univers était cinq fois moins «
+    étiré » qu'aujourd'hui. Remarquez bien qu'on évite de dire qu'il
+    était moins « étendu » : cette expression sous-entendrait des
+    choses sur la « taille globale » de l'Univers, ce que tout
+    cosmologiste raisonnable évite soigneusement de faire.
   \item À nouveau, il suffit de se souvenir de la relation liant le
-    facteur d'échelle et le temps cosmologique :
-    $$
-    \frac{R(t)}{R_{0}} = \left(\frac{t}{t_0}\right)^{2/3}
-    $$
-    pour trouver $t_{em} = t_0 \times
-    \left(R(t_{em})/R_{0}\right)^{3/2}$, et donc $t_{em} = 13,5 \times
+    facteur d'échelle et le temps cosmologique, $R(t)/R_{0} =
+    (t/t_0)^{2/3}$, pour trouver $t_{em} = t_0 \times
+    \left(R_{em}/R_{0}\right)^{3/2}$, et donc $t_{em} = 13,5 \times
     (0,209)^{3/2} = 1,29$~Gan.  4C41.17 émettait la lumière qui nous
     parvient aujourd'hui alors l'Univers était âgé de 1,29 milliards
     d'années.
@@ -2236,14 +2176,21 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
     $90\deg$ (Fig.~\ref{position2}).
   \end{enumerate}
 
-  \begin{figure}[htp]
-    \begin{center}
-      \includegraphics[width=0.4\textwidth]{position}
-      \includegraphics[width=0.4\textwidth]{position2}
-    \end{center}
-    \label{position}
-    \label{position2}
-    \caption{G. : Points cardinaux. Dr. : Horizon et distance zénithale.}
+  \begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{position}
+      \caption{Points cardinaux.}
+      \label{position}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{position2}
+      \caption{Horizon et distance zénithale.}
+      \label{position2}
+    \end{subfigure}
+    \caption{}
   \end{figure}
 \end{Answer}
 
@@ -2271,17 +2218,27 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
     fera du côté Sud de l'observateur.  Pour les autres étoiles, la
     culmination sera du côté Nord (Fig.~\ref{mouvementdiurne2})
 
-    \begin{figure}[htp]
+    \begin{figure}
       \centering
-      \includegraphics[width=0.3\textwidth]{mouvement_diurne2}
-      \includegraphics[width=0.3\textwidth]{mouvement_diurne3}
-      \includegraphics[width=0.3\textwidth]{mouvement_diurne4}
-      \label{mouvementdiurne2}
-      \label{mouvementdiurne3}
-      \label{mouvementdiurne4}
-      \caption{Mouvement diurne à une latitude $\phi\sim 50\deg$
-        (à g.), à l'équateur ($\phi = 0$, au c.) et au pôle nord
-        ($\phi = 90\deg$, à dr.).}
+      \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{mouvement_diurne2}
+        \caption{Latitude $\phi\sim 50\deg$.}
+        \label{mouvementdiurne2}
+      \end{subfigure}
+      \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{mouvement_diurne3}
+        \caption{Équateur ($\phi = 0$).}
+        \label{mouvementdiurne3}
+      \end{subfigure}
+      \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{mouvement_diurne4}
+        \caption{Pôle nord ($\phi = 90\deg$.}
+        \label{mouvementdiurne4}
+      \end{subfigure}
+      \caption{Mouvement diurne.}
     \end{figure}
 
   \item L'équateur passant par le zénith, toutes les étoiles de
@@ -2310,9 +2267,9 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
     \begin{SCfigure}[0.5]%[htp]
       \centering
       \includegraphics[width=0.5\textwidth]{mouvement_diurne}
-      \label{mouvementdiurne}
       \caption{Rotation d'une étoile vue de l'hémisphère sud (latitude =
         $-50\deg$).}
+      \label{mouvementdiurne}
     \end{SCfigure}
 
   \item Les astres se lèvent-ils du côté de l'Est et se couchent-ils
@@ -2404,14 +2361,21 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
       \label{tbl:coordonnees_horaire}
     \end{center}
 
-    \begin{figure}[htp]
+    \begin{figure}
       \centering
-      \includegraphics[width=0.45\textwidth]{coordonnees_horaire}
-      \includegraphics[width=0.45\textwidth]{coordonnees_horaire2}
-      \label{coordonneeshoraire}
-      \label{coordonneeshoraire2}
-      \caption{Coordonnées horaires des points cardinaux (à g.) et du
-        zénith (à dr.).}
+      \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{coordonnees_horaire}
+        \caption{Points cardinaux.}
+        \label{coordonneeshoraire}
+      \end{subfigure}
+      \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{coordonnees_horaire2}
+        \caption{Zénith.}
+        \label{coordonneeshoraire2}
+      \end{subfigure}
+      \caption{Coordonnées horaires.}
     \end{figure}
 
   \item La déclinaison du zénith vaut la latitude (positive pour
@@ -2461,8 +2425,8 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
     \begin{SCfigure}%[htp]
       \centering
       \includegraphics[width=0.5\textwidth]{coordonnees_horaire3}
-      \label{coordonneeshoraire3}
       \caption{Coordonnées horaires.}
+      \label{coordonneeshoraire3}
     \end{SCfigure}
 
   \item
@@ -2475,14 +2439,25 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
       (Fig \ref{castor}) : $\phi>=90\deg-\delta$
       \begin{figure}[htp]
         \centering
-        \includegraphics[width=0.3\textwidth]{castor}
-        \includegraphics[width=0.3\textwidth]{betelgeuse}
-        \includegraphics[width=0.3\textwidth]{cen}
+        \begin{subfigure}[b]{0.3\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{castor}
+          \caption{Castor.}
         \label{castor}
-        \label{betelgeuse}
-        \label{cen}
-        \caption{Castor (à g.), Bételgeuse (au c.), et
-          $\alpha$-Cen. (à dr.).}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{betelgeuse}
+          \caption{Bételgeuse.}
+          \label{betelgeuse}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{cen}
+          \caption{$\alpha$-Cen.}
+          \label{cen}
+        \end{subfigure}
+        \caption{Coordonnées équatoriales.}
       \end{figure}
 
     \item[Bételgeuse (Ori, $\delta = +7\deg24'$) culmine au zénith]
@@ -2558,12 +2533,22 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
     sud) est passé au Sud (au Nord) et de ce fait est plus bas que le
     jour où il passe au zénith au méridien (Fig.~\ref{mvtsolaire}).
 
-    \begin{SCfigure}[0.5]%[htp]
+    \begin{figure}
       \centering
-      \includegraphics[width=0.5\textwidth]{mvt_soleil}
-      \label{mvtsolaire}
+      \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{mvt_soleil}
+        \caption{}
+        \label{mvtsolaire}
+      \end{subfigure}
+      \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{mvt_soleil2}
+        \caption{}
+        \label{mvtsolaire2}
+      \end{subfigure}
       \caption{}
-    \end{SCfigure}
+    \end{figure}
 
   \item Ceci se produit dans l'hémisphère nord en été quand le Soleil
     a une déclinaison suffisamment positive. On appelle ce phénomène
@@ -2583,13 +2568,6 @@ une valeur de $H_0 = 65$~\u{km s^{-1} Mpc^{-1}}.
     66\deg33'$ définissent sur le globe terrestre les parallèles
     appelés « cercles polaires » (respectivement boréal et austral)
     (Fig.~\ref{mvtsolaire2}).
-
-    \begin{SCfigure}[0.5]%[htp]
-      \centering
-      \includegraphics[width=0.5\textwidth]{mvt_soleil2}
-      \label{mvtsolaire2}
-      \caption{}
-    \end{SCfigure}
 
   \item Vers les pôles, lors de son passage inférieur dans le plan
     méridien, le Soleil est au-dessus de l'horizon et son angle
