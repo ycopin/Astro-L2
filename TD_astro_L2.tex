@@ -1,4 +1,4 @@
-% Time-stamp: <2013-04-03 15:55 ycopin@lyopc469>
+% Time-stamp: <2013-04-10 15:24 ycopin@lyopc469>
 % Auteurs (version LaTeX):
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
@@ -1494,8 +1494,9 @@
   \item il est supposé sphérique, de diamètre $D_{a}$,
   \item il contient $N_{g}$ galaxies identiques et réparties
     uniformément dans l'amas,
-  \item les galaxies sont supposées animées d'une vitesse uniforme
-    $v_{g}$.
+  \item les galaxies sont supposées animées d'une vitesse quadratique
+    moyenne $v_{g}/\sqrt{2}$ (la vitesse \emph{relative} quadratique
+    moyenne est donc $v_{g}$).
   \end{itemize}
 
   \begin{enumerate}
@@ -1574,27 +1575,22 @@
 
     Expliciter la relation entre la distance entre ces deux étoiles et
     leur vitesse et calculer cette vitesse $v$ pour les distances
-    d'équilibre suivantes : $D=1$~UA, $D=10$~UA et $D=100$~UA.
+    d'équilibre $D$ suivantes : 1~UA, 10~UA et 100~UA.
   \end{enumerate}
 \end{Exercise}
 
 \begin{Answer}
   \begin{enumerate}
   \item $K = 1/2 M_\oplus v_\oplus^2$
-  \item Théorème du Viriel : $2K + U = 0$, soit :
-    \begin{align*}
-      U &= -\frac{GM_\odot M_\oplus}{D} = -2K \\
-      \text{donc}\quad D &= \frac{GM_\odot M_\oplus}{2K} 
-      = \frac{GM_\odot}{v_\oplus^2}.
-    \end{align*}
-    Avec $v_\oplus = 30$~km/s, on trouve bien $D=1$~UA.
+  \item Théorème du Viriel : $2K + U = 0$ avec $U = -GM_\odot
+    M_\oplus/D$ d'où $D = GM_\odot/v_\oplus^2 = 1$~UA.
   \item $K = 1/2\,M_{1}v_{1}^{2} + 1/2\,M_{2}v_{2}^{2} =
-    M_{\odot}v^{2}$ d'où $v = \sqrt{\frac{G M_\odot}{2 D}}$. On trouve
-    alors :
+    M_{\odot}v^{2} \stackrel{\mathrm{Viriel}}{=} -U/2 =
+    -GM_{\odot}^{2}/(2D^{2})$ d'où $v = \sqrt{G M_\odot/(2 D)}$, soit:
     \begin{itemize}
-    \item pour $D=1$~UA, $v=21$~km/s
-    \item pour $D=10$~UA, $v \simeq 7$~km/s
-    \item pour $D=100$~UA, $v \simeq 2$~km/s
+    \item $D=1$~UA: $v = 21,1$~km/s
+    \item $D=10$~UA: $v = 6,7$~km/s
+    \item $D=100$~UA: $v = 2,1$~km/s
     \end{itemize}
   \end{enumerate}
 \end{Answer}
@@ -1608,21 +1604,22 @@
       \hline
       Système & $R$ & $V$ (km/s) & $M$ ($M_{\odot}$) \\ \hline
       Amas globulaire  & 10~pc  & 10 &  \\ \hline
-      Galaxie          & 50~kpc & 200 & \\ \hline
+      Galaxie          & 15~kpc & 200 & \\ \hline
       Amas de galaxies & 1~Mpc  & 1000 &  \\ \hline
     \end{tabular}
   \end{center}
 \end{Exercise}
 
 \begin{Answer}
-  On a $M = 2RV^{2}/G$, avec $G = 6,67\e{-11}\;\u{SI} =
-  4,302\e{-3}\;\u{km^{2}.s^{-2}.pc.M_{\odot}^{-1}}$ d'où:
+  On a $U = -GM/(2R)$ et $K=1/2\, MV^{2}$ d'où $M = 2RV^{2}/G$, avec
+  $G = 6,67\e{-11}\;\u{SI} =
+  4,302\e{-3}\;\u{km^{2}.s^{-2}.pc.M_{\odot}^{-1}}$ soit:
   \begin{center}
     \begin{tabular}{|c|c|c|c|}
       \hline
       Système & $R$ & $V$ (km/s) & $M$ ($M_{\odot}$) \\ \hline
       Amas globulaire  & 10~pc  & 10   & \red{$4,6\e{5}$} \\ \hline
-      Galaxie          & 50~kpc & 200  & \red{$9,3\e{11}$} \\ \hline
+      Galaxie          & 15~kpc & 200  & \red{$2,8\e{11}$} \\ \hline
       Amas de galaxies & 1~Mpc  & 1000 & \red{$4,6\e{14}$} \\ \hline
     \end{tabular}
   \end{center}
@@ -1659,10 +1656,10 @@
   Les temps cinématiques pour un amas ouvert et un amas globulaire ne
   sont pas vraiment différents malgré leurs tailles respectives très
   différentes.  De même entre une galaxie et un amas globulaire : il
-  ne faut qu'environ 100 plus de temps à une étoile avec une vitesse
-  typique pour traverser une grosse galaxies qu'un amas globulaire
-  (bien sur les vitesses caractéristiques ne sont pas les mêmes pour
-  ces deux systèmes).
+  ne faut qu'environ 100$\times$ plus de temps à une étoile avec une
+  vitesse typique pour traverser une grosse galaxies qu'un amas
+  globulaire (bien sur les vitesses caractéristiques ne sont pas les
+  mêmes pour ces deux systèmes).
 \end{Answer}
 
 % ==============================================================================
