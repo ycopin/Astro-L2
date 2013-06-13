@@ -1,4 +1,4 @@
-% Time-stamp: <2013-04-17 15:42 ycopin@lyopc469>
+% Time-stamp: <2013-06-13 16:44:05 ycopin>
 % Auteurs (version LaTeX):
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
@@ -23,24 +23,34 @@
 
 \usepackage[cm]{fullpage}
 \usepackage[francais]{babel}
-\usepackage{amsmath}
-\usepackage{multirow}
-\usepackage{enumitem}
+
+\usepackage{amsmath,amssymb}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{sansmath}
+
+\usepackage{enumitem}           % enumerate[resume]
 
 \usepackage[pdftex]{graphicx}
 \graphicspath{{./Figures/}}
+
+\usepackage{booktabs}
 
 \usepackage[rightcaption]{sidecap}
 \usepackage{caption}
 \usepackage{subcaption}
 
-%\usepackage[backref,colorlinks=true,breaklinks=true,
-%a4paper,bookmarks=false,linktocpage=true]{hyperref}
-\usepackage[colorlinks=true]{hyperref}
+\usepackage{hyperref}
 \hypersetup{
   pdftitle   = {« Astrophysique pour la licence », fascicule de TD},
   pdfauthor  = {Yannick Copin et l'équipe enseignante Astro-L2},
   pdfsubject = {Astrophysique pour la licence, Université de Lyon 1},
+  unicode=true,           % non-Latin characters in Acrobat’s bookmarks
+  linktoc=all,
+  colorlinks=true,           % false: boxed links; true: colored links
+  linkcolor=OliveGreen,      % color of internal links
+  citecolor=OliveGreen,      % color of links to bibliography
+  urlcolor=MidnightBlue      % color of external links
 }
 
 % Définition de l'environnement 'Exercise'
@@ -59,7 +69,7 @@
 \usepackage{comment}
 \specialcomment{Answer}{%
   \begingroup
-  \sffamily\color{CadetBlue}
+  \sffamily\sansmath\color{CadetBlue}
   \medskip\noindent\textbf{Corrigé :~}
 }{%
   \endgroup
@@ -78,7 +88,7 @@
 \newcommand{\e}[1]{\ensuremath{\, 10^{#1}}}
 \renewcommand{\d}{\ensuremath{\mathrm{d}}}
 \newcommand{\UA}{\ensuremath{\textrm{UA}}}
-\renewcommand{\deg}{\ensuremath{^{\circ}}}
+\renewcommand{\deg}{\ensuremath{\degree}}
 \renewcommand{\vec}[1]{\ensuremath{\boldsymbol{#1}}}
 \renewcommand{\u}[1]{\ensuremath{\mathrm{#1}}} % Unités
 \DeclareMathOperator{\grad}{\mathbf{grad}}
@@ -176,16 +186,15 @@
 
 \begin{Answer}
   \begin{center}
-    \begin{tabular}{lccccr}
-      \hline
+    \begin{tabular}{lccccl}
+      \toprule
       Type stellaire & $L$~[\u{L_{\odot}}] & $T_{e}$~[K] &
-      $R$~[\u{R_{\odot}}] & $\lambda_{\max}$ (nm) & Couleur \\
-      \hline
-      \hline
+      $R$~[\u{R_{\odot}}] & $\lambda_{\max}$ [nm] & Couleur \\
+      \midrule
       Naine blanche & $10^{-2}$ & 20000  & 0,008 & 145 & Blanc \\
       Géante rouge  & $10^{2}$  & 4200  & 18,8   & 690 & Rouge \\
       Supergéante   & $10^{5}$  & 6000  & 291,7  & 483 & Bleu \\
-      \hline
+      \bottomrule
     \end{tabular}
   \end{center}
 \end{Answer}
@@ -334,14 +343,13 @@
   leur magnitude absolue $M_V$.
   \begin{center}
     \begin{tabular}{lccc}
-      \hline
+      \toprule
       & $\alpha$ CMa (Sirius) & $\alpha$ Tau (Aldebaran) & $\alpha$ Ori
       (Bételgeuse) \\
-      \hline
-      \hline
+      \cmidrule(r){2-4}
       $m_V$ & -1,47 & 0,85 & 0,58 \\
       $p$ (mas) & 379,2 $\pm$ 1,6 & 50,1 $\pm$ 1,0 & 7,6 $\pm$ 1,6 \\
-      \hline
+      \bottomrule
     \end{tabular}
   \end{center}
 \end{Exercise}
@@ -349,16 +357,14 @@
 \begin{Answer}
   \begin{center}
     \begin{tabular}{lccc}
-      \hline
-      & $\alpha$ CMa (Sirius) & $\alpha$ Tau (Aldebaran) & $\alpha$ Ori
-      (Bételgeuse) \\
-      \hline
-      \hline
+      \toprule
+      & $\alpha$ CMa & $\alpha$ Tau & $\alpha$ Ori \\
+      \cmidrule(r){2-4}
       $d$ (pc) &
       2,64 $\pm$ 0,01 & 20,0 $\pm$ 0,4 & 130 $\pm$ 30 \\
       $\Delta d / d$ & 0,4\% & 2\% & 21\% \\
       $M_V$ & 1,42  & -0,65 & -4,99 \\
-      \hline
+      \bottomrule
     \end{tabular}
   \end{center}
 
@@ -432,14 +438,13 @@
   température effective.
   \begin{center}
     \begin{tabular}{ccc}
-      \hline
+      \toprule
       $\lambda_{\max}$ & $T_{\mathrm{eff}}(K)$ & Type spectral \\
-      \hline
-      \hline
+      \midrule
       300 nm & 9660 & A  \\
       500 nm & 5796 & G \\
       1,2 $\mu$m & 2415 & M \\
-      \hline
+      \bottomrule
     \end{tabular}
   \end{center}
   On ne peut pas déterminer la classe de luminosité grâce à la
@@ -457,20 +462,16 @@
 \begin{Answer}
   La séquence OBAFGKM décrit les types spectraux dans le sens des
   $T_{\mathrm{eff}}$ décroissantes, on aura donc dans le sens des
-  $T_{\mathrm{eff}}$ croissantes : \textcolor{red}{M5III},
-  \textcolor{red}{K7I}, \textcolor{red}{A0VII}, et
-  \textcolor{red}{O2V}.
+  $T_{\mathrm{eff}}$ croissantes : M5III, K7I, A0VII, et O2V.
 
   La classe de luminosité définit des groupes d'étoiles de rayon
-  différent, on aura donc dans l'ordre croissant :
-  \textcolor{red}{A0VII}, \textcolor{red}{O2V},
-  \textcolor{red}{M5III}, et \textcolor{red}{K7I}.
+  différent, on aura donc dans l'ordre croissant : A0VII, O2V, M5III,
+  et K7I.
 
   Enfin, l'examen du diagramme HR montre qu'une étoile chaude de la
   séquence principale peut être plus lumineuse qu'une sous-géante
-  froide, et on aura dans le sens des luminosités croissantes :
-  \textcolor{red}{A0VII}, \textcolor{red}{M5III},
-  \textcolor{red}{O2V}, et \textcolor{red}{K7I}.
+  froide, et on aura dans le sens des luminosités croissantes : A0VII,
+  M5III, O2V, et K7I.
 
   Ceci montre que le terme « classe de luminosité » peut être source
   d'erreur.
@@ -487,13 +488,12 @@
 
   \begin{center}
     \begin{tabular}{lccc}
-      \hline
+      \toprule
       & $\alpha$ CMa & $\alpha$ Tau & $\alpha$ Ori \\
-      \hline
-      \hline
+      \cmidrule(r){2-4}
       $\theta_*$ (mas) & 5,89 & 24 & 67 \\
       $d$ (pc) & 2,64  & 20  & 130 \\
-      \hline
+      \bottomrule
     \end{tabular}
   \end{center}
 \end{Exercise}
@@ -509,14 +509,13 @@
   Le tableau suivant donne les résultats pour les 3 étoiles :
   \begin{center}
     \begin{tabular}{lccc}
-      \hline
+      \toprule
       & $\alpha$ CMa & $\alpha$ Tau & $\alpha$ Ori \\
-      \hline
-      \hline
+      \cmidrule(r){2-4}
       $R (R_{\odot})$ & 1,7 & 52 & 936 \\
       Classe de luminosité & V & III & I \\
       Type spectral & A1V & K5III & M2I \\
-      \hline
+      \bottomrule
     \end{tabular}
   \end{center}
   Dans cet exemple, il est possible d'attribuer à chaque étoile sa
@@ -566,34 +565,24 @@
 
 \begin{Exercise}[Le paradoxe d'Algol]
   Le tableau suivant rappelle les caractéristiques du système binaire
-  à éclipse d'Algol ($\beta$ Per) :
+  à éclipse d'Algol ($\beta$~Per):
   \begin{center}
-    \begin{tabular}{|l|c|c|}
-      \hline
-      $p$ (mas) & \multicolumn{2}{c|}{35,14 $\pm$ 0,90} \\
-      \hline
-      $T$ (jours) & \multicolumn{2}{c|}{2,8674} \\
-      \hline
+    \begin{tabular}{lcc}
+      \toprule
+      $p$ (mas) & \multicolumn{2}{c}{35,14 $\pm$ 0,90} \\
+      $T$ (jours) & \multicolumn{2}{c}{2,8674} \\
+      $\theta_{\mathrm{rel}}$ (mas) & \multicolumn{2}{c}{2,283} \\
+      \midrule
       Composantes & A & B \\
-      \hline
+      \cmidrule(r){2-3}
       Type spectral & B8V & K2IV \\
-      \hline
       R ($R_{\odot}$) & 2,74 & 3,60 \\
-      \hline
+      $\theta_{\mathrm{abs}}$ (mas) & & 1,872 \\
+      \bottomrule
     \end{tabular}
   \end{center}
-  On a mesuré de plus les paramètres orbitaux suivants (on supposera
-  l'orbite circulaire, ainsi le demi-grand axe de l'ellipse projetée
-  est égal au rayon de l'orbite) :
-  \begin{center}
-    \begin{tabular}{|l|c|}
-      \hline
-      $\theta$ (mas) & 2,283 \\
-      \hline
-      $\theta_B$ (mas) & 1,872 \\
-      \hline
-    \end{tabular}
-  \end{center}
+  On supposera l'orbite circulaire, ainsi le demi-grand axe de
+  l'ellipse projetée est égal au rayon de l'orbite.
 
   \begin{enumerate}
   \item Quelle est la distance (et son erreur) de ce système ?
@@ -625,18 +614,15 @@
 
   Le tableau suivant récapitule les données physiques du système :
   \begin{center}
-    \begin{tabular}{|l|c|c|}
-      \hline
-      $d$ (pc) & \multicolumn{2}{c|}{28,46 $\pm$ 0,73} \\
-      \hline
-      $a$ ($R_{\odot}$) &  \multicolumn{2}{c|}{13,96} \\
-      \hline
+    \begin{tabular}{lcc}
+      \toprule
+      $d$ (pc) & \multicolumn{2}{c}{28,46 $\pm$ 0,73} \\
+      $a$ ($R_{\odot}$) &  \multicolumn{2}{c}{13,96} \\
+      \midrule
       & A & B \\
-      \hline
-      Type spectral & B8V & K2IV \\
-      \hline
+      \cmidrule(r){2-3}
       $M$ ($M_{\odot}$) & 3,65 & 0,80 \\
-      \hline
+      \bottomrule
     \end{tabular}
   \end{center}
   On remarque que l'étoile la plus évoluée, B (B est une sous-géante
@@ -745,14 +731,14 @@
 \begin{Answer}
   \begin{center}
     \begin{tabular}{lccc}
-      \hline
+      \toprule
       & & Neptune & Pluton \\
-      \hline\hline
+      \cmidrule(r){2-4}
       Demi-grand axe & $a$ & 30,06~\UA & 39,43~\UA \\
       Excentricité & $e$ & 0,009 & 0,248 \\
       Périhélie & $d=a(1-e)$ & 29,79~\UA & 29,65~\UA \\
       Aphélie & $D=a(1+e)$ & 30,33~\UA & 49,21~\UA \\
-      \hline
+      \bottomrule
     \end{tabular}
   \end{center}
   Du fait de la très grande excentricité de son orbite, Pluton, à son
@@ -922,14 +908,9 @@
     T_S &= 23 \times 60 + 56 = 1435~\text{min} \\
     T_L &= 27,3 \times 24 \times 60 = 39312~\text{min}
   \end{align*}
-  et
-  $$
-  \frac{a^3_S}{1435^2} = \frac{384400^3}{39312^2}
-  $$
   d'où l'on tire finalement $a_S = 42300$~km.  Cette valeur correspond
-  à la distance entre le centre de la Terre et le
-  satellite. L'altitude du satellite est donc : $a_S = 42300 - 6378 =
-  35922$~km
+  à la distance entre le centre de la Terre et le satellite.
+  L'altitude du satellite est donc : $a_S = 42300 - 6378 = 35922$~km
 \end{Answer}
 
 % ==============================================================================
@@ -990,6 +971,58 @@
       = 39,8$~pc
     \end{itemize}
     Épaisseur du nuage : $r_2-r_1 = 39,8-25,1 = 14,7$~pc
+  \end{enumerate}
+\end{Answer}
+
+\begin{Exercise}[Densité des galaxies dans l'Univers]
+% D'après http://cc.oulu.fi/~jpoutane/teaching/ism07.html
+  E.~Hubble (1934, \emph{The Distribution of Extra-Galactic Nebulae},
+  ApJ, \textbf{79}, 8) a mesuré que le nombre de galaxies $N(m)$
+  jusqu'à une certaine magnitude limite $m$ par degré carré décroît
+  avec la latitude galactique\footnote{L'angle entre le plan
+    galactique et l'objet considéré, compté positivement vers le pôle
+    nord galactique.} $b$ (pour $|b|>15\degree$).  Ainsi, la densité
+  de galaxies semble diminuer à mesure que l'on s'éloigne des pôles de
+  la Galaxie ($b = \pm 90\degree$). Cela ne reflète évidemment pas la
+  réalité de la distribution des galaxies dans l'Univers, mais résulte
+  d'un effet d'absorption de la lumière par les particules de
+  poussière contenues dans notre propre Galaxie.
+
+  On suppose d'une part que la poussière est répartie de façon
+  homogène dans le disque galactique ($b=0$) d'épaisseur $2h$, et
+  d'autre part que toutes les galaxies sont des sources ponctuelles de
+  même magnitude absolue $M$ et uniformément distribuées dans l'espace
+  avec une densité $\rho$.
+
+  \begin{enumerate}
+  \item Exprimer l'épaisseur $\ell$ de poussière traversée à une
+    latitude $b$.  En déduire l'extinction interstellaire $A(b)$, en
+    notant $A_{0}$ l'atténuation en magnitude aux pôles galactiques.
+  \item Dans ces conditions, montrer que le nombre cumulé $N(m,b)$ de
+    galaxies par degré carré à la magnitude apparente $m$ et à la
+    latitude $b$ est donné par :
+    $$
+    \log N (m,b) = 0,6\,m - 0,6A_{0}\frac{1}{\sin b} + K.
+    $$
+    Exprimer la constante $K$ en fonction des données du problème.
+  \item Hubble (1934) a mesuré, pour des galaxies de magnitude absolue
+    moyenne $M=-14$ :
+    $$
+    \log N (m,b) = 0,6\,m - 0,15 \frac{1}{\sin b} - 4,50.
+    $$
+    En déduire la densité moyenne $\rho$ des galaxies dans l'Univers
+    (en Mpc$^{-3}$).
+  \end{enumerate}
+\end{Exercise}
+
+\begin{Answer}
+  \begin{enumerate}
+  \item $\ell = h/\sin b$ et $A = A_{0}/\sin b$.
+  \item $N(m,b) = \rho \times 4\pi d^{3}/3$ avec $\log(d/\mathrm{pc})
+    = 1+0,2(m-M-A)$ donc $\log N(m,b) = 0,6m - 0,6A - 0,6 M +
+    \log(\rho/\mathrm{pc}^{3}) + \log(4\pi/3) + 3$.
+  \item $\log(\rho/\mathrm{pc}^{3}) = -16,52$ soit $\rho =
+    30~\mathrm{Mpc}^{-3}$.
   \end{enumerate}
 \end{Answer}
 
@@ -1230,16 +1263,15 @@
   \caption{Propriétés quantitatives de la séquence de Hubble.}
   \label{tab:hubble}
   \begin{tabular}{lcccccc}
-    \hline
+    \toprule
     Propriétés & E,SO & S0a,Sa & Sab,Sb & Sbc,Sc & Scd,Sd & Sm,Im \\
-    \hline
-    \hline
+    \midrule
     $M_{\mathrm{totale}}$ ($10^{10}M_{\odot}$) & 
     & 22,6 & 32,4 & 19,0 & 7,9 & 1,6 \\
     $M_{\mathrm{gaz}}$ (H neutre en $10^{9}M_{\odot}$) & 
     1,24 & 5,62 & 15,14 & 15,85 & 9,33 & 2,40 \\
     Diamètre (kpc) & 21,1 & 19,8 & 25,1 & 22,4 & 17,7 & 8,5  \\
-    \hline
+    \bottomrule
   \end{tabular}
 \end{table}
 
@@ -1259,51 +1291,16 @@
   direct sur les médianes, mais le comportement reste le même.
   \begin{center}
     \begin{tabular}{lcccccc}
-      \hline
+      \toprule
       Propriétés & E,SO & S0a,Sa & Sab,Sb & Sbc,Sc & Scd,Sd & Sm,Im \\
-      \hline
-      \hline
+      \midrule
       $M_{\mathrm{gaz}}/M_{\mathrm{totale}}$ & & 0,03 & 0,05 & 0,08 & 0,11 & 0,15 \\
       $S$ ($M_{\odot}/\u{pc}^2$) &  & 188,9 & 154,7 & 124,2 & 91,4 & 74,5 \\
-      \hline
+      \bottomrule
     \end{tabular}
   \end{center}
 \end{Answer}
 
-
-% \begin{Exercise}[de Vaucouleurs et autres classifications]
-%   Donnez la classification simplifiée (E, S0, SA, SAB, SB) des
-%   galaxies données dans la partie cours correspondante dans spirale.
-%   Est-il toujours facile de classifier les galaxies réelles ?
-% \end{Exercise}
-
-% \begin{Answer}
-%   \begin{center}
-%     \begin{tabular}{|c|c|c|c|}
-%       \hline
-%       \No & Nom & Morphologie & Classification RC3 \\ 
-%       \hline
-%       \hline
-%       1  & NGC6070    & SA  & SA(s)cd  \\ 
-%       2  & NGC 7424   & SAB & SAB(rs)cd  \\ 
-%       3  & M 31 & SA  & SA(s)b  \\ 
-%       4  & M 33 & SA  & SA(s)cd  \\ 
-%       5  & M 87 & E0 ou E1 & E+0-1 pec\footnotemark[1] \\ 
-%       6  & NGC 2683   & SA  & SA(rs)b  \\ 
-%       7  & NGC 1300   & SB  & (R')SN(r'1)b  \\ 
-%       8  & NGC 1097   & SB  & (R'\_1:)SB(r'l)b  \\ 
-%       9  & NGC 4321   & SAB & SAB(s)bc \\ 
-%       10 & M 83 & SAB & SAB(s)c \\ 
-%       \hline
-%     \end{tabular}
-%     \footnotetext[1]{« Peculiar » à cause du jet provenant du noyau actif}
-%   \end{center}
-
-%   Galaxies lointaines sans nom (11). La classification demandée est
-%   SB. Ces objets sont considérés comme des galaxies barrées mais n'ont
-%   pas été précisément classifiées à cause du manque de résolution des
-%   images (\emph{HST Deep Field North}).
-% \end{Answer}
 
 \subsection{Constituants des galaxies}
 
@@ -1379,16 +1376,16 @@
 
 % \begin{Answer}
 %   Le bulbe de la galaxie vue en infrarouge est effectivement
-%   asymétrique : le coté gauche a une épaisseur légèrement plus grande
-%   que le coté droit. Ça n'est pas un effet de populations stellaires,
-%   ou d'extinction due à la poussière, mais bien une épaisseur
-%   réellement plus grande d'un coté que de l'autre. Ce que l'on voit
-%   est en fait un effet de projection : c'est en fait la barre de la
-%   Galaxie que nous observons. Cette barre étant inclinée à 35~degrés
-%   environ par rapport à nous, le coté gauche étant proche de nous, le
-%   coté droit loin de nous (de l'autre coté du centre galactique). Une
-%   des extrémités de la barre est donc plus proche de nous, et par
-%   projection elle apparaît plus haute.
+%   asymétrique : le coté gauche a une épaisseur légèrement plus
+%   grande que le coté droit. Ça n'est pas un effet de populations
+%   stellaires, ou d'extinction due à la poussière, mais bien une
+%   épaisseur réellement plus grande d'un coté que de l'autre. Ce que
+%   l'on voit est en fait un effet de projection : c'est en fait la
+%   barre de la Galaxie que nous observons. Cette barre étant inclinée
+%   à 35° environ par rapport à nous, le coté gauche étant proche de
+%   nous, le coté droit loin de nous (de l'autre coté du centre
+%   galactique). Une des extrémités de la barre est donc plus proche
+%   de nous, et par projection elle apparaît plus haute.
 % \end{Answer}
 
 \begin{Exercise}[Le centre galactique]
@@ -1417,10 +1414,9 @@
   En écrivant la 3\ieme loi de Kepler dans le système Terre+Soleil et
   dans le système S2+SgrA*, nous obtenons:
   $$
-  \frac{(a/1~\mathrm{UA})^{3}}{(T/1~\mathrm{an})^{2}} =
-  M_{\mathrm{SgrA}*}/M_{\odot} 
-  \qquad\text{avec}\qquad 
-  (a/1~\mathrm{UA}) = (a/1'') \times (R/1~\mathrm{pc}) = 1,011\e{3}
+  \frac{(a/a_{\oplus})^{3}}{(T/T_{\oplus})^{2}} =
+  M_{\mathrm{SgrA}*}/M_{\odot} \qquad\text{avec}\qquad
+  a~[\u{UA}] = a~[1''] \times R~[1~\u{pc}] = 1,011\e{3}
   $$
   d'où $M_{\mathrm{SgrA}*} = 4,5\e{6}\;M_{\odot}$.
 \end{Answer}
@@ -1600,12 +1596,14 @@
   tableau ci-dessous, donnant les rayons, masses et vitesse
   caractéristiques de différents système stellaires.  
   \begin{center}
-    \begin{tabular}{|c|c|c|c|}
-      \hline
-      Système & $R$ & $V$ (km/s) & $M$ ($M_{\odot}$) \\ \hline
-      Amas globulaire  & 10~pc  & 10 &  \\ \hline
-      Galaxie          & 15~kpc & 200 & \\ \hline
-      Amas de galaxies & 1~Mpc  & 1000 &  \\ \hline
+    \begin{tabular}{lrrr}
+      \toprule
+      Système & $R$ & $V$ (km/s) & $M$ ($M_{\odot}$) \\ 
+      \midrule
+      Amas globulaire  & 10~pc  & 10 & \\ 
+      Galaxie          & 15~kpc & 200 & \\ 
+      Amas de galaxies & 1~Mpc  & 1000 & \\ 
+      \bottomrule
     \end{tabular}
   \end{center}
 \end{Exercise}
@@ -1615,12 +1613,14 @@
   $G = 6,67\e{-11}\;\u{SI} =
   4,302\e{-3}\;\u{km^{2}.s^{-2}.pc.M_{\odot}^{-1}}$ soit:
   \begin{center}
-    \begin{tabular}{|c|c|c|c|}
-      \hline
-      Système & $R$ & $V$ (km/s) & $M$ ($M_{\odot}$) \\ \hline
-      Amas globulaire  & 10~pc  & 10   & \red{$4,6\e{5}$} \\ \hline
-      Galaxie          & 15~kpc & 200  & \red{$2,8\e{11}$} \\ \hline
-      Amas de galaxies & 1~Mpc  & 1000 & \red{$4,6\e{14}$} \\ \hline
+    \begin{tabular}{lrrr}
+      \toprule
+      Système & $R$ & $V$ (km/s) & $M$ ($M_{\odot}$) \\ 
+      \midrule
+      Amas globulaire  & 10~pc  & 10   & $4,6\e{5}$  \\ 
+      Galaxie          & 15~kpc & 200  & $2,8\e{11}$ \\
+      Amas de galaxies & 1~Mpc  & 1000 & $4,6\e{14}$ \\
+      \bottomrule
     \end{tabular}
   \end{center}
 \end{Answer}
@@ -1629,12 +1629,14 @@
   On va maintenant calculer le temps cinématique $t_c$ pour différents
   systèmes stellaires. 
   \begin{center}
-    \begin{tabular}{|c|c|c|c|}
-      \hline
-      Système & $R$ & $M$ ($M_{\odot}$) & $t_c$ (ans) \\ \hline
-      Amas ouvert     & 1~pc   & 500 &  \\ \hline
-      Amas globulaire & 10~pc  & $10^5$ &  \\ \hline
-      Galaxie         & 50~kpc & $10^{12}$ & \\ \hline
+    \begin{tabular}{lrrr}
+      \toprule
+      Système & $R$ & $M$ ($M_{\odot}$) & $t_c$ (ans) \\ 
+      \midrule
+      Amas ouvert     & 1~pc   & 500 &  \\ 
+      Amas globulaire & 10~pc  & $10^5$ &  \\ 
+      Galaxie         & 50~kpc & $10^{12}$ & \\ 
+      \bottomrule
     \end{tabular}
   \end{center}
   Que remarquez-vous sur ces temps cinématiques pour les différents
@@ -1645,12 +1647,14 @@
   $t_{c} = R/V = \sqrt{2R^{3} / GM}$ avec $G =
   4,500\e{-15}$~\u{pc^{3}.M_{\odot}^{-1}.an^{-2}} donc:
   \begin{center}
-    \begin{tabular}{|c|c|c|c|}
-      \hline
-      Système & $R$ (pc) & $M$ ($M_{\odot}$) & $t_c$ (ans) \\ \hline
-      Amas ouvert     & 1~pc   & 500      & \red{$9,4\e{5}$} \\ \hline
-      Amas globulaire & 10~pc  & $10^5$   & \red{$2,1\e{6}$} \\ \hline
-      Galaxie         & 50~kpc & $10^{12}$ & \red{$2,4\e{8}$} \\ \hline
+    \begin{tabular}{lrrr}
+      \toprule
+      Système & $R$ & $M$ ($M_{\odot}$) & $t_c$ (ans) \\ 
+      \midrule
+      Amas ouvert     & 1~pc   & 500      & $9,4\e{5}$ \\ 
+      Amas globulaire & 10~pc  & $10^5$   & $2,1\e{6}$ \\ 
+      Galaxie         & 50~kpc & $10^{12}$ & $2,4\e{8}$ \\ 
+      \bottomrule
     \end{tabular}
   \end{center}
   Les temps cinématiques pour un amas ouvert et un amas globulaire ne
@@ -2141,17 +2145,19 @@ une valeur de $H_0 = 70$~\u{km s^{-1} Mpc^{-1}}.
     orthogonales, on a à partir de l'origine la direction Sud
     (Fig.~\ref{position}) :
     \begin{center}
-      \begin{tabular}{|c|c|c|}
-        \hline
-        Points cardinaux & Azimut (degrés) & hauteur (degrés) \\ \hline
-        Nord  & 180 & 0 \\ \hline
-        Est   & 270 & 0 \\ \hline
-        Sud   & 0   & 0 \\ \hline
-        Ouest & 90  & 0 \\ \hline
+      \begin{tabular}{lrr}
+        \toprule
+        & Azimut & Hauteur \\ 
+        \cmidrule(r){2-3}
+        Nord  & 180° & 0 \\ 
+        Est   & 270° & 0 \\ 
+        Sud   & 0°   & 0 \\ 
+        Ouest & 90°  & 0 \\ 
+        \bottomrule
       \end{tabular}
     \end{center}
-    Remarque : L'azimut des marins est décalé de 180 degrés par rapport
-    à celui des astronomes. L'origine des azimuts est le Nord.
+    Remarque : L'azimut des marins est décalé de 180° par rapport à
+    celui des astronomes. L'origine des azimuts est le Nord.
 
   \item Seule la hauteur d'un astre au-dessus de l'horizon peut être
     définie. L'azimut ne l'est pas, la ligne Nord-Sud ou le plan
@@ -2161,9 +2167,9 @@ une valeur de $H_0 = 70$~\u{km s^{-1} Mpc^{-1}}.
 
   \item Un astre n'est visible que s'il est au-dessus de l'horizon. Sa
     hauteur doit être positive par définition. Sa distance zénithale
-    ($90\deg - h$) par conséquent est plus petite que 90~degrés.  Un
-    astre sous l'horizon a sa distance zénithale plus grande que
-    $90\deg$ (Fig.~\ref{position2}).
+    ($90\deg - h$) par conséquent est plus petite que 90°.  Un astre
+    sous l'horizon a sa distance zénithale plus grande que 90°
+    (Fig.~\ref{position2}).
   \end{enumerate}
 
   \begin{figure}
@@ -2340,13 +2346,15 @@ une valeur de $H_0 = 70$~\u{km s^{-1} Mpc^{-1}}.
     Fig.~\ref{coordonneeshoraire}
 
     \begin{center}
-      \begin{tabular}{|c|c|c|}
-        \hline
-        Points cardinaux & Angle horaire & Déclinaison \\ \hline
-        Sud   & 0h  & -(90 - $\phi$) \\ \hline
-        Ouest & 6h  & 0 degré \\ \hline
-        Nord  & 12h & 90 - $\phi$ \\ \hline
-        Est   & 18h & 0 degré \\ \hline
+      \begin{tabular}{lrc}
+        \toprule
+        & Angle horaire & Déclinaison \\ 
+        \cmidrule(r){2-3}
+        Sud   & 0h  & $\phi - 90\deg$ \\ 
+        Ouest & 6h  & 0 \\ 
+        Nord  & 12h & $90\deg - \phi$ \\ 
+        Est   & 18h & 0 \\ 
+        \bottomrule
       \end{tabular}
       \label{tbl:coordonnees_horaire}
     \end{center}
@@ -2505,17 +2513,12 @@ une valeur de $H_0 = 70$~\u{km s^{-1} Mpc^{-1}}.
     ou le supplément si le Soleil sous les tropiques est passé de
     l'autre côté.
     \begin{center}
-      \begin{tabular}{|c|c|c|c|c|}
-        \hline
-        Latitude $\epsilon$ & $50\deg$ & $75\deg$ & $10\deg$ &
-        $-20\deg$ \\
-        \hline
-        Hauteur max. & $63\deg27'$ & $38\deg27'$ & $90\deg$ &
-        $90\deg$ \\
-        \hline
-        Hauteur min. & $16\deg33'$ & $-08\deg27'$ & $56\deg33'$
-        & $46\deg33'$ \\
-        \hline
+      \begin{tabular}{lcccc}
+        \toprule
+        Latitude $\epsilon$ & $50\deg$ & $75\deg$ & $10\deg$ & $-20\deg$ \\
+        Hauteur max. & $63\deg27'$ & $38\deg27'$ & $90\deg$ & $90\deg$ \\
+        Hauteur min. & $16\deg33'$ & $-08\deg27'$ & $56\deg33'$ & $46\deg33'$ \\
+        \bottomrule
       \end{tabular}
     \end{center}
     Attention aux positions entre les tropiques, le Soleil au solstice
