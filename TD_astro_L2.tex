@@ -1,4 +1,4 @@
-% Time-stamp: <2013-06-13 16:44:05 ycopin>
+% Time-stamp: <2014-02-06 13:55:12 ycopin>
 % Auteurs (version LaTeX):
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
@@ -159,16 +159,16 @@
 
 \begin{Exercise}[Luminosité du Soleil]
   Calculer la luminosité du Soleil à partir de sa température
-  effective du Soleil $T_\odot \approx 5770$~K et de son rayon
-  $R_{\odot}\approx 6,96\e{8}$~m.
+  effective $T_\odot \approx 5770$~K et de son rayon $R_{\odot}\approx
+  6,96\e{8}$~m.
 \end{Exercise}
 
 \begin{Answer}
-  En appliquant l'équation :
-  $$
+  En appliquant l'équation 
+  $\displaystyle
   T_e = \left( \frac{L}{4 \pi R^2_p \sigma} \right)^{1/4}
-  $$
-  avec la constante de Stefan $\sigma = 5,67\e{-8}$~\u{Wm^{-2}K^{-4}},
+  $
+  avec la constante de Stefan $\sigma = 5,67\e{-8}$~\u{W.m^{-2}.K^{-4}},
   on trouve la luminosité $L_{\odot}\approx 3,83\e{26}$~W.
 \end{Answer}
 
@@ -219,8 +219,8 @@
     de la Terre, en déduire l'expression de la température $T_{e}$ en
     fonction des données du problème.
   \item Application numérique, sachant que $L=3,85\e{26}$~W,
-    $R=6400$~km, $D=1,5\e{11}$~m, $\sigma =
-    5,67\e{-8}$~\u{J.s^{-1}.m^{-2}.K^{-4}}.
+    $R=6400$~km, $D=1,500\e{11}$~m, $\sigma =
+    5,67\e{-8}$~\u{W.m^{-2}.K^{-4}}.
   \item Commenter sur la validité et les limites de ce modèle.
    \end{enumerate}
 \end{Exercise}
@@ -292,8 +292,9 @@
     -(a/p^2)\d p$, d'où l'incertitude en prenant la valeur absolue :
     $$
     \Delta d = \frac{a}{p^2}\Delta p = \frac{d}{p}\Delta p
+    \quad\text{soit finalement}\quad 
+    \Delta d/d = \Delta p/p.
     $$
-    On obtient finalement $\Delta d/d = \Delta p/p$.
 
   \item On peut également prendre le logarithme de l'équation $d =
     a/p$, ce qui donne $\ln~d = \ln~a - \ln~p$, puis on différencie :
@@ -305,7 +306,7 @@
 \begin{Exercise}[Astrométrie spatiale]
   Considérons les deux missions d'astrométrie spatiale : Hipparcos
   (1989), avec une incertitude absolue sur la mesure de la parallaxe
-  typique de $\Delta p = 2$~mas, et GAIA (2013), avec $\Delta p =
+  typique de $\Delta p = 2$~mas, et Gaia (2013), avec $\Delta p =
   7$~\u{\mu as}. Quelles sont les précisions obtenues à une distance
   de 100~pc ? de 1000~pc ?  À quelle distance aura-t-on une erreur de
   100\% ?
@@ -314,25 +315,26 @@
 \begin{Answer}
   Les étoiles situées à $d=100$~pc ont une parallaxe
   $p=1/100=0,01''=10$~mas. La précision obtenue sera de
-  \begin{align*}
-    \frac{\Delta d}{d} &= \frac{\Delta p}{p} = \frac{2\e{-3}}{10^{-2}}
-    = 2\e{-1} = 20 \% &\text{avec Hipparcos} \\
-    \frac{\Delta d}{d} &= \frac{\Delta p}{p} = \frac{7\e{-6}}{10^{-2}} 
-    = 7\e{-4} = 0,07 \% &\text{avec GAIA}
-  \end{align*}
-
+  $$
+  \text{Hipparcos:}\quad \frac{\Delta d}{d} 
+  = \frac{\Delta p}{p} = \frac{2\e{-3}}{10^{-2}} 
+  = 2\e{-1} = 20 \% \qquad
+  \text{Gaia:}\quad
+  \frac{\Delta d}{d} = \frac{\Delta p}{p} 
+  = \frac{7\e{-6}}{10^{-2}} = 7\e{-4} = 0,07 \%
+  $$
   Pour des étoiles à $d=1000$~pc, $p=1$~mas, et les précisions
   deviennent 10 fois moins bonnes : 200\% avec Hipparcos et 0,7\% avec
-  GAIA.
+  Gaia.
 
   On aura une erreur de 100\% quand $\Delta d =d$, soit $\delta p =
   p$. La distance correspondante s'obtient donc par
-  \begin{align*}
-    d &= \frac{1}{p} = \frac{1}{2\e{-3}} = 500~\u{pc}
-    &\text{Hipparcos} \\
-    d &= \frac{1}{p} = \frac{1}{7\e{-6}} = 143~\u{kpc}
-    &\text{GAIA}
-  \end{align*}
+  $$
+  \text{Hipparcos:}\quad 
+  d = \frac{1}{p} = \frac{1}{2\e{-3}} = 500~\u{pc}
+  \qquad\text{Gaia:}\quad
+  d = \frac{1}{p} = \frac{1}{7\e{-6}} = 143~\u{kpc}
+  $$
 \end{Answer}
 
 
@@ -1351,8 +1353,10 @@
     ainsi la notion de matière noire, qui n'est perceptible que par
     ses effets gravitationnels.
   \item $\d M(R)/\d R = 4\pi R^2 \rho(R) \stackrel{\mathrm{PFD}}{=}
-    \d(RV_{0}^{2}/G)/\d R$ d'où $\rho(R) = \frac{1}{4\pi R^2}
-    \frac{V_0^2}{G} \propto 1/R^{2}$.
+    \d(RV_{0}^{2}/G)/\d R$ d'où 
+    $\displaystyle
+    \rho(R) = \frac{1}{4\pi R^2} \frac{V_0^2}{G} \propto 1/R^{2}.
+    $
   \end{enumerate}
 \end{Answer}
 
