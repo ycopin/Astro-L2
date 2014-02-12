@@ -1,4 +1,4 @@
-% Time-stamp: <2014-02-06 13:55:12 ycopin>
+% Time-stamp: <2014-02-12 18:45 ycopin@lyonovae03.in2p3.fr>
 % Auteurs (version LaTeX):
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
@@ -281,24 +281,23 @@
 \subsubsection{Parallaxe trigonométrique}
 
 \begin{Exercise}[Incertitude]
-  Relier l'incertitude sur la distance $\Delta d$ à celle sur la
+  Relier l'incertitude sur la distance $\Delta D$ à celle sur la
   parallaxe $\Delta p$.
 \end{Exercise}
 
 \begin{Answer}
   Il existe deux méthodes pour trouver le résultat demandé :
   \begin{itemize}
-  \item En différenciant l'équation $d = a/p$, on obtient $\d d =
-    -(a/p^2)\d p$, d'où l'incertitude en prenant la valeur absolue :
+  \item En différenciant l'équation $D = 1/p$, on obtient $\d D =
+    -(1/p^2)\d p$, d'où l'incertitude en prenant la valeur absolue :
     $$
-    \Delta d = \frac{a}{p^2}\Delta p = \frac{d}{p}\Delta p
-    \quad\text{soit finalement}\quad 
-    \Delta d/d = \Delta p/p.
+    \Delta D = \frac{1}{p^2}\Delta p = \frac{D}{p}\Delta p
+    \quad\text{soit finalement}\quad \Delta D/D = \Delta p/p.
     $$
 
-  \item On peut également prendre le logarithme de l'équation $d =
-    a/p$, ce qui donne $\ln~d = \ln~a - \ln~p$, puis on différencie :
-    $\d\ln~d = -\d\ln~p$, soit $\d d/d = -\d p/p$. En prenant la
+  \item On peut également prendre le logarithme de l'équation $D =
+    1/p$, ce qui donne $\ln~D = -\ln~p$, puis on différencie :
+    $\d\ln~D = -\d\ln~p$, soit $\d D/D = -\d p/p$. En prenant la
     valeur absolue, on retrouve le résultat précédent.
   \end{itemize}
 \end{Answer}
@@ -313,35 +312,34 @@
 \end{Exercise}
 
 \begin{Answer}
-  Les étoiles situées à $d=100$~pc ont une parallaxe
+  Les étoiles situées à $D=100$~pc ont une parallaxe
   $p=1/100=0,01''=10$~mas. La précision obtenue sera de
   $$
-  \text{Hipparcos:}\quad \frac{\Delta d}{d} 
+  \text{Hipparcos:}\quad \frac{\Delta D}{D} 
   = \frac{\Delta p}{p} = \frac{2\e{-3}}{10^{-2}} 
   = 2\e{-1} = 20 \% \qquad
   \text{Gaia:}\quad
-  \frac{\Delta d}{d} = \frac{\Delta p}{p} 
+  \frac{\Delta D}{D} = \frac{\Delta p}{p} 
   = \frac{7\e{-6}}{10^{-2}} = 7\e{-4} = 0,07 \%
   $$
-  Pour des étoiles à $d=1000$~pc, $p=1$~mas, et les précisions
+  Pour des étoiles à $D=1000$~pc, $p=1$~mas, et les précisions
   deviennent 10 fois moins bonnes : 200\% avec Hipparcos et 0,7\% avec
   Gaia.
 
-  On aura une erreur de 100\% quand $\Delta d =d$, soit $\delta p =
+  On aura une erreur de 100\% quand $\Delta D = D$, soit $\delta p =
   p$. La distance correspondante s'obtient donc par
   $$
   \text{Hipparcos:}\quad 
-  d = \frac{1}{p} = \frac{1}{2\e{-3}} = 500~\u{pc}
+  D_{\max} = 1/p = 1/2\e{-3} = 500~\u{pc}
   \qquad\text{Gaia:}\quad
-  d = \frac{1}{p} = \frac{1}{7\e{-6}} = 143~\u{kpc}
+  D_{\max} = 1/p = 1/7\e{-6} = 143~\u{kpc}
   $$
 \end{Answer}
 
-
 \begin{Exercise}[Parallaxe et magnitude absolue]
   Le tableau suivant donne la magnitude apparente $m_V$ et la
-  parallaxe $p$ de trois étoiles. Calculer leur distance $d$ avec son
-  incertitude, l'erreur relative sur la distance $\Delta d / d$ et
+  parallaxe $p$ de trois étoiles. Calculer leur distance $D$ avec son
+  incertitude, l'erreur relative sur la distance $\Delta D / D$ et
   leur magnitude absolue $M_V$.
   \begin{center}
     \begin{tabular}{lccc}
@@ -349,7 +347,7 @@
       & $\alpha$ CMa (Sirius) & $\alpha$ Tau (Aldebaran) & $\alpha$ Ori
       (Bételgeuse) \\
       \cmidrule(r){2-4}
-      $m_V$ & -1,47 & 0,85 & 0,58 \\
+      $m_V$ & $-$1,47 & 0,85 & 0,58 \\
       $p$ (mas) & 379,2 $\pm$ 1,6 & 50,1 $\pm$ 1,0 & 7,6 $\pm$ 1,6 \\
       \bottomrule
     \end{tabular}
@@ -362,22 +360,19 @@
       \toprule
       & $\alpha$ CMa & $\alpha$ Tau & $\alpha$ Ori \\
       \cmidrule(r){2-4}
-      $d$ (pc) &
-      2,64 $\pm$ 0,01 & 20,0 $\pm$ 0,4 & 130 $\pm$ 30 \\
-      $\Delta d / d$ & 0,4\% & 2\% & 21\% \\
-      $M_V$ & 1,42  & -0,65 & -4,99 \\
+      $D$ (pc) &
+      2,637 $\pm$ 0,012 & 19,96 $\pm$ 0,40 & 132 $\pm$ 28 \\
+      $\Delta D / D$ & 0,4\% & 2\% & 21\% \\
+      $M_V$ & 1,42  & $-$0,65 & $-$4,99 \\
       \bottomrule
     \end{tabular}
   \end{center}
-
-  Étant donné la forme de la relation donnant la distance $d$ à partir
+  Étant donné la forme de la relation donnant la distance $D$ à partir
   de la parallaxe $p$, leurs incertitudes relatives sont égales, ce
-  qui permet d'avoir immédiatement $\Delta d / d$. Ces résultats
+  qui permet d'avoir immédiatement $\Delta D / D$. Ces résultats
   illustrent bien la diminution de la précision lorsque la distance
-  augmente.
-
-  La magnitude absolue s'obtient par la relation $M_V = m_V -
-  5~\log(d/10\,\u{pc})$.
+  augmente.  La magnitude absolue s'obtient par la relation $M_V = m_V
+  - 5~\log(D/10\,\u{pc})$.
 \end{Answer}
 
 
@@ -406,9 +401,12 @@
     (2,29 \pm 0,04) \e{-7}~\u{rad.an^{-1}}$
   \item $v_r = 10,1 \pm 0,3~\u{km.s^{-1}} = 
     (1,02 \pm 0,03) \e{-5}~\u{pc.an^{-1}}$
-  \item $\theta = 67,9 \pm 0,6\deg = 1,19 \pm 0,01$~rad.
-  \item On a donc $\tan \theta= 2,50 \pm 0,07$.
-  \item Finalement, $d = v_{r}\tan\theta/\mu = 111 \pm 8$~pc.
+  \item $\theta = 67,9 \pm 0,6\deg = 1,19 \pm 0,01$~rad, et donc $\tan
+    \theta= 2,50 \pm 0,07$.
+  \item Finalement, $D = v_{r}\tan\theta/\mu = 111 \pm 8$~pc. L'erreur
+    est obtenue via $\d D = (\tan\theta/\mu)\d v_{r} +
+    (v_{r}/\mu)(1-\tan^{2}\theta)\d\theta -
+    (v_{r}\tan\theta/\mu^{2})\d\mu$.
   \end{itemize}
 \end{Answer}
 
@@ -514,7 +512,7 @@
       \toprule
       & $\alpha$ CMa & $\alpha$ Tau & $\alpha$ Ori \\
       \cmidrule(r){2-4}
-      $R (R_{\odot})$ & 1,7 & 52 & 936 \\
+      $R/R_{\odot}$ & 1,7 & 52 & 936 \\
       Classe de luminosité & V & III & I \\
       Type spectral & A1V & K5III & M2I \\
       \bottomrule
@@ -548,12 +546,12 @@
   Les paramètres observés permettent de remonter aux données suivantes
   pour le système :
   \begin{itemize}
-  \item La distance est $d[\u{pc}] = 1/p[''] = 10$~pc.
+  \item La distance est $D[\u{pc}] = 1/p[''] = 10$~pc.
   \item La dimension angulaire du grand axe de l'orbite relative est
     de $5'' + 1'' = 6''$. Le demi-grand axe apparent est donc $\theta
     = 3'' = 1,45\e{-5}$~rad.
   \item Le demi-grand axe de l'orbite relative est donné par
-    $a[\UA] = \theta[''] d[\u{pc}]$ soit $a = 30\;\UA = 4,49\e{12}\;\u{m}$.
+    $a[\UA] = \theta[''] D[\u{pc}]$ soit $a = 30\;\UA = 4,49\e{12}\;\u{m}$.
   \item La 3ème loi de Kepler (en unités réduites) donne la somme des
     masses : $\tilde{M}_{1} + \tilde{M}_{2} = 30\;M_{\odot} =
     5,97\e{31}\;\u{kg}$.
@@ -575,10 +573,10 @@
       $T$ (jours) & \multicolumn{2}{c}{2,8674} \\
       $\theta_{\mathrm{rel}}$ (mas) & \multicolumn{2}{c}{2,283} \\
       \midrule
-      Composantes & A & B \\
+      Composantes & $A$ & $B$ \\
       \cmidrule(r){2-3}
       Type spectral & B8V & K2IV \\
-      R ($R_{\odot}$) & 2,74 & 3,60 \\
+      $R$ ($R_{\odot}$) & 2,74 & 3,60 \\
       $\theta_{\mathrm{abs}}$ (mas) & & 1,872 \\
       \bottomrule
     \end{tabular}
@@ -598,9 +596,9 @@
 
 \begin{Answer}
   \begin{itemize}
-  \item Distance : $d [\u{pc}] = 1/p[''] = 28,46 \pm 0,73$~pc.
+  \item Distance : $D [\u{pc}] = 1/p[''] = 28,46 \pm 0,73$~pc.
   \item Le demi-grand axe de l'orbite relative est donné par $a [\UA]
-    = \theta [''] d [\u{pc}]$ soit $a = 0,065~\UA = 9,77\e{9}~\u{m} =
+    = \theta [''] D [\u{pc}]$ soit $a = 0,065~\UA = 9,77\e{9}~\u{m} =
     13,96\;R_{\odot} = 2,2 (R_{A}+R_{B})$.
   \item La 3ème loi de Kepler donne la somme des masses réduites
     ($\tilde{M} = M/M_{\odot}$) : $\tilde{M}_A + \tilde{M}_B =
@@ -618,21 +616,22 @@
   \begin{center}
     \begin{tabular}{lcc}
       \toprule
-      $d$ (pc) & \multicolumn{2}{c}{28,46 $\pm$ 0,73} \\
+      $D$ (pc) & \multicolumn{2}{c}{28,46 $\pm$ 0,73} \\
       $a$ ($R_{\odot}$) &  \multicolumn{2}{c}{13,96} \\
       \midrule
-      & A & B \\
+      & $A$ & $B$ \\
       \cmidrule(r){2-3}
       $M$ ($M_{\odot}$) & 3,65 & 0,80 \\
       \bottomrule
     \end{tabular}
   \end{center}
-  On remarque que l'étoile la plus évoluée, B (B est une sous-géante
-  rouge, tandis que A est une étoile de la séquence principale) est
-  pourtant la moins massive, ce qui est contre-intuitif en terme
-  d'évolution stellaire (les étoiles les plus massives évoluent plus
-  rapidement). On peut invoquer des transferts de masse au sein de ce
-  système très sérré pour expliquer ce paradoxe.
+  On remarque que l'étoile la plus évoluée, $B$ ($B$ est une
+  sous-géante rouge, tandis que $A$ est une étoile de la séquence
+  principale) est pourtant la moins massive, ce qui est
+  contre-intuitif en terme d'évolution stellaire (les étoiles les plus
+  massives évoluent plus rapidement). On peut invoquer des transferts
+  de masse au sein de ce système très serré pour expliquer ce
+  paradoxe.
 \end{Answer}
 
 \section{Les systèmes planétaires}
