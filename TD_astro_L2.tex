@@ -1,7 +1,7 @@
-% Time-stamp: <2014-02-12 18:45 ycopin@lyonovae03.in2p3.fr>
+% Time-stamp: <2014-02-19 18:21 ycopin@lyonovae03.in2p3.fr>
 % Auteurs (version LaTeX):
-% Nicolas Chotard <nchotard@ipnl.in2p3.fr>
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
+% Nicolas Chotard <nchotard@ipnl.in2p3.fr>
 % Eric Chabanat <chabanat@ipnl.in2p3.fr>
 
 % Version avec solutions:
@@ -9,9 +9,9 @@
 % Version sans solution:
 %   pdflatex "\def\sanscorrige{}\input{TD_astro_L2}"
 
-%   À faire: Exercice sur la méthode Baade-Wesselink
-%   (p.ex. http://arxiv.org/abs/1201.3478 et références,
-%   http://www.eso.org/public/news/eso0432/, 2004ApJ...603..285M)
+% À faire: Exercice sur la méthode Baade-Wesselink
+% (p.ex. http://arxiv.org/abs/1201.3478 et références,
+% http://www.eso.org/public/news/eso0432/, 2004ApJ...603..285M)
 
 \documentclass[a4paper,10pt]{report}
 
@@ -45,7 +45,7 @@
   pdftitle   = {« Astrophysique pour la licence », fascicule de TD},
   pdfauthor  = {Yannick Copin et l'équipe enseignante Astro-L2},
   pdfsubject = {Astrophysique pour la licence, Université de Lyon 1},
-  unicode=true,           % non-Latin characters in Acrobat’s bookmarks
+  unicode=true,              % non-Latin characters in Acrobat’s bookmarks
   linktoc=all,
   colorlinks=true,           % false: boxed links; true: colored links
   linkcolor=OliveGreen,      % color of internal links
@@ -87,7 +87,6 @@
 %\newcommand{\e}[1]{\ensuremath{\times 10^{#1}}}
 \newcommand{\e}[1]{\ensuremath{\, 10^{#1}}}
 \renewcommand{\d}{\ensuremath{\mathrm{d}}}
-\newcommand{\UA}{\ensuremath{\textrm{UA}}}
 \renewcommand{\deg}{\ensuremath{\degree}}
 \renewcommand{\vec}[1]{\ensuremath{\boldsymbol{#1}}}
 \renewcommand{\u}[1]{\ensuremath{\mathrm{#1}}} % Unités
@@ -135,7 +134,7 @@
 \makeatother
 
 \title{Fascicule de TD}
-\date{Printemps 2013}
+\date{\small Version du \today}
 \author{Astrophysique pour la licence\\[\medskipamount]Université Lyon 1}
 
 \begin{document}
@@ -485,7 +484,6 @@
   leur rayon $R$ (on rappelle les distances déterminées dans un
   exercice précédent) et, à l'aide de ce résultat, attribuer à chaque
   étoile sa classe de luminosité parmi les suivantes : I, III, V.
-
   \begin{center}
     \begin{tabular}{lccc}
       \toprule
@@ -538,7 +536,6 @@
   \item Le compagnon est toujours observé à une distance du centre de
     gravité 5~fois plus grande que celle de l'étoile primaire.
   \end{itemize}
-
   Déterminer la masse de chaque composante.
 \end{Exercise}
 
@@ -551,7 +548,8 @@
     de $5'' + 1'' = 6''$. Le demi-grand axe apparent est donc $\theta
     = 3'' = 1,45\e{-5}$~rad.
   \item Le demi-grand axe de l'orbite relative est donné par
-    $a[\UA] = \theta[''] D[\u{pc}]$ soit $a = 30\;\UA = 4,49\e{12}\;\u{m}$.
+    $a[\u{UA}] = \theta[''] D[\u{pc}]$ soit $a = 30\;\u{UA} =
+    4,49\e{12}\;\u{m}$.
   \item La 3ème loi de Kepler (en unités réduites) donne la somme des
     masses : $\tilde{M}_{1} + \tilde{M}_{2} = 30\;M_{\odot} =
     5,97\e{31}\;\u{kg}$.
@@ -597,12 +595,12 @@
 \begin{Answer}
   \begin{itemize}
   \item Distance : $D [\u{pc}] = 1/p[''] = 28,46 \pm 0,73$~pc.
-  \item Le demi-grand axe de l'orbite relative est donné par $a [\UA]
-    = \theta [''] D [\u{pc}]$ soit $a = 0,065~\UA = 9,77\e{9}~\u{m} =
-    13,96\;R_{\odot} = 2,2 (R_{A}+R_{B})$.
+  \item Le demi-grand axe de l'orbite relative est donné par $a
+    [\u{UA}] = \theta [''] D [\u{pc}]$ soit $a = 0,065~\u{UA} =
+    9,77\e{9}~\u{m} = 13,96\;R_{\odot} = 2,2 (R_{A}+R_{B})$.
   \item La 3ème loi de Kepler donne la somme des masses réduites
     ($\tilde{M} = M/M_{\odot}$) : $\tilde{M}_A + \tilde{M}_B =
-    \tilde{a}^3/\tilde{T}^2 = 4,46$ (avec $\tilde{a} = a[\UA]$ et
+    \tilde{a}^3/\tilde{T}^2 = 4,46$ (avec $\tilde{a} = a[\u{UA}]$ et
     $\tilde{T} = T[\u{an}]$)
   \item Le rapport des demi-grands axes apparents de l'orbite relative
     $\theta$ et de l'orbite absolue de l'étoile secondaire $\theta_B$
@@ -611,7 +609,6 @@
   \item On obtient finalement les masses $M_A = 3,65\;M_{\odot}$ et $M_B =
     0,80\;M_{\odot}$.
   \end{itemize}
-
   Le tableau suivant récapitule les données physiques du système :
   \begin{center}
     \begin{tabular}{lcc}
@@ -735,10 +732,10 @@
       \toprule
       & & Neptune & Pluton \\
       \cmidrule(r){2-4}
-      Demi-grand axe & $a$ & 30,06~\UA & 39,43~\UA \\
+      Demi-grand axe [UA] & $a$ & 30,06 & 39,43 \\
       Excentricité & $e$ & 0,009 & 0,248 \\
-      Périhélie & $d=a(1-e)$ & 29,79~\UA & 29,65~\UA \\
-      Aphélie & $D=a(1+e)$ & 30,33~\UA & 49,21~\UA \\
+      Périhélie [UA] & $d=a(1-e)$ & 29,79 & 29,65 \\
+      Aphélie [UA] & $D=a(1+e)$ & 30,33 & 49,21 \\
       \bottomrule
     \end{tabular}
   \end{center}
@@ -985,7 +982,7 @@
     nord galactique.} $b$ (pour $|b|>15\degree$).  Ainsi, la densité
   de galaxies semble diminuer à mesure que l'on s'éloigne des pôles de
   la Galaxie ($b = \pm 90\degree$). Cela ne reflète évidemment pas la
-  réalité de la distribution des galaxies dans l'Univers, mais résulte
+  distribution intrinsèque des galaxies dans l'Univers, mais résulte
   d'un effet d'absorption de la lumière par les particules de
   poussière contenues dans notre propre Galaxie.
 
@@ -1003,7 +1000,7 @@
     galaxies par degré carré à la magnitude apparente $m$ et à la
     latitude $b$ est donné par :
     $$
-    \log N (m,b) = 0,6\,m - 0,6A_{0}\frac{1}{\sin b} + K.
+    \log N (m,b) = 0,6\,m - 0,6\frac{A_{0}}{\sin b} + K.
     $$
     Exprimer la constante $K$ en fonction des données du problème.
   \item Hubble (1934) a mesuré, pour des galaxies de magnitude absolue
@@ -1417,8 +1414,8 @@
   En écrivant la 3\ieme loi de Kepler dans le système Terre+Soleil et
   dans le système S2+SgrA*, nous obtenons:
   $$
-  \frac{(a/a_{\oplus})^{3}}{(T/T_{\oplus})^{2}} =
-  M_{\mathrm{SgrA}*}/M_{\odot} \qquad\text{avec}\qquad
+  \frac{(a/a_{\oplus})^{3}}{(T/T_{\oplus})^{2}} = M_{\mathrm{SgrA}*}/M_{\odot} 
+  \qquad\text{avec}\qquad 
   a~[\u{UA}] = a~[1''] \times R~[1~\u{pc}] = 1,011\e{3}
   $$
   d'où $M_{\mathrm{SgrA}*} = 4,5\e{6}\;M_{\odot}$.
