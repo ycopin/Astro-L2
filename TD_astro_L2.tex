@@ -1,4 +1,4 @@
-% Time-stamp: <2014-02-19 18:21 ycopin@lyonovae03.in2p3.fr>
+% Time-stamp: <2014-03-26 17:51 ycopin@lyonovae03.in2p3.fr>
 % Auteurs (version LaTeX):
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
@@ -85,7 +85,7 @@
 
 % Définitions locales
 %\newcommand{\e}[1]{\ensuremath{\times 10^{#1}}}
-\newcommand{\e}[1]{\ensuremath{\, 10^{#1}}}
+\newcommand{\e}[1]{\ensuremath{\times 10^{#1}}}
 \renewcommand{\d}{\ensuremath{\mathrm{d}}}
 \renewcommand{\deg}{\ensuremath{\degree}}
 \renewcommand{\vec}[1]{\ensuremath{\boldsymbol{#1}}}
@@ -167,7 +167,7 @@
   $\displaystyle
   T_e = \left( \frac{L}{4 \pi R^2_p \sigma} \right)^{1/4}
   $
-  avec la constante de Stefan $\sigma = 5,67\e{-8}$~\u{W.m^{-2}.K^{-4}},
+  avec la constante de Stefan $\sigma = 5,67\e{-8}$~\u{W~m^{-2}~K^{-4}},
   on trouve la luminosité $L_{\odot}\approx 3,83\e{26}$~W.
 \end{Answer}
 
@@ -180,7 +180,7 @@
   \item Géante rouge : $L = 10^{2}$~\u{L_{\odot}}, $T_{e} = 4200$~K
   \item Supergéante : $L = 10^{5}$~\u{L_{\odot}}, $T_{e} = 6000$~K
   \end{enumerate}
-  Rappel de la loi de Wien : $\lambda_{\max} T = 2898$~\u{\mu m.K}.
+  Rappel de la loi de Wien : $\lambda_{\max} T = 2898$~\u{\mu{}m~K}.
 \end{Exercise}
 
 \begin{Answer}
@@ -201,7 +201,7 @@
 
 \begin{Exercise}[Équilibre radiatif de la Terre]
   %\textbf{Rappel :} Le \emph{flux} est une puissance par unité de
-  %surface (unités~SI : \u{J.s^{-1}.m^{-2}}).
+  %surface (unités~SI : \u{J~s^{-1}~m^{-2}}).
 
   Soit $L$ la puissance lumineuse du Soleil, $R$ le rayon de la Terre,
   $D$ la distance Terre-Soleil et $T_{e}$ la température effective à
@@ -219,7 +219,7 @@
     fonction des données du problème.
   \item Application numérique, sachant que $L=3,85\e{26}$~W,
     $R=6400$~km, $D=1,500\e{11}$~m, $\sigma =
-    5,67\e{-8}$~\u{W.m^{-2}.K^{-4}}.
+    5,67\e{-8}$~\u{W~m^{-2}~K^{-4}}.
   \item Commenter sur la validité et les limites de ce modèle.
    \end{enumerate}
 \end{Exercise}
@@ -305,7 +305,7 @@
   Considérons les deux missions d'astrométrie spatiale : Hipparcos
   (1989), avec une incertitude absolue sur la mesure de la parallaxe
   typique de $\Delta p = 2$~mas, et Gaia (2013), avec $\Delta p =
-  7$~\u{\mu as}. Quelles sont les précisions obtenues à une distance
+  7$~\u{\mu{}as}. Quelles sont les précisions obtenues à une distance
   de 100~pc ? de 1000~pc ?  À quelle distance aura-t-on une erreur de
   100\% ?
 \end{Exercise}
@@ -384,9 +384,9 @@
     0,6\deg$ de la direction de l'amas.
   \item L'observation du spectre de l'étoile Alcyone, faisant partie
     de cet amas, a permis de mesurer sa vitesse radiale $v_r = 10,1
-    \pm 0,3$~\u{km.s^{-1}}.
+    \pm 0,3$~\u{km~s^{-1}}.
   \item Le mouvement propre apparent de cette même étoile vaut $\mu =
-    47,3 \pm 0,8$~\u{mas.an^{-1}}.
+    47,3 \pm 0,8$~\u{mas~an^{-1}}.
   \end{itemize}
   Déterminer la distance de l'amas.
 \end{Exercise}
@@ -396,10 +396,10 @@
   attention à exprimer l'angle $\mu$ en radians et à utiliser les
   mêmes unités de distance et de temps pour les autres grandeurs.
   \begin{itemize}
-  \item $\mu = 47,3 \pm 0,8~\u{mas.an^{-1}} = 
-    (2,29 \pm 0,04) \e{-7}~\u{rad.an^{-1}}$
-  \item $v_r = 10,1 \pm 0,3~\u{km.s^{-1}} = 
-    (1,02 \pm 0,03) \e{-5}~\u{pc.an^{-1}}$
+  \item $\mu = 47,3 \pm 0,8~\u{mas~an^{-1}} = 
+    (2,29 \pm 0,04) \e{-7}~\u{rad~an^{-1}}$
+  \item $v_r = 10,1 \pm 0,3~\u{km~s^{-1}} = 
+    (1,02 \pm 0,03) \e{-5}~\u{pc~an^{-1}}$
   \item $\theta = 67,9 \pm 0,6\deg = 1,19 \pm 0,01$~rad, et donc $\tan
     \theta= 2,50 \pm 0,07$.
   \item Finalement, $D = v_{r}\tan\theta/\mu = 111 \pm 8$~pc. L'erreur
@@ -425,7 +425,7 @@
   est maximal aux longueurs d'onde suivantes : 300~nm, 500~nm, et
   1,2~$\mu$m.  Peut-on déterminer la classe de luminosité ?
 
-  Rappel de la loi de Wien : $\lambda_{\max} T = 2898$~\u{\mu m.K}.
+  Rappel de la loi de Wien : $\lambda_{\max} T = 2898$~\u{\mu{}m~K}.
 \end{Exercise}
 
 \begin{Answer}
@@ -552,7 +552,7 @@
     4,49\e{12}\;\u{m}$.
   \item La 3ème loi de Kepler (en unités réduites) donne la somme des
     masses : $\tilde{M}_{1} + \tilde{M}_{2} = 30\;M_{\odot} =
-    5,97\e{31}\;\u{kg}$.
+    5,97\e{31}$~kg.
   \item Les distances des étoiles $E_1$ et $E_2$ au centre de gravité
     $G$ vérifient $M_1 \times GE_1 = M_2 \times GE_2$. Le rapport des
     masses vaut donc $M_1 / M_2 = GE_2 / GE_1 = 5$.
@@ -1016,15 +1016,15 @@
 \begin{Answer}
   \begin{enumerate}
   \item $\ell = h/\sin b$ et $A = A_{0}/\sin b$.
-  \item $N(m,b) = \rho \times 4\pi d^{3}/3$ avec $\log(d/\mathrm{pc})
+  \item $N(m,b) = \rho \times 4\pi d^{3}/3$ avec $\log(d/\u{pc})
     = 1+0,2(m-M-A)$ donc $\log N(m,b) = 0,6m - 0,6A - 0,6 M +
-    \log(\rho/\mathrm{pc}^{3}) + \log(4\pi/3) + 3$.
-  \item $\log(\rho/\mathrm{pc}^{3}) = -16,52$ soit $\rho =
-    30~\mathrm{Mpc}^{-3}$.
+    \log(\rho/\u{pc}^{3}) + \log(4\pi/3) + 3$.
+  \item $\log(\rho/\u{pc}^{3}) = -16,52$ soit $\rho =
+    30~\u{Mpc}^{-3}$.
   \end{enumerate}
 \end{Answer}
 
-\subsection{Extinction du MIS, extinction sélective et rougissement}
+\subsection{Extinction sélective et rougissement}
 
 \begin{Exercise}[Interprétation physique]
   Une étoile est située à 2~kpc de l'observateur sur une ligne de
@@ -1083,24 +1083,20 @@
   Masse volumique des grains dans le MIS :
   $$
   1 [\u{g/cm^{3}}]\times \frac{4\pi a^{3}}{3}~[\u{cm^3/grain}]
-  2,9\e{-13}
-  [\u{grain/cm^3}]= 1,18\e{-27}~[\u{g/cm^3}]
+  2,9\e{-13} [\u{grain/cm^3}] = 1,18\e{-27}~[\u{g/cm^3}]
   $$
   Masse volumique du gaz dans le MIS :
   $$
   8~[\u{atomes/cm^3}] 1,67352\e{-24}~[\u{g/atome}] = 1,34\e{-23}~[\u{g/cm^3}]
   $$
   $$
-  \frac{\text{Masse volumique des grains}}{\text{Masse volumique du
-      gaz}} =
-  \frac{1,18\e{-27}~[\u{g/cm^3}]}{1,34\e{-23}~[\u{g/cm^3}]} =
-  8,8\e{-5}
+  \frac{\text{Masse volumique des grains}}{%
+    \text{Masse volumique du gaz}} =
+  \frac{1,18\e{-27}~[\u{g/cm^3}]}{1,34\e{-23}~[\u{g/cm^3}]} = 8,8\e{-5}
   $$
   Conclusion : les grains ne représentent qu'une fraction très faible de
   la masse de matière dans le MIS.
 \end{Answer}
-
-\subsubsection{}
 
 \begin{Exercise}[Rougissement et température]
   En admettant que l'on observe un objet à la température $T$, dont le
@@ -1111,11 +1107,12 @@
   $$
   En présence d'une extinction $A(\lambda) = a/\lambda$, montrez que :
   \begin{enumerate}
-  \item pour $\lambda \ll hc/kT$, dans la partie bleue du spectre, le
-    spectre observé est celui d'un corps noir à une température $T'$,
-    que l'on déterminera.
-  \item pour $\lambda \gg hc/kT$, dans la partie rouge du spectre, le
-    spectre observé est identique à celui de la source.
+  \item pour $\lambda \ll hc/kT$ (limite de Wien), dans la partie
+    bleue du spectre, le spectre observé est celui d'un corps noir à
+    une température $T'$, que l'on déterminera.
+  \item pour $\lambda \gg hc/kT$ (limite de Rayleigh-Jeans), dans la
+    partie rouge du spectre, le spectre observé est identique à celui
+    de la source.
   \end{enumerate}
 \end{Exercise}
 
@@ -1124,19 +1121,19 @@
   l'étoile en l'absence d'extinction.  Si $W'(\lambda)$ représente le
   flux de l'étoile en présence d'une extinction en magnitude de la
   forme $A(\lambda) = a/\lambda$, on a : $A(\lambda)= 2,5 \log W/W'$
-  soit, en posant $a' = a/(2,5 \times 0,43429)$ (Rappel : $0,43429 =
-  \log_{10}(e)$) : $W' = W \exp(-a'/\lambda)$.
+  soit, en posant $a' = a \times 0,4 \ln 10$ : $W' = W
+  \exp(-a'/\lambda)$.
 
   \begin{enumerate}
   \item Pour la partie du spectre aux courtes longueurs d'onde (régime
     de Wien), on a $hc/\lambda kT \gg 1$ d'où :
     \begin{align*}
-      W  &= C\lambda^{-5}\exp\left(-\frac{hc}{\lambda kT}\right) \\
-      W' &= C\lambda^{-5}\exp\left(-\frac{hc}{\lambda kT}\right)
+      W  &\simeq C\lambda^{-5}\exp\left(-\frac{hc}{\lambda kT}\right)
+      \quad\text{pour}\quad \lambda \ll hc/kT\\
+      \text{donc}\quad
+      W' &\simeq C\lambda^{-5}\exp\left(-\frac{hc}{\lambda kT}\right)
       \exp\left(-\frac{a'}{\lambda}\right) \\
-      &= C\lambda^{-5}\exp\left(-\frac{hc}{\lambda k}
-        \left(\frac{1}{T}+\frac{ka'}{hc}\right)\right) \\
-      &= C\lambda^{-5}\exp\left(-\frac{hc}{\lambda kT'}\right)
+      &\simeq C\lambda^{-5}\exp\left(-\frac{hc}{\lambda kT'}\right)
       \quad\text{avec}\quad
       \frac{1}{T'} = \frac{1}{T} + \frac{ka'}{hc}
     \end{align*}
@@ -1176,8 +1173,8 @@
     la « couleur » d'une étoile.
   \end{enumerate}
 
-  On rappelle les longueurs d'onde $\lambda_{V}=0,55~\mu$ et
-  $\lambda_{B}=0,44~\mu$
+  On rappelle les longueurs d'onde effectives des bandes $V$ et $B$:
+  $\lambda_{V}=550$~nm et $\lambda_{B}=440$~nm.
 \end{Exercise}
 
 \begin{Answer}
@@ -1230,9 +1227,9 @@
 
 \begin{Answer}
   \begin{enumerate}
-  \item Calcul de l'extinction: $E_{B-V} = (A_B- A_V) = (B-V )-
-    (B-V)_0 = 2,25-(-0,25) = 2,5$.  Le graphique donne $A_V \simeq 3
-    E_{B-V}$, d'où $A_V = 3 \times 2,5 = 7,5$.
+  \item Calcul de l'extinction: $E_{B-V} = (A_B- A_V) = (B-V) -
+    (B-V)_0 = 2,25 - -0,25 = 2,5$.  Le graphique donne $A_V \simeq 3,1
+    E_{B-V}$, d'où $A_V = 3,1 \times 2,5 = 7,75$.
   \item Le graphique donne $A_K \simeq 0,5 \times E_{B-V}$, d'où $A_K
     = 0,5 \times 2,5 = 1,25$.
   \item L'extinction est beaucoup plus faible dans l'IR que dans le
@@ -1262,10 +1259,9 @@
   \label{tab:hubble}
   \begin{tabular}{lcccccc}
     \toprule
-    Propriétés & E,SO & S0a,Sa & Sab,Sb & Sbc,Sc & Scd,Sd & Sm,Im \\
+    Propriétés & E,S0 & S0a,Sa & Sab,Sb & Sbc,Sc & Scd,Sd & Sm,Im \\
     \midrule
-    $M_{\mathrm{totale}}$ ($10^{10}M_{\odot}$) & 
-    & 22,6 & 32,4 & 19,0 & 7,9 & 1,6 \\
+    $M_{\mathrm{totale}}$ ($10^{10}M_{\odot}$) & & 22,6 & 32,4 & 19,0 & 7,9 & 1,6 \\
     $M_{\mathrm{gaz}}$ (H neutre en $10^{9}M_{\odot}$) & 
     1,24 & 5,62 & 15,14 & 15,85 & 9,33 & 2,40 \\
     Diamètre (kpc) & 21,1 & 19,8 & 25,1 & 22,4 & 17,7 & 8,5  \\
@@ -1316,9 +1312,9 @@
 
 \begin{Exercise}[La matière noire]
   On considère une galaxie et ses étoiles réparties uniformément en
-  fonction de la distance au centre de la galaxie.  À une distance $R$
-  donnée, on considère la masse $M(R)$ de toutes les étoiles contenues
-  à l'intérieur de la sphère de rayon $R$.
+  fonction de la distance au centre de la galaxie.  On désigne par
+  $M(R)$ la masse totale des étoiles contenues \emph{à l'intérieur} de
+  la sphère de rayon~$R$.
   \begin{enumerate}
   \item Si les étoiles sont animées d'un mouvement de rotation
     uniforme autour du centre de la galaxie, donner la relation entre
@@ -1611,7 +1607,7 @@
 \begin{Answer}
   On a $U = -GM/(2R)$ et $K=1/2\, MV^{2}$ d'où $M = 2RV^{2}/G$, avec
   $G = 6,67\e{-11}\;\u{SI} =
-  4,302\e{-3}\;\u{km^{2}.s^{-2}.pc.M_{\odot}^{-1}}$ soit:
+  4,302\e{-3}\;\u{km^{2}~s^{-2}~pc~M_{\odot}^{-1}}$ soit:
   \begin{center}
     \begin{tabular}{lrrr}
       \toprule
@@ -1645,7 +1641,7 @@
 
 \begin{Answer}
   $t_{c} = R/V = \sqrt{2R^{3} / GM}$ avec $G =
-  4,500\e{-15}$~\u{pc^{3}.M_{\odot}^{-1}.an^{-2}} donc:
+  4,500\e{-15}$~\u{pc^{3}~M_{\odot}^{-1}~an^{-2}} donc:
   \begin{center}
     \begin{tabular}{lrrr}
       \toprule
@@ -1720,12 +1716,12 @@
   \frac{58}{70} = 59,02~\u{kg}
   $$
   D'où $F_{\mathrm{Naomi}-\mathrm{Marcel}} = ( 6,672 10^{-11} \times
-  71,23 \times 59,02 ) / 1 = 2,8\e{-7}~\u{N}$.
+  71,23 \times 59,02 ) / 1 = 2,8\e{-7}$~N.
 
   La masse qui présenterait un poids égal à cette valeur en cet
   endroit serait de : $M = ( 63700002 \times 2,8\e{-7} ) / (
   6,672\e{-11} \times 5,976\e{24} ) = 2,85\e{-8}\;\u{kg} =
-  28,5$~\u{\mu g}.
+  28,5$~\u{\mu{}g}.
 
   Elle peut également se calculer, d'après une remarque déjà faite,
   par $M = 71,23 \times 2,8\e{-7} / 700$. L'attraction
@@ -1865,7 +1861,7 @@
   La vitesse de l'orbite circulaire de rayon $R$ autour d'une masse
   $M$ est donnée (dans l'approximation non-relativiste) par:
   $$
-  v = \sqrt{\frac{GM}{R}} = 14112\,\u{km/s} \simeq 4,71\e{-2} \times c
+  v = \sqrt{\frac{GM}{R}} = 14112\;\u{km/s} \simeq 4,71\e{-2} \times c
   $$
   Le décalage par effet Doppler (dans la même approximation non
   relativiste) est donc $z_{D} = v/c = \sqrt{z_{G}} \gg z_{G}$.
@@ -1883,27 +1879,24 @@
   $$
   V = H_0 d_c > c
   $$
-  Invraisemblable, n'est-ce pas ?
+  Étonnant, non ?
 \end{Exercise}
 
 \begin{Answer}
   Il est interdit par la Relativité Générale de mesurer une vitesse
   égale ou supérieure à $c$ pour un objet de masse non nulle, comme
-  une galaxie. Alors ?
-
-  Alors, cela ne pose aucun problème pour l'expansion de l'Univers, où
-  les objets (p.ex. les galaxies) sont immobiles dans un espace dont
-  la géométrie s'étire. Les galaxies très lointaines voient
-  effectivement leur vitesse apparente atteindre celle de la lumière,
-  et disparaissent alors de l'Univers observable. Ceci n'enlève rien
-  au fait qu'elles continuent à s'éloigner de nous à des vitesses
-  supérieures à $c$.
-
-  Signalons que nos moyens d'observation actuels sont loin de nous
-  permettre d'observer les objets qui s'approchent de cette limite.
+  une galaxie. Cependant, cette limite ne s'applique pas à l'expansion
+  de l'Univers, où les objets (p.ex. les galaxies) sont immobiles dans
+  un espace dont la géométrie s'étire. Les galaxies très lointaines
+  voient effectivement leur vitesse apparente atteindre celle de la
+  lumière, et disparaissent alors de l'Univers observable. Ceci
+  n'enlève rien au fait qu'elles continuent à s'éloigner de nous à des
+  vitesses supérieures à $c$.  Signalons que nos moyens d'observation
+  actuels sont loin de nous permettre d'observer les objets qui
+  s'approchent de cette limite.
 \end{Answer}
 
-\begin{Exercise}[...la même partout ?]
+\begin{Exercise}[... la même partout ?]
   La radiogalaxie 3C~171 (la 171e entrée dans le troisième catalogue
   de radiources établi par l'observatoire de Cambridge) est
   relativement lointaine; entraînée par l'expansion de l'Univers, elle
@@ -1954,13 +1947,13 @@
 \begin{Exercise}[Le facteur d'expansion de l'espace]
   La constant de Hubble $H_0$ est usuellement exprimée en kilomètres
   par seconde et par mégaparsec, mais cela ne parle guère au sens
-  commun.  En prenant $H_0 = 70$~\u{km s^{-1} Mpc^{-1}}, quelle est la
+  commun.  En prenant $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}, quelle est la
   valeur de l'accroissement annuel d'un kilomètre ?
 \end{Exercise}
 
 \begin{Answer}
   $1\;\u{Mpc} = 10^6\;\u{pc} = 3,09\e{19}\;\u{km}$ et $1\;\u{an} =
-  3,16\e7\;\u{s}$, donc $70\;\u{km s^{-1} Mpc^{-1}} =
+  3,16\e7\;\u{s}$, donc $70\;\u{km~s^{-1}~Mpc^{-1}} =
   2,27\e{-18}\;\u{km~s^{-1}~km^{-1}} =
   7,16\e{-11}\;\u{km~an^{-1}~km^{-1}} =
   71,6\e{-11}\;\u{nm~an^{-1}~km^{-1}}$.
@@ -1999,7 +1992,7 @@
 \section{Questions diverses}
 
 Dans les exercices suivants, on supposera que la constante de Hubble a
-une valeur de $H_0 = 70$~\u{km s^{-1} Mpc^{-1}}.
+une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
 
 \begin{Exercise}[Temps de Hubble]
   Calculez le temps de Hubble $t_{H} = 1/H_{0}$. Quelle conclusion
@@ -2007,9 +2000,9 @@ une valeur de $H_0 = 70$~\u{km s^{-1} Mpc^{-1}}.
 \end{Exercise}
 
 \begin{Answer}
-  Le temps de Hubble est défini par : $1/t_{H} = H_0 =
+  Le temps de Hubble est défini par $1/t_{H} = H_0 =
   70\;\u{km~s^{-1}~Mpc^{-1}} = 2,27\e{-18}\;\u{s^{-1}}$ d'où $t_{H} =
-  4,41\e{17}~s \simeq 13,97\e{9}$~années. On peut donc penser que
+  4,41\e{17}~s \simeq 13,97\e{9}$~ans. On peut donc penser que
   l'Univers est âgé de moins de 14~milliards d'années.
 \end{Answer}
 
@@ -2019,7 +2012,7 @@ une valeur de $H_0 = 70$~\u{km s^{-1} Mpc^{-1}}.
 \end{Exercise}
 
 \begin{Answer}
-  $\rho_{C} \simeq 8,27\e{-10}~\u{J m^{-3}} \simeq 5,5$~nucléons/\u{m^{3}}
+  $\rho_{C} \simeq 8,27\e{-10}~\u{J~m^{-3}} \simeq 5,5$~nucléons/\u{m^{3}}
 \end{Answer}
 
 \begin{Exercise}[Âge de l'Univers]
@@ -2031,7 +2024,7 @@ une valeur de $H_0 = 70$~\u{km s^{-1} Mpc^{-1}}.
 \begin{Answer}
   Par définition :
   $$
-  v = H_0.d \quad\text{donc}\quad H_0 = \frac{v}{d} = \frac{1}{d}
+  v = H_0\,d \quad\text{donc}\quad H_0 = \frac{v}{d} = \frac{1}{d}
   \frac{\d d}{\d t} = \frac{1}{\epsilon R} \frac{\d\left(\epsilon R
     \right)}{\d t}
   $$
@@ -2252,7 +2245,7 @@ une valeur de $H_0 = 70$~\u{km s^{-1} Mpc^{-1}}.
   \end{enumerate}
 \end{Answer}
 
-\begin{Exercise}[Mouvement diurne des étoiles]
+\begin{Exercise}[Mouvement diurne]
   \begin{enumerate}
   \item Comment varie l'azimut d'un astre au cours du mouvement
     diurne, en un lieu de latitude $50\deg$ ? Et aussi $-50\deg$ de
@@ -2325,10 +2318,10 @@ une valeur de $H_0 = 70$~\u{km s^{-1} Mpc^{-1}}.
   \end{enumerate}
 \end{Answer}
 
-\begin{Exercise}[Coordonnées horaires d'un astre]
+\begin{Exercise}[Coordonnées horaires]
   \begin{enumerate}
   \item Quelle est la relation entre la déclinaison et la distance
-    polaire ?
+    polaire d'un astre ?
   \item Quelles sont les coordonnées horaires des quatre points
     cardinaux en un lieu de latitude $\phi$ ?
   \item Que vaut la déclinaison du zénith en fonction de la latitude
