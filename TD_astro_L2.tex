@@ -1,4 +1,4 @@
-% Time-stamp: <2014-03-26 17:51 ycopin@lyonovae03.in2p3.fr>
+% Time-stamp: <2014-04-02 17:59 ycopin@lyonovae03.in2p3.fr>
 % Auteurs (version LaTeX):
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
@@ -91,6 +91,13 @@
 \renewcommand{\vec}[1]{\ensuremath{\boldsymbol{#1}}}
 \renewcommand{\u}[1]{\ensuremath{\mathrm{#1}}} % Unités
 \DeclareMathOperator{\grad}{\mathbf{grad}}
+
+\newcommand{\farcm}{%
+  \mbox{\ensuremath{.\mkern-4mu^\prime}}} % fractional arcminute symbol: 0.'0
+\newcommand{\farcs}{%
+  \mbox{\ensuremath{.\!\!^{\prime\prime}}}} % fractional arcsecond symbol: 0.''0
+\newcommand{\fdg}{%
+  \mbox{\ensuremath{.\!\!\degree}}}      % fractional degree symbol: 0.°0
 
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\note}[1]{\fcolorbox{red}{yellow}{\color{black} #1}}
@@ -311,8 +318,8 @@
 \end{Exercise}
 
 \begin{Answer}
-  Les étoiles situées à $D=100$~pc ont une parallaxe
-  $p=1/100=0,01''=10$~mas. La précision obtenue sera de
+  Les étoiles situées à $D=100$~pc ont une parallaxe $p =
+  1/100=0\farcs 01 = 10$~mas. La précision obtenue sera de
   $$
   \text{Hipparcos:}\quad \frac{\Delta D}{D} 
   = \frac{\Delta p}{p} = \frac{2\e{-3}}{10^{-2}} 
@@ -1388,10 +1395,10 @@
   La Fig.~\ref{centregalac} montre l'orbite de l'étoile ayant la plus
   grande vitesse autour du centre galactique. À partir des
   caractéristiques de cette orbite (période de $T = 15,2$~ans, et demi
-  grand-axe de $a = 0,119$~arcsec), retrouver l'estimation de la masse
+  grand-axe de $a = 0\farcs 119$), retrouver l'estimation de la masse
   incluse dans ce rayon au centre de notre Galaxie en utilisant la
   troisième loi de Kepler. On rappelle que nous sommes à environ $R =
-  8,5$~kpc du centre galactique.  
+  8,5$~kpc du centre galactique.
 
   La masse \emph{visible} au centre galactique étant estimée à environ
   $10^{6}$ masses solaires, en déduire une estimation de la masse
@@ -1467,7 +1474,11 @@
 \begin{Answer}
   \begin{enumerate}
   \item Cette fonction empirique montre bien la prédominance des
-    galaxies de faible luminosité intrinsèque.
+    galaxies de faible luminosité intrinsèque. Noter que le nombre
+    total de galaxies $N_{T} = \int_{0}^{\infty} \Phi(L)\d L =
+    \Phi^{*}\Gamma(\alpha+1)$ diverge pour $\alpha \leq -1$, mais que
+    la luminosité totale $L_{T} = \int_{0}^{\infty} L\Phi(L)\d L =
+    \Phi^{*}L^{*}\Gamma(\alpha+2)$ reste finie.
   \item On a $\Phi(L)\,\d L = \Phi(M)\,\d M$ avec $M = -2,5\log
     L/L_{0}$, d'où:
     $$
@@ -1536,8 +1547,8 @@
     correspond au $\Delta t$ tel que $N_{c} = 1$ ; le libre parcours
     moyen est $\ell_{c} = v_{g} \times \tau_{c}$:
     $$
-    \tau_{c} = \frac{D_{a}^3}{6 N_{g} D_{g}^2 v_{g}}, \qquad
-    \ell_{c} = \frac{D_{a}^3}{6 N_{g} D_{g}^2}
+    \tau_{c} = \frac{D_{a}^3}{6 N_{g} d_{g}^2 v_{g}}, \qquad
+    \ell_{c} = \frac{D_{a}^3}{6 N_{g} d_{g}^2}
     $$
 
   \item Application numérique : $v_{g} = 650\;\u{km/s} =
