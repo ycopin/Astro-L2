@@ -1,4 +1,4 @@
-% Time-stamp: <2014-04-02 17:59 ycopin@lyonovae03.in2p3.fr>
+% Time-stamp: <2014-04-09 18:23 ycopin@lyonovae03.in2p3.fr>
 % Auteurs (version LaTeX):
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
@@ -1589,11 +1589,11 @@
     M_\oplus/D$ d'où $D = GM_\odot/v_\oplus^2 = 1$~UA.
   \item $K = 1/2\,M_{1}v_{1}^{2} + 1/2\,M_{2}v_{2}^{2} =
     M_{\odot}v^{2} \stackrel{\mathrm{Viriel}}{=} -U/2 =
-    -GM_{\odot}^{2}/(2D^{2})$ d'où $v = \sqrt{G M_\odot/(2 D)}$, soit:
+    +GM_{\odot}^{2}/(2D)$ d'où $v = \sqrt{G M_\odot/(2 D)}$, soit:
     \begin{itemize}
-    \item $D=1$~UA: $v = 21,1$~km/s
-    \item $D=10$~UA: $v = 6,7$~km/s
-    \item $D=100$~UA: $v = 2,1$~km/s
+    \item pour $D=1$~UA: $v = 21,1$~km/s
+    \item pour $D=10$~UA: $v = 6,7$~km/s
+    \item pour $D=100$~UA: $v = 2,1$~km/s
     \end{itemize}
   \end{enumerate}
 \end{Answer}
@@ -1616,8 +1616,8 @@
 \end{Exercise}
 
 \begin{Answer}
-  On a $U = -GM/(2R)$ et $K=1/2\, MV^{2}$ d'où $M = 2RV^{2}/G$, avec
-  $G = 6,67\e{-11}\;\u{SI} =
+  On a $U = -GM^{2}/(2R)$ et $K=1/2\, MV^{2}$ d'où $M = 2RV^{2}/G$, avec
+  $G = 6,67\e{-11}\;\u{m^{3}~kg^{-1}~s^{-2}} =
   4,302\e{-3}\;\u{km^{2}~s^{-2}~pc~M_{\odot}^{-1}}$ soit:
   \begin{center}
     \begin{tabular}{lrrr}
@@ -1642,7 +1642,7 @@
       \midrule
       Amas ouvert     & 1~pc   & 500 &  \\ 
       Amas globulaire & 10~pc  & $10^5$ &  \\ 
-      Galaxie         & 50~kpc & $10^{12}$ & \\ 
+      Galaxie         & 15~kpc & $10^{11}$ & \\ 
       \bottomrule
     \end{tabular}
   \end{center}
@@ -1660,7 +1660,8 @@
       \midrule
       Amas ouvert     & 1~pc   & 500      & $9,4\e{5}$ \\ 
       Amas globulaire & 10~pc  & $10^5$   & $2,1\e{6}$ \\ 
-      Galaxie         & 50~kpc & $10^{12}$ & $2,4\e{8}$ \\ 
+      Galaxie         & 15~kpc & $10^{11}$ & $1,2\e{8}$ \\ 
+      Amas de galaxies & 1~Mpc & $10^{14}$ & $2,1\e{9}$ \\
       \bottomrule
     \end{tabular}
   \end{center}
@@ -1683,61 +1684,35 @@
   Marcel et Naomi ressentent l'un pour l'autre une certaine attirance;
   quelle part en revient tout bêtement à la force de gravitation
   universelle, lorsque leurs centres de gravité respectifs sont
-  distants de 1 mètre ?  Quelle masse, au même point de la Terre,
+  distants de 1 mètre ?  Quelle masse $m$, au même point de la Terre,
   présente un poids égal à cette force ?  Marcel pèse, à Lyon, 700~N,
   et Naomi 580~N.  Le rayon de la Terre à Lyon sera supposé égal à
-  6365~km.  La constante de la gravitation et la masse de la Terre
-  sont données dans les annexes du cours.
+  $R_{\oplus} = 6375$~km, et la masse de la Terre est de $M_{\oplus} =
+  5,97\e{24}$~kg.
 \end{Exercise}
 
 \begin{Answer}
-  Il s'agit, simplement, d'appliquer la formule de Newton deux fois
-  pour trouver les masses respectives de Marcel et Naomi, puis une
-  troisième fois pour calculer l'attraction qui s'exerce entre eux, en
-  prenant garde aux unités.
+  Il s'agit d'appliquer la formule de Newton deux fois pour trouver
+  les masses respectives de Marcel et Naomi, puis une troisième fois
+  pour calculer l'attraction qui s'exerce entre eux:
   $$
-  F = G \frac{m_1 m_2}{d^2}
+  F_{MN} = G \frac{m_M m_N}{d^2} = G \frac{m M_{\oplus}}{R_{\oplus}^2}.
   $$
-  On retrouve d'abord les valeurs des constantes : $G = 6,672\e{-11}$~SI,
-  $M_{\oplus} = 5,976\e{24}$~kg, et $R = 6365$~km qui est donné dans
-  l'énoncé.
+  Pour Marcel, $P_{\mathrm{M}} = G M_{\mathrm{M}}M_{\oplus} /
+  R_{\oplus}^2$ soit $M_{\mathrm{M}} = P_{\mathrm{M}}R_{\oplus}^2 / (G
+  M_{\oplus}) = 71,3~\u{kg}$. Pour Naomi, on peut utiliser le fait que
+  $M_{\mathrm{N}}/M_{\mathrm{M}} = P_{\mathrm{N}} / P_{\mathrm{M}}$,
+  puisque les deux personnes sont soumises au même champ de gravité,
+  donc $M_{\mathrm{N}} = M_{\mathrm{M}}\times
+  P_{\mathrm{N}}/P_{\mathrm{M}} = 71,1 \times 580/700 = 59,1~\u{kg}$
+  d'où $F_{\mathrm{NM}} = 2,81\e{-7}~\u{N}.$ La masse qui présente un
+  poids égal à cette valeur en cet endroit est de : $m =
+  F_{MN}R_{\oplus}^{2}/(GM_{\oplus}) = 2,87\e{-8}\;\u{kg} =
+  28,7$~\u{\mu{}g}.
 
-  On écrit donc :
-  $$
-  P_{\mathrm{Marcel}} = G \frac{M_{\mathrm{Marcel}}M_{\oplus}}{R^2}
-  $$
-  soit encore :
-  $$
-  M_{\mathrm{Marcel}} = \frac{P_{\mathrm{Marcel}}R^2}{G M_{\oplus}} =
-  \frac{ 6370000^2 \times 700 }{6,672\e{-11} \times 5,976\e{24} } =
-  71,23~\u{kg}
-  $$
-  Cette valeur s'obtiendrait aussi en utilisant la formule $P =
-  M_{\mathrm{Marcel}}\times g$, où $g$ est l'accélération de la
-  pesanteur à Lyon. Mais l'énoncé ne précise pas la valeur de $g$ à
-  Lyon.
-
-  Pour Naomi, on peut utiliser le fait que
-  $M_{\mathrm{Naomi}}/M_{\mathrm{Marcel}} =
-  P_{\mathrm{Naomi}}/P_{\mathrm{Marcel}}$, puisque les deux personnes
-  sont soumises au même champ de gravité. Et donc :
-  $$
-  M_{\mathrm{Naomi}} = M_{\mathrm{Marcel}}
-  \frac{P_{\mathrm{Naomi}}}{P_{\mathrm{Marcel}}} = 71,23 \times
-  \frac{58}{70} = 59,02~\u{kg}
-  $$
-  D'où $F_{\mathrm{Naomi}-\mathrm{Marcel}} = ( 6,672 10^{-11} \times
-  71,23 \times 59,02 ) / 1 = 2,8\e{-7}$~N.
-
-  La masse qui présenterait un poids égal à cette valeur en cet
-  endroit serait de : $M = ( 63700002 \times 2,8\e{-7} ) / (
-  6,672\e{-11} \times 5,976\e{24} ) = 2,85\e{-8}\;\u{kg} =
-  28,5$~\u{\mu{}g}.
-
-  Elle peut également se calculer, d'après une remarque déjà faite,
-  par $M = 71,23 \times 2,8\e{-7} / 700$. L'attraction
-  gravitationnelle est une force \emph{très faible}, c'est même la
-  plus faible des quatre forces fondamentales de l'Univers.
+  L'attraction gravitationnelle est une force \emph{très faible},
+  c'est même la plus faible des quatre forces fondamentales de
+  l'Univers.
 \end{Answer}
 
 % \subsection{Problèmes de l'Univers de Newton}
