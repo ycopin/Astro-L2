@@ -1,4 +1,4 @@
-% Time-stamp: <2014-04-09 18:23 ycopin@lyonovae03.in2p3.fr>
+% Time-stamp: <2014-04-16 18:12 ycopin@lyonovae03.in2p3.fr>
 % Auteurs (version LaTeX):
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
@@ -18,8 +18,9 @@
 % PREAMBULE ==============================
 
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage[T1]{sansmath}
+\usepackage[T1]{fontenc}
 
 \usepackage[cm]{fullpage}
 \usepackage[francais]{babel}
@@ -27,7 +28,6 @@
 \usepackage{amsmath,amssymb}
 \usepackage{textcomp}
 \usepackage{gensymb}
-\usepackage{sansmath}
 
 \usepackage{enumitem}           % enumerate[resume]
 
@@ -88,7 +88,7 @@
 \newcommand{\e}[1]{\ensuremath{\times 10^{#1}}}
 \renewcommand{\d}{\ensuremath{\mathrm{d}}}
 \renewcommand{\deg}{\ensuremath{\degree}}
-\renewcommand{\vec}[1]{\ensuremath{\boldsymbol{#1}}}
+\renewcommand{\vec}[1]{\ensuremath{\boldsymbol{\mathbf{#1}}}}
 \renewcommand{\u}[1]{\ensuremath{\mathrm{#1}}} % Unités
 \DeclareMathOperator{\grad}{\mathbf{grad}}
 
@@ -170,12 +170,10 @@
 \end{Exercise}
 
 \begin{Answer}
-  En appliquant l'équation 
-  $\displaystyle
-  T_e = \left( \frac{L}{4 \pi R^2_p \sigma} \right)^{1/4}
-  $
-  avec la constante de Stefan $\sigma = 5,67\e{-8}$~\u{W~m^{-2}~K^{-4}},
-  on trouve la luminosité $L_{\odot}\approx 3,83\e{26}$~W.
+  En appliquant l'équation $T_e = \left( \dfrac{L}{4 \pi R^2_p \sigma}
+  \right)^{1/4}$ avec la constante de Stefan $\sigma =
+  5,67\e{-8}$~\u{W~m^{-2}~K^{-4}}, on trouve la luminosité
+  $L_{\odot}\approx 3,83\e{26}$~W.
 \end{Answer}
 
 
@@ -1335,7 +1333,7 @@
     atteint une valeur limite $V_{0} > 0$. Commentez.
   \item Quelle forme de la densité de masse $\rho(R)$ doit-on présumer
     pour atteindre une valeur constante de $V$ quand $R$ augmente ? On
-    note que, sous l'hypothèse de symétrie sphérique, $\d M(R)/\d R =
+    note que, sous l'hypothèse de symétrie sphérique, $\d M/\d R =
     4\pi R^2 \rho(R)$
   \end{enumerate}
 \end{Exercise}
@@ -1352,10 +1350,8 @@
     ainsi la notion de matière noire, qui n'est perceptible que par
     ses effets gravitationnels.
   \item $\d M(R)/\d R = 4\pi R^2 \rho(R) \stackrel{\mathrm{PFD}}{=}
-    \d(RV_{0}^{2}/G)/\d R$ d'où 
-    $\displaystyle
-    \rho(R) = \frac{1}{4\pi R^2} \frac{V_0^2}{G} \propto 1/R^{2}.
-    $
+    \d(RV_{0}^{2}/G)/\d R$ d'où $\rho(R) = (1/4\pi R^2) (V_0^2/G)
+    \propto 1/R^{2}$.
   \end{enumerate}
 \end{Answer}
 
@@ -1892,27 +1888,27 @@
   découvert l'expansion de l'Univers, comme Hubble l'a fait pour nous,
   a lui aussi trouvé une loi qui s'écrit :
   $$
-  V_0 = X_0 d_{0^{'}} \quad\text{avec}\quad X_0 = H_0
+  v_0 = X_0 d_{0},
   $$
-  $V_0$ étant la vitesse mesurée à partir de 3C~171 pour une galaxie
-  lointaine située à la distance $d_0$ de 3C~171, et $X_0$ étant bien
-  entendu la constante de Snurp.
+  $v_0$ étant la vitesse mesurée à partir de 3C~171 pour une galaxie
+  lointaine située à la distance $d_0$ de 3C~171, et que la constante
+  de Snurp $X_0$ partage la valeur de $H_{0}$.
 
   Ainsi, d'une planète de 3C~171, comme de la Terre, on observe la même
   expansion universelle, avec la même géométrie, et le même taux...
 \end{Exercise}
 
 \begin{Answer}
-  Désignons par $V_T$ et $d_T$ les vitesses et distances mesurées à
-  partir de la Terre, $V_{3C}$ et $d_{3C}$ celles mesurées à partir de
+  Désignons par $v_T$ et $d_T$ les vitesses et distances mesurées à
+  partir de la Terre, $v_{3C}$ et $d_{3C}$ celles mesurées à partir de
   3C~171.  La vitesse de récession de 3C~171 mesurée de la Terre est
   donc $v_T(3C\;171) = 63000$~km/s.
 
   Considérons une autre galaxie, $G$, observée à la fois de la Terre
   et de 3C~171. On peut écrire :
   \begin{align*}
-    \vec{V}_{3C}(G) &= \vec{V}_{3G}(T) + \vec{V}_{T}(G) \\
-    &= -\vec{V}_{T}(3C\;171) + \vec{V}_{T}(G) \\
+    \vec{v}_{3C}(G) &= \vec{v}_{3C}(T) + \vec{v}_{T}(G) \\
+    &= -\vec{v}_{T}(3C\;171) + \vec{v}_{T}(G) \\
     &= -H_0\vec{d}_{T}(3C\;171) + H_0\vec{d}_{T}(G) \\
     &= H_0 \left[ \vec{d}_{T}(G) - \vec{d}_{T}(3C\;171) \right ] \\
     &= H_0 \vec{d}_{3C}(G)
@@ -1938,11 +1934,9 @@
 \end{Exercise}
 
 \begin{Answer}
-  $1\;\u{Mpc} = 10^6\;\u{pc} = 3,09\e{19}\;\u{km}$ et $1\;\u{an} =
-  3,16\e7\;\u{s}$, donc $70\;\u{km~s^{-1}~Mpc^{-1}} =
-  2,27\e{-18}\;\u{km~s^{-1}~km^{-1}} =
-  7,16\e{-11}\;\u{km~an^{-1}~km^{-1}} =
-  71,6\e{-11}\;\u{nm~an^{-1}~km^{-1}}$.
+  $1\;\u{Mpc} = 3,09\e{19}\;\u{km}$ et $1\;\u{an} = 3,16\e7\;\u{s}$,
+  donc $70\;\u{km~s^{-1}~Mpc^{-1}} = 2,27\e{-6}\;\u{km~s^{-1}~km^{-1}}
+  = 71,6\;\u{nm~an^{-1}~km^{-1}}$.
 \end{Answer}
 
 \subsection{Film des débuts}
@@ -1989,7 +1983,7 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
   Le temps de Hubble est défini par $1/t_{H} = H_0 =
   70\;\u{km~s^{-1}~Mpc^{-1}} = 2,27\e{-18}\;\u{s^{-1}}$ d'où $t_{H} =
   4,41\e{17}~s \simeq 13,97\e{9}$~ans. On peut donc penser que
-  l'Univers est âgé de moins de 14~milliards d'années.
+  l'Univers est âgé d'environ 14~Gans.
 \end{Answer}
 
 \begin{Exercise}[Densité critique]
@@ -1998,7 +1992,7 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
 \end{Exercise}
 
 \begin{Answer}
-  $\rho_{C} \simeq 8,27\e{-10}~\u{J~m^{-3}} \simeq 5,5$~nucléons/\u{m^{3}}
+  $\rho_{C} \simeq 8,27\e{-10}~\u{J\;m^{-3}} \simeq 5,5$~nucléons/\u{m^{3}}
 \end{Answer}
 
 \begin{Exercise}[Âge de l'Univers]
