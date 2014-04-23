@@ -1,4 +1,4 @@
-% Time-stamp: <2014-04-16 18:12 ycopin@lyonovae03.in2p3.fr>
+% Time-stamp: <2014-04-23 18:40 ycopin@lyonovae03.in2p3.fr>
 % Auteurs (version LaTeX):
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
@@ -19,11 +19,22 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
-\usepackage[T1]{sansmath}
 \usepackage[T1]{fontenc}
+
+% Utilise CMbright (sans) pour les formules
+\DeclareMathVersion{sans}
+\SetSymbolFont{operators}{sans}{OT1}{cmbr}{m}{n}
+\SetSymbolFont{letters}{sans}{OML}{cmbrm}{m}{it}
+\SetSymbolFont{symbols}{sans}{OMS}{cmbrs}{m}{n}
+\SetMathAlphabet{\mathit}{sans}{OT1}{cmbr}{m}{sl}
+\SetMathAlphabet{\mathbf}{sans}{OT1}{cmbr}{bx}{n}
+\SetMathAlphabet{\mathtt}{sans}{OT1}{cmtl}{m}{n}
+\SetSymbolFont{largesymbols}{sans}{OMX}{iwona}{m}{n}
 
 \usepackage[cm]{fullpage}
 \usepackage[francais]{babel}
+
+\usepackage{microtype}
 
 \usepackage{amsmath,amssymb}
 \usepackage{textcomp}
@@ -42,7 +53,7 @@
 
 \usepackage{hyperref}
 \hypersetup{
-  pdftitle   = {« Astrophysique pour la licence », fascicule de TD},
+  pdftitle   = {Astrophysique pour la licence, fascicule de TD},
   pdfauthor  = {Yannick Copin et l'équipe enseignante Astro-L2},
   pdfsubject = {Astrophysique pour la licence, Université de Lyon 1},
   unicode=true,              % non-Latin characters in Acrobat’s bookmarks
@@ -69,7 +80,8 @@
 \usepackage{comment}
 \specialcomment{Answer}{%
   \begingroup
-  \sffamily\sansmath\color{CadetBlue}
+  \sffamily\color{CadetBlue}
+  \mathversion{sans}
   \medskip\noindent\textbf{Corrigé :~}
 }{%
   \endgroup
@@ -90,6 +102,7 @@
 \renewcommand{\deg}{\ensuremath{\degree}}
 \renewcommand{\vec}[1]{\ensuremath{\boldsymbol{\mathbf{#1}}}}
 \renewcommand{\u}[1]{\ensuremath{\mathrm{#1}}} % Unités
+\newcommand{\defeq}{\mathrel{\widehat=}}
 \DeclareMathOperator{\grad}{\mathbf{grad}}
 
 \newcommand{\farcm}{%
@@ -128,7 +141,7 @@
     \begin{figure}[htp]
       \centering
       \includegraphics[width=0.8\textwidth]{flammarion}
-      \caption{La gravure sur bois dite « de Flammarion ».}
+      \caption{La gravure sur bois dite «~de Flammarion~».}
     \end{figure}
     \begin{center}
     \vfil
@@ -179,7 +192,7 @@
 
 \begin{Exercise}[Rayon des étoiles]
   Déterminer le rayon (en unité solaire), la longueur d'onde de Wien
-  et la couleur « visible » des étoiles suivantes :
+  et la couleur «~visible~» des étoiles suivantes :
   \begin{enumerate}
   \item Naine blanche : $L = 10^{-2}$~\u{L_{\odot}}, $T_{e} = 20000$~K
   \item Géante rouge : $L = 10^{2}$~\u{L_{\odot}}, $T_{e} = 4200$~K
@@ -257,8 +270,8 @@
   On rappelle que la magnitude apparente $m$ est liée au flux $F$ par
   $m = -2,5 \log_{10}(F / F_{0})$.
   \begin{enumerate}
-  \item Le rapport des flux des deux composantes de $\alpha$ du
-    Centaure dépend de la différence de magnitudes et vaut :
+  \item Le rapport des flux des deux composantes de $\alpha$~Cen
+    dépend de la différence de magnitudes et vaut :
     $$
     F_2 / F_1 = 10^{(m_{1} - m_{2})/2,5} = 0,28
     $$
@@ -272,7 +285,7 @@
   \item La correction qu'il faut apporter aux magnitudes apparentes
     $m$ de ce système pour obtenir les magnitudes absolues $M$ vaut :
     $$
-    \mu = m - M = 5 \log(D/10\,\u{pc}) = -4,4
+    \mu = m - M = 5 \log(D/10\;\u{pc}) = -4,4
     $$
   \end{enumerate}
 \end{Answer}
@@ -376,7 +389,7 @@
   qui permet d'avoir immédiatement $\Delta D / D$. Ces résultats
   illustrent bien la diminution de la précision lorsque la distance
   augmente.  La magnitude absolue s'obtient par la relation $M_V = m_V
-  - 5~\log(D/10\,\u{pc})$.
+  - 5~\log(D/10\;\u{pc})$.
 \end{Answer}
 
 
@@ -477,7 +490,7 @@
   froide, et on aura dans le sens des luminosités croissantes : A0VII,
   M5III, O2V, et K7I.
 
-  Ceci montre que le terme « classe de luminosité » peut être source
+  Ceci montre que le terme «~classe de luminosité~» peut être source
   d'erreur.
 \end{Answer}
 
@@ -948,7 +961,7 @@
 \begin{Answer}
   \begin{enumerate}
   \item On rappelle l'expression du module de distance $m-M =
-    5\log(D/10\,\u{pc})$ soit $\log(D/1\,\u{pc}) = 0,2(m-M)+1$. Le
+    5\log(D/10\;\u{pc})$ soit $\log(D/1\;\u{pc}) = 0,2(m-M)+1$. Le
     nombre $N(m)$ d'étoiles de magnitude inférieure à $m$ correspond,
     en l'absence d'extinction, au nombre d'étoiles dans une sphère de
     rayon $D(m)$, càd $N(m) \propto D(m)^3$, soit $\log N(m) = 0,6 m +
@@ -968,9 +981,9 @@
     $$
   \item En écrivant l'équation du module de distance avec $M=5$ :
     \begin{itemize}
-    \item pour $m = 7 = 5\log{r_1/10\,\u{pc}}+M$ d'où $r_1 = 25,1$~pc
+    \item pour $m = 7 = 5\log{r_1/10\;\u{pc}}+M$ d'où $r_1 = 25,1$~pc
       = distance du front proche du nuage
-    \item pour $m = 9 = 5\log{r_2/10\,\u{pc}}+M+A$ avec $A=1$ d'où $r2
+    \item pour $m = 9 = 5\log{r_2/10\;\u{pc}}+M+A$ avec $A=1$ d'où $r2
       = 39,8$~pc
     \end{itemize}
     Épaisseur du nuage : $r_2-r_1 = 39,8-25,1 = 14,7$~pc
@@ -984,9 +997,9 @@
   jusqu'à une certaine magnitude limite $m$ par degré carré décroît
   avec la latitude galactique\footnote{L'angle entre le plan
     galactique et l'objet considéré, compté positivement vers le pôle
-    nord galactique.} $b$ (pour $|b|>15\degree$).  Ainsi, la densité
-  de galaxies semble diminuer à mesure que l'on s'éloigne des pôles de
-  la Galaxie ($b = \pm 90\degree$). Cela ne reflète évidemment pas la
+    nord galactique.} $b$ (pour $|b| > 15\deg$).  Ainsi, la densité de
+  galaxies semble diminuer à mesure que l'on s'éloigne des pôles de la
+  Galaxie ($b = \pm 90\deg$). Cela ne reflète évidemment pas la
   distribution intrinsèque des galaxies dans l'Univers, mais résulte
   d'un effet d'absorption de la lumière par les particules de
   poussière contenues dans notre propre Galaxie.
@@ -1175,7 +1188,7 @@
   \item À l'aide du diagramme HR, déterminer le type spectral apparent
     de l'étoile.
   \item Qu'en concluez vous sur l'effet de l'extinction sélective sur
-    la « couleur » d'une étoile.
+    la «~couleur~» d'une étoile.
   \end{enumerate}
 
   On rappelle les longueurs d'onde effectives des bandes $V$ et $B$:
@@ -1186,12 +1199,12 @@
   \begin{enumerate}
   \item Magnitudes apparentes sans extinction
     \begin{align*}
-      m_{V_0} &= M_{V} + 5\log(5\,\u{kpc}/10\,\u{pc}) = 18,5 \\
+      m_{V_0} &= M_{V} + 5\log(5\;\u{kpc}/10\;\u{pc}) = 18,5 \\
       m_{B_0} &= m_{V_0} + (B-V)_0 = 19,2
     \end{align*}
   \item Calcul des extinctions
     \begin{align*}
-      A_V &= 5\,(\u{kpc})\times 0,3 = 1,5 \\
+      A_V &= 5\;\u{kpc}\times 0,3\;\u{mag/kpc} = 1,5 \\
       A_B &= 1,5 \times \frac{0,55}{0,44} = 1,88
     \end{align*}
   \item Calcul de l'excès de couleur: $E_{B-V} = A_B-A_V = 1,88 - 1,5 = 0,38$
@@ -1246,7 +1259,7 @@
 
 \subsection{Classification morphologique des galaxies}
 
-\begin{Exercise}[Propriétés « physiques » de la classification]
+\begin{Exercise}[Propriétés «~physiques~» de la classification]
   En vous servant du tableau~\ref{tab:hubble}, répondez aux questions
   suivantes :
   \begin{enumerate}
@@ -1439,7 +1452,7 @@
 \end{table}
 
 \begin{Answer}
-  Il y a 26 petites galaxies -- dites « naines » -- sur les 30
+  Il y a 26 petites galaxies -- dites «~naines~» -- sur les 30
   galaxies dont on nous donne la taille, et seulement 2 galaxies avec
   un diamètre de plus de 30~kpc : M~31 et la Voie Lactée. Ce sont donc
   les galaxies naines qui dominent en nombre, mais pas en luminosité
@@ -1534,7 +1547,7 @@
     collision est donc l'aire du disque de rayon $d_{g}$ :
     $S_{\mathrm{eff}} = \pi d_{g}^{2}$.
 
-  \item Considérons une galaxie. Le volume utile « balayé » par cette
+  \item Considérons une galaxie. Le volume utile «~balayé~» par cette
     galaxie pendant le temps $\Delta t$ est $\Delta V = v_{g} \times
     S_{\mathrm{eff}} \times \Delta t$. Le nombre de collisions que
     subira cette galaxie pendant le temps $\Delta t$ est donc égal au
@@ -1715,7 +1728,7 @@
 
 % \begin{Exercise}[L'instabilité gravitationnelle]
 %   Pourquoi Newton pense-t-il que ces trois hypothèses supplémentaires
-%   permettraient, chacune, de « sauver » l'Univers de la catastrophe
+%   permettraient, chacune, de «~sauver~» l'Univers de la catastrophe
 %   gravitationnelle ?
 % \end{Exercise}
 
@@ -1797,7 +1810,7 @@
   constante.  Par exemple, dans l'image de l'ascenseur utilisée dans
   le cours, il ne faut pas que la cabine soit trop étendue. Sinon, le
   parallélisme ou le non-parallélisme des actions sur des masses très
-  éloignées l'une de l'autre trahirait la « vraie » nature du champ.
+  éloignées l'une de l'autre trahirait la «~vraie~» nature du champ.
   La cabine de gauche, supposée à grande distance de la planète, et
   accélérée vers le haut (flèche bleue), produit des actions
   parallèles (flèches rouges) sur les deux masses-test. La cabine de
@@ -1849,7 +1862,37 @@
   relativiste) est donc $z_{D} = v/c = \sqrt{z_{G}} \gg z_{G}$.
 \end{Answer}
 
-\section{Le big bang}
+
+\section{Le Big Bang}
+
+\subsection{Film des débuts}
+
+\begin{Exercise}[Nucléosynthèse primordiale ou non ?]
+  Les éléments légers $\mathrm{H}$, ${}^{2}\mathrm{H}$,
+  ${}^{3}\mathrm{H}$, ${}^{4}\mathrm{He}$, ${}^{7}\mathrm{Li}$ sont
+  nés avec le Big Bang. Mais d'où proviennent tous les autres éléments
+  «~lourds~», ceux qui entrent dans la composition des objets du
+  quotidien ?
+\end{Exercise}
+
+\begin{Answer}
+  Les chapitres traitant des modèles stellaires et de l'évolution
+  stellaire nous fournissent la réponse :
+  \begin{itemize}
+  \item Jusqu'au ${}^{56}\mathrm{Fe}$, les noyaux sont produits par
+    les étoiles.  La source d'énergie de celles-ci est d'origine
+    thermonucléaire, et elles sont des usines à fabriquer, par fusion,
+    des noyaux lourds à partir de noyaux plus légers.
+  \item Au-delà, seules les explosions de supernovae atteignent des
+    températures suffisantes (plusieurs $10^9$~K) pour pouvoir
+    synthétiser les noyaux très lourds, jusqu'aux éléments
+    transuraniens.
+  \item Quelques noyaux particuliers (${}^{6}\mathrm{Li}$,
+    ${}^{9}\mathrm{Be}$, ${}^{10}\mathrm{B}$) sont sans doute formés
+    lors des collisions des rayons cosmiques avec la matière
+    interstellaire.
+  \end{itemize}
+\end{Answer}
 
 \subsection{Expansion de l'Univers...}
 
@@ -1882,7 +1925,7 @@
   La radiogalaxie 3C~171 (la 171e entrée dans le troisième catalogue
   de radiources établi par l'observatoire de Cambridge) est
   relativement lointaine; entraînée par l'expansion de l'Univers, elle
-  présente une vitesse de fuite de 63000~km/s.
+  présente une vitesse de fuite de 63\,000~km/s.
 
   Montrer que malgré cela, l'astronome Pr.~Snurp, qui a là-bas
   découvert l'expansion de l'Univers, comme Hubble l'a fait pour nous,
@@ -1902,7 +1945,7 @@
   Désignons par $v_T$ et $d_T$ les vitesses et distances mesurées à
   partir de la Terre, $v_{3C}$ et $d_{3C}$ celles mesurées à partir de
   3C~171.  La vitesse de récession de 3C~171 mesurée de la Terre est
-  donc $v_T(3C\;171) = 63000$~km/s.
+  donc $v_T(3C\;171) = 63\;000$~km/s.
 
   Considérons une autre galaxie, $G$, observée à la fois de la Terre
   et de 3C~171. On peut écrire :
@@ -1926,64 +1969,36 @@
   \end{SCfigure}
 \end{Answer}
 
+\subsection{Constante de Hubble \& Co.}
+
+Dans les exercices suivants, on supposera la constante de Hubble égale
+à $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
+
 \begin{Exercise}[Le facteur d'expansion de l'espace]
   La constant de Hubble $H_0$ est usuellement exprimée en kilomètres
   par seconde et par mégaparsec, mais cela ne parle guère au sens
-  commun.  En prenant $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}, quelle est la
-  valeur de l'accroissement annuel d'un kilomètre ?
+  commun.  Quelle est la valeur de l'accroissement annuel d'un
+  kilomètre ?
 \end{Exercise}
 
 \begin{Answer}
   $1\;\u{Mpc} = 3,09\e{19}\;\u{km}$ et $1\;\u{an} = 3,16\e7\;\u{s}$,
-  donc $70\;\u{km~s^{-1}~Mpc^{-1}} = 2,27\e{-6}\;\u{km~s^{-1}~km^{-1}}
+  donc $71\;\u{km~s^{-1}~Mpc^{-1}} = 2,27\e{-18}\;\u{km~s^{-1}~km^{-1}}
   = 71,6\;\u{nm~an^{-1}~km^{-1}}$.
 \end{Answer}
 
-\subsection{Film des débuts}
-
-\begin{Exercise}[Nucléosynthèse primordiale ou non ?]
-  Les éléments légers $\mathrm{H}$, ${}^{2}\mathrm{H}$,
-  ${}^{3}\mathrm{H}$, ${}^{4}\mathrm{He}$, ${}^{7}\mathrm{Li}$ sont
-  nés avec le Big Bang. Mais d'où proviennent tous les autres éléments
-  « lourds », ceux qui entrent dans la composition des objets du
-  quotidien ?
-\end{Exercise}
-
-\begin{Answer}
-  Les chapitres traitant des modèles stellaires et de l'évolution
-  stellaire nous fournissent la réponse :
-  \begin{itemize}
-  \item Jusqu'au ${}^{56}\mathrm{Fe}$, les noyaux sont produits par
-    les étoiles.  La source d'énergie de celles-ci est d'origine
-    thermonucléaire, et elles sont des usines à fabriquer, par fusion,
-    des noyaux lourds à partir de noyaux plus légers.
-  \item Au-delà, seules les explosions de supernovae atteignent des
-    températures suffisantes (plusieurs $10^9$~K) pour pouvoir
-    synthétiser les noyaux très lourds, jusqu'aux éléments
-    transuraniens.
-  \item Quelques noyaux particuliers (${}^{6}\mathrm{Li}$,
-    ${}^{9}\mathrm{Be}$, ${}^{10}\mathrm{B}$) sont sans doute formés
-    lors des collisions des rayons cosmiques avec la matière
-    interstellaire.
-  \end{itemize}
-\end{Answer}
-
-
-\section{Questions diverses}
-
-Dans les exercices suivants, on supposera que la constante de Hubble a
-une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
-
 \begin{Exercise}[Temps de Hubble]
-  Calculez le temps de Hubble $t_{H} = 1/H_{0}$. Quelle conclusion
-  pouvez-vous en tirer sur l'âge de l'Univers ?
+  Calculez le temps de Hubble $t_{H} = 1/H_{0}$. Quelle est sa
+  signification physique ?  Quelle conclusion pouvez-vous en tirer sur
+  l'âge de l'Univers ?
 \end{Exercise}
 
 \begin{Answer}
   Le temps de Hubble est défini par $1/t_{H} = H_0 =
   70\;\u{km~s^{-1}~Mpc^{-1}} = 2,27\e{-18}\;\u{s^{-1}}$ d'où $t_{H} =
-  4,41\e{17}~s \simeq 13,97\e{9}$~ans. On peut donc penser que
-  l'Univers est âgé d'environ 14~Gans.
+  4,41\e{17}~s \simeq 13,97\e{9}$~ans. Il représente l'âge de
+  l'Univers dans le cas d'un taux d'expansion \emph{constant}. On peut
+  donc penser que l'Univers est âgé d'environ 14~Gans.
 \end{Answer}
 
 \begin{Exercise}[Densité critique]
@@ -1996,35 +2011,115 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
 \end{Answer}
 
 \begin{Exercise}[Âge de l'Univers]
-  À partir de la définition de $H_0$ et de la relation entre le
-  facteur d'échelle $R$ et l'âge $t$ de l'Univers dans le cas de la
-  densité critique, trouver la relation entre $H_{0}$ et $t$.
+  À partir de la définition de $H_0$ et de la relation $R \propto
+  t^{2/3}$ entre le facteur d'échelle $R$ et le temps $t$ dans le cas
+  d'un Univers euclidien ($k=0$) dominé par la matière
+  ($\Omega_{M}=1$, $\Omega_{\Lambda}=0$), trouver la relation entre
+  $H_{0}$ et $t$.
 \end{Exercise}
 
 \begin{Answer}
-  Par définition :
-  $$
-  v = H_0\,d \quad\text{donc}\quad H_0 = \frac{v}{d} = \frac{1}{d}
-  \frac{\d d}{\d t} = \frac{1}{\epsilon R} \frac{\d\left(\epsilon R
-    \right)}{\d t}
-  $$
-  car toute distance, à un instant $t$, peut s'écrire en terme du
-  facteur d'échelle $R$ : $d = \epsilon R(t)$, où $\epsilon$ est une
-  constante. Par conséquent :
   \begin{align*}
-    H_0 &= \frac{1}{R}\frac{\d R}{\d t} \\
+    H_0 &\defeq \frac{1}{R}\frac{\d R}{\d t} \\
     &= \left ( \frac{t}{t_0} \right )^{-2/3} \times
-    \frac{\d\left( t/t_0 \right )^{2/3}}{\d t} \\
-    &= \left ( \frac{t}{t_0} \right )^{-2/3} \times
-    \left( \frac{t}{t_0} \right)^{-1/3} \frac{2}{3} \frac{1}{t_0} \\
-    &= \left( \frac{t}{t_0} \right)^{-1} \times \frac{2}{3t_0} \\
-    &= \frac{2}{3t}
+    \frac{\d\left( t/t_0 \right )^{2/3}}{\d t} 
+    = \left ( \frac{t}{t_0} \right )^{-2/3} \times
+    \left( \frac{t}{t_0} \right)^{-1/3} \frac{2}{3} \frac{1}{t_0} 
+    = \left( \frac{t}{t_0} \right)^{-1} \times \frac{2}{3t_0} \\
+    &= \frac{2}{3t} \\
+    \text{donc}\quad t &= \frac{2}{3\,H_{0}}
   \end{align*}
-  Dans le cas critique (Univers marginalement ouvert), l'âge de
-  l'Univers est égal aux deux-tiers du temps de Hubble.
+  Pour un Univers critique dominé par la matière, l'âge de l'Univers
+  est égal aux deux-tiers du temps de Hubble.
 \end{Answer}
 
-\begin{Exercise}[Redshift cosmologique, facteur d'échelle et époque]
+\section{Modèles cosmologiques}
+
+\begin{Exercise}[Modèle FLRW]
+  Dans le cas d'un Univers de Friedmann-Lemaître-Robertson-Walker à
+  courbure spatiale nulle ($k=0$), on a :
+  \begin{equation}
+    \left(\frac{\dot{R}}{R}\right)^{2} = 
+    \frac{\Lambda}{3} + \frac{8\pi G}{3}\rho.
+    \label{eq:1}
+  \end{equation}
+  Par ailleurs, l'équation de conservation de l'énergie s'écrit
+  toujours:
+  \begin{equation}
+    \label{eq:2}
+    \dot{\rho} = -3\left(\rho + \frac{P}{c^{2}}\right)\frac{\dot{R}}{R}.
+  \end{equation}
+
+  \begin{enumerate}
+  \item Que signifient les différents termes -- $R$, $\Lambda$, $\rho$
+    -- de l'équation~(\ref{eq:1}) ? Quelle est la dimension de
+    $\dot{R}/R$ ?  Comment s'appelle cette quantité ?
+
+  \item Si l'on considère le fluide parfait dont l'équation d'état --
+    reliant la pression $P$ à la densité $\rho$ -- est donnée par $P =
+    w\rho c^{2}$, que devient l'équation~(\ref{eq:2}) ? Vérifier que
+    l'on obtient alors, en notant $\rho(R_{0}) = \rho_{0}$ :
+    $$
+    \frac{\rho}{\rho_{0}} = \left(\frac{R}{R_{0}}\right)^{-3(1+w)}.
+    $$
+
+  \item Dans le cas où $\Lambda = 0$, en déduire que $R$ est régit par
+    une équation différentielle du type :
+    $$
+    \dot{R} = \alpha R^{-\eta},
+    $$
+    avec $\eta = (1+3w)/2$. Expliciter la valeur de $\alpha$.
+
+  \item On peut montrer que la solution générale de l'équation
+    différentielle précédente est de la forme :
+    $$
+    \frac{R}{R_{0}} = \left(\frac{t}{t_{0}}\right)^{\gamma}.
+    $$
+    Déterminer $\gamma$ en fonction de $\eta$, puis de $w$.
+
+  \item Exprimer alors $\dot{R}/R$ en fonction de $t$.
+
+  \item Dans le cas d'un Univers dominé par la matière ($w=0$),
+    comment est relié l'âge de l'Univers $t_{0}$ à la constante de
+    Hubble $H_{0}$ ? Même question dans le cas d'un univers dominé par
+    les radiations ($w=1/3$).
+  \end{enumerate}
+\end{Exercise}
+
+\begin{Answer}
+  \begin{enumerate}
+  \item $R$ : facteur d'échelle, $\Lambda$ : constante cosmologique,
+    $\rho$ : densité massique.  $\dot{R}/R$ a la dimension de
+    l'inverse d'un temps, c'est la constante de Hubble $H$.
+
+  \item $\dot{\rho} = -3(1+w) H$. On vérifie que $\rho/\rho_{0} =
+    (R/R_{0})^{-3(1+w)}$ est bien solution de cette équation.
+
+  \item En introduisant la solution précédente dans
+    l'éq.~(\ref{eq:1}), on obtient $\dot{R} = \alpha R^{-\eta}$ avec
+    $$
+    \alpha = 
+    \left( \frac{8\pi G}{3}\rho_{0}R_{0}^{3(1+w)} \right)^{1/2}
+    \qquad\text{et}\qquad \eta = \frac{1+3w}{2}
+    $$
+
+  \item En égalisant les expressions de $\dot{R}$, on obtient
+    $$
+    \gamma = \frac{1}{1+\eta} = \frac{2}{3(1+w)}.
+    $$
+
+  \item On a
+    $$
+    H = \frac{\dot{R}}{R} = \frac{\gamma}{t} =
+    \frac{2}{3(1+w)}\frac{1}{t}.
+    $$
+
+  \item Pour $w=0$, $t_{0} = 2/(3 H_{0})$ ; pour $w=1/3$, $t_{0} =
+    1/(2 H_{0})$.
+  \end{enumerate}
+\end{Answer}
+
+\begin{Exercise}[\emph{Redshift} cosmologique]
   La radiogalaxie 4C~41.17 montre une raie spectrale intense à
   582,2~nm.  Cette raie est identifiée comme la raie Lyman alpha de
   l'hydrogène. En laboratoire, sur la Terre, la longueur d'onde de
@@ -2034,9 +2129,10 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
   \item Quel est le redshift de la radiogalaxie 4C~41.17 ?
   \item Quel était le facteur d'échelle de l'Univers à l'époque où les
     atomes d'hydrogène de 4C~41.17 émettaient cette raie ?
-  \item À quelle époque $t_{em}$ la radiogalaxie 4C~41.17 de l'exercice
-    précédent a-t-elle émis la lumière que nous recevons aujourd'hui à
-    $t_0$ ? On prendra $t_0 = 13,5$ milliards d'années.
+  \item À quelle époque $t_{em}$ la radiogalaxie 4C~41.17 de
+    l'exercice précédent a-t-elle émis la lumière que nous recevons
+    aujourd'hui à $t_0$ ? On supposera un Univers critique dominé par
+    la matière, avec un âge de $t_0 = 13,5\e9$~ans.
   \end{enumerate}
 \end{Exercise}
 
@@ -2046,20 +2142,16 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
     582,2/121,5 = 4,792$ donc $z = 3,792$.
   \item Par ailleurs, $1 + z =
     \lambda_{\text{observé}}/\lambda_{\text{émis}} =
-    R_0/R_{\text{émission}}$, soit $R_{em}/R_{0} = \lambda_{0}/\lambda
-    = 121,5/582,2 = 0,209$.  À l'époque où 4C~41.17 émettait la lumière
-    qui nous parvient aujourd'hui, l'Univers était cinq fois moins «
-    étiré » qu'aujourd'hui. Remarquez bien qu'on évite de dire qu'il
-    était moins « étendu » : cette expression sous-entendrait des
-    choses sur la « taille globale » de l'Univers, ce que tout
-    cosmologiste raisonnable évite soigneusement de faire.
-  \item À nouveau, il suffit de se souvenir de la relation liant le
-    facteur d'échelle et le temps cosmologique, $R(t)/R_{0} =
-    (t/t_0)^{2/3}$, pour trouver $t_{em} = t_0 \times
-    \left(R_{em}/R_{0}\right)^{3/2}$, et donc $t_{em} = 13,5 \times
-    (0,209)^{3/2} = 1,29\e{9}$~années.  4C~41.17 émettait la lumière
-    qui nous parvient aujourd'hui alors l'Univers était âgé de 1,29
-    milliards d'années.
+    R_0/R_{\text{émission}}$, soit $R_{e}/R_{0} = \lambda_{0}/\lambda
+    = 121,5/582,2 = 0,209$.  À l'époque où 4C~41.17 émettait la
+    lumière qui nous parvient aujourd'hui, l'Univers était cinq fois
+    moins «~étiré~» qu'aujourd'hui.
+  \item Pour un Univers critique dominé par la matière, $R(t)/R_{0} =
+    (t/t_0)^{2/3}$, et donc $t_{e} = t_0 \times
+    \left(R_{em}/R_{0}\right)^{3/2}$, soit $t_{e} = 13,5 \times
+    0,209^{3/2} = 1,29\e{9}$~années.  4C~41.17 émettait la lumière qui
+    nous parvient aujourd'hui alors que l'Univers n'était âgé que de
+    1,29 milliards d'années.
   \end{enumerate}
 \end{Answer}
 
@@ -2094,7 +2186,7 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
 
 % ==============================================================================
 
-\chapter{Retour sur Terre - Nos repères dans le ciel}
+\chapter{Retour sur Terre: nos repères dans le ciel}
 
 \section{Se positionner dans le ciel}
 
@@ -2182,10 +2274,10 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
     sur la sphère céleste (donc sa déclinaison), l'astre passera entre
     le zénith et le pôle (Nord pour un habitant de l'hémisphère nord
     et Sud pour...) soit entre le zénith et l'horizon opposé au pôle
-    visible. À la latitude de $50\deg$, les étoiles dont la
-    déclinaison est plus petite que la latitude, la culmination se
-    fera du côté Sud de l'observateur.  Pour les autres étoiles, la
-    culmination sera du côté Nord (Fig.~\ref{mouvementdiurne2})
+    visible. À la latitude de 50°, les étoiles dont la déclinaison est
+    plus petite que la latitude, la culmination se fera du côté Sud de
+    l'observateur.  Pour les autres étoiles, la culmination sera du
+    côté Nord (Fig.~\ref{mouvementdiurne2})
 
     \begin{figure}
       \centering
@@ -2228,7 +2320,7 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
 \begin{Exercise}[Mouvement diurne]
   \begin{enumerate}
   \item Comment varie l'azimut d'un astre au cours du mouvement
-    diurne, en un lieu de latitude $50\deg$ ? Et aussi $-50\deg$ de
+    diurne, en un lieu de latitude $+50\deg$ ? Et aussi $-50\deg$ de
     latitude. Sur la Fig.~\ref{mouvementdiurne}, on a représenté la
     situation en un lieu de l'hémisphère Sud (latitude = $-50\deg$) ;
     $P$ est alors en-dessous de l'horizon et $P'$ est au-dessus.
@@ -2266,11 +2358,10 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
       \item l'étoile est circumpolaire $\delta > \pi/2 - \phi$
       \end{itemize}
       Par la première condition, si $\delta<\phi$, l'azimut de
-      l'étoile varie de 0 à $360\deg$, sinon, son azimut oscille
-      entre une valeur comprise $\alpha$ entre 90 et $180\deg$
-      suivant sa position au passage au méridien et
-      $360\deg-\alpha$. L'étoile oscille donc entre $\alpha$,
-      $180\deg$ et $360\deg-\alpha$.
+      l'étoile varie de 0 à 360°, sinon, son azimut oscille entre une
+      valeur comprise $\alpha$ entre 90 et 180° suivant sa position au
+      passage au méridien et $360\deg-\alpha$. L'étoile oscille donc
+      entre $\alpha$, 180° et $360\deg-\alpha$.
 
       Le deuxième critère (circumpolarité) indique si l'étoile a un
       lever ou un coucher, son azimut varie alors entre les positions
@@ -2283,8 +2374,8 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
     \item[Observateur de l'hémisphère Sud (latitude $-50\deg$)] Les
       mêmes critères s'appliquent pour les limitations des azimuts et
       des levers et couchers, à la différence que l'azimut va osciller
-      autour de la valeur $0\deg$ et que regardant le pôle Sud, il
-      verra tourner les étoiles dans le sens rétrograde
+      autour de la valeur 0° et que regardant le pôle Sud, il verra
+      tourner les étoiles dans le sens rétrograde
       (Fig.~\ref{mouvementdiurne}).
     \end{description}
   \item Oui. Que l'on soit dans l'hémisphère Nord ou Sud, le sens de
@@ -2323,10 +2414,10 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
         \toprule
         & Angle horaire & Déclinaison \\ 
         \cmidrule(r){2-3}
-        Sud   & 0h  & $\phi - 90\deg$ \\ 
-        Ouest & 6h  & 0 \\ 
-        Nord  & 12h & $90\deg - \phi$ \\ 
-        Est   & 18h & 0 \\ 
+        Sud   & 0~h  & $\phi - 90\deg$ \\ 
+        Ouest & 6~h  & 0 \\ 
+        Nord  & 12~h & $90\deg - \phi$ \\ 
+        Est   & 18~h & 0 \\ 
         \bottomrule
       \end{tabular}
       \label{tbl:coordonnees_horaire}
@@ -2357,17 +2448,17 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
 
 \begin{Exercise}[Coordonnées équatoriales]
   \begin{enumerate}
-  \item Une étoile traverse le méridien sud à une hauteur de
-    $85\deg$, et le méridien nord à $45\deg$. Trouver la
-    déclinaison de l'étoile et la latitude de l'observateur.
+  \item Une étoile traverse le méridien sud à une hauteur de 85°, et
+    le méridien nord à 45°. Trouver la déclinaison de l'étoile et la
+    latitude de l'observateur.
   \item Où ces affirmations sont-elles vraies ?
     \begin{enumerate}
     \item Castor ($\alpha$-Gem, déclinaison $+31\deg54'$) est
       circumpolaire.
     \item Bételgeuse ($\alpha$-Ori, $7\deg24'$) culmine au
       zénith.
-    \item $\alpha$-Cen ($-60\deg46'$) s'élève à une hauteur de
-      $20\deg$ au méridien.
+    \item $\alpha$-Cen ($-60\deg46'$) s'élève à une hauteur de 20° au
+      méridien.
     \end{enumerate}
   \end{enumerate}
 \end{Exercise}
@@ -2391,7 +2482,7 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
     \delta=65\deg
     $$
     On calcule la latitude qui vaut la hauteur du pôle au dessus de
-    l'horizon : $\phi=\alpha+45\deg=70\deg$.
+    l'horizon : $\phi = \alpha+45\deg = 70\deg$.
 
     \begin{SCfigure}%[htp]
       \centering
@@ -2402,7 +2493,7 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
 
   \item
     \begin{description}
-    \item[Castor (Gem, $\delta = +31\deg56'$) circumpolaire]
+    \item[Castor (Gem, $\delta = +31\deg56'$) circumpolaire:]
       L'étoile sera juste circumpolaire, c'est-à-dire passera tangent
       à l'horizon Nord, si sa déclinaison est le complément de la
       latitude.  Pour toute latitude plus grande, l'étoile sera plus
@@ -2431,18 +2522,17 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
         \caption{Coordonnées équatoriales.}
       \end{figure}
 
-    \item[Bételgeuse (Ori, $\delta = +7\deg24'$) culmine au zénith]
+    \item[Bételgeuse (Ori, $\delta = +7\deg24'$) culmine au zénith:]
       Si l'étoile est au moment de sa culmination au zénith
       (nécessairement), sa déclinaison est égale à la latitude
       (Fig.~\ref{betelgeuse}) : $\phi=7\deg24'$
 
-    \item[$\alpha$-Cen ($\delta = - 60\deg46'$) s'élève à une
-      hauteur de $+20\deg$] À son passage supérieur, l'étoile se
-      trouve dans la configuration Fig.~\ref{cen}.  La latitude est
-      l'angle $PON$ qui est égal à $P'OS$. En appliquant la relation
-      de Chasles entre $P'OS$ la hauteur de l'astre $20\deg$ et la
-      déclinaison, on obtient : $P'OS=90\deg+\delta-20\deg$ d'où
-      $\phi = 9\deg14'$
+    \item[$\alpha$-Cen ($\delta = - 60\deg46'$) s'élève à une hauteur
+      de +20°:] À son passage supérieur, l'étoile se trouve dans la
+      configuration Fig.~\ref{cen}.  La latitude est l'angle $PON$ qui
+      est égal à $P'OS$. En appliquant la relation de Chasles entre
+      $P'OS$ la hauteur de l'astre 20° et la déclinaison, on obtient :
+      $P'OS = 90\deg + \delta - 20\deg$ d'où $\phi = 9\deg14'$
     \end{description}
   \end{enumerate}
 \end{Answer}
@@ -2454,19 +2544,18 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
 \begin{Exercise}[Mouvement du Soleil, jour solaire]
   \begin{enumerate}
   \item Que valent la hauteur maximale et la hauteur minimale du
-    Soleil en chacun des lieux considérés : $50\deg$, $75\deg$,
-    $10\deg$, $20\deg$ ?
+    Soleil en chacun des lieux considérés : 50°, 75°, 10°, 20° ?
 
   \item À quelle condition doit satisfaire la latitude d'un lieu pour
     que le Soleil n'ait ni lever ni coucher ?
 
-  \item Comment comprendre l'expression « soleil de minuit » ?
+  \item Comment comprendre l'expression «~soleil de minuit~» ?
 
   \item À quelle condition doit satisfaire la latitude d'un lieu pour
     que le Soleil puisse passer à son zénith ?
 
-  \item Comment comprendre l'expression « tropique du Cancer » et «
-    tropique du Capricorne » ? on pourra discuter cette question, en
+  \item Comment comprendre l'expression «~tropique du Cancer~» et «
+    tropique du Capricorne~» ? on pourra discuter cette question, en
     particulier, en consultant une carte céleste.
   \end{enumerate}
 \end{Exercise}
@@ -2488,7 +2577,7 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
     \begin{center}
       \begin{tabular}{lcccc}
         \toprule
-        Latitude $\epsilon$ & $50\deg$ & $75\deg$ & $10\deg$ & $-20\deg$ \\
+        Latitude $\epsilon$ & 50° & 75° & 10° & $-$20° \\
         Hauteur max. & $63\deg27'$ & $38\deg27'$ & $90\deg$ & $90\deg$ \\
         Hauteur min. & $16\deg33'$ & $-08\deg27'$ & $56\deg33'$ & $46\deg33'$ \\
         \bottomrule
@@ -2518,28 +2607,28 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
 
   \item Ceci se produit dans l'hémisphère nord en été quand le Soleil
     a une déclinaison suffisamment positive. On appelle ce phénomène
-    le « soleil de minuit ». Sur la figure ci-contre (cas de
+    le «~soleil de minuit~». Sur la figure ci-contre (cas de
     l'hémisphère Nord), lorsque au passage inférieur, l'angle $NOD$
     est positif, le Soleil ne se couche pas, son mouvement est
     circumpolaire.
     \begin{align*}
       NOD = NOE' + E'OD &> 0 \\
-      90\deg - \phi &< \delta_{soleil} \\
-      \phi &> 90\deg - \delta_{soleil}
+      90\deg - \phi &< \delta_{\odot} \\
+      \phi &> 90\deg - \delta_{\odot}
     \end{align*}
-    Au jour des solstices ($\delta_{soleil} = \pm 23\deg27'$) il
+    Au jour des solstices ($\delta_{\odot} = \pm 23\deg27'$) il
     suffit d'être à une latitude $\phi > 66\deg33'$ (en été pour
     l'hémisphère Nord) ou $\phi < - 66\deg33'$ (en hiver pour
     l'hémisphère Sud) ; les lieux de latitude $\phi$ égale à $\pm
     66\deg33'$ définissent sur le globe terrestre les parallèles
-    appelés « cercles polaires » (respectivement boréal et austral)
+    appelés «~cercles polaires~» (respectivement boréal et austral)
     (Fig.~\ref{mvtsolaire2}).
 
   \item Vers les pôles, lors de son passage inférieur dans le plan
     méridien, le Soleil est au-dessus de l'horizon et son angle
-    horaire ayant augmenté de $180\deg$ depuis sa culmination (par
-    définition, il s'agit alors de « midi », 0h temps solaire) vaut
-    12h, cela correspond bien à « minuit ». À noter que le Soleil de
+    horaire ayant augmenté de 180° depuis sa culmination (par
+    définition, il s'agit alors de «~midi~», 0~h temps solaire) vaut
+    12~h, cela correspond bien à «~minuit~». À noter que le Soleil de
     minuit s'observe au Nord dans l'hémisphère boréal et au Sud dans
     l'hémisphère Sud.
 
@@ -2558,21 +2647,21 @@ une valeur de $H_0 = 70$~\u{km~s^{-1}~Mpc^{-1}}.
   \item Pour les lieux de latitude égale à $+23\deg27'$ et
     $-23\deg27'$, le Soleil passe au zénith au moment des
     solstices. Ces lieux définissent sur le globe terrestre les
-    parallèles appelés « tropiques » (du Cancer pour l'hémisphère Nord
+    parallèles appelés «~tropiques~» (du Cancer pour l'hémisphère Nord
     et du Capricorne pour l'hémisphère Sud). Si l'on se reporte à une
     carte du ciel, on voit qu'au moment des solstices le Soleil se
     trouve dans la direction de la constellation des Gémeaux (été) ou
     du Sagittaire (hiver). Il faudrait donc désigner les lieux en
-    question par les noms : « tropique des Gémeaux » au lieu de
-    tropique du Cancer et de même « tropique du Sagittaire » au lieu
+    question par les noms : «~tropique des Gémeaux~» au lieu de
+    tropique du Cancer et de même «~tropique du Sagittaire~» au lieu
     de tropique du Capricorne. L'appellation en usage a été définie il
-    y a environ 3000 ans à une époque où le point gamma était dans la
-    direction de la constellation du Bélier ; au solstice d'été le
-    Soleil était bien dans la direction du Cancer et au solstice
-    d'hiver dans la direction du Capricorne. Ce glissement est produit
-    par la précession des équinoxes au rythme de $360\deg$ pour 26
-    000 ans, ce qui donne un effet de $42\deg$, (soit environ un
-    angle de 3h) sur 3 000 ans, comme on peut le lire sur la carte.
+    y a environ 3\,000~ans à une époque où le point $\gamma$ était
+    dans la direction de la constellation du Bélier ; au solstice
+    d'été le Soleil était bien dans la direction du Cancer et au
+    solstice d'hiver dans la direction du Capricorne. Ce glissement
+    est produit par la précession des équinoxes au rythme de 360° pour
+    26\,000~ans, ce qui donne un effet de 42°, (soit environ un angle
+    de 3~h) sur 3\,000~ans, comme on peut le lire sur la carte.
 \end{enumerate}
 \end{Answer}
 
