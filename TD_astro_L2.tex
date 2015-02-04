@@ -1,4 +1,4 @@
-% Time-stamp: <2014-04-23 18:40 ycopin@lyonovae03.in2p3.fr>
+% Time-stamp: <2015-02-04 19:09 ycopin@lyonovae03.in2p3.fr>
 % Auteurs (version LaTeX):
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
@@ -33,10 +33,11 @@
 
 \usepackage[cm]{fullpage}
 \usepackage[francais]{babel}
+\DecimalMathComma
 
 \usepackage{microtype}
 
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath, amssymb}
 \usepackage{textcomp}
 \usepackage{gensymb}
 
@@ -61,8 +62,11 @@
   colorlinks=true,           % false: boxed links; true: colored links
   linkcolor=OliveGreen,      % color of internal links
   citecolor=OliveGreen,      % color of links to bibliography
-  urlcolor=MidnightBlue      % color of external links
+  urlcolor=MidnightBlue,     % color of external links
+  pdfencoding=auto,          % http://tex.stackexchange.com/questions/119079
+  psdextra=true,
 }
+\usepackage{bookmark} % http://tex.stackexchange.com/questions/119079
 
 % Définition de l'environnement 'Exercise'
 \newcounter{noexo}
@@ -76,15 +80,20 @@
 }{}
 
 % Définition de l'environnement 'Answer'
-\usepackage[usenames,dvipsnames]{color}
+\usepackage[usenames, dvipsnames]{color}
 \usepackage{comment}
 \specialcomment{Answer}{%
   \begingroup
   \sffamily\color{CadetBlue}
   \mathversion{sans}
-  \medskip\noindent\textbf{Corrigé :~}
+  %\medskip\noindent\textbf{Corrigé :~}
+  \paragraph*{\textsf{Corrigé :}}
 }{%
   \endgroup
+}
+% http://tex.stackexchange.com/questions/159820/comment-sty-and-utf8-encoding
+\renewcommand\ThisComment[1]{%
+  \immediate\write\CommentStream{\unexpanded{#1}}
 }
 
 % Inclusion ou non des corrigés
@@ -183,10 +192,11 @@
 \end{Exercise}
 
 \begin{Answer}
-  En appliquant l'équation $T_e = \left( \dfrac{L}{4 \pi R^2_p \sigma}
-  \right)^{1/4}$ avec la constante de Stefan $\sigma =
-  5,67\e{-8}$~\u{W~m^{-2}~K^{-4}}, on trouve la luminosité
-  $L_{\odot}\approx 3,83\e{26}$~W.
+  Dans l'hypothèse du corps noir, la luminosité est reliée à la
+  température et au rayon par $L_{\odot} = 4 \pi R_{\odot}^2 \sigma
+  T_{\odot}^{4}$ avec la constante de Stefan $\sigma =
+  5,67\e{-8}$~\u{W~m^{-2}~K^{-4}}, soit $L_{\odot}\approx
+  3,83\e{26}$~W.
 \end{Answer}
 
 
@@ -246,8 +256,8 @@
   \begin{enumerate}
   \item $F(D) = L / 4\pi D^2$, $P_{r} = L R^2/(4 D^2)$
   \item $F_e = \sigma T_{e}^4$ et $P_e = 4\pi R^2 \sigma T_{e}^4$
-  \item $P_e = P_r$ d'où $T_{e} = \left[L/(16 \pi D^2
-      \sigma)\right]^{(1/4)} = 278$~K.
+  \item $P_e = P_r$ d'où $T_{e} = \left( L/(16 \pi D^2 \sigma)
+    \right)^{1/4} = 278$~K.
   \end{enumerate}
 \end{Answer}
 
@@ -267,23 +277,25 @@
 \end{Exercise}
 
 \begin{Answer}
-  On rappelle que la magnitude apparente $m$ est liée au flux $F$ par
-  $m = -2,5 \log_{10}(F / F_{0})$.
+  On rappelle que la magnitude apparente $m$ est liée au flux $f$ par
+  $m = -2,5 \log_{10}(f / f_{0})$.
   \begin{enumerate}
   \item Le rapport des flux des deux composantes de $\alpha$~Cen
     dépend de la différence de magnitudes et vaut :
     $$
-    F_2 / F_1 = 10^{(m_{1} - m_{2})/2,5} = 0,28
+    f_2 / f_1 = 10^{(m_{1} - m_{2})/2,5} = 0,28
     $$
-  \item Pour obtenir la magnitude apparente visuelle globale du
-    système $m_{tot}$, il faut calculer le flux total (les puissances
-    émises par les deux composantes s'ajoutent) :
+  \item La magnitude apparente visuelle globale du système
+    $m_{\Sigma}$ se calcule à partir du flux total $f_{\Sigma} = f_{1}
+    + f_{2}$ (les puissances émises par les deux composantes
+    s'ajoutent) :
     $$
-    m_{tot} = -2,5 \log(F_{1} / F_{0} + F_{2} / F_{0}) =
+    m_{\Sigma} = -2,5 \log(f_{\Sigma} / f_{0}) = 
+    %-2,5 \log(f_{1}/f_{0} + f_{2}/f_{0}) =
     -2,5 \log(10^{-m_{1}/2,5} + 10^{-m_{2}/2,5}) = 0,04
     $$
-  \item La correction qu'il faut apporter aux magnitudes apparentes
-    $m$ de ce système pour obtenir les magnitudes absolues $M$ vaut :
+  \item La différence entre magnitudes apparente $m$ et absolue $M$
+    correspond au module de distance $\mu$ du système :
     $$
     \mu = m - M = 5 \log(D/10\;\u{pc}) = -4,4
     $$
