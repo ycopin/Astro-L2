@@ -1,4 +1,4 @@
-% Time-stamp: <2015-02-04 19:09 ycopin@lyonovae03.in2p3.fr>
+% Time-stamp: <2015-04-01 17:56 ycopin@lyonovae03.in2p3.fr>
 % Auteurs (version LaTeX):
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
@@ -9,9 +9,11 @@
 % Version sans solution:
 %   pdflatex "\def\sanscorrige{}\input{TD_astro_L2}"
 
-% À faire: Exercice sur la méthode Baade-Wesselink
+% À faire:
+% * Exercice sur la méthode Baade-Wesselink
 % (p.ex. http://arxiv.org/abs/1201.3478 et références,
 % http://www.eso.org/public/news/eso0432/, 2004ApJ...603..285M)
+% * Ajout de la théorie MOND dans l'exo sur la matière noire
 
 \documentclass[a4paper,10pt]{report}
 
@@ -432,11 +434,11 @@
     (1,02 \pm 0,03) \e{-5}~\u{pc~an^{-1}}$
   \item $\theta = 67,9 \pm 0,6\deg = 1,19 \pm 0,01$~rad, et donc $\tan
     \theta= 2,50 \pm 0,07$.
-  \item Finalement, $D = v_{r}\tan\theta/\mu = 111 \pm 8$~pc. L'erreur
-    est obtenue via $\d D = (\tan\theta/\mu)\d v_{r} +
-    (v_{r}/\mu)(1-\tan^{2}\theta)\d\theta -
-    (v_{r}\tan\theta/\mu^{2})\d\mu$.
   \end{itemize}
+  Finalement, $D = v_{r}\tan\theta/\mu = 111 \pm 8$~pc. L'erreur est
+  obtenue via $\d D = (\tan\theta/\mu)\d v_{r} +
+  (v_{r}/\mu)(1-\tan^{2}\theta)\d\theta -
+  (v_{r}\tan\theta/\mu^{2})\d\mu$.
 \end{Answer}
 
 \subsection{Classification stellaire}
@@ -527,20 +529,15 @@
 \end{Exercise}
 
 \begin{Answer}
-  Pour Sirius :
-  \begin{itemize}
-  \item Son diamètre apparent vaut $\theta_*= 5,89~\u{mas} =
-    2,86\e{-8}$~rad.
-  \item Son rayon vaut donc $R = \theta_* d / 2 = 
-    3,8\e{-8}\;\u{pc} = 1,2 \e9\;\u{m} = 1,7\;R_{\odot}$.
-  \end{itemize}
+  Pour Sirius, le rayon vaut $R[\u{UA}] = d[\u{pc}] \times
+  \theta_*[''] / 2$ soit $R = 7,8\e{-3}\;\u{UA} = 1,67\;R_{\odot}$.
   Le tableau suivant donne les résultats pour les 3 étoiles :
   \begin{center}
     \begin{tabular}{lccc}
       \toprule
       & $\alpha$ CMa & $\alpha$ Tau & $\alpha$ Ori \\
       \cmidrule(r){2-4}
-      $R/R_{\odot}$ & 1,7 & 52 & 936 \\
+      $R/R_{\odot}$ & 1,67 & 52 & 936 \\
       Classe de luminosité & V & III & I \\
       Type spectral & A1V & K5III & M2I \\
       \bottomrule
@@ -561,8 +558,8 @@
   \item La plus grande séparation angulaire entre les deux composantes
     est de $5''$, et la plus petite de $1''$.
   \item La période de révolution est de 30~ans.
-  \item L'étoile primaire se trouve au foyer de l'orbite observée, car
-    il n'y a pas d'effet de projection.
+  % \item L'étoile primaire se trouve au foyer de l'orbite observée, car
+  %   il n'y a pas d'effet de projection.
   \item Le compagnon est toujours observé à une distance du centre de
     gravité 5~fois plus grande que celle de l'étoile primaire.
   \end{itemize}
@@ -581,8 +578,7 @@
     $a[\u{UA}] = \theta[''] D[\u{pc}]$ soit $a = 30\;\u{UA} =
     4,49\e{12}\;\u{m}$.
   \item La 3ème loi de Kepler (en unités réduites) donne la somme des
-    masses : $\tilde{M}_{1} + \tilde{M}_{2} = 30\;M_{\odot} =
-    5,97\e{31}$~kg.
+    masses : $M_{1} + M_{2} = 30\;M_{\odot} = 5,97\e{31}$~kg.
   \item Les distances des étoiles $E_1$ et $E_2$ au centre de gravité
     $G$ vérifient $M_1 \times GE_1 = M_2 \times GE_2$. Le rapport des
     masses vaut donc $M_1 / M_2 = GE_2 / GE_1 = 5$.
@@ -604,7 +600,7 @@
       Composantes & $A$ & $B$ \\
       \cmidrule(r){2-3}
       Type spectral & B8V & K2IV \\
-      $R$ ($R_{\odot}$) & 2,74 & 3,60 \\
+      $R/R_{\odot}$ & 2,74 & 3,60 \\
       $\theta_{\mathrm{abs}}$ (mas) & & 1,872 \\
       \bottomrule
     \end{tabular}
@@ -644,11 +640,11 @@
     \begin{tabular}{lcc}
       \toprule
       $D$ (pc) & \multicolumn{2}{c}{28,46 $\pm$ 0,73} \\
-      $a$ ($R_{\odot}$) &  \multicolumn{2}{c}{13,96} \\
+      $a/R_{\odot}$ & \multicolumn{2}{c}{13,96} \\
       \midrule
       & $A$ & $B$ \\
       \cmidrule(r){2-3}
-      $M$ ($M_{\odot}$) & 3,65 & 0,80 \\
+      $M/M_{\odot}$ & 3,65 & 0,80 \\
       \bottomrule
     \end{tabular}
   \end{center}
@@ -953,8 +949,9 @@
   Dans une observation de comptage d'étoiles, toutes de même type, on
   constate que :
   \begin{itemize}
-  \item pour $m\le7$, $\log{N(m)}=0,6 m + 3$
-  \item pour $m\ge9$, $\log{N(m)}=0,6 m + 2,4$
+  \item pour une magnitude apparente $m\le7$, on compte un
+    nombre d'étoiles $N(m)$ tel que $\log{N(m)} = 0,6\,m + 3$
+  \item pour $m\ge9$, on obtient $\log{N(m)}=0,6\,m + 2,4$
   \end{itemize}
 
   \begin{enumerate}
@@ -993,12 +990,12 @@
     $$
   \item En écrivant l'équation du module de distance avec $M=5$ :
     \begin{itemize}
-    \item pour $m = 7 = 5\log{r_1/10\;\u{pc}}+M$ d'où $r_1 = 25,1$~pc
-      = distance du front proche du nuage
-    \item pour $m = 9 = 5\log{r_2/10\;\u{pc}}+M+A$ avec $A=1$ d'où $r2
-      = 39,8$~pc
+    \item à l'entrée du nuage, $m = 7 = 5\log{r_1/10\;\u{pc}}+M$ d'où
+      $r_1 = 25,1$~pc
+    \item à la sortie du nuage, $m = 9 = 5\log{r_2/10\;\u{pc}}+M+A$
+      avec $A=1$ d'où $r_{2} = 39,8$~pc
     \end{itemize}
-    Épaisseur du nuage : $r_2-r_1 = 39,8-25,1 = 14,7$~pc
+    On en déduit l'épaisseur du nuage : $r_2-r_1 = 39,8-25,1 = 14,7$~pc
   \end{enumerate}
 \end{Answer}
 
@@ -1045,11 +1042,11 @@
 
 \begin{Answer}
   \begin{enumerate}
-  \item $\ell = h/\sin b$ et $A = A_{0}/\sin b$.
+  \item $\ell = h/\sin b$ et $A = l \times A_{0}/h = A_{0}/\sin b$.
   \item $N(m,b) = \rho \times 4\pi d^{3}/3$ avec $\log(d/\u{pc})
     = 1+0,2(m-M-A)$ donc $\log N(m,b) = 0,6m - 0,6A - 0,6 M +
-    \log(\rho/\u{pc}^{3}) + \log(4\pi/3) + 3$.
-  \item $\log(\rho/\u{pc}^{3}) = -16,52$ soit $\rho =
+    \log(\rho/\u{pc}^{-3}) + \log(4\pi/3) + 3$.
+  \item $\log(\rho/\u{pc}^{-3}) = -16,52$ soit $\rho =
     30~\u{Mpc}^{-3}$.
   \end{enumerate}
 \end{Answer}
@@ -1064,7 +1061,7 @@
   caractéristiques suivent :
   \begin{itemize}
   \item rayon $a = 0,1\;\mu$,
-  \item $Q_{ext} = 1$,
+  \item efficacité d'extinction $Q_{ext} = 1$,
   \item masse volumique : 1~g/cm$^{3}$,
   \item répartition des grains uniforme sur la ligne de visée ;
   \end{itemize}
@@ -1076,9 +1073,9 @@
     visée,
   \item la masse volumique des grains dans le MIS.
   \end{enumerate}
-  En admettant que la densité moyenne d'atomes d'Hydrogène est de
-  l'ordre de 8~atomes par cm$^3$, et en négligeant la présence des
-  atomes d'autres éléments, calculer (on donne la masse du proton $m =
+  En admettant que la densité moyenne d'atomes d'H est de l'ordre de
+  8~atomes par cm$^3$, et en négligeant la présence des atomes
+  d'autres éléments, calculer (on donne la masse du proton $m =
   1,67\e{-24}$~g) :
   \begin{enumerate}[resume]
   \item la masse volumique du gaz dans le MIS,
@@ -1090,13 +1087,13 @@
 
 \begin{Answer}
   \begin{align*}
-    \text{Distance de l'étoile :}&\quad
+    \text{Distance de l'étoile :} &\quad
     L = 2\;\u{kpc} = 6,17\e{21}\;\u{cm} \\
-    \text{Section d'un grain :}&\quad
-    s_g = \pi\,a^2 = \pi\,(10^{-5})^2 = \pi\,10^{-10}~[\u{cm^{2}}] \\
-    \text{Extinction en V sur la ligne de visée :}&\quad
+    \text{Section d'un grain :} &\quad
+    s_g = \pi\,a^2 = \pi\,(10^{-5})^2 = \pi\,10^{-10}~\u{cm^{2}} \\
+    \text{Extinction en V sur la ligne de visée :} &\quad
     A_V = 0,3~\u{mag/kpc}\times 2~\u{kpc} = 0,6~\u{mag} \\
-    \text{d'où la profondeur optique :}&\quad
+    \text{d'où la profondeur optique :} &\quad
     \tau = \frac{0,6}{1,086} = 0,55 = n_g\,s_g\,L
   \end{align*}
   La densité de colonne est le nombre de grains dans un cylindre de
@@ -1104,25 +1101,25 @@
   constante, la densité de colonne est donc égale à $n_g L$
   $$
   n_g L = \frac{\tau}{s_g} = \frac{0,55}{\pi 10^{-10}} =
-  1,75\e{9}~[\u{grain/cm^2}]
+  1,75\e{9}~\u{grains/cm^2}
   $$
   On déduit de l'expression précédente la densité de grains $n_g$ :
   $$
-  n_g = \frac{1,75\e{9}}{6\e{21}} = 2,82\e{-13}~[\u{grain/cm^{3}}]
+  n_g = \frac{1,75\e{9}}{6,17\e{21}} = 2,82\e{-13}~\u{grain/cm^{3}}
   $$
   Masse volumique des grains dans le MIS :
   $$
-  1 [\u{g/cm^{3}}]\times \frac{4\pi a^{3}}{3}~[\u{cm^3/grain}]
-  2,9\e{-13} [\u{grain/cm^3}] = 1,18\e{-27}~[\u{g/cm^3}]
+  1\;\u{g/cm^{3}}\times \frac{4\pi a^{3}}{3}\;\u{cm^3/grain} \times
+  2,82\e{-13}\;\u{grain/cm^3} = 1,18\e{-27}\;\u{g/cm^3}
   $$
   Masse volumique du gaz dans le MIS :
   $$
-  8~[\u{atomes/cm^3}] 1,67352\e{-24}~[\u{g/atome}] = 1,34\e{-23}~[\u{g/cm^3}]
+  8\;\u{atomes/cm^3} \times 1,67352\e{-24}\;\u{g/atome} = 
+  1,34\e{-23}\;\u{g/cm^3}
   $$
   $$
-  \frac{\text{Masse volumique des grains}}{%
-    \text{Masse volumique du gaz}} =
-  \frac{1,18\e{-27}~[\u{g/cm^3}]}{1,34\e{-23}~[\u{g/cm^3}]} = 8,8\e{-5}
+  \frac{\text{Masse volumique des grains}}{\text{Masse volumique du gaz}} =
+  \frac{1,18\e{-27}\;\u{g/cm^3}}{1,34\e{-23}\;\u{g/cm^3}} = 8,8\e{-5}
   $$
   Conclusion : les grains ne représentent qu'une fraction très faible de
   la masse de matière dans le MIS.
@@ -1150,7 +1147,7 @@
   $W(\lambda)$, donné par la formule de Planck, représente le flux de
   l'étoile en l'absence d'extinction.  Si $W'(\lambda)$ représente le
   flux de l'étoile en présence d'une extinction en magnitude de la
-  forme $A(\lambda) = a/\lambda$, on a : $A(\lambda)= 2,5 \log W/W'$
+  forme $A(\lambda) = a/\lambda$, on a : $A(\lambda)= +2,5 \log W/W'$
   soit, en posant $a' = a \times 0,4 \ln 10$ : $W' = W
   \exp(-a'/\lambda)$.
 
@@ -1217,11 +1214,12 @@
   \item Calcul des extinctions
     \begin{align*}
       A_V &= 5\;\u{kpc}\times 0,3\;\u{mag/kpc} = 1,5 \\
-      A_B &= 1,5 \times \frac{0,55}{0,44} = 1,88
+      A_B &= 1,5 \times 0,55/0,44 = 1,88
     \end{align*}
-  \item Calcul de l'excès de couleur: $E_{B-V} = A_B-A_V = 1,88 - 1,5 = 0,38$
-  \item Calcul de l'indice de couleur: $(B-V) = (m_{B_0} +A_B) -
-    (m_{V_0} +A_V) = (B-V)_0 + (A_B- A_V) = 0,7 + 0,38 = 1,08$
+  \item Calcul de l'excès de couleur: $E_{B-V} = A_B - A_V = 1,88 -
+    1,5 = 0,38$
+  \item Calcul de l'indice de couleur: $(B-V) = (m_{B_0} + A_B) -
+    (m_{V_0} + A_V) = (B-V)_0 + E_{B-V} = 0,7 + 0,38 = 1,08$
   \item Le type spectral apparent sera celui d'une étoile environ
     K5. Comme l'extinction ne change pas la profondeur des raies de
     l'étoile, sa classe de luminosité apparente restera celle d'une
@@ -1251,17 +1249,17 @@
   \centering
   \includegraphics[width=0.5\textwidth]{interstellarreddeningreduite}
   \caption{Loi de couleur: $A_{\lambda}/E_{B-V}$ en fonction de
-    $1/\lambda$. On y lit p.ex. que $A_{V}/E_{B-V} = 3,1$.}
+    $1/\lambda$. On y lit p.ex. que $A_{V}/E_{B-V} \simeq 3,1$.}
   \label{extinction}
 \end{SCfigure}
 
 \begin{Answer}
   \begin{enumerate}
   \item Calcul de l'extinction: $E_{B-V} = (A_B- A_V) = (B-V) -
-    (B-V)_0 = 2,25 - -0,25 = 2,5$.  Le graphique donne $A_V \simeq 3,1
-    E_{B-V}$, d'où $A_V = 3,1 \times 2,5 = 7,75$.
-  \item Le graphique donne $A_K \simeq 0,5 \times E_{B-V}$, d'où $A_K
-    = 0,5 \times 2,5 = 1,25$.
+    (B-V)_0 = 2,25 - -0,25 = 2,5$.  Le graphique donne $A_V/E_{B-V}
+    \simeq 3,1$, d'où $A_V = 3,1 \times 2,5 = 7,75$.
+  \item Le graphique donne $A_K/E_{B-V} \simeq 0,5$, d'où $A_K = 0,5
+    \times 2,5 = 1,25$.
   \item L'extinction est beaucoup plus faible dans l'IR que dans le
     visible.
   \end{enumerate}
@@ -1358,8 +1356,8 @@
     atteint une valeur limite $V_{0} > 0$. Commentez.
   \item Quelle forme de la densité de masse $\rho(R)$ doit-on présumer
     pour atteindre une valeur constante de $V$ quand $R$ augmente ? On
-    note que, sous l'hypothèse de symétrie sphérique, $\d M/\d R =
-    4\pi R^2 \rho(R)$
+    rappelle que, sous l'hypothèse de symétrie sphérique, $\d M =
+    4\pi R^2 \rho(R)\,\d R$.
   \end{enumerate}
 \end{Exercise}
 
@@ -1376,7 +1374,7 @@
     ses effets gravitationnels.
   \item $\d M(R)/\d R = 4\pi R^2 \rho(R) \stackrel{\mathrm{PFD}}{=}
     \d(RV_{0}^{2}/G)/\d R$ d'où $\rho(R) = (1/4\pi R^2) (V_0^2/G)
-    \propto 1/R^{2}$.
+    \propto 1/R^{2}$. Problème: la masse totale de la galaxie diverge!
   \end{enumerate}
 \end{Answer}
 
@@ -1442,7 +1440,7 @@
   \qquad\text{avec}\qquad 
   a~[\u{UA}] = a~[1''] \times R~[1~\u{pc}] = 1,011\e{3}
   $$
-  d'où $M_{\mathrm{SgrA}*} = 4,5\e{6}\;M_{\odot}$.
+  d'où $M_{\mathrm{SgrA}*} = 4,5\e{6}\;M_{\odot} \gg M_{\mathrm{visible}}$.
 \end{Answer}
 
 \subsection{Le groupe local}
@@ -1477,9 +1475,9 @@
   La fonction de luminosité $\Phi(L)$ des galaxies s'exprime
   généralement à l'aide de la fonction de Schechter (1976) :
   $$
-  \Phi(L) =
-  \frac{\Phi^{*}}{L^{*}}\left(\frac{L}{L^{*}}\right)^{\alpha}
-  \exp\left(-\frac{L}{L^{*}}\right)
+  \Phi(L)\,\d L =
+  \Phi^{*}\left(\frac{L}{L^{*}}\right)^{\alpha}
+  \exp\left(-\frac{L}{L^{*}}\right)\,\d L/L^{*}
   $$
   où $\Phi(L)\d L$ est le nombre de galaxies de luminosité comprise
   entre $L$ et $L+\d{}L$ par unité de volume (p.ex. par
@@ -1496,17 +1494,25 @@
   \begin{enumerate}
   \item Cette fonction empirique montre bien la prédominance des
     galaxies de faible luminosité intrinsèque. Noter que le nombre
-    total de galaxies $N_{T} = \int_{0}^{\infty} \Phi(L)\d L =
+    total de galaxies $N_{T} = \int_{0}^{\infty} \Phi(L)\,\d L =
     \Phi^{*}\Gamma(\alpha+1)$ diverge pour $\alpha \leq -1$, mais que
-    la luminosité totale $L_{T} = \int_{0}^{\infty} L\Phi(L)\d L =
+    la luminosité totale $L_{T} = \int_{0}^{\infty} L\Phi(L)\,\d L =
     \Phi^{*}L^{*}\Gamma(\alpha+2)$ reste finie.
-  \item On a $\Phi(L)\,\d L = \Phi(M)\,\d M$ avec $M = -2,5\log
-    L/L_{0}$, d'où:
+  \item On a $\Phi(L)\,\d L = \Phi(M)\,\d M$ avec $M - M^{*} = -2,5\log
+    L/L^{*}$, d'où:
     $$
-    \Phi(M) = 0,4 \ln 10\times \Phi^{*}\,10^{0,4(\alpha
-      +1)(M^{*}-M)}\exp \left( -10^{0,4(M^{*}-M)} \right)
+    \Phi(M) = 0,4 \ln 10\times \Phi^{*}\,10^{-0,4(\alpha
+      +1)(M-M^{*})}\exp \left( -10^{-0,4(M-M^{*})} \right)
     $$
   \end{enumerate}
+
+  \begin{SCfigure}%[htp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{schechter}
+    \caption{Fonction (normalisée) de Schechter pour différentes
+      valeurs de $\alpha$.}
+    \label{schechter}
+  \end{SCfigure}
 \end{Answer}
 
 %\subsubsection{Effets d'environnement, collisions et fusions}
@@ -1568,7 +1574,8 @@
     correspond au $\Delta t$ tel que $N_{c} = 1$ ; le libre parcours
     moyen est $\ell_{c} = v_{g} \times \tau_{c}$:
     $$
-    \tau_{c} = \frac{D_{a}^3}{6 N_{g} d_{g}^2 v_{g}}, \qquad
+    \tau_{c} = \frac{D_{a}^3}{6 N_{g} d_{g}^2 v_{g}}, 
+    \qquad
     \ell_{c} = \frac{D_{a}^3}{6 N_{g} d_{g}^2}
     $$
 
