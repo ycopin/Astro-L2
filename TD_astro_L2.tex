@@ -1,4 +1,4 @@
-% Time-stamp: <2015-04-01 17:56 ycopin@lyonovae03.in2p3.fr>
+% Time-stamp: <2015-04-08 14:44 ycopin@lyonovae03.in2p3.fr>
 % Auteurs (version LaTeX):
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
@@ -102,8 +102,11 @@
 \ifdefined\sanscorrige
   \message{Fascicule sans solutions}%
   \excludecomment{Answer} % Remove answers
+  \newcommand{\corrige}[1]{}
 \else
   \message{Fascicule *AVEC* solutions}%
+  \newcommand{\corrige}[1]{%
+    \sffamily\color{CadetBlue}\mathversion{sans}#1}
 \fi
 
 % Définitions locales
@@ -1433,8 +1436,8 @@
 \end{SCfigure}
 
 \begin{Answer}
-  En écrivant la 3\ieme loi de Kepler dans le système Terre+Soleil et
-  dans le système S2+SgrA*, nous obtenons:
+  En écrivant la 3\ieme loi de Kepler dans le système Terre-Soleil et
+  dans le système S2-SgrA*, nous obtenons:
   $$
   \frac{(a/a_{\oplus})^{3}}{(T/T_{\oplus})^{2}} = M_{\mathrm{SgrA}*}/M_{\odot} 
   \qquad\text{avec}\qquad 
@@ -1471,6 +1474,7 @@
 
 \subsection{Distribution des galaxies dans l'univers}
 
+% Schechter, 1976ApJ...203..297S
 \begin{Exercise}[Fonction de luminosité]
   La fonction de luminosité $\Phi(L)$ des galaxies s'exprime
   généralement à l'aide de la fonction de Schechter (1976) :
@@ -1488,6 +1492,14 @@
   \item Quelle est la signification physique de la loi de Schechter ?
   \item Exprimer la loi de Schechter en magnitudes absolues.
   \end{enumerate}
+
+  \begin{SCfigure}%[htp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{schechter76}
+    \caption{Fonction de luminosité des galaxies dans les amas d'Abell
+      (Schechter, 1976).} 
+    \label{schechter76}
+  \end{SCfigure}
 \end{Exercise}
 
 \begin{Answer}
@@ -1506,7 +1518,7 @@
     $$
   \end{enumerate}
 
-  \begin{SCfigure}%[htp]
+  \begin{SCfigure}[0.5]%[htp]
     \centering
     \includegraphics[width=0.6\textwidth]{schechter}
     \caption{Fonction (normalisée) de Schechter pour différentes
@@ -1618,11 +1630,15 @@
   \item $K = 1/2\,M_{1}v_{1}^{2} + 1/2\,M_{2}v_{2}^{2} =
     M_{\odot}v^{2} \stackrel{\mathrm{Viriel}}{=} -U/2 =
     +GM_{\odot}^{2}/(2D)$ d'où $v = \sqrt{G M_\odot/(2 D)}$, soit:
-    \begin{itemize}
-    \item pour $D=1$~UA: $v = 21,1$~km/s
-    \item pour $D=10$~UA: $v = 6,7$~km/s
-    \item pour $D=100$~UA: $v = 2,1$~km/s
-    \end{itemize}
+    \begin{center}
+      \begin{tabular}{lccc}
+        \toprule
+        $D$ [UA]   & 1    & 10  & 100 \\
+        \midrule
+        $v$ [km/s] & 21,1 & 6,7 & 2,1 \\
+        \bottomrule
+      \end{tabular}
+    \end{center}
   \end{enumerate}
 \end{Answer}
 
@@ -1633,31 +1649,20 @@
   \begin{center}
     \begin{tabular}{lrrr}
       \toprule
-      Système & $R$ & $V$ (km/s) & $M$ ($M_{\odot}$) \\ 
+      Système & $R$ & $V$ [km/s] & $M/M_{\odot}$ \\ 
       \midrule
-      Amas globulaire  & 10~pc  & 10 & \\ 
-      Galaxie          & 15~kpc & 200 & \\ 
-      Amas de galaxies & 1~Mpc  & 1000 & \\ 
+      Amas globulaire  & 10~pc  & 10   & \corrige{$4,6\e{5}$} \\ 
+      Galaxie          & 15~kpc & 200  & \corrige{$2,8\e{11}$} \\ 
+      Amas de galaxies & 1~Mpc  & 1000 & \corrige{$4,6\e{14}$} \\ 
       \bottomrule
     \end{tabular}
   \end{center}
 \end{Exercise}
 
 \begin{Answer}
-  On a $U = -GM^{2}/(2R)$ et $K=1/2\, MV^{2}$ d'où $M = 2RV^{2}/G$, avec
-  $G = 6,67\e{-11}\;\u{m^{3}~kg^{-1}~s^{-2}} =
-  4,302\e{-3}\;\u{km^{2}~s^{-2}~pc~M_{\odot}^{-1}}$ soit:
-  \begin{center}
-    \begin{tabular}{lrrr}
-      \toprule
-      Système & $R$ & $V$ (km/s) & $M$ ($M_{\odot}$) \\ 
-      \midrule
-      Amas globulaire  & 10~pc  & 10   & $4,6\e{5}$  \\ 
-      Galaxie          & 15~kpc & 200  & $2,8\e{11}$ \\
-      Amas de galaxies & 1~Mpc  & 1000 & $4,6\e{14}$ \\
-      \bottomrule
-    \end{tabular}
-  \end{center}
+  On a $U = -GM^{2}/(2R)$ et $K=1/2\, MV^{2}$ d'où $M = 2RV^{2}/G$,
+  avec $G = 6,67\e{-11}\;\u{m^{3}~kg^{-1}~s^{-2}} =
+  4,302\e{-3}\;\u{km^{2}~s^{-2}~pc~M_{\odot}^{-1}}$.
 \end{Answer}
 
 \begin{Exercise}[Temps cinématique]
@@ -1666,11 +1671,12 @@
   \begin{center}
     \begin{tabular}{lrrr}
       \toprule
-      Système & $R$ & $M$ ($M_{\odot}$) & $t_c$ (ans) \\ 
+      Système & $R$ & $M/M_{\odot}$ & $t_c$ [ans] \\ 
       \midrule
-      Amas ouvert     & 1~pc   & 500 &  \\ 
-      Amas globulaire & 10~pc  & $10^5$ &  \\ 
-      Galaxie         & 15~kpc & $10^{11}$ & \\ 
+      Amas ouvert      & 1~pc   & 500      & \corrige{$9,4\e{5}$} \\ 
+      Amas globulaire  & 10~pc  & $10^5$   & \corrige{$2,1\e{6}$} \\ 
+      Galaxie          & 15~kpc & $10^{11}$ & \corrige{$1,2\e{8}$} \\ 
+      Amas de galaxies & 1~Mpc  & $10^{14}$ & \corrige{$2,1\e{9}$} \\
       \bottomrule
     \end{tabular}
   \end{center}
@@ -1680,19 +1686,8 @@
 
 \begin{Answer}
   $t_{c} = R/V = \sqrt{2R^{3} / GM}$ avec $G =
-  4,500\e{-15}$~\u{pc^{3}~M_{\odot}^{-1}~an^{-2}} donc:
-  \begin{center}
-    \begin{tabular}{lrrr}
-      \toprule
-      Système & $R$ & $M$ ($M_{\odot}$) & $t_c$ (ans) \\ 
-      \midrule
-      Amas ouvert     & 1~pc   & 500      & $9,4\e{5}$ \\ 
-      Amas globulaire & 10~pc  & $10^5$   & $2,1\e{6}$ \\ 
-      Galaxie         & 15~kpc & $10^{11}$ & $1,2\e{8}$ \\ 
-      Amas de galaxies & 1~Mpc & $10^{14}$ & $2,1\e{9}$ \\
-      \bottomrule
-    \end{tabular}
-  \end{center}
+  4,500\e{-15}$~\u{pc^{3}~M_{\odot}^{-1}~an^{-2}}.
+
   Les temps cinématiques pour un amas ouvert et un amas globulaire ne
   sont pas vraiment différents malgré leurs tailles respectives très
   différentes.  De même entre une galaxie et un amas globulaire : il
@@ -1709,12 +1704,12 @@
 \section{Espace et temps absolus}
 
 \begin{Exercise}[La faiblesse de la force de gravitation]
-  Marcel et Naomi ressentent l'un pour l'autre une certaine attirance;
-  quelle part en revient tout bêtement à la force de gravitation
-  universelle, lorsque leurs centres de gravité respectifs sont
-  distants de 1 mètre ?  Quelle masse $m$, au même point de la Terre,
-  présente un poids égal à cette force ?  Marcel pèse, à Lyon, 700~N,
-  et Naomi 580~N.  Le rayon de la Terre à Lyon sera supposé égal à
+  Marcel et Naomi ressentent l'un pour l'autre une certaine
+  attirance...  Quelle part en revient tout bêtement à la force de
+  gravitation universelle, lorsque leurs centres de gravité respectifs
+  sont distants de 1 mètre ?  Quelle masse $m$, au même point de la
+  Terre, présente un poids égal à cette force ?  Marcel pèse 700~N, et
+  Naomi 580~N.  Le rayon de la Terre à Lyon sera supposé égal à
   $R_{\oplus} = 6375$~km, et la masse de la Terre est de $M_{\oplus} =
   5,97\e{24}$~kg.
 \end{Exercise}
@@ -1734,7 +1729,7 @@
   donc $M_{\mathrm{N}} = M_{\mathrm{M}}\times
   P_{\mathrm{N}}/P_{\mathrm{M}} = 71,1 \times 580/700 = 59,1~\u{kg}$
   d'où $F_{\mathrm{NM}} = 2,81\e{-7}~\u{N}.$ La masse qui présente un
-  poids égal à cette valeur en cet endroit est de : $m =
+  poids égal à cette valeur est de $m =
   F_{MN}R_{\oplus}^{2}/(GM_{\oplus}) = 2,87\e{-8}\;\u{kg} =
   28,7$~\u{\mu{}g}.
 
@@ -1809,35 +1804,31 @@
 \subsection{Relativité générale}
 
 \begin{Exercise}[L'équivalence gravité/accélération]
-  On dit que, pour la Relativité Générale, gravitation et accélération
-  sont équivalentes, mais que cette équivalence n'est que
-  locale. C'est à dire qu'aucune expérience de physique ne permet de
-  distinguer les effets de l'une de ceux de l'autre, mais seulement
-  tant qu'on se limite à un très petit domaine spatial. En gros, c'est
-  à peu près vrai dans un dé à coudre, cela ne l'est plus vraiment
-  dans un stade de foot.
+  Pour la Relativité Générale, gravitation et accélération sont
+  équivalentes, mais cette équivalence n'est que \emph{locale}: aucune
+  expérience de physique ne permet de distinguer les effets de l'une
+  de ceux de l'autre, \emph{à condition} de se limiter à un «~petit~»
+  domaine spatial.
 
-  En reprenant l'exemple simple de l'ascenseur d'Einstein, pouvez-vous
-  montrer qu'en effet il est facile de distinguer pesanteur et
-  accélération par la fusée si on abandonne la localité. Il suffit de
-  modifier l'ascenseur...
+  En reprenant l'expérience de pensée de l'«~ascenseur d'Einstein,~»
+  pouvez-vous montrer qu'il est en effet facile de distinguer
+  pesanteur et accélération par la fusée si on abandonne la localité.
 \end{Exercise}
 
 \begin{Answer}
   À grande échelle, le champ de gravité qui environne un corps massif
-  reste en général tout à fait discernable d'une accélération
-  constante.  Par exemple, dans l'image de l'ascenseur utilisée dans
-  le cours, il ne faut pas que la cabine soit trop étendue. Sinon, le
-  parallélisme ou le non-parallélisme des actions sur des masses très
-  éloignées l'une de l'autre trahirait la «~vraie~» nature du champ.
-  La cabine de gauche, supposée à grande distance de la planète, et
-  accélérée vers le haut (flèche bleue), produit des actions
-  parallèles (flèches rouges) sur les deux masses-test. La cabine de
-  droite, immobile dans le champ de gravitation de la Terre, montre
-  des actions convergentes vers le centre de la Terre (flèches
-  vertes). Rusés comme ils le sont parfois, les physiciens de
-  l'ascenseur finiraient par s'en apercevoir... (Fig.~\ref{grav})
-
+  reste en général discernable d'une accélération constante.  Par
+  exemple, dans l'image de l'ascenseur d'Einstein, il ne faut pas que
+  la cabine soit trop étendue.  Sinon, le parallélisme ou le
+  non-parallélisme des forces sur des masses éloignées l'une de
+  l'autre trahirait la «~vraie~» nature du champ.  Sur la
+  Fig.~\ref{grav}, la cabine de gauche, supposée à grande distance de
+  la planète, et accélérée vers le haut (flèche bleue), produit des
+  forces parallèles (flèches rouges) sur les deux masses-test.  La
+  cabine de droite, immobile dans le champ de gravitation de la Terre,
+  montre des forces convergentes vers le centre de la Terre (flèches
+  vertes).  De même, le physicien pourrait mettre en évidence une
+  dépendance de la force avec l'altitude dans le cas de droite.
   \begin{SCfigure}%[htp]
     \centering
     \includegraphics[width=0.4\textwidth]{grav}
