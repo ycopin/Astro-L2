@@ -1,4 +1,4 @@
-% Time-stamp: <2015-04-08 14:44 ycopin@lyonovae03.in2p3.fr>
+% Time-stamp: <2015-06-16 19:37:45 ycopin>
 % Auteurs (version LaTeX):
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
@@ -1709,29 +1709,27 @@
   gravitation universelle, lorsque leurs centres de gravité respectifs
   sont distants de 1 mètre ?  Quelle masse $m$, au même point de la
   Terre, présente un poids égal à cette force ?  Marcel pèse 700~N, et
-  Naomi 580~N.  Le rayon de la Terre à Lyon sera supposé égal à
-  $R_{\oplus} = 6375$~km, et la masse de la Terre est de $M_{\oplus} =
+  Naomi 580~N.  Le rayon de la Terre sera supposé égal à $R_{\oplus} =
+  6370$~km, et la masse de la Terre est de $M_{\oplus} =
   5,97\e{24}$~kg.
 \end{Exercise}
 
 \begin{Answer}
   Il s'agit d'appliquer la formule de Newton deux fois pour trouver
   les masses respectives de Marcel et Naomi, puis une troisième fois
-  pour calculer l'attraction qui s'exerce entre eux:
-  $$
-  F_{MN} = G \frac{m_M m_N}{d^2} = G \frac{m M_{\oplus}}{R_{\oplus}^2}.
-  $$
-  Pour Marcel, $P_{\mathrm{M}} = G M_{\mathrm{M}}M_{\oplus} /
-  R_{\oplus}^2$ soit $M_{\mathrm{M}} = P_{\mathrm{M}}R_{\oplus}^2 / (G
-  M_{\oplus}) = 71,3~\u{kg}$. Pour Naomi, on peut utiliser le fait que
+  pour calculer l'attraction qui s'exerce entre eux: $F_{MN} = G\,m_M
+  m_N/d^2 = G\,m M_{\oplus}/R_{\oplus}^2$.  Pour Marcel,
+  $P_{\mathrm{M}} = G M_{\mathrm{M}}M_{\oplus} / R_{\oplus}^2$ soit
+  $M_{\mathrm{M}} = P_{\mathrm{M}}R_{\oplus}^2 / (G M_{\oplus}) =
+  71,3~\u{kg}$. Pour Naomi, on peut utiliser le fait que
   $M_{\mathrm{N}}/M_{\mathrm{M}} = P_{\mathrm{N}} / P_{\mathrm{M}}$,
   puisque les deux personnes sont soumises au même champ de gravité,
   donc $M_{\mathrm{N}} = M_{\mathrm{M}}\times
-  P_{\mathrm{N}}/P_{\mathrm{M}} = 71,1 \times 580/700 = 59,1~\u{kg}$
+  P_{\mathrm{N}}/P_{\mathrm{M}} = 71,3 \times 580/700 = 59,0~\u{kg}$
   d'où $F_{\mathrm{NM}} = 2,81\e{-7}~\u{N}.$ La masse qui présente un
   poids égal à cette valeur est de $m =
-  F_{MN}R_{\oplus}^{2}/(GM_{\oplus}) = 2,87\e{-8}\;\u{kg} =
-  28,7$~\u{\mu{}g}.
+  F_{MN}R_{\oplus}^{2}/(GM_{\oplus}) = 2,86\e{-8}\;\u{kg} =
+  28,6$~\u{\mu{}g}.
 
   L'attraction gravitationnelle est une force \emph{très faible},
   c'est même la plus faible des quatre forces fondamentales de
@@ -1822,13 +1820,13 @@
   la cabine soit trop étendue.  Sinon, le parallélisme ou le
   non-parallélisme des forces sur des masses éloignées l'une de
   l'autre trahirait la «~vraie~» nature du champ.  Sur la
-  Fig.~\ref{grav}, la cabine de gauche, supposée à grande distance de
-  la planète, et accélérée vers le haut (flèche bleue), produit des
-  forces parallèles (flèches rouges) sur les deux masses-test.  La
-  cabine de droite, immobile dans le champ de gravitation de la Terre,
-  montre des forces convergentes vers le centre de la Terre (flèches
-  vertes).  De même, le physicien pourrait mettre en évidence une
-  dépendance de la force avec l'altitude dans le cas de droite.
+  Fig.~\ref{grav}, la cabine de gauche, supposée accélérée vers le
+  haut (flèche bleue), produit des forces parallèles (flèches rouges)
+  sur les deux masses-test.  La cabine de droite, immobile dans le
+  champ de gravitation de la Terre, montre des forces convergentes
+  vers le centre de la Terre (flèches vertes).  De même, le physicien
+  pourrait mettre en évidence une dépendance de la force avec
+  l'altitude dans le cas de droite.
   \begin{SCfigure}%[htp]
     \centering
     \includegraphics[width=0.4\textwidth]{grav}
@@ -2012,12 +2010,16 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
 \end{Answer}
 
 \begin{Exercise}[Densité critique]
-  Calculer la densité critique $\rho_{C} = \dfrac{3c^{2}
-    H_{0}^{2}}{8\pi G}$. En quelles unités s'exprime-t-elle ?
+  Calculer la densité critique $\rho_{C} = \dfrac{3 H_{0}^{2}}{8\pi G}$.
+  Quelle est sa dimension ?  La convertir en nucléons/$\u{m^{3}}$ ($m_{p}
+  \simeq m_{n} \simeq m_{u} = 1,66\e{-27}$~kg), puis en $M_{\odot}/\u{Mpc}^{3}$.
+  Commenter.
 \end{Exercise}
 
 \begin{Answer}
-  $\rho_{C} \simeq 8,27\e{-10}~\u{J\;m^{-3}} \simeq 5,5$~nucléons/\u{m^{3}}
+  $\rho_{C} = 9,20\e{-27}~\u{kg\;m^{-3}} = 5,54\;\text{nucléons}\;\u{m^{-3}} =
+  1,34\e{11}\;M_{\odot}\;\u{Mpc}^{-3}$, soit environ une galaxie (massive) par
+  \u{Mpc^{3}}, densité caractéristique de l'Univers local.
 \end{Answer}
 
 \begin{Exercise}[Âge de l'Univers]
@@ -2131,7 +2133,7 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
 
 \begin{Exercise}[\emph{Redshift} cosmologique]
   La radiogalaxie 4C~41.17 montre une raie spectrale intense à
-  582,2~nm.  Cette raie est identifiée comme la raie Lyman alpha de
+  582,2~nm.  Cette raie est identifiée comme la raie Lyman~$\alpha$ de
   l'hydrogène. En laboratoire, sur la Terre, la longueur d'onde de
   cette raie est de 121,5~nm.
 
