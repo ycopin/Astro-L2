@@ -1,4 +1,5 @@
-% Time-stamp: <2015-06-16 19:37:45 ycopin>
+% Time-stamp: <2015-12-25 23:54 ycopin@lyonovae03.in2p3.fr>
+% GIT repository: git@gitlab.in2p3.fr:ycopin/Astro-L2.git
 % Auteurs (version LaTeX):
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
@@ -54,10 +55,23 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
+\usepackage{siunitx}
+\sisetup{%
+  detect-all,
+  free-standing-units,          % create standalone commands
+  locale=FR, 
+  inter-unit-product={\,},      % character between units
+}
+\DeclareSIUnit\Lsun{\ensuremath{\mathsf{\emph{L}}_{\odot}}}
+\DeclareSIUnit\Rsun{\ensuremath{\mathsf{\emph{R}}_{\odot}}}
+\DeclareSIUnit\Msun{\ensuremath{\mathsf{\emph{M}}_{\odot}}}
+\DeclareSIUnit\pc{pc}           % parsec
+\DeclareSIUnit\as{as}           % arcsec
+
 \usepackage{hyperref}
 \hypersetup{
   pdftitle   = {Astrophysique pour la licence, fascicule de TD},
-  pdfauthor  = {Yannick Copin et l'équipe enseignante Astro-L2},
+  pdfauthor  = {Yannick Copin, pour l'équipe enseignante Astro-L2},
   pdfsubject = {Astrophysique pour la licence, Université de Lyon 1},
   unicode=true,              % non-Latin characters in Acrobat’s bookmarks
   linktoc=all,
@@ -69,6 +83,10 @@
   psdextra=true,
 }
 \usepackage{bookmark} % http://tex.stackexchange.com/questions/119079
+
+% Make Adobe Reader use the RGB rendering model for pages with transparency
+% http://tex.stackexchange.com/questions/16061/
+\pdfpageattr{/Group << /S /Transparency /I true /CS /DeviceRGB>>}
 
 % Définition de l'environnement 'Exercise'
 \newcounter{noexo}
@@ -115,7 +133,8 @@
 \renewcommand{\d}{\ensuremath{\mathrm{d}}}
 \renewcommand{\deg}{\ensuremath{\degree}}
 \renewcommand{\vec}[1]{\ensuremath{\boldsymbol{\mathbf{#1}}}}
-\renewcommand{\u}[1]{\ensuremath{\mathrm{#1}}} % Unités
+%\renewcommand{\u}[1]{\ensuremath{\mathrm{#1}}} % Unités
+\renewcommand{\u}[1]{\si{#1}} % Unités
 \newcommand{\defeq}{\mathrel{\widehat=}}
 \DeclareMathOperator{\grad}{\mathbf{grad}}
 
@@ -192,16 +211,16 @@
 
 \begin{Exercise}[Luminosité du Soleil]
   Calculer la luminosité du Soleil à partir de sa température
-  effective $T_\odot \approx 5770$~K et de son rayon $R_{\odot}\approx
-  6,96\e{8}$~m.
+  effective $T_\odot \approx \SI{5770}{K}$ et de son rayon
+  $\Rsun \approx \SI{6,96e8}{m}$.
 \end{Exercise}
 
 \begin{Answer}
   Dans l'hypothèse du corps noir, la luminosité est reliée à la
-  température et au rayon par $L_{\odot} = 4 \pi R_{\odot}^2 \sigma
+  température et au rayon par $\Lsun = 4 \pi \Rsun^2 \sigma
   T_{\odot}^{4}$ avec la constante de Stefan $\sigma =
-  5,67\e{-8}$~\u{W~m^{-2}~K^{-4}}, soit $L_{\odot}\approx
-  3,83\e{26}$~W.
+  \SI{5,67e-8}{W.m^{-2}.K^{{-4}}}$, soit $\Lsun \approx
+  \SI{3,83e26}{W}$.
 \end{Answer}
 
 
@@ -209,19 +228,19 @@
   Déterminer le rayon (en unité solaire), la longueur d'onde de Wien
   et la couleur «~visible~» des étoiles suivantes :
   \begin{enumerate}
-  \item Naine blanche : $L = 10^{-2}$~\u{L_{\odot}}, $T_{e} = 20000$~K
-  \item Géante rouge : $L = 10^{2}$~\u{L_{\odot}}, $T_{e} = 4200$~K
-  \item Supergéante : $L = 10^{5}$~\u{L_{\odot}}, $T_{e} = 6000$~K
+  \item Naine blanche : $L = \SI{e-2}{\Lsun}$, $T_{e} = \SI{20000}{K}$
+  \item Géante rouge : $L = \SI{e2}{\Lsun}$, $T_{e} = \SI{4200}{K}$
+  \item Supergéante : $L = \SI{e5}{\Lsun}$, $T_{e} = \SI{6000}{K}$
   \end{enumerate}
-  Rappel de la loi de Wien : $\lambda_{\max} T = 2898$~\u{\mu{}m~K}.
+  Rappel de la loi de Wien : $\lambda_{\max} T = \SI{2898}{\micro\meter\K}$.
 \end{Exercise}
 
 \begin{Answer}
   \begin{center}
     \begin{tabular}{lccccl}
       \toprule
-      Type stellaire & $L$~[\u{L_{\odot}}] & $T_{e}$~[K] &
-      $R$~[\u{R_{\odot}}] & $\lambda_{\max}$ [nm] & Couleur \\
+      Type stellaire & $L$~[\Lsun] & $T_{e}$~[K] &
+      $R$~[\Rsun] & $\lambda_{\max}$ [nm] & Couleur \\
       \midrule
       Naine blanche & $10^{-2}$ & 20000  & 0,008 & 145 & Blanc \\
       Géante rouge  & $10^{2}$  & 4200  & 18,8   & 690 & Rouge \\
@@ -250,9 +269,9 @@
   \item Écrire l'égalité des puissance reçue et rayonnée à la surface
     de la Terre, en déduire l'expression de la température $T_{e}$ en
     fonction des données du problème.
-  \item Application numérique, sachant que $L=3,85\e{26}$~W,
-    $R=6400$~km, $D=1,500\e{11}$~m, $\sigma =
-    5,67\e{-8}$~\u{W~m^{-2}~K^{-4}}.
+  \item Application numérique, sachant que $L = \SI{3,85e26}{W}$, $R =
+    \SI{6400}{km}$, $D = \SI{1,500e11}{m}$, $\sigma =
+    \SI{5,67e-8}{W.m^{-2}.K^{-4}}$.
   \item Commenter sur la validité et les limites de ce modèle.
    \end{enumerate}
 \end{Exercise}
@@ -261,7 +280,7 @@
   \begin{enumerate}
   \item $F(D) = L / 4\pi D^2$, $P_{r} = L R^2/(4 D^2)$
   \item $F_e = \sigma T_{e}^4$ et $P_e = 4\pi R^2 \sigma T_{e}^4$
-  \item $P_e = P_r$ d'où $T_{e} = \left( L/(16 \pi D^2 \sigma)
+  \item $P_e = P_r$ d'où $T_{e} = \left( L / (16\pi D^2\sigma)
     \right)^{1/4} = 278$~K.
   \end{enumerate}
 \end{Answer}
@@ -302,7 +321,7 @@
   \item La différence entre magnitudes apparente $m$ et absolue $M$
     correspond au module de distance $\mu$ du système :
     $$
-    \mu = m - M = 5 \log(D/10\;\u{pc}) = -4,4
+    \mu = m - M = 5 \log(D/\SI{10}{\pc}) = -4,4
     $$
   \end{enumerate}
 \end{Answer}
@@ -326,7 +345,8 @@
     -(1/p^2)\d p$, d'où l'incertitude en prenant la valeur absolue :
     $$
     \Delta D = \frac{1}{p^2}\Delta p = \frac{D}{p}\Delta p
-    \quad\text{soit finalement}\quad \Delta D/D = \Delta p/p.
+    \quad\text{soit finalement}\quad 
+    \Delta D/D = \Delta p/p.
     $$
 
   \item On peut également prendre le logarithme de l'équation $D =
@@ -340,34 +360,30 @@
   Considérons les deux missions d'astrométrie spatiale : Hipparcos
   (1989), avec une incertitude absolue sur la mesure de la parallaxe
   typique de $\Delta p = 2$~mas, et Gaia (2013), avec $\Delta p =
-  7$~\u{\mu{}as}. Quelles sont les précisions obtenues à une distance
-  de 100~pc ? de 1000~pc ?  À quelle distance aura-t-on une erreur de
+  7$~$\mu$as. Quelles sont les précisions obtenues à une distance de
+  100~pc ? de 1000~pc ?  À quelle distance aura-t-on une erreur de
   100\% ?
 \end{Exercise}
 
 \begin{Answer}
-  Les étoiles situées à $D=100$~pc ont une parallaxe $p =
-  1/100=0\farcs 01 = 10$~mas. La précision obtenue sera de
-  $$
-  \text{Hipparcos:}\quad \frac{\Delta D}{D} 
-  = \frac{\Delta p}{p} = \frac{2\e{-3}}{10^{-2}} 
-  = 2\e{-1} = 20 \% \qquad
-  \text{Gaia:}\quad
-  \frac{\Delta D}{D} = \frac{\Delta p}{p} 
-  = \frac{7\e{-6}}{10^{-2}} = 7\e{-4} = 0,07 \%
-  $$
+  Les étoiles situées à $D = 100$~pc ont une parallaxe $p = 1/100 =
+  0\farcs 01 = 10$~mas. La précision obtenue sera de
+  \begin{align*}
+    \text{Hipparcos:}\quad \frac{\Delta D}{D} &= \frac{\Delta p}{p} =
+    \frac{2\e{-3}}{10^{-2}} = 2\e{-1} = 20 \% \\
+    \text{Gaia:}\quad \frac{\Delta D}{D} &= \frac{\Delta p}{p} = 
+    \frac{7\e{-6}}{10^{-2}} = 7\e{-4} = 0,07 \%
+  \end{align*}
   Pour des étoiles à $D=1000$~pc, $p=1$~mas, et les précisions
   deviennent 10 fois moins bonnes : 200\% avec Hipparcos et 0,7\% avec
   Gaia.
 
   On aura une erreur de 100\% quand $\Delta D = D$, soit $\delta p =
   p$. La distance correspondante s'obtient donc par
-  $$
-  \text{Hipparcos:}\quad 
-  D_{\max} = 1/p = 1/2\e{-3} = 500~\u{pc}
-  \qquad\text{Gaia:}\quad
-  D_{\max} = 1/p = 1/7\e{-6} = 143~\u{kpc}
-  $$
+  \begin{align*}
+    \text{Hipparcos:}\quad D_{\max} &= 1/p = 1/2\e{-3} = \SI{500}{\pc} \\
+    \qquad\text{Gaia:}\quad D_{\max} &= 1/p = 1/7\e{-6} = \SI{143}{\kilo\pc}
+  \end{align*}
 \end{Answer}
 
 \begin{Exercise}[Parallaxe et magnitude absolue]
@@ -381,8 +397,8 @@
       & $\alpha$ CMa (Sirius) & $\alpha$ Tau (Aldebaran) & $\alpha$ Ori
       (Bételgeuse) \\
       \cmidrule(r){2-4}
-      $m_V$ & $-$1,47 & 0,85 & 0,58 \\
-      $p$ (mas) & 379,2 $\pm$ 1,6 & 50,1 $\pm$ 1,0 & 7,6 $\pm$ 1,6 \\
+      $m_V$ & $-1,47$ & $0,85$ & $0,58$ \\
+      $p$ (mas) & $379,2 \pm 1,6$ & $50,1 \pm 1,0$ & $7,6 \pm 1,6$ \\
       \bottomrule
     \end{tabular}
   \end{center}
@@ -395,9 +411,9 @@
       & $\alpha$ CMa & $\alpha$ Tau & $\alpha$ Ori \\
       \cmidrule(r){2-4}
       $D$ (pc) &
-      2,637 $\pm$ 0,012 & 19,96 $\pm$ 0,40 & 132 $\pm$ 28 \\
+      $2,637 \pm 0,012$ & $19,96 \pm 0,40$ & $132 \pm 28$ \\
       $\Delta D / D$ & 0,4\% & 2\% & 21\% \\
-      $M_V$ & 1,42  & $-$0,65 & $-$4,99 \\
+      $M_V$ & $1,42$  & $-0,65$ & $-4,99$ \\
       \bottomrule
     \end{tabular}
   \end{center}
@@ -406,7 +422,7 @@
   qui permet d'avoir immédiatement $\Delta D / D$. Ces résultats
   illustrent bien la diminution de la précision lorsque la distance
   augmente.  La magnitude absolue s'obtient par la relation $M_V = m_V
-  - 5~\log(D/10\;\u{pc})$.
+  - 5~\log(D/\SI{10}{\pc})$.
 \end{Answer}
 
 
@@ -419,9 +435,9 @@
     0,6\deg$ de la direction de l'amas.
   \item L'observation du spectre de l'étoile Alcyone, faisant partie
     de cet amas, a permis de mesurer sa vitesse radiale $v_r = 10,1
-    \pm 0,3$~\u{km~s^{-1}}.
+    \pm \SI{0,3}{km.s^{-1}}$.
   \item Le mouvement propre apparent de cette même étoile vaut $\mu =
-    47,3 \pm 0,8$~\u{mas~an^{-1}}.
+    47,3 \pm \SI{0,8}{\milli\as~an^{-1}}$.
   \end{itemize}
   Déterminer la distance de l'amas.
 \end{Exercise}
@@ -460,7 +476,7 @@
   est maximal aux longueurs d'onde suivantes : 300~nm, 500~nm, et
   1,2~$\mu$m.  Peut-on déterminer la classe de luminosité ?
 
-  Rappel de la loi de Wien : $\lambda_{\max} T = 2898$~\u{\mu{}m~K}.
+  Rappel de la loi de Wien : $\lambda_{\max} T = 2898$~\u{\micro m~K}.
 \end{Exercise}
 
 \begin{Answer}
@@ -524,8 +540,8 @@
       \toprule
       & $\alpha$ CMa & $\alpha$ Tau & $\alpha$ Ori \\
       \cmidrule(r){2-4}
-      $\theta_*$ (mas) & 5,89 & 24 & 67 \\
-      $d$ (pc) & 2,64  & 20  & 130 \\
+      $\theta_*$ [mas] & 5,89 & 24 & 67 \\
+      $d$ [pc] & 2,64  & 20  & 130 \\
       \bottomrule
     \end{tabular}
   \end{center}
@@ -533,14 +549,14 @@
 
 \begin{Answer}
   Pour Sirius, le rayon vaut $R[\u{UA}] = d[\u{pc}] \times
-  \theta_*[''] / 2$ soit $R = 7,8\e{-3}\;\u{UA} = 1,67\;R_{\odot}$.
+  \theta_*[''] / 2$ soit $R = \SI{7,8e-3}{ua} = \SI{1,67}{\Rsun}$.
   Le tableau suivant donne les résultats pour les 3 étoiles :
   \begin{center}
     \begin{tabular}{lccc}
       \toprule
       & $\alpha$ CMa & $\alpha$ Tau & $\alpha$ Ori \\
       \cmidrule(r){2-4}
-      $R/R_{\odot}$ & 1,67 & 52 & 936 \\
+      $R/\Rsun$ & 1,67 & 52 & 936 \\
       Classe de luminosité & V & III & I \\
       Type spectral & A1V & K5III & M2I \\
       \bottomrule
@@ -581,11 +597,11 @@
     $a[\u{UA}] = \theta[''] D[\u{pc}]$ soit $a = 30\;\u{UA} =
     4,49\e{12}\;\u{m}$.
   \item La 3ème loi de Kepler (en unités réduites) donne la somme des
-    masses : $M_{1} + M_{2} = 30\;M_{\odot} = 5,97\e{31}$~kg.
+    masses : $M_{1} + M_{2} = 30\;\Msun = 5,97\e{31}$~kg.
   \item Les distances des étoiles $E_1$ et $E_2$ au centre de gravité
     $G$ vérifient $M_1 \times GE_1 = M_2 \times GE_2$. Le rapport des
     masses vaut donc $M_1 / M_2 = GE_2 / GE_1 = 5$.
-  \item Finalement : $M_1 = 25\;M_{\odot}$ et $M_2 = 5\;M_{\odot}$
+  \item Finalement : $M_1 = 25\;\Msun$ et $M_2 = 5\;\Msun$
   \end{itemize}
 \end{Answer}
 
@@ -598,12 +614,12 @@
       \toprule
       $p$ (mas) & \multicolumn{2}{c}{35,14 $\pm$ 0,90} \\
       $T$ (jours) & \multicolumn{2}{c}{2,8674} \\
-      $\theta_{\mathrm{rel}}$ (mas) & \multicolumn{2}{c}{2,283} \\
+      $\theta_{\mathrm{rel}}$ [mas] & \multicolumn{2}{c}{2,283} \\
       \midrule
       Composantes & $A$ & $B$ \\
       \cmidrule(r){2-3}
       Type spectral & B8V & K2IV \\
-      $R/R_{\odot}$ & 2,74 & 3,60 \\
+      $R/\Rsun$ & 2,74 & 3,60 \\
       $\theta_{\mathrm{abs}}$ (mas) & & 1,872 \\
       \bottomrule
     \end{tabular}
@@ -626,28 +642,28 @@
   \item Distance : $D [\u{pc}] = 1/p[''] = 28,46 \pm 0,73$~pc.
   \item Le demi-grand axe de l'orbite relative est donné par $a
     [\u{UA}] = \theta [''] D [\u{pc}]$ soit $a = 0,065~\u{UA} =
-    9,77\e{9}~\u{m} = 13,96\;R_{\odot} = 2,2 (R_{A}+R_{B})$.
+    9,77\e{9}~\u{m} = 13,96\;\Rsun = 2,2 (R_{A}+R_{B})$.
   \item La 3ème loi de Kepler donne la somme des masses réduites
-    ($\tilde{M} = M/M_{\odot}$) : $\tilde{M}_A + \tilde{M}_B =
+    ($\tilde{M} = M/\Msun$) : $\tilde{M}_A + \tilde{M}_B =
     \tilde{a}^3/\tilde{T}^2 = 4,46$ (avec $\tilde{a} = a[\u{UA}]$ et
     $\tilde{T} = T[\u{an}]$)
   \item Le rapport des demi-grands axes apparents de l'orbite relative
     $\theta$ et de l'orbite absolue de l'étoile secondaire $\theta_B$
     donne le rapport des masses : $\theta_B / \theta = a_B / a = M_A /
     (M_A + M_B) = 0,82$
-  \item On obtient finalement les masses $M_A = 3,65\;M_{\odot}$ et $M_B =
-    0,80\;M_{\odot}$.
+  \item On obtient finalement les masses $M_A = 3,65\;\Msun$ et $M_B =
+    0,80\;\Msun$.
   \end{itemize}
   Le tableau suivant récapitule les données physiques du système :
   \begin{center}
     \begin{tabular}{lcc}
       \toprule
       $D$ (pc) & \multicolumn{2}{c}{28,46 $\pm$ 0,73} \\
-      $a/R_{\odot}$ & \multicolumn{2}{c}{13,96} \\
+      $a/\Rsun$ & \multicolumn{2}{c}{13,96} \\
       \midrule
       & $A$ & $B$ \\
       \cmidrule(r){2-3}
-      $M/M_{\odot}$ & 3,65 & 0,80 \\
+      $M/\Msun$ & 3,65 & 0,80 \\
       \bottomrule
     \end{tabular}
   \end{center}
@@ -823,19 +839,19 @@
 %   $y^2$ dans le membre de droite par $y^3$. On obtient l'équation
 %   suivante :
 %   $$
-%   -C^2 y^2 \left( y + \frac{d^2y}{d \theta ^2} \right) = -G(M_{\odot}
+%   -C^2 y^2 \left( y + \frac{d^2y}{d \theta ^2} \right) = -G(\Msun
 %   + M_p)y^3
 %   $$
 %   Qui se simplifie par :
 %   $$
-%   -C^2 y - C^2 \frac{d^2y}{d \theta ^2} = G(M_{\odot} + M_p)y
+%   -C^2 y - C^2 \frac{d^2y}{d \theta ^2} = G(\Msun + M_p)y
 %   $$
 %   Qui devient, en réorganisant les différents termes :
 %   $$
-%   \frac{d^2y}{d \theta ^2} + \left[ 1 - \frac{ G(M_{\odot} + M_p)
+%   \frac{d^2y}{d \theta ^2} + \left[ 1 - \frac{ G(\Msun + M_p)
 %     }{C^2} \right]y = 0
 %   $$
-%   Ou encore, en posant $\alpha = \left[ 1 - \frac{ G(M_{\odot} + M_p)
+%   Ou encore, en posant $\alpha = \left[ 1 - \frac{ G(\Msun + M_p)
 %     }{C^2} \right]$
 %   $$
 %   \frac{d^2y}{d \theta ^2} + \alpha y = 0
@@ -1063,7 +1079,7 @@
   que cette extinction n'est due qu'à des grains dont les
   caractéristiques suivent :
   \begin{itemize}
-  \item rayon $a = 0,1\;\mu$,
+  \item rayon $a = \SI{0,1}{\micro\meter}$,
   \item efficacité d'extinction $Q_{ext} = 1$,
   \item masse volumique : 1~g/cm$^{3}$,
   \item répartition des grains uniforme sur la ligne de visée ;
@@ -1292,8 +1308,8 @@
     \toprule
     Propriétés & E,S0 & S0a,Sa & Sab,Sb & Sbc,Sc & Scd,Sd & Sm,Im \\
     \midrule
-    $M_{\mathrm{totale}}$ ($10^{10}M_{\odot}$) & & 22,6 & 32,4 & 19,0 & 7,9 & 1,6 \\
-    $M_{\mathrm{gaz}}$ (H neutre en $10^{9}M_{\odot}$) & 
+    $M_{\mathrm{totale}}$ ($10^{10}\Msun$) & & 22,6 & 32,4 & 19,0 & 7,9 & 1,6 \\
+    $M_{\mathrm{gaz}}$ (H neutre en $10^{9}\Msun$) & 
     1,24 & 5,62 & 15,14 & 15,85 & 9,33 & 2,40 \\
     Diamètre (kpc) & 21,1 & 19,8 & 25,1 & 22,4 & 17,7 & 8,5  \\
     \bottomrule
@@ -1320,7 +1336,7 @@
       Propriétés & E,SO & S0a,Sa & Sab,Sb & Sbc,Sc & Scd,Sd & Sm,Im \\
       \midrule
       $M_{\mathrm{gaz}}/M_{\mathrm{totale}}$ & & 0,03 & 0,05 & 0,08 & 0,11 & 0,15 \\
-      $S$ ($M_{\odot}/\u{pc}^2$) &  & 188,9 & 154,7 & 124,2 & 91,4 & 74,5 \\
+      $S$ ($\Msun/\u{pc}^2$) &  & 188,9 & 154,7 & 124,2 & 91,4 & 74,5 \\
       \bottomrule
     \end{tabular}
   \end{center}
@@ -1439,11 +1455,11 @@
   En écrivant la 3\ieme loi de Kepler dans le système Terre-Soleil et
   dans le système S2-SgrA*, nous obtenons:
   $$
-  \frac{(a/a_{\oplus})^{3}}{(T/T_{\oplus})^{2}} = M_{\mathrm{SgrA}*}/M_{\odot} 
+  \frac{(a/a_{\oplus})^{3}}{(T/T_{\oplus})^{2}} = M_{\mathrm{SgrA}*}/\Msun 
   \qquad\text{avec}\qquad 
   a~[\u{UA}] = a~[1''] \times R~[1~\u{pc}] = 1,011\e{3}
   $$
-  d'où $M_{\mathrm{SgrA}*} = 4,5\e{6}\;M_{\odot} \gg M_{\mathrm{visible}}$.
+  d'où $M_{\mathrm{SgrA}*} = 4,5\e{6}\;\Msun \gg M_{\mathrm{visible}}$.
 \end{Answer}
 
 \subsection{Le groupe local}
@@ -1486,7 +1502,7 @@
   où $\Phi(L)\d L$ est le nombre de galaxies de luminosité comprise
   entre $L$ et $L+\d{}L$ par unité de volume (p.ex. par
   Mpc$^{3}$). Pour les galaxies de champ, on a $\alpha \sim -5/4$,
-  $L^{*}_{B} \sim 2\e{10}\;L_{\odot}$ et $\Phi^{*} \sim
+  $L^{*}_{B} \sim 2\e{10}\;\Lsun$ et $\Phi^{*} \sim
   5\e{-3}$~Mpc$^{-3}$.
   \begin{enumerate}
   \item Quelle est la signification physique de la loi de Schechter ?
@@ -1601,19 +1617,19 @@
 \subsection{Équilibre gravitationnel}
 
 \begin{Exercise}[Théorème du Viriel scalaire]
-  On considère le système Terre-Soleil. Le Soleil, de masse $M_\odot$,
-  est pris comme référence du mouvement ($v_\odot=0$). On note
+  On considère le système Terre-Soleil. Le Soleil, de masse $\Msun$,
+  est pris comme référence du mouvement ($v_\odot = 0$). On note
   $M_\oplus$ et $v_\oplus$ la masse et la vitesse de la Terre.
   \begin{enumerate}
   \item Écrire l'expression de l'energie cinétique du système
     Terre-Soleil.
   \item Énoncer le théorème du Viriel. En déduire l'expression de la
     distance $D$ d'équilibre entre la Terre et le Soleil. Faire
-    l'application numérique, sachant que $M_\odot=2\e{30}$~kg,
-    $M_\oplus=5,97\e{24}$~kg et $v_\oplus=30$~km/s.
+    l'application numérique, sachant que $\Msun = 2\e{30}$~kg,
+    $M_\oplus = 5,97\e{24}$~kg et $v_\oplus = 30$~km/s.
   \item On considère un système d'étoiles binaires en équilibre. Pour
     simplifier, les étoiles sont prises de masses égales $M_{1} =
-    M_{2} = M_\odot$ et leurs vitesses sont considérées comme égales
+    M_{2} = \Msun$ et leurs vitesses sont considérées comme égales
     $v_1 = v_2 = v$.
 
     Expliciter la relation entre la distance entre ces deux étoiles et
@@ -1625,11 +1641,11 @@
 \begin{Answer}
   \begin{enumerate}
   \item $K = 1/2 M_\oplus v_\oplus^2$
-  \item Théorème du Viriel : $2K + U = 0$ avec $U = -GM_\odot
-    M_\oplus/D$ d'où $D = GM_\odot/v_\oplus^2 = 1$~UA.
+  \item Théorème du Viriel : $2K + U = 0$ avec $U = -G\Msun
+    M_\oplus/D$ d'où $D = G\Msun/v_\oplus^2 = 1$~UA.
   \item $K = 1/2\,M_{1}v_{1}^{2} + 1/2\,M_{2}v_{2}^{2} =
-    M_{\odot}v^{2} \stackrel{\mathrm{Viriel}}{=} -U/2 =
-    +GM_{\odot}^{2}/(2D)$ d'où $v = \sqrt{G M_\odot/(2 D)}$, soit:
+    \Msun v^{2} \stackrel{\mathrm{Viriel}}{=} -U/2 =
+    +G\Msun^{2}/(2D)$ d'où $v = \sqrt{G \Msun/(2 D)}$, soit:
     \begin{center}
       \begin{tabular}{lccc}
         \toprule
@@ -1649,7 +1665,7 @@
   \begin{center}
     \begin{tabular}{lrrr}
       \toprule
-      Système & $R$ & $V$ [km/s] & $M/M_{\odot}$ \\ 
+      Système & $R$ & $V$ [km/s] & $M/\Msun$ \\ 
       \midrule
       Amas globulaire  & 10~pc  & 10   & \corrige{$4,6\e{5}$} \\ 
       Galaxie          & 15~kpc & 200  & \corrige{$2,8\e{11}$} \\ 
@@ -1662,7 +1678,7 @@
 \begin{Answer}
   On a $U = -GM^{2}/(2R)$ et $K=1/2\, MV^{2}$ d'où $M = 2RV^{2}/G$,
   avec $G = 6,67\e{-11}\;\u{m^{3}~kg^{-1}~s^{-2}} =
-  4,302\e{-3}\;\u{km^{2}~s^{-2}~pc~M_{\odot}^{-1}}$.
+  4,302\e{-3}\;\u{km^{2}~s^{-2}~pc~\Msun^{-1}}$.
 \end{Answer}
 
 \begin{Exercise}[Temps cinématique]
@@ -1671,7 +1687,7 @@
   \begin{center}
     \begin{tabular}{lrrr}
       \toprule
-      Système & $R$ & $M/M_{\odot}$ & $t_c$ [ans] \\ 
+      Système & $R$ & $M/\Msun$ & $t_c$ [ans] \\ 
       \midrule
       Amas ouvert      & 1~pc   & 500      & \corrige{$9,4\e{5}$} \\ 
       Amas globulaire  & 10~pc  & $10^5$   & \corrige{$2,1\e{6}$} \\ 
@@ -1686,7 +1702,7 @@
 
 \begin{Answer}
   $t_{c} = R/V = \sqrt{2R^{3} / GM}$ avec $G =
-  4,500\e{-15}$~\u{pc^{3}~M_{\odot}^{-1}~an^{-2}}.
+  4,500\e{-15}$~\u{pc^{3}~\Msun^{-1}~an^{-2}}.
 
   Les temps cinématiques pour un amas ouvert et un amas globulaire ne
   sont pas vraiment différents malgré leurs tailles respectives très
@@ -1729,7 +1745,7 @@
   d'où $F_{\mathrm{NM}} = 2,81\e{-7}~\u{N}.$ La masse qui présente un
   poids égal à cette valeur est de $m =
   F_{MN}R_{\oplus}^{2}/(GM_{\oplus}) = 2,86\e{-8}\;\u{kg} =
-  28,6$~\u{\mu{}g}.
+  \SI{28,6}{\micro g}$.
 
   L'attraction gravitationnelle est une force \emph{très faible},
   c'est même la plus faible des quatre forces fondamentales de
@@ -1841,7 +1857,7 @@
   Une lampe spectrale émettant dans la raie H$\alpha$ ($\lambda_{0} =
   656,3$~nm) est utilisée pour communiquer à partir d'une capsule en
   orbite serrée autour d'une étoile à neutrons. Le rayon de l'orbite
-  est $R=1000$~km, la masse de l'étoile de $M=1,5$~\u{M_{\odot}}.  À
+  est $R=1000$~km, la masse de l'étoile de $M=1,5$~\u{\Msun}.  À
   quelle longueur d'onde $\lambda$ le vaisseau qui a lancé la capsule,
   et se tient prudemment à grande distance, doit-il rechercher les
   signaux ?
@@ -2012,14 +2028,14 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
 \begin{Exercise}[Densité critique]
   Calculer la densité critique $\rho_{C} = \dfrac{3 H_{0}^{2}}{8\pi G}$.
   Quelle est sa dimension ?  La convertir en nucléons/$\u{m^{3}}$ ($m_{p}
-  \simeq m_{n} \simeq m_{u} = 1,66\e{-27}$~kg), puis en $M_{\odot}/\u{Mpc}^{3}$.
+  \simeq m_{n} \simeq m_{u} = 1,66\e{-27}$~kg), puis en $\Msun/\u{Mpc}^{3}$.
   Commenter.
 \end{Exercise}
 
 \begin{Answer}
   $\rho_{C} = 9,20\e{-27}~\u{kg\;m^{-3}} = 5,54\;\text{nucléons}\;\u{m^{-3}} =
-  1,34\e{11}\;M_{\odot}\;\u{Mpc}^{-3}$, soit environ une galaxie (massive) par
-  \u{Mpc^{3}}, densité caractéristique de l'Univers local.
+  1,34\e{11}\;\Msun\;\u{M\pc}^{-3}$, soit environ une galaxie (massive) par
+  \u{M\pc^{3}}, densité caractéristique de l'Univers local.
 \end{Answer}
 
 \begin{Exercise}[Âge de l'Univers]
@@ -2418,8 +2434,8 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
     la direction du pôle nord et la direction de l'objet, donc
     $p=90\deg-\delta$
 
-  \item Table~\ref{tbl:coordonnees_horaire} et
-    Fig.~\ref{coordonneeshoraire}
+  \item Table~\ref{tbl:coordonneeshoraires} et
+    Fig.~\ref{fig:coordonneeshoraires}
 
     \begin{center}
       \begin{tabular}{lrc}
@@ -2432,7 +2448,7 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
         Est   & 18~h & 0 \\ 
         \bottomrule
       \end{tabular}
-      \label{tbl:coordonnees_horaire}
+      \label{tbl:coordonneeshoraires}
     \end{center}
 
     \begin{figure}
@@ -2441,20 +2457,20 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
         \centering
         \includegraphics[width=\textwidth]{coordonnees_horaire}
         \caption{Points cardinaux.}
-        \label{coordonneeshoraire}
+        \label{fig:coordonneeshoraires}
       \end{subfigure}
       \begin{subfigure}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{coordonnees_horaire2}
         \caption{Zénith.}
-        \label{coordonneeshoraire2}
+        \label{fig:coordonneeshoraires2}
       \end{subfigure}
       \caption{Coordonnées horaires.}
     \end{figure}
 
   \item La déclinaison du zénith vaut la latitude (positive pour
     l'hémisphère Nord et négative pour l'hémisphère Sud), voir
-    Fig.~\ref{coordonneeshoraire2}.
+    Fig.~\ref{fig:coordonneeshoraires2}.
   \end{enumerate}
 \end{Answer}
 
@@ -2500,7 +2516,7 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
       \centering
       \includegraphics[width=0.5\textwidth]{coordonnees_horaire3}
       \caption{Coordonnées horaires.}
-      \label{coordonneeshoraire3}
+      \label{fig:coordonneeshoraires3}
     \end{SCfigure}
 
   \item
