@@ -1,4 +1,4 @@
-% Time-stamp: <2016-03-23 15:48 ycopin@lyonovae03.in2p3.fr>
+% Time-stamp: <2016-04-27 15:00 ycopin@lyonovae03.in2p3.fr>
 % Auteurs (version LaTeX):
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
@@ -1047,13 +1047,13 @@
     galaxies par degré carré à la magnitude apparente $m$ et à la
     latitude $b$ est donné par :
     $$
-    \log N (m,b) = 0,6\,m - 0,6\frac{A_{0}}{\sin b} + K.
+    \log N (m, b) = 0,6\,m - 0,6\frac{A_{0}}{\sin b} + K.
     $$
     Exprimer la constante $K$ en fonction des données du problème.
   \item Hubble (1934) a mesuré, pour des galaxies de magnitude absolue
     moyenne $M=-14$ :
     $$
-    \log N (m,b) = 0,6\,m - 0,15 \frac{1}{\sin b} - 4,50.
+    \log N (m, b) = 0,6\,m - 0,15 \frac{1}{\sin b} - 4,50.
     $$
     En déduire la densité moyenne $\rho$ des galaxies dans l'Univers
     (en Mpc$^{-3}$).
@@ -1062,9 +1062,9 @@
 
 \begin{Answer}
   \begin{enumerate}
-  \item $\ell = h/\sin b$ et $A = l \times A_{0}/h = A_{0}/\sin b$.
-  \item $N(m,b) = \rho \times 4\pi d^{3}/3$ avec $\log(d/\u{pc})
-    = 1+0,2(m-M-A)$ donc $\log N(m,b) = 0,6m - 0,6A - 0,6 M +
+  \item $\ell = h/\sin b$ et $A = \ell/h \times A_{0} = A_{0}/\sin b$.
+  \item $N(m, b) = \rho \times 4\pi d^{3}/3$ avec $\log(d/\u{pc})
+    = 1 + 0,2(m - M - A)$ donc $\log N(m, b) = 0,6m - 0,6A - 0,6 M +
     \log(\rho/\u{pc}^{-3}) + \log(4\pi/3) + 3$.
   \item $\log(\rho/\u{pc}^{-3}) = -16,52$ soit $\rho =
     30~\u{Mpc}^{-3}$.
@@ -1458,7 +1458,7 @@
   $$
   \frac{(a/a_{\oplus})^{3}}{(T/T_{\oplus})^{2}} = M_{\mathrm{SgrA}*}/\Msun 
   \qquad\text{avec}\qquad 
-  a~[\u{UA}] = a~[1''] \times R~[1~\u{pc}] = 1,011\e{3}
+  a~[\u{UA}] = a~[''] \times R~[\u{pc}] = 1,011\e{3}
   $$
   d'où $M_{\mathrm{SgrA}*} = 4,5\e{6}\;\Msun \gg M_{\mathrm{visible}}$.
 \end{Answer}
@@ -1553,9 +1553,9 @@
   \item il est supposé sphérique, de diamètre $D_{a}$,
   \item il contient $N_{g}$ galaxies identiques et réparties
     uniformément dans l'amas,
-  \item les galaxies sont supposées animées d'une vitesse quadratique
-    moyenne $v_{g}/\sqrt{2}$ (la vitesse \emph{relative} quadratique
-    moyenne est donc $v_{g}$).
+  \item les galaxies sont supposées animées d'une vitesse
+    \emph{relative} quadratique moyenne $v_{g}$ (c.-à-d. que la
+    vitesse quadratique moyenne est de $v_{g}/\sqrt{2}$).
   \end{itemize}
 
   \begin{enumerate}
