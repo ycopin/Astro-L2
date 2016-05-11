@@ -1,4 +1,4 @@
-% Time-stamp: <2016-04-27 15:00 ycopin@lyonovae03.in2p3.fr>
+% Time-stamp: <2016-05-11 18:23 ycopin@lyonovae03.in2p3.fr>
 % Auteurs (version LaTeX):
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
@@ -53,6 +53,8 @@
 \usepackage[rightcaption]{sidecap}
 \usepackage{caption}
 \usepackage{subcaption}
+
+\usepackage{multicol}
 
 \usepackage{siunitx}
 \sisetup{%
@@ -468,7 +470,7 @@
   \caption{Diagramme de Hertzsprung-Russell des 22000 étoiles du
     catalogue Hipparcos et de 1000 étoiles faiblement lumineuses du
     catalogue Gliese des étoiles proches.}
-  \label{hr}
+  \label{fig:hr}
 \end{SCfigure}
 
 \begin{Exercise}[Types spectraux]
@@ -1257,7 +1259,7 @@
   \begin{enumerate}
   \item Déterminer l'extinction $A_V$ de cette étoile à partir de la
     la loi de variation de $A_V/E_{B-V}$ en fonction de $1/\lambda$
-    (Fig.~\ref{extinction}).
+    (Fig.~\ref{fig:extinction}).
   \item Quelle sera l'extinction de cette étoile dans la bande
     photométrique infrarouge $K$ ?
   \item Qu'en concluez vous sur l'effet de l'extinction dans
@@ -1270,7 +1272,7 @@
   \includegraphics[width=0.5\textwidth]{interstellarreddeningreduite}
   \caption{Loi de couleur: $A_{\lambda}/E_{B-V}$ en fonction de
     $1/\lambda$. On y lit p.ex. que $A_{V}/E_{B-V} \simeq 3,1$.}
-  \label{extinction}
+  \label{fig:extinction}
 \end{SCfigure}
 
 \begin{Answer}
@@ -1290,7 +1292,7 @@
 \subsection{Classification morphologique des galaxies}
 
 \begin{Exercise}[Propriétés «~physiques~» de la classification]
-  En vous servant du tableau~\ref{tab:hubble}, répondez aux questions
+  En vous servant du tableau~\ref{tbl:hubble}, répondez aux questions
   suivantes :
   \begin{enumerate}
   \item Que peut-on dire sur la fraction de gaz dans les galaxies
@@ -1304,7 +1306,7 @@
 \begin{table}  
   \centering
   \caption{Propriétés quantitatives de la séquence de Hubble.}
-  \label{tab:hubble}
+  \label{tbl:hubble}
   \begin{tabular}{lcccccc}
     \toprule
     Propriétés & E,S0 & S0a,Sa & Sab,Sb & Sbc,Sc & Scd,Sd & Sm,Im \\
@@ -1431,7 +1433,7 @@
 % \end{Answer}
 
 \begin{Exercise}[Le centre galactique]
-  La Fig.~\ref{centregalac} montre l'orbite de l'étoile ayant la plus
+  La Fig.~\ref{fig:S2} montre l'orbite de l'étoile ayant la plus
   grande vitesse autour du centre galactique. À partir des
   caractéristiques de cette orbite (période de $T = 15,2$~ans, et demi
   grand-axe de $a = 0\farcs 119$), retrouver l'estimation de la masse
@@ -1448,8 +1450,8 @@
   \centering
   \includegraphics[width=0.5\textwidth]{nature01121-f2_2}
   \caption{Orbite de l'étoile S2 autour du centre galactique SgrA*
-    (Schödel et al. 2002).}
-  \label{centregalac}
+    (Schödel et al.~2002).}
+  \label{fig:S2}
 \end{SCfigure}
 
 \begin{Answer}
@@ -1466,9 +1468,9 @@
 \subsection{Le groupe local}
 
 \begin{Exercise}[Recensement]
-  Dans la Table~\ref{listgalac}, compter le nombre de galaxies ayant
-  un diamètre plus petit que 6~kpc, et celles ayant un diamètre plus
-  grand. Quelles sont les galaxies qui dominent en nombre ? Et en
+  Dans la Table~\ref{tbl:listgalac}, compter le nombre de galaxies
+  ayant un diamètre plus petit que 6~kpc, et celles ayant un diamètre
+  plus grand. Quelles sont les galaxies qui dominent en nombre ? Et en
   luminosité totale ?
 \end{Exercise}
 
@@ -1476,7 +1478,7 @@
   \caption{Galaxies du Groupe Local, avec leurs noms, leurs
     positions sur le ciel, le type de Hubble, la distance, les diamètres
     physiques et angulaires.}
-  \label{listgalac}
+  \label{tbl:listgalac}
   \centering
   \includegraphics[height=.95\textheight]{listegalaxiegroupelocal}
 \end{table}
@@ -1515,7 +1517,7 @@
     \includegraphics[width=0.4\textwidth]{schechter76}
     \caption{Fonction de luminosité des galaxies dans les amas d'Abell
       (Schechter, 1976).} 
-    \label{schechter76}
+    \label{fig:schechter76}
   \end{SCfigure}
 \end{Exercise}
 
@@ -1540,7 +1542,7 @@
     \includegraphics[width=0.6\textwidth]{schechter}
     \caption{Fonction (normalisée) de Schechter pour différentes
       valeurs de $\alpha$.}
-    \label{schechter}
+    \label{fig:schechter}
   \end{SCfigure}
 \end{Answer}
 
@@ -1837,19 +1839,32 @@
   la cabine soit trop étendue.  Sinon, le parallélisme ou le
   non-parallélisme des forces sur des masses éloignées l'une de
   l'autre trahirait la «~vraie~» nature du champ.  Sur la
-  Fig.~\ref{grav}, la cabine de gauche, supposée accélérée vers le
+  Fig.~\ref{fig:grav}, la cabine de gauche, supposée accélérée vers le
   haut (flèche bleue), produit des forces parallèles (flèches rouges)
   sur les deux masses-test.  La cabine de droite, immobile dans le
   champ de gravitation de la Terre, montre des forces convergentes
   vers le centre de la Terre (flèches vertes).  De même, le physicien
   pourrait mettre en évidence une dépendance de la force avec
   l'altitude dans le cas de droite.
-  \begin{SCfigure}%[htp]
+
+  \begin{figure}
     \centering
-    \includegraphics[width=0.4\textwidth]{grav}
+    \begin{subfigure}[b]{0.4\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{grav}
+      \caption{}
+      \label{fig:grav}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{351922_281}
+      \caption{}
+      \label{fig:H0}
+    \end{subfigure}
     \caption{}
-    \label{grav}
-  \end{SCfigure}
+    \label{fig:gravH0}
+  \end{figure}
+
 \end{Answer}
 
 \subsection{Les tests}
@@ -1984,14 +1999,7 @@
   et donc, à partir de 3C~171 comme de la Terre, toute les galaxie
   observée semble s'enfuir avec une vitesse proportionnelle à sa
   distance, et le facteur de proportionnalité (la constante de Snurp)
-  est universel : $X_0=H_0$ (Fig.~\ref{H0}).
-
-  \begin{SCfigure}%[htp]
-    \centering
-    \includegraphics[width=0.4\textwidth]{351922_281}
-    \caption{}
-    \label{H0}
-  \end{SCfigure}
+  est universel : $X_0=H_0$ (Fig.~\ref{fig:H0}).
 \end{Answer}
 
 \subsection{Constante de Hubble \& Co.}
@@ -2001,14 +2009,14 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
 
 \begin{Exercise}[Le facteur d'expansion de l'espace]
   La constant de Hubble $H_0$ est usuellement exprimée en kilomètres
-  par seconde et par mégaparsec, mais cela ne parle guère au sens
-  commun.  Quelle est la valeur de l'accroissement annuel d'un
-  kilomètre ?
+  par seconde et par mégaparsec ($\u{km~s^{-1}~Mpc^{-1}}$).  Quelle
+  est la valeur de l'accroissement annuel d'un kilomètre ?  Que vaut
+  $H_{0}$ en $\u{kpc~Gan^{-1}~Mpc^{-1}}$ ?
 \end{Exercise}
 
 \begin{Answer}
   $1\;\u{Mpc} = 3,09\e{19}\;\u{km}$ et $1\;\u{an} = 3,16\e7\;\u{s}$,
-  donc $71\;\u{km~s^{-1}~Mpc^{-1}} = 2,27\e{-18}\;\u{km~s^{-1}~km^{-1}}
+  donc $70\;\u{km~s^{-1}~Mpc^{-1}} = 2,27\e{-18}\;\u{km~s^{-1}~km^{-1}}
   = 71,6\;\u{nm~an^{-1}~km^{-1}}$.
 \end{Answer}
 
@@ -2034,39 +2042,48 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
 \end{Exercise}
 
 \begin{Answer}
-  $\rho_{C} = 9,20\e{-27}~\u{kg\;m^{-3}} = 5,54\;\text{nucléons}\;\u{m^{-3}} =
-  1,34\e{11}\;\Msun\;\u{M\pc}^{-3}$, soit environ une galaxie (massive) par
-  \u{M\pc^{3}}, densité caractéristique de l'Univers local.
+  Puisque $[G] = L^{3}\,M^{-1}\,T^{-2}$, on a $[\rho_{c}] =
+  M\,L^{-3}$: c'est une masse volumique.  $\rho_{C} =
+  9,20\e{-27}~\u{kg\;m^{-3}} = 5,54\;\text{nucléons}\;\u{m^{-3}} =
+  1,36\e{11}\;\Msun\;\u{M\pc}^{-3}$, soit environ une galaxie
+  (massive) par \u{M\pc^{3}}, densité caractéristique de l'Univers
+  local.
 \end{Answer}
 
 \begin{Exercise}[Âge de l'Univers]
-  À partir de la définition de $H_0$ et de la relation $R \propto
-  t^{2/3}$ entre le facteur d'échelle $R$ et le temps $t$ dans le cas
-  d'un Univers euclidien ($k=0$) dominé par la matière
-  ($\Omega_{M}=1$, $\Omega_{\Lambda}=0$), trouver la relation entre
-  $H_{0}$ et $t$.
+  À partir de la définition de la «~constante~» de Hubble $H$ et de la
+  relation $R \propto t^{2/3}$ entre le facteur d'échelle $R$ et le
+  temps $t$ dans le cas d'un Univers euclidien ($k=0$) dominé par la
+  matière ($\Omega_{M}=1$, $\Omega_{\Lambda}=0$), trouver la relation
+  entre la valeur actuelle $H_{0}$ de la constante et l'âge de
+  l'Univers $t_{0}$.
 \end{Exercise}
 
 \begin{Answer}
   \begin{align*}
-    H_0 &\defeq \frac{1}{R}\frac{\d R}{\d t} \\
+    H &\defeq \frac{1}{R}\frac{\d R}{\d t}
+    \qquad\text{avec}\qquad R/R_{0} = (t/t_{0})^{2/3}\\
     &= \left ( \frac{t}{t_0} \right )^{-2/3} \times
     \frac{\d\left( t/t_0 \right )^{2/3}}{\d t} 
     = \left ( \frac{t}{t_0} \right )^{-2/3} \times
     \left( \frac{t}{t_0} \right)^{-1/3} \frac{2}{3} \frac{1}{t_0} 
     = \left( \frac{t}{t_0} \right)^{-1} \times \frac{2}{3t_0} \\
-    &= \frac{2}{3t} \\
-    \text{donc}\quad t &= \frac{2}{3\,H_{0}}
+    &= \frac{2}{3t}.
   \end{align*}
-  Pour un Univers critique dominé par la matière, l'âge de l'Univers
-  est égal aux deux-tiers du temps de Hubble.
+  Pour un Univers critique dominé par la matière ($\Omega_{T} =
+  \Omega_{M} = 1$):
+  \begin{itemize}
+  \item l'expansion de l'Univers est \emph{décélérée}: $H \propto 1/t$;
+  \item l'âge de l'Univers $t_{0}$ est égal aux deux-tiers du temps de
+    Hubble $t_{H} = 1/H_{0}$: $t_{0} = \dfrac{2}{3\,H_{0}}$.
+  \end{itemize}
 \end{Answer}
 
 \section{Modèles cosmologiques}
 
 \begin{Exercise}[Modèle FLRW]
   Dans le cas d'un Univers de Friedmann-Lemaître-Robertson-Walker à
-  courbure spatiale nulle ($k=0$), on a :
+  courbure spatiale nulle ($k = 0$), on a :
   \begin{equation}
     \left(\frac{\dot{R}}{R}\right)^{2} = 
     \frac{\Lambda}{3} + \frac{8\pi G}{3}\rho.
@@ -2121,8 +2138,10 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
     $\rho$ : densité massique.  $\dot{R}/R$ a la dimension de
     l'inverse d'un temps, c'est la constante de Hubble $H$.
 
-  \item $\dot{\rho} = -3(1+w) H$. On vérifie que $\rho/\rho_{0} =
-    (R/R_{0})^{-3(1+w)}$ est bien solution de cette équation.
+  \item $\dot{\rho}/\rho = -3(1+w) \dot{R}/R_{0}$ soit $\frac{\d}{\d
+      t}\ln(\rho/\rho_{0}) = -3(1+w)\frac{\d}{\d t}\ln(R/R_{0})$. On
+    vérifie que $\rho/\rho_{0} = (R/R_{0})^{-3(1+w)}$ est bien
+    solution de cette équation.
 
   \item En introduisant la solution précédente dans
     l'éq.~(\ref{eq:1}), on obtient $\dot{R} = \alpha R^{-\eta}$ avec
@@ -2137,9 +2156,9 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
     \gamma = \frac{1}{1+\eta} = \frac{2}{3(1+w)}.
     $$
 
-  \item On a
+  \item
     $$
-    H = \frac{\dot{R}}{R} = \frac{\gamma}{t} =
+    H \defeq \frac{\dot{R}}{R} = \frac{\gamma}{t} =
     \frac{2}{3(1+w)}\frac{1}{t}.
     $$
 
@@ -2184,7 +2203,9 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
   \end{enumerate}
 \end{Answer}
 
-\begin{Exercise}[Temps de vol, distance, et expansion...]
+\newpage % ############################################################
+
+\begin{Exercise}[Temps de vol, distance, et expansion]
   Il y a dix milliards d'années, ce photon que nous recevons
   aujourd'hui a quitté une lointaine galaxie.
   \begin{enumerate}
@@ -2196,20 +2217,23 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
 \end{Exercise}
 
 \begin{Answer}
+  \begin{figure}[t]
+    \centering
+    \includegraphics[width=0.4\textwidth]{expansion}
+  \end{figure}
   \begin{enumerate}
-  \item Le photon a voyagé pendant dix milliards d'années en luttant
-    contre l'expansion de l'espace qui contrariait son mouvement; tout
-    se passe comme s'il avait parcouru à la vitesse $c$ une distance
-    supérieure à celle qui séparait la galaxie de nous au moment de
-    l'émission.  Au moment de l'émission, la galaxie était donc à
-    moins de dix milliards d'années-lumière de nous.
+  \item Le photon a voyagé pendant 10~Gan en luttant contre
+    l'expansion de l'espace qui contrariait son mouvement; il a
+    finalement parcouru à la vitesse $c$ une distance
+    \emph{supérieure} à à la distance initiale qui séparait la galaxie
+    de nous au moment de l'émission.  Au moment de l'émission, la
+    galaxie était donc à \emph{moins} de 10~Gal de nous.
   \item Depuis que le photon a quitté la galaxie, celle-ci, entraînée
-    par l'expansion, a continué à s'éloigner de nous. Le photon a bien
-    parcouru (de son point de vue, en admettant qu'il en ait un) dix
-    milliards d'années-lumière, puisque sa vitesse par rapport à
-    l'espace est à tout instant égale à $c$, mais la galaxie a
-    continué sa route pendant tout ce temps, et se trouve aujourd'hui
-    à plus de dix milliards d'années-lumière de nous...
+    par l'expansion, a continué à s'éloigner de nous.  Le photon a
+    bien parcouru 10 Gal, puisque sa vitesse par rapport à l'espace
+    est à tout instant égale à $c$, mais la galaxie a continué sa
+    route pendant tout ce temps, et se trouve aujourd'hui à
+    \emph{plus} de 10~Gal de nous.
   \end{enumerate}
 \end{Answer}
 
@@ -2237,7 +2261,7 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
   \item Les points cardinaux étant par définition sur l'horizon, leurs
     hauteurs sont nulles. Les directions Est-Ouest et Nord-Sud étant
     orthogonales, on a à partir de l'origine la direction Sud
-    (Fig.~\ref{position}) :
+    (Fig.~\ref{fig:position}) :
     \begin{center}
       \begin{tabular}{lrr}
         \toprule
@@ -2263,7 +2287,7 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
     hauteur doit être positive par définition. Sa distance zénithale
     ($90\deg - h$) par conséquent est plus petite que 90°.  Un astre
     sous l'horizon a sa distance zénithale plus grande que 90°
-    (Fig.~\ref{position2}).
+    (Fig.~\ref{fig:position2}).
   \end{enumerate}
 
   \begin{figure}
@@ -2272,13 +2296,13 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
       \centering
       \includegraphics[width=\textwidth]{position}
       \caption{Points cardinaux.}
-      \label{position}
+      \label{fig:position}
     \end{subfigure}
     \begin{subfigure}[b]{0.4\textwidth}
       \centering
       \includegraphics[width=\textwidth]{position2}
       \caption{Horizon et distance zénithale.}
-      \label{position2}
+      \label{fig:position2}
     \end{subfigure}
     \caption{}
   \end{figure}
@@ -2306,7 +2330,7 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
     visible. À la latitude de 50°, les étoiles dont la déclinaison est
     plus petite que la latitude, la culmination se fera du côté Sud de
     l'observateur.  Pour les autres étoiles, la culmination sera du
-    côté Nord (Fig.~\ref{mouvementdiurne2})
+    côté Nord (Fig.~\ref{fig:mouvementdiurne2})
 
     \begin{figure}
       \centering
@@ -2314,19 +2338,19 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
         \centering
         \includegraphics[width=\textwidth]{mouvement_diurne2}
         \caption{Latitude $\phi\sim 50\deg$.}
-        \label{mouvementdiurne2}
+        \label{fig:mouvementdiurne2}
       \end{subfigure}
       \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{mouvement_diurne3}
         \caption{Équateur ($\phi = 0$).}
-        \label{mouvementdiurne3}
+        \label{fig:mouvementdiurne3}
       \end{subfigure}
       \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{mouvement_diurne4}
         \caption{Pôle nord ($\phi = 90\deg$.}
-        \label{mouvementdiurne4}
+        \label{fig:mouvementdiurne4}
       \end{subfigure}
       \caption{Mouvement diurne.}
     \end{figure}
@@ -2334,7 +2358,7 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
   \item L'équateur passant par le zénith, toutes les étoiles de
     déclinaisons positives culminent au Nord et les étoiles de
     déclinaisons négatives au Sud. Les étoiles de déclinaisons nulles
-    passent au zénith (Fig.~\ref{mouvementdiurne3}).
+    passent au zénith (Fig.~\ref{fig:mouvementdiurne3}).
 
   \item La verticale étant confondue avec l'axe du pôle, et l'horizon
     avec l'équateur, la déclinaison est égale à la hauteur de l'astre
@@ -2342,7 +2366,7 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
     de déclinaisons positives sont visibles. C'est pourquoi le Soleil
     dans son mouvement apparent durant l'année donne 6 mois
     consécutifs de jour et 6 mois consécutifs de nuit
-    (Fig.~\ref{mouvementdiurne4}).
+    (Fig.~\ref{fig:mouvementdiurne4}).
   \end{enumerate}
 \end{Answer}
 
@@ -2350,7 +2374,7 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
   \begin{enumerate}
   \item Comment varie l'azimut d'un astre au cours du mouvement
     diurne, en un lieu de latitude $+50\deg$ ? Et aussi $-50\deg$ de
-    latitude. Sur la Fig.~\ref{mouvementdiurne}, on a représenté la
+    latitude. Sur la Fig.~\ref{fig:mouvementdiurne}, on a représenté la
     situation en un lieu de l'hémisphère Sud (latitude = $-50\deg$) ;
     $P$ est alors en-dessous de l'horizon et $P'$ est au-dessus.
 
@@ -2359,7 +2383,7 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
       \includegraphics[width=0.5\textwidth]{mouvement_diurne}
       \caption{Rotation d'une étoile vue de l'hémisphère sud (latitude =
         $-50\deg$).}
-      \label{mouvementdiurne}
+      \label{fig:mouvementdiurne}
     \end{SCfigure}
 
   \item Les astres se lèvent-ils du côté de l'Est et se couchent-ils
@@ -2405,7 +2429,7 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
       des levers et couchers, à la différence que l'azimut va osciller
       autour de la valeur 0° et que regardant le pôle Sud, il verra
       tourner les étoiles dans le sens rétrograde
-      (Fig.~\ref{mouvementdiurne}).
+      (Fig.~\ref{fig:mouvementdiurne}).
     \end{description}
   \item Oui. Que l'on soit dans l'hémisphère Nord ou Sud, le sens de
     rotation de la Terre est le même. Les objets apparaissent à l'Est
@@ -2527,26 +2551,26 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
       à l'horizon Nord, si sa déclinaison est le complément de la
       latitude.  Pour toute latitude plus grande, l'étoile sera plus
       élevée sur l'horizon et ne disparaîtra pas derrière celui-ci
-      (Fig \ref{castor}) : $\phi>=90\deg-\delta$
+      (Fig \ref{fig:castor}) : $\phi>=90\deg-\delta$
       \begin{figure}[htp]
         \centering
         \begin{subfigure}[b]{0.3\textwidth}
           \centering
           \includegraphics[width=\textwidth]{castor}
           \caption{Castor.}
-        \label{castor}
+        \label{fig:castor}
         \end{subfigure}
         \begin{subfigure}[b]{0.3\textwidth}
           \centering
           \includegraphics[width=\textwidth]{betelgeuse}
           \caption{Bételgeuse.}
-          \label{betelgeuse}
+          \label{fig:betelgeuse}
         \end{subfigure}
         \begin{subfigure}[b]{0.3\textwidth}
           \centering
           \includegraphics[width=\textwidth]{cen}
           \caption{$\alpha$-Cen.}
-          \label{cen}
+          \label{fig:cen}
         \end{subfigure}
         \caption{Coordonnées équatoriales.}
       \end{figure}
@@ -2554,11 +2578,11 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
     \item[Bételgeuse (Ori, $\delta = +7\deg24'$) culmine au zénith:]
       Si l'étoile est au moment de sa culmination au zénith
       (nécessairement), sa déclinaison est égale à la latitude
-      (Fig.~\ref{betelgeuse}) : $\phi=7\deg24'$
+      (Fig.~\ref{fig:betelgeuse}) : $\phi=7\deg24'$
 
     \item[$\alpha$-Cen ($\delta = - 60\deg46'$) s'élève à une hauteur
       de +20°:] À son passage supérieur, l'étoile se trouve dans la
-      configuration Fig.~\ref{cen}.  La latitude est l'angle $PON$ qui
+      configuration Fig.~\ref{fig:cen}.  La latitude est l'angle $PON$ qui
       est égal à $P'OS$. En appliquant la relation de Chasles entre
       $P'OS$ la hauteur de l'astre 20° et la déclinaison, on obtient :
       $P'OS = 90\deg + \delta - 20\deg$ d'où $\phi = 9\deg14'$
@@ -2615,7 +2639,7 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
     Attention aux positions entre les tropiques, le Soleil au solstice
     d'été pour les latitudes nord (solstice d'hiver pour les latitudes
     sud) est passé au Sud (au Nord) et de ce fait est plus bas que le
-    jour où il passe au zénith au méridien (Fig.~\ref{mvtsolaire}).
+    jour où il passe au zénith au méridien (Fig.~\ref{fig:mvtsolaire}).
 
     \begin{figure}
       \centering
@@ -2623,13 +2647,13 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
         \centering
         \includegraphics[width=\textwidth]{mvt_soleil}
         \caption{}
-        \label{mvtsolaire}
+        \label{fig:mvtsolaire}
       \end{subfigure}
       \begin{subfigure}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{mvt_soleil2}
         \caption{}
-        \label{mvtsolaire2}
+        \label{fig:mvtsolaire2}
       \end{subfigure}
       \caption{}
     \end{figure}
@@ -2651,7 +2675,7 @@ Dans les exercices suivants, on supposera la constante de Hubble égale
     l'hémisphère Sud) ; les lieux de latitude $\phi$ égale à $\pm
     66\deg33'$ définissent sur le globe terrestre les parallèles
     appelés «~cercles polaires~» (respectivement boréal et austral)
-    (Fig.~\ref{mvtsolaire2}).
+    (Fig.~\ref{fig:mvtsolaire2}).
 
   \item Vers les pôles, lors de son passage inférieur dans le plan
     méridien, le Soleil est au-dessus de l'horizon et son angle
