@@ -1,4 +1,4 @@
-% Time-stamp: <2016-05-11 18:23 ycopin@lyonovae03.in2p3.fr>
+% Time-stamp: <2017-01-10 18:04:58 ycopin>
 % Auteurs (version LaTeX):
 % Yannick Copin <ycopin@ipnl.in2p3.fr>
 % Nicolas Chotard <nchotard@ipnl.in2p3.fr>
@@ -148,6 +148,7 @@
 
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\note}[1]{\fcolorbox{red}{yellow}{\color{black} #1}}
+\newcommand{\reference}[1]{\noindent\textcolor{Gray}{#1}}
 
 % PAGE DE TITRE ET PREAMBULE ==============================
 
@@ -1492,6 +1493,97 @@
 \end{Answer}
 
 \subsection{Distribution des galaxies dans l'univers}
+
+% Référence: Pr. G. Meylan, EPFL, printemps 2010
+\begin{Exercise}[Relation de Tully-Fisher]
+
+  Les observations des galaxies spirales --- caractérisées par leur masse $M$,
+  leur luminosité totale $L$ et leur rayon caractéristique $R$ --- montrent que
+  leur courbe de rotation (vitesse de rotation en fonction de la distance) tend
+  à grande distance vers une valeur limite $V_{\max}$.  L'objectif de cet
+  exercice est de comprendre l'origine de la relation de Tully-Fisher (TF), qui
+  exprime la magnitude absolue $\mathcal{M}$ des galaxies spirales en fonction
+  de leur vitesse de rotation $V_{\max}$ :
+  \begin{equation}
+    \label{eq:1}
+    \mathcal{M} = -10 \log V_{\max} + \mathrm{cte}
+  \end{equation}
+
+  \begin{enumerate}
+  \item En utilisant le principe fondamental de la dynamique (ou toute
+    expression qui en découle), relier la masse $M$ au rayon $R$ et à la
+    vitesse de rotation $V_{\max}$.
+  \item En supposant que le rapport masse-luminosité $M/L = \Upsilon$ est le
+    même pour toutes les galaxies spirales et qu’elles ont toutes la même
+    brillance de surface $\sigma = L/(\pi R^{2})$, établir que
+    \begin{equation}
+      \label{eq:9}
+      L \propto V_{\max}^{4}
+    \end{equation}
+    où l'on précisera la constante de proportionnalité.
+  \item En rappelant la relation entre la luminosité $L$ et la magnitude
+    absolue $\mathcal{M}$, en déduire la relation de Tully-Fisher.
+  \end{enumerate}
+  Pour des galaxies de type~Sa, on observe que la relation de TF s'exprime par:
+  \begin{equation}
+    \label{eq:10}
+    \mathcal{M}_{B} = -9,95 \log(V_{\max}\;[\si{km.s^{-1}}]) + 3,15.
+  \end{equation}
+  La galaxie NGC~2639, de type~Sa, possède une vitesse de rotation
+  $V_{\max} = \SI{324}{km.s^{-1}}$ (atteinte pour $R = \SI{30}{kpc}$) et une
+  magnitude apparente $B = 11,5$~mag.
+  \begin{enumerate}[resume]
+  \item Calculer la magnitude absolue $\mathcal{M}_{B}$ prédite par la relation
+    de TF pour cette galaxie. En déduire, en rappelant l'expression du module
+    de distance, la distance de cette galaxie.
+  \item Sachant que $\mathcal{M}_{\odot B} = 5,47$, déterminer la luminosité
+    $L_{B}$ (exprimée en $\Lsun_{B}$) de cette galaxie.
+  \item Calculer la masse contenue dans un rayon $R = \SI{30}{kpc}$. En déduire
+    le rapport $M/L_{B}$ (exprimé en $\Msun/\Lsun_{B}$).
+  \end{enumerate}
+\end{Exercise}
+
+\begin{Answer}
+  \begin{enumerate}
+  \item On a classiquement $M = V_{\max}^{2}R/G$.
+  \item On suppose que le rapport masse-luminosité $M/L = \Upsilon$ est le même
+    pour toutes les galaxies spirales, ainsi :
+    \begin{equation}
+      \label{eq:3}
+      L = M / \Upsilon = \frac{V_{\max}^{2}R}{\Upsilon G}
+      \quad\text{d'où}\quad
+      R = \frac{L \Upsilon G}{V_{\max}^{2}}.
+    \end{equation}
+    De plus, on suppose qu’elles ont toutes la même brillance de surface
+    $\sigma = L/(\pi R^{2})$ :
+    \begin{equation}
+      \label{eq:4}
+      L = \sigma \pi R^{2} = 
+      \sigma \pi \left(\frac{L \Upsilon G}{V_{\max}^{2}}\right)^{2}
+      \quad\text{soit}\quad
+      L = \frac{V_{\max}^{4}}{\sigma \pi \Upsilon^{2} G^{2}}.
+    \end{equation}
+  \item La magnitude absolue est donnée par
+    $\mathcal{M} - \mathcal{M}_{\odot} = -2,5\log(L/\Lsun)$, ce qui permet
+    d’obtenir la relation de Tully-Fisher :
+    \begin{equation}
+      \label{eq:5}
+      \mathcal{M} = \mathcal{M}_{\odot} - 2,5\log \left(
+        \frac{V_{\max}^{4}}{\sigma \pi \Upsilon^{2} G^{2} \Lsun}
+      \right) = -10\log V_{\max} + \mathrm{cte}.
+    \end{equation}
+  \item $\mathcal{M}_{B} = -9,95 \log(324) + 3,15 = -21.83$. Le module de distance est
+    donné par $B - \mathcal{M}_{B} = 5\log(D/\SI{10}{pc})$, et donc sa
+    distance $D = 10^{(B - \mathcal{M}_{B})/5}\times\SI{10}{pc} = \SI{46,3}{Mpc}$.
+  \item $\mathcal{M}_{B} - \mathcal{M}_{\odot B} = -2,5\log(L_{B}/\Lsun_{B})$
+    donc $L_{B}/\Lsun_{B} = 10^{-0,4(\mathcal{M}_{B} - \mathcal{M}_{\odot B})} =
+    8,3\,10^{10}$.
+  \item La masse contenue dans un rayon $R = \SI{30}{kpc}$ se détermine par
+    $M = V_{\max}^{2}R/G = \SI{7.3e11}{\Msun}$ avec
+    $G = \SI{4.302e-6}{km^{2}.s^{-2}.\Msun^{-2}}$. Finalement,
+    pour NGC~2639, $M/L_{B} = 8,8 \Msun/\Lsun_{B}$.
+  \end{enumerate}
+\end{Answer}
 
 % Schechter, 1976ApJ...203..297S
 \begin{Exercise}[Fonction de luminosité]
