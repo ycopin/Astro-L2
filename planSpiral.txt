@@ -1,0 +1,294 @@
+=====================================================================
+                    ASTROPHYSIQUE POUR LA LICENCE
+=====================================================================
+
+:Time-stamp: <2017-01-23 11:48:48 ycopin>
+
+1 Vie des Étoiles
+=================
+
+ 1.1 La lumiere des étoiles  
+ --------------------------
+
+  1.1.1 Notions de photométrie  
+  1.1.2 Photosphère et température effective  
+  1.1.3 Systèmes de magnitudes  
+
+   1.1.3.1 Magnitudes monochromatiques  
+   1.1.3.2 Systèmes de magnitudes  
+   1.1.3.3 Magnitudes bolométriques et corrections bolométriques  
+   1.1.3.4 Magnitudes absolues  
+   1.1.3.5 Indices de couleur  
+
+  1.1.4 Spectres stellaires  
+
+   1.1.4.1 Raies spectrales  
+   1.1.4.2 Spectre de l'atome d'Hydrogène et des autres espèces chimiques  
+   1.1.4.3 Raies interdites et effet Doppler-Fizeau  
+   1.1.4.4 Forme des raies et autres sources de rayonnement  
+
+ 1.2 Évolution stellaire  
+ -----------------------
+
+  1.2.1 Formation des étoiles  
+  1.2.2 Séquence principale  
+  1.2.3 Évolution post-SP  
+
+   1.2.3.1 Étoile de 5 Mo  
+   1.2.3.2 Étoile de M < 5 Mo  
+   1.2.3.3 Étoile de M > 5 Mo  
+
+  1.2.4 Phases ultimes  
+
+   1.2.4.1 Nébuleuses planétaires  
+   1.2.4.2 Explosion d'une supernova  
+
+ 1.3 Modélisation stellaire  
+ --------------------------
+
+  1.3.1 Temps caractéristiques  
+
+   1.3.1.1 Temps de chute libre  
+   1.3.1.2 Temps de Kelvin-Helmholtz  
+   1.3.1.3 Temps nucléaire  
+
+  1.3.2 Sources d'énergie nucléaire  
+
+   1.3.2.1 Eléments légers  
+   1.3.2.2 Fusion de l'hydrogène  
+   1.3.2.3 Combustion de l'hélium  
+   1.3.2.4 Carbone et oxygène  
+   1.3.2.5 Eléments lourds  
+
+ 1.4 Classification spectrale  
+ ----------------------------
+
+  1.4.1 Mesure des distances  
+
+   1.4.1.1 Parallaxe trigonométrique  
+   1.4.1.2 Point convergent  
+
+  1.4.2 Classification stellaire  
+
+   1.4.2.1 Types spectraux  
+   1.4.2.2 Le diagramme HR  
+
+  1.4.3 Mesure des rayons  
+
+   1.4.3.1 Interférométrie  
+   1.4.3.2 Occultations et binaires à éclipses  
+   1.4.3.3 Flux infrarouge  
+   1.4.3.4 Diagramme HR  
+
+  1.4.4 Mesure des masses  
+
+   1.4.4.1 Étoiles doubles  
+   1.4.4.2 Relation masse-luminosité  
+   1.4.4.3 Gravité de surface  
+
+ 1.5 Les Systèmes Planétaires  
+ ----------------------------
+
+  1.5.1 Historique  
+
+   1.5.1.1 Le système géocentrique de Ptolémée  
+   1.5.1.2 Le système héliocentrique  
+   1.5.1.3 Les observations de Tycho-Brahé  
+   1.5.1.4 Galilée et la lunette astronomique  
+
+  1.5.2 Les lois de Kepler  
+
+   1.5.2.1 Enoncé et rappels sur les ellipses  
+   1.5.2.2 Dérivation des lois de Kepler  
+
+  1.5.3 Description du système solaire  
+
+   1.5.3.1 Inventaire du système solaire  
+   1.5.3.2 Les planètes  
+   1.5.3.3 Les atmosphères des planètes  
+   1.5.3.4 Les petits objets  
+
+  1.5.4 Formation du système solaire  
+
+   1.5.4.1 Les observables  
+   1.5.4.2 Les modèles de formation  
+   1.5.4.3 La nébuleuse proto-planétaire  
+
+  1.5.5 Les planètes extrasolaires  
+
+   1.5.5.1 Détection des disques protoplanétaires autour d'étoiles  
+   1.5.5.2 Détection des planètes extrasolaires  
+
+2 Vie des Galaxies
+==================
+
+ 2.1 Milieu interstellaire  
+ -------------------------
+
+  2.1.1 Mise en évidence expérimentale  
+  2.1.2 Extinction du MIS  
+
+   2.1.2.1 Interprétation physique  
+   2.1.2.2 Extinction sélective et exemple  
+   2.1.2.3 Excès de couleur  
+
+  2.1.3 Composition du MIS  
+
+   2.1.3.1 Gaz + poussière  
+   2.1.3.2 Modélisation  
+
+  2.1.4 Observation du gaz  
+
+   2.1.4.1 Raie 21 cm de H  
+   2.1.4.2 Raies interstellaires  
+   2.1.4.3 Nuages moléculaires  
+   2.1.4.4 Régions HII  
+
+ 2.2 Galaxies  
+ ------------
+
+  2.2.1 Quelques éléments d'histoire  
+  2.2.2 Classification morphologique des galaxies  
+
+   2.2.2.1 Classification de Hubble  
+   2.2.2.2 Propriétés "physiques" de la classification  
+   2.2.2.3 de Vaucouleurs et autres classifications  
+
+  2.2.3 Constituants des galaxies  
+
+   2.2.3.1 Le cycle de fonctionnement d'une galaxie  
+   2.2.3.2 Les étoiles  
+   2.2.3.3 Le gaz  
+   2.2.3.4 La poussière  
+   2.2.3.5 La matière noire  
+
+  2.2.4 Un exemple de galaxie: La Voie Lactée  
+
+   2.2.4.1 Caractéristiques globales  
+   2.2.4.2 Morphologie de notre Galaxie à différentes longueurs d'ondes  
+   2.2.4.3 Populations dynamiques et populations stellaires  
+   2.2.4.4 Le centre galactique  
+
+  2.2.5 Le Groupe Local  
+  2.2.6 Distribution des galaxies dans l'univers  
+
+   2.2.6.1 La mesure des distances  
+   2.2.6.2 La hiérarchie des structures  
+   2.2.6.3 Fonction de luminosité  
+   2.2.6.4 Effets d'environnement  
+
+    2.2.6.4.1 Ségrégation du type de Hubble  
+    2.2.6.4.2 Les collisions et les fusions  
+
+  2.2.7 Equilibre gravitationnel  
+
+   2.2.7.1 Energie potentielle  
+   2.2.7.2 L'énergie cinétique  
+   2.2.7.3 Le théorème du Viriel scalaire  
+   2.2.7.4 Application du théorème du Viriel  
+   2.2.7.5 Le temps cinématique  
+
+3 Vie des Structures - cosmologie
+=================================
+
+ 3.1 Introduction  
+ ----------------
+
+  3.1.1 Qu'est-ce que la cosmologie ?  
+  3.1.2 Les origines  
+  3.1.3 Ce qu'il faut retenir  
+
+ 3.2 Espace & temps absolus  
+ --------------------------
+
+  3.2.1 La gravitation  
+  3.2.2 Problèmes de l'univers de Newton  
+  3.2.3 Ce qu'il faut retenir  
+
+ 3.3 La rupture relativiste
+ --------------------------  
+
+  3.3.1 Vitesse de la lumière  
+  3.3.2 L'éther ?  
+  3.3.3 Relativité Restreinte  
+  3.3.4 Relativité Générale  
+
+   3.3.4.1 Einstein dans l'ascenseur  
+   3.3.4.2 Trajectoire des rayons lumineux  
+   3.3.4.3 Géométrisation de la gravitation  
+   3.3.4.4 Les événements de l'espace-temps  
+
+  3.3.5 Les tests  
+  3.3.6 Ce qu'il faut retenir  
+
+ 3.4 Le Big Bang  
+ ---------------
+
+  3.4.1 Expansion de l'univers  
+  3.4.2 Facteur d'échelle  
+  3.4.3 Inévitable Bang...  
+  3.4.4 Film des débuts  
+  3.4.5 Observations cruciales  
+  3.4.6 Ce n'est pas la Théorie de Tout !  
+  3.4.7 Ce qu'il faut retenir  
+
+ 3.5 Modèles cosmologiques  
+ -------------------------
+
+  3.5.1 Hypothèses  
+  3.5.2 Paramètres  
+  3.5.3 Friedmann-Lemaître  
+  3.5.4 La métrique  
+  3.5.5 Densité critique  
+  3.5.6 Ce qu'il faut retenir  
+
+ 3.6 Questions diverses  
+ ----------------------
+
+  3.6.1 Age de l'univers  
+  3.6.2 Distance de l'horizon  
+  3.6.3 Matière noire  
+  3.6.4 Formation des structures  
+  3.6.5 Inflation et densité  
+
+   3.6.5.1 L'inflation  
+   3.6.5.2 Masse volumique et taux d'expansion  
+   3.6.5.3 Les apports de l'inflation  
+
+  3.6.6 Autres théories  
+  3.6.7 Ce qu'il faut retenir  
+
+ 3.7 Tout se complique...  
+ ------------------------
+
+  3.7.1 Expansion accélérée ?  
+  3.7.2 Recette pour un univers  
+  3.7.3 Ce qu'il faut retenir  
+
+4 Retour sur terre - nos reperes dans le ciel
+=============================================
+
+ 4.1 Se positionner dans le ciel  
+ -------------------------------
+
+  4.1.1 Ciel, constellations  
+  4.1.2 Sphère céleste  
+  4.1.3 Repère local  
+
+ 4.2 Mouvement diurne  
+ --------------------
+
+  4.2.1 Observation du ciel  
+  4.2.2 Coordonnées horaires  
+  4.2.3 Mouvement des astres  
+  4.2.4 Coordonnées équatoriales  
+  4.2.5 Le temps  
+  4.2.6 Instruments  
+
+ 4.3 Mouvement du Soleil  
+ -----------------------
+
+  4.3.1 Mouvement  
+  4.3.2 Les saisons  
+  4.3.3 Le Temps  
+  4.3.4 L'année  
