@@ -1,2 +1,10 @@
 /TD_astro_L2.pdf
 /auto/
+_region_.*
+.nfs*
+comment.cut
+prv_*
+*.aux
+*.log
+*.out
+*.toc
